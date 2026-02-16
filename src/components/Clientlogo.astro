@@ -1,0 +1,23 @@
+---
+// src/components/ClientLogo.astro
+interface Props {
+  name: string;
+  logo: string;
+  url?: string;
+}
+
+const { name, logo, url = "#" } = Astro.props;
+---
+
+<a 
+  href={url} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="flex aspect-video items-center justify-center rounded-sm bg-white/5 p-6 backdrop-blur-xs transition-colors hover:bg-white/10 group"
+>
+  <img 
+    src={logo} 
+    alt={`${name} logo`} 
+    class="max-h-12 w-auto object-contain " 
+  />
+</a>

@@ -1,0 +1,116 @@
+---
+import Nav from '../components/Nav.astro';
+import Layout from '../layouts/Layout.astro';
+import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
+import Footer from '../components/Footer.astro'
+
+import '../styles/global.css';
+
+const caseStudies = [{
+    "slug": "river-delta-scaling",
+    "title": "Scaling E-commerce via Predictive Attribution",
+    "client": "River Delta",
+    "logo": "",
+    "logo-alt": "",
+    "category": "Paid Social",
+    "metrics": { "roas": "4.2x", "scale": "+150%" },
+    "summary": "How we bypassed tracking limitations to scale spend while maintaining efficiency.",
+    "tags": ["Meta Ads", "First-Party Data", "E-commerce"],
+  }]
+---
+<Layout>
+    <Nav />
+
+<main class="min-h-dvh bg-grey-50 px-4 py-16 lg:px-12">
+  <div class="mx-auto max-w-7xl">
+    
+    <header class="mb-12 border-l-4 border-secondary-500 pl-6">
+      <h1 class="text-primary-900 text-4xl/10 font-extrabold tracking-tight sm:text-5xl/12">
+        The Creekside Difference
+      </h1>
+      <p class="text-grey-600 mt-2 text-lg/7">
+       Proven strategies that increase ROAS and make a tangible difference to your business trajectory.
+      </p>
+    </header>
+
+   
+      <section class="bg-primary-900 mb-12 overflow-hidden rounded-2xl shadow-sm lg:flex">
+        <div class="bg-primary-800 flex shrink-0 items-center justify-center p-12 lg:w-1/3">
+          {caseStudies[0].logo ? (
+            <img 
+              src={caseStudies[0].logo} 
+              alt={caseStudies[0]["logo-alt"]} 
+              class="max-h-32 w-auto object-contain"
+            />
+          ) : (
+            <div class="size-48 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+               <span class="text-white/50 font-bold italic">Logo Pending</span>
+            </div>
+          )}
+        </div>
+        
+        <div class="flex flex-col justify-center p-8 lg:p-16">
+          <span class="text-secondary-300 text-sm font-bold uppercase tracking-widest">{caseStudies[0].category}</span>
+          <h2 class="mt-4 text-3xl/9 font-bold text-white sm:text-4xl/11">
+            {caseStudies[0].title}
+          </h2>
+          <p class="mt-6 max-w-xl text-lg/8 text-primary-100">
+            {caseStudies[0].summary}
+          </p>
+          <div class="mt-10">
+            <a href={`/case-studies/${caseStudies[0].slug}`} class="bg-secondary-500 hover:bg-secondary-400 inline-block rounded-sm px-8 py-4 text-sm font-bold text-white transition-colors">
+              View Full Technical Breakdown
+            </a>
+          </div>
+        </div>
+      </section>
+
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {caseStudies.map((study) => (
+        <article class="group flex flex-col rounded-xl border border-grey-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+          <div class="flex items-center gap-3">
+             {study.logo && <img src={study.logo} alt={study["logo-alt"]} class="size-8 object-contain" />}
+             <span class="text-secondary-600 text-[10px] font-bold uppercase tracking-wider">{study.category}</span>
+          </div>
+          <h3 class="text-primary-900 mt-4 text-lg/7 font-bold group-hover:text-secondary-500 transition-colors">
+            {study.title}
+          </h3>
+          <div class="mt-4 mb-6">
+            <p class="text-accent-success text-2xl font-black">{study.metrics.roas}</p>
+            <p class="text-grey-50 text-xs mt-1 leading-none">Primary Result</p>
+          </div>
+          <div class="mt-auto pt-4 border-t border-grey-100">
+             <a href={`/case-studies/${study.slug}`} class="text-primary-800 hover:text-secondary-500 text-sm font-semibold inline-flex items-center transition-colors">
+               View Results 
+               <svg class="ml-1 size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+             </a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    {caseStudies.length > 0 && (
+      <section class="mt-16">
+        <div class="flex items-center gap-4 mb-8">
+          <h3 class="text-primary-900 text-xl font-bold whitespace-nowrap">More Success Stories</h3>
+          <div class="h-px w-full bg-grey-200"></div>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {caseStudies.map((study) => (
+            <a href={`/case-studies/${study.slug}`} class="flex items-center justify-between p-4 rounded-lg border border-grey-200 bg-white hover:border-secondary-300 transition-colors">
+              <div>
+                <p class="text-primary-900 font-bold text-sm">{study.client}</p>
+                <p class="text-grey-500 text-xs">{study.category}</p>
+              </div>
+              <span class="text-secondary-500 font-bold text-sm">{study.metrics.roas}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+  </div>
+</main>
+
+</Footer>
+</Layout>

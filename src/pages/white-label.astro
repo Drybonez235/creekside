@@ -1,0 +1,243 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro'
+import Layout from '../layouts/Layout.astro';
+import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
+
+import '../styles/global.css';
+import ScheduleConsultation from '../components/Schedule-consultation.astro';
+
+/* Astro Component: The Creekside Advantage List */
+const advantages = [
+  { id: 1, title: "Proven Systems Backed by Experience", desc: "Our consultants follow a framework developed over millions in ad spend and hundreds of accounts, refined for maximum efficiency." },
+  { id: 2, title: "Access to Collective Expertise", desc: "Our consultants collaborate regularly, sharing insights and problem-solving strategies so you benefit from our entire network's knowledge." },
+  { id: 3, title: "Trust and Accountability", desc: "Work directly with the person handling your campaigns—no middlemen or account managers. We are fully invested in your success." },
+  { id: 4, title: "Scalability and Flexibility", desc: "We combine freelancer agility with agency stability. As you grow, adding additional consultants is seamless and disruption-free." },
+  { id: 5, title: "High-Quality Results", desc: "Creekside offers an affordable solution without compromising on quality, providing expert knowledge at a price point that makes sense." },
+  { id: 6, title: "Consistent Quality", desc: "All consultants adhere to the same proven systems and high standards, ensuring consistent results across every campaign." },
+  { id: 7, title: "Faster Response Times", desc: "Without layers of agency approval, our consultants act swiftly to optimize campaigns and capitalize on new opportunities in real-time." }
+];
+---
+
+<Layout
+	title="Creekside marketing pros" 
+  description="Grow your buiness by 100%"
+>
+	<Nav />
+
+<section class="bg-secondary-500 py-4 lg:py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-center gap-4 text-center text-white">
+      
+      <h1 class="text-sm font-bold uppercase tracking-widest sm:text-base/6 lg:text-lg/7">
+        Expert Consultants Ready To Help
+      </h1>
+
+      <h2 class="text-2xl font-extrabold uppercase tracking-tight sm:text-6xl/tight lg:text-5xl/none">
+        Your White-Label Growth Partner
+      </h2>
+
+      <h3 class="text-lg font-bold italic uppercase tracking-wide sm:text-xl/8 lg:text-2xl/9">
+        Proven Strategies, Seamless Scaling
+      </h3>
+      
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="bg-grey-50 flex flex-col items-center gap-8 rounded-sm px-8 py-12 text-center shadow-sm lg:px-24 lg:py-20">
+      
+      <header class="flex flex-col items-center gap-4">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+          Why Outsource to a Creekside Marketing Consultant?
+        </h2>
+        <div class="bg-primary-900 h-1 w-24 rounded-full"></div>
+      </header>
+
+      <div class="text-grey-700 flex flex-col gap-6 text-lg/8">
+        <p>
+          When outsourcing your digital marketing, finding the right partner can be a challenge. 
+          Traditional agencies often rely on account managers who don’t handle the day-to-day work, 
+          leading to slow decision-making and a lack of personal connection. Freelancers, on the 
+          other hand, may lack the systems, scalability, or proven expertise needed to achieve 
+          consistent, high-quality results. That’s where Creekside Marketing stands apart.
+        </p>
+        <p>
+          At Creekside, we combine the best of both worlds: the personalized, hands-on service 
+          of a freelancer with the proven systems, scalability, and collective expertise of an 
+          agency. We’re not just another marketing agency — we are a collective of highly 
+          experienced consultants who handle the work directly, using data-driven, 
+          battle-tested systems to achieve measurable results.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <a 
+          href="https://calendly.com/creekside_marketing/strategy-call" 
+          target="_blank" 
+          rel="noopener"
+          class="bg-secondary-500 hover:bg-secondary-600 inline-block rounded-sm px-8 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+        >
+          Schedule Call!
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      
+      <div class="order-2 lg:order-1 flex justify-center">
+        <div class="relative max-w-lg">
+          <img 
+            src="digital-advertisements-1.webp" 
+            alt="Consultants optimizing digital advertisements on a laptop" 
+            width="1259" 
+            height="1200"
+            loading="lazy"
+            class="h-auto w-full"
+          />
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2 flex flex-col gap-8">
+        <header>
+          <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+            Scalable Google Ads Solutions from Trusted Consultants
+          </h2>
+        </header>
+
+        <div class="text-grey-700 text-lg/8">
+          <p>
+            Outsourcing your Google Ads management to Creekside Marketing allows you to leverage a 
+            proven, data-driven strategy executed by our experienced freelance consultants. We begin 
+            with an in-depth audit to align campaigns with your clients' goals, ensuring that every 
+            aspect is optimized from the start. Our strategy includes advanced audience targeting, 
+            continuous testing of ad creatives, bidding strategies, and landing page optimizations 
+            to maximize ROI.
+          </p>
+          <p class="mt-4">
+            Through ongoing A/B testing, keyword refinement, and budget management, we drive relevant 
+            traffic while reducing cost-per-click (CPC) and improving conversion rates. With transparent 
+            reporting and real-time adjustments, we keep campaigns performing at their best. Our freelance 
+            consultants work directly with your team, providing the flexibility of a freelancer with 
+            the scalability and expertise of a collective.
+          </p>
+        </div>
+
+        <div>
+          <a 
+            href="https://calendly.com/creekside_marketing/strategy-call" 
+            target="_blank" 
+            rel="noopener"
+            class="bg-secondary-500 hover:bg-secondary-600 inline-block rounded-sm px-10 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+          >
+            Learn More!
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      
+      <div class="flex flex-col gap-8">
+        <header class="flex flex-col gap-4">
+          <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+            Expert Social Media Strategies for Scalable Growth
+          </h2>
+          <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        </header>
+
+        <div class="text-grey-700 text-lg/8">
+          <p>
+            Partnering with Creekside Marketing gives you access to expert freelance consultants 
+            who craft tailored, results-driven strategies for your clients' Facebook and social 
+            media marketing. Our process begins with a thorough audit of existing campaigns and 
+            social media presence to ensure alignment with your clients' business objectives.
+          </p>
+          <p class="mt-4">
+            Through ongoing testing of ad formats, audience segments, and messaging, we fine-tune 
+            campaigns to consistently deliver relevant traffic and improved conversions. By 
+            working with our freelance consultants, your team gains the flexibility and 
+            expertise to scale campaigns and achieve long-term growth for your clients.
+          </p>
+        </div>
+
+        <div>
+          <a 
+            href="https://calendly.com/creekside_marketing/strategy-call" 
+            class="bg-secondary-500 hover:bg-secondary-600 inline-block rounded-sm px-10 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+          >
+            Schedule Call!
+          </a>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="relative overflow-hidden rounded-2xl shadow-sm transition-all duration-500 hover:shadow-md">
+          <img 
+            src="white-label-social-media-managment.webp" 
+            alt="Social media management feeds showing targeted landscaping ads" 
+            width="1634" 
+            height="1100"
+            loading="lazy"
+            class="h-auto w-full"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="bg-grey-50 py-16 lg:py-24">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    
+    <header class="mb-16 flex flex-col gap-6">
+      <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+        What Makes Creekside Marketing Better Than Hiring A Freelancer or Another Agency?
+      </h2>
+      <div class="bg-secondary-500 h-1.5 w-24 rounded-full"></div>
+      <p class="text-grey-700 text-lg/8">
+        At Creekside, we combine the best of both worlds: the personalized service of a freelancer with the proven systems, scalability, and collective expertise of an agency.
+      </p>
+    </header>
+
+    <div class="flex flex-col gap-12">
+      {advantages.map((item) => (
+        <div class="group flex flex-col gap-2 transition-colors">
+          <div class="flex items-center">
+            <h3 class="text-primary-900 text-lg/8 font-bold uppercase tracking-tight sm:text-2xl">
+              {item.id}. {item.title}
+            </h3>
+          </div>
+          <p class="text-grey-700 text-lg/8">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 bg-primary-900 rounded-sm p-8 lg:p-12 text-white">
+      <p class="text-lg/8 text-primary-50/90">
+        At Creekside Marketing, we’re not just another agency or freelancer — we’re the best of both worlds. 
+        Our consultants offer the personal, flexible service of a freelancer with the proven, scalable systems of an agency. 
+        With our data-driven systems, collective expertise, and agile approach, we’ll help you scale and succeed 
+        in the digital marketing landscape.
+      </p>
+    </div>
+    
+  </div>
+</section>
+    <ScheduleConsultation />
+    <Footer />
+</Layout>

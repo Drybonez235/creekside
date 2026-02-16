@@ -1,0 +1,154 @@
+---
+import ClientLogo from './Clientlogo.astro';
+
+const clients = [
+{ name: "Host Switch", logo: "/logos/host-switch.png", url: "https://hostswitch.com/" },
+ { name: "Duct Tape Marketing", logo: "/logos/duct-tape-marketing.png", url: "https://ducttapemarketing.com/" },
+ { name: "Chattanooga Skydiving Company", logo: "/logos/chattanooga-skydiving-company.png", url: "https://www.chattanoogaskydivingcompany.com/" },
+ { name: "Central Florida Awnings", logo: "/logos/central-florida-awnnings.png", url: "https://cflawnings.com/" },
+ { name: "Track Digital", logo: "/logos/track-digital.png", url: "#" },
+ { name: "Adibe Law Group", logo: "/logos/adibe-law-group.jpg", url: "https://adibelawgroup.com/" },
+ { name: "Axle Solutions Inc", logo: "/logos/axlesolutionsinc.png", url: "https://axlesolutionsinc.com/" },
+ { name: "Refer Pro", logo: "/logos/refer-pro.png", url: "https://www.referpro.com/" },
+ { name: "First Up Marketing Services", logo: "/logos/first-up-marketing-services.png", url: "https://firstupmarketing.com/" },
+ { name: "Rhodes Fabrication", logo: "/logos/Rhodes-Fabrication.png", url: "https://rhofab.com/" },
+ { name: "Lawn Value", logo: "/logos/LawnValue-Logo.png", url: "https://lawnvalue.com/" },
+ { name: "Smart Payroll Solutions", logo: "/logos/smart-payroll-solutions.webp", url: "https://www.smartpayrollsolutions.com/" },
+ { name: "MedSpa", logo: "/logos/MedSpa-Logo.svg", url: "https://advancedmedicalspas.com/" },
+ { name: "Sunshine Lawn & Pest", logo: "/logos/Sunshine-Lawn-Pest.png", url: "https://www.sunshinelawnpestpros.com/" },
+ { name: "Midwest Green Lawn", logo: "/logos/midwest-greenlawn.png", url: "https://mglnwi.com/" },
+ { name: "Tilly Mill Goodyear", logo: "/logos/tilly-mill-good-year.webp", url: "https://tillymillautocenter.com/" },
+ { name: "Midwest Landscape", logo: "/logos/midwest-landscape.png", url: "https://www.mlslandscape.net/" },
+ { name: "Tuxedo Mosquito Control", logo: "/logos/tuxedo-masquito-control.png", url: "https://www.tuxedomosquitocontrol.com/" },
+ { name: "Polaris Dentistry", logo: "/logos/Polaris-Dentistry.webp", url: "https://polarisdentistry.com/" },
+];
+---
+
+<section class="relative overflow-hidden bg-primary-900 py-20 lg:py-32">
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/business-handshake.jpg" 
+      alt="Business Partnership" 
+      class="size-full object-cover grayscale opacity-80"
+    />
+    <div class="absolute inset-0 bg-linear-to-b from-primary-900/90 to-primary-700/75"></div>
+  </div>
+
+  <div class="container relative z-10 mx-auto px-4 lg:px-8">
+    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+      
+      <div class="lg:col-span-4">
+        <h2 class="text-4xl/tight font-extrabold tracking-tight text-white md:text-5xl/tight">
+          Clients who <span class="text-secondary-400 uppercase">Trust us</span>
+        </h2>
+        <div class="mt-4 h-1 w-20 bg-secondary-500"></div>
+        <p class="mt-8 text-lg/8 text-grey-300">
+          We earn our client's trust through unwavering excellence, tailored strategies, and outstanding results.
+        </p>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="relative px-10 md:px-14"> 
+          
+          <button 
+            id="prevBtn" 
+            class="absolute left-0 top-1/2 z-20 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center text-white/70 transition-all hover:scale-110 hover:text-secondary-400 focus:outline-hidden" 
+            aria-label="Previous logo"
+          >
+            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+
+          <div 
+            id="logo-slider" 
+            class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth py-4 gap-6 md:gap-10"
+          >
+            {clients.map((client) => (
+              <div class="w-40 shrink-0 snap-center md:w-56">
+                <ClientLogo 
+                  name={client.name} 
+                  logo={client.logo} 
+                  url={client.url} 
+                />
+              </div>
+            ))}
+          </div>
+
+          <button 
+            id="nextBtn" 
+            class="absolute right-0 top-1/2 z-20 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center text-white/70 transition-all hover:scale-110 hover:text-secondary-400 focus:outline-hidden" 
+            aria-label="Next logo"
+          >
+            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+         
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  function setupSlider() {
+    const slider = document.getElementById('logo-slider');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (!slider || !prevBtn || !nextBtn) return;
+
+    const scrollStep = 280; // Distance to scroll
+    let intervalId;
+
+    const startAutoScroll = () => {
+      intervalId = setInterval(() => {
+        const isAtEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 50;
+        if (isAtEnd) {
+          slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }, 4000);
+    };
+
+    const stopAutoScroll = () => clearInterval(intervalId);
+
+    // Click Events
+    prevBtn.addEventListener('click', () => {
+      stopAutoScroll();
+      slider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+      startAutoScroll();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      stopAutoScroll();
+      slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      startAutoScroll();
+    });
+
+    // Pause on Hover
+    slider.addEventListener('mouseenter', stopAutoScroll);
+    slider.addEventListener('mouseleave', startAutoScroll);
+
+    startAutoScroll();
+  }
+
+  // Initialize on load
+  setupSlider();
+  // Re-init for Astro View Transitions if used
+  document.addEventListener('astro:after-swap', setupSlider);
+</script>
