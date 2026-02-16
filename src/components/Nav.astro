@@ -3,6 +3,8 @@
 ---
 
 <header class=" top-0 z-50 w-full border-b border-grey-200 bg-white shadow-sm">
+
+
   <div class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
     
     <div class="shrink-0">
@@ -69,6 +71,72 @@
     </button>
   </div>
 
+  <div 
+  id="mobile-menu" 
+  class="fixed inset-0 z-100 hidden bg-white lg:hidden"
+  role="dialog" 
+  aria-modal="true"
+>
+  <div class="flex items-center justify-between border-b border-grey-200 px-4 py-4">
+    <a href="/" class="shrink-0">
+      <img src="creekside-marketing-pros-logo.webp" alt="Creekside marketing logo" class="h-12 w-auto" />
+    </a>
+    <button id="close-menu" class="p-2 text-primary-900" aria-label="Close Menu">
+      <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="flex flex-col overflow-y-auto px-4 py-6" aria-label="Mobile Navigation">
+    
+    <div class="border-b border-grey-100 py-4">
+      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+        Services
+        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+        <a href="/google-ads.html" class="text-base/6 text-grey-600">Google Ads (PPC)</a>
+        <a href="/meta-ads.html" class="text-base/6 text-grey-600">Meta Ads</a>
+        <a href="/white-label.html" class="text-base/6 text-grey-600">White Label</a>
+      </div>
+    </div>
+
+    <div class="border-b border-grey-100 py-4">
+      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+        Learn
+        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+        <a href="/case-studies.html" class="text-base/6 text-grey-600">Case Studies</a>
+        <a href="https://www.youtube.com/@CreeksideMarketing1" class="text-base/6 text-grey-600">YouTube</a>
+        <a href="https://www.linkedin.com/company/creekside-marketing/" class="text-base/6 text-grey-600">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="border-b border-grey-100 py-4">
+      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+        About
+        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+        <a href="/meet-the-team.html" class="text-base/6 text-grey-600">Meet The Team</a>
+      </div>
+    </div>
+
+    <a href="/contact.html" class="border-b border-grey-100 py-4 text-lg/7 font-bold text-primary-900">Contact</a>
+
+    <div class="mt-8">
+      <a 
+        href="https://calendly.com/creekside_marketing/strategy-call" 
+        class="block w-full rounded-sm bg-secondary-500 py-4 text-center text-base font-bold text-white shadow-sm"
+      >
+        Get A Free Audit
+      </a>
+    </div>
+  </nav>
+</div>
+
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = document.querySelectorAll('.group.relative');
@@ -106,6 +174,38 @@
         menu.classList.remove('visible', 'opacity-100', 'translate-y-0');
       });
     }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openBtn = document.querySelector('[aria-label="Toggle Menu"]');
+    const closeBtn = document.getElementById('close-menu');
+    const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+
+    // Toggle Mobile Menu visibility
+    const toggleMenu = () => {
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
+    };
+
+    openBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+
+    // Accordion Logic for Mobile Dropdowns
+    dropdownBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('svg');
+        
+        // Toggle the hidden class on the menu content
+        content.classList.toggle('hidden');
+        content.classList.toggle('flex');
+        
+        // Rotate the arrow icon
+        icon.classList.toggle('rotate-180');
+      });
+    });
   });
 </script>
 </header>
