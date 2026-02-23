@@ -1,0 +1,110 @@
+---
+
+---
+
+<section class=" py-4 px-4">
+  <div class="mx-auto max-w-xl rounded-2xl bg-white p-8 shadow-sm border border-grey-200">
+    <!-- <div class="mb-8 text-center">
+      <h2 class="text-3xl/9 font-bold text-primary-900">Get in Touch</h2>
+      <p class="mt-2 text-grey-600">Have questions? We'd love to hear from you.</p>
+    </div> -->
+
+    <form id="google-cta-form" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+      <div>
+        <label for="first-name" class="block text-sm/6 font-semibold text-primary-900">First Name*</label>
+        <input 
+          type="text" 
+          id="first-name" 
+          name="entry.1136109916" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div>
+        <label for="last-name" class="block text-sm/6 font-semibold text-primary-900">Last Name*</label>
+        <input 
+          type="text" 
+          id="last-name" 
+          name="entry.1707346108" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm/6 font-semibold text-primary-900">Email*</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="entry.2138595931" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="phone" class="block text-sm/6 font-semibold text-primary-900">Phone Number</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="entry.169910313" 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="comments" class="block text-sm/6 font-semibold text-primary-900">Questions and Comments*</label>
+        <textarea 
+          id="comments" 
+          name="entry.658105742" 
+          rows="4" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        ></textarea>
+      </div>
+
+      <div class="sm:col-span-2">
+        <button 
+          type="submit" 
+          class="w-full rounded-md bg-secondary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-secondary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-500 transition-colors cursor-pointer"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+    
+    <div id="form-feedback" class="mt-4 hidden text-center text-sm font-medium text-accent-success">
+      Thank you! Your message has been sent successfully.
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const form = document.getElementById('google-cta-form');
+  const feedback = document.getElementById('form-feedback');
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdKWimOOBCltydEJjTL7WG56RBi1jMBs_dSTjUY43MqkQwSew/formResponse";
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    
+    // Using 'no-cors' to prevent the browser from blocking the submission
+    // to Google Forms, which doesn't return CORS headers.
+    try {
+      await fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+      
+      form.reset();
+      form.classList.add('hidden');
+      feedback.classList.remove('hidden');
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an issue sending your message. Please try again.');
+    }
+  });
+</script>

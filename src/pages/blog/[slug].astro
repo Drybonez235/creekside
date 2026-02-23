@@ -1,0 +1,91 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro'
+import PetersonBlogBio from '../../components/PetersonBlogBio.astro'
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map(post => {
+    const cleanSlug = post.id; 
+    return {
+      params: { slug: cleanSlug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+
+// If this line fails, it means 'post' is undefined
+const { Content } = await render(post); 
+
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout >
+<Nav />
+<main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
+    <aside class="hidden lg:block">
+      <div class="ml-28">
+        <a 
+          href="/blog" 
+          class="group inline-flex items-center gap-2 text-xs font-bold tracking-widest text-secondary-600 uppercase transition-colors hover:text-primary-900"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to blogs
+        </a>
+      </div>
+    </aside>
+
+  <article class="mx-auto max-w-3xl">
+  <header class="mb-12 border-b border-grey-200 pb-4">
+
+    <div class="flex flex-wrap gap-2 mb-8">
+  {post.data.tags.map((tag) => (
+    <span class="px-3 py-1 bg-secondary-50 text-secondary-700 text-xs font-bold uppercase tracking-wider rounded-full border border-secondary-100">
+      #{tag}
+    </span>
+  ))}
+</div>
+
+    <h1 class="text-primary-900 text-4xl font-extrabold tracking-tight sm:text-5xl/14">
+      {post.data.title}
+    </h1>
+    
+    <p class="text-grey-500 mt-4 text-lg italic">{post.data.description}</p>
+     
+    <div class="flex items-center gap-4 text-sm font-bold tracking-widest text-secondary-600 uppercase mt-8">
+        <time datetime={post.data.date.toISOString()}>
+        {post.data.date.toLocaleDateString('en-us', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </time>
+      <span class="text-grey-300">•</span>
+      <span>By Peterson Rainey</span>
+    </div>
+
+  </header>
+
+  <div class="prose prose-grey max-w-none 
+    prose-headings:text-primary-900 prose-headings:font-bold
+    prose-p:text-grey-700 prose-p:text-lg/8
+    /* Custom Sky Blue Bullets for AI content */
+    prose-ul:list-none prose-ul:ps-0
+    prose-li:relative prose-li:ps-8 prose-li:mb-4
+    prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-3
+    prose-li:before:size-2 prose-li:before:rounded-full prose-li:before:bg-secondary-500">
+    
+    <Content />
+    
+  </div>
+</article>
+</main>
+<PetersonBlogBio />
+<Footer />
+</Layout>

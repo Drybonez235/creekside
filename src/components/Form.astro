@@ -1,0 +1,117 @@
+---
+// Form.astro
+// Destructure the idPrefix prop to ensure uniqueness across multiple instances
+const { idPrefix = "cta" } = Astro.props;
+---
+
+<section class="">
+  <div class="mx-auto max-w-xl rounded-2xl bg-white p-8 shadow-sm border border-grey-200">
+    <form id={`${idPrefix}-form`} class="google-submission-form grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+      <div>
+        <label for={`${idPrefix}-first-name`} class="block text-sm/6 font-semibold text-primary-900">First Name*</label>
+        <input 
+          type="text" 
+          id={`${idPrefix}-first-name`} 
+          name="entry.1136109916" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div>
+        <label for={`${idPrefix}-last-name`} class="block text-sm/6 font-semibold text-primary-900">Last Name*</label>
+        <input 
+          type="text" 
+          id={`${idPrefix}-last-name`} 
+          name="entry.1707346108" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for={`${idPrefix}-email`} class="block text-sm/6 font-semibold text-primary-900">Email*</label>
+        <input 
+          type="email" 
+          id={`${idPrefix}-email`} 
+          name="entry.2138595931" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for={`${idPrefix}-phone`} class="block text-sm/6 font-semibold text-primary-900">Phone Number</label>
+        <input 
+          type="tel" 
+          id={`${idPrefix}-phone`} 
+          name="entry.169910313" 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        />
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for={`${idPrefix}-comments`} class="block text-sm/6 font-semibold text-primary-900">Questions and Comments*</label>
+        <textarea 
+          id={`${idPrefix}-comments`} 
+          name="entry.658105742" 
+          rows="4" 
+          required 
+          class="mt-2 block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+        ></textarea>
+      </div>
+
+      <div class="sm:col-span-2">
+        <button 
+          type="submit" 
+          class="w-full rounded-md bg-secondary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-secondary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-500 transition-colors cursor-pointer"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+    
+    <div id={`${idPrefix}-feedback`} class="mt-4 hidden text-center text-sm font-medium text-accent-success">
+      Thank you! Your message has been sent successfully.
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Use event delegation on the document to catch forms added dynamically
+  document.addEventListener('submit', async (e) => {
+    // Check if the submitted form is one of our Google submission forms
+    if (e.target.classList.contains('google-submission-form')) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdKWimOOBCltydEJjTL7WG56RBi1jMBs_dSTjUY43MqkQwSew/formResponse";
+      
+      // Dynamically find the feedback div based on the prefix of the specific form
+      const prefix = form.id.replace('-form', '');
+      const feedback = document.getElementById(`${prefix}-feedback`);
+      const formData = new FormData(form);
+      
+      try {
+        // We use 'no-cors' because Google Forms doesn't share CORS headers. 
+        // The fetch will 'succeed' even if we can't read the body.
+        await fetch(FORM_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+        
+        // UI Updates following Creekside design standards
+        form.reset();
+        form.classList.add('hidden'); //
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        alert('There was a connection issue. Please check your internet and try again.');
+      }
+    }
+  });
+</script>

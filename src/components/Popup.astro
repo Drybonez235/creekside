@@ -1,0 +1,114 @@
+---
+import Form from "../components/Form.astro";
+---
+
+<div
+  id="profit-popup-overlay"
+  class="fixed inset-0 z-100 flex items-center justify-center bg-primary-900/60 opacity-0 invisible transition-all duration-500 backdrop-blur-sm px-4 py-8 overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="flex min-h-full items-center justify-center"></div>
+  <div
+    id="profit-popup-content"
+    class="relative w-full max-w-4xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl transition-all duration-500 scale-95"
+  >
+    <button
+      id="close-popup"
+      class="absolute top-4 right-4 z-10 size-10 flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
+      aria-label="Close popup"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <div class="flex-col md:flex-row">
+
+      <div class="flex flex-col md:flex-row">
+      <div class="hidden relative w-full md:w-5/12 bg-primary-800 p-6 md:flex items-center justify-center">
+        <div class="relative group">
+            <span class="absolute -top-10 -left-4 z-20 inline-block px-4 py-2 rounded-sm border-2 border-accent-alert bg-accent-alert/10 text-accent-alert text-sm font-black uppercase tracking-widest transform -rotate-12 shadow-xs pointer-events-none">
+                 Free Resource
+            </span>
+          <img 
+            src="popup.png" 
+            alt="Creekside Marketing Audit Worksheets" 
+            class="rounded-sm shadow-lg transform -rotate-2 group-hover:rotate-0 transition-transform duration-300"
+          />
+          <div class="absolute -bottom-2 -right-2 -z-10 size-full border-2 border-secondary-400 rounded-sm"></div>
+        </div>
+      </div>
+
+
+      <div class="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+        <div class="mb-6">
+          <h2
+            class="text-3xl/9 md:text-4xl/11 font-black text-primary-900 mb-4"
+          >
+            Do your ads <span
+              class="text-accent-alert italic underline decoration-3 underline-offset-4"
+              >SUCK?</span
+            >
+          </h2>
+          <p class="text-lg/7 text-grey-700">
+            Steal our <span class="font-bold text-primary-800"
+              >10K Profit Recovery Worksheet</span
+            > for yourself, and see where your ads are losing you thousands each month.
+          </p>
+        </div>
+
+        <div class="bg-grey-100 p-1 rounded-lg">
+          <Form idPrefix="Popup" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  const setupPopup = () => {
+    const overlay = document.getElementById("profit-popup-overlay");
+    const content = document.getElementById("profit-popup-content");
+    const closeBtn = document.getElementById("close-popup");
+
+    const showPopup = () => {
+      overlay?.classList.remove("opacity-0", "invisible");
+      content?.classList.remove("scale-95");
+      content?.classList.add("scale-100");
+      // Prevent scrolling when popup is open
+      document.body.style.overflow = "hidden";
+    };
+
+    const hidePopup = () => {
+      overlay?.classList.add("opacity-0", "invisible");
+      content?.classList.add("scale-95");
+      content?.classList.remove("scale-100");
+      document.body.style.overflow = "";
+    };
+
+    // Trigger after 5 seconds
+    setTimeout(showPopup, 5000);
+
+    closeBtn?.addEventListener("click", hidePopup);
+
+    // Close on backdrop click
+    overlay?.addEventListener("click", (e) => {
+      if (e.target === overlay) hidePopup();
+    });
+  };
+
+  // Run on initial load and view transitions
+  setupPopup();
+  document.addEventListener("astro:after-swap", setupPopup);
+</script>

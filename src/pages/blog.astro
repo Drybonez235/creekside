@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Form from '../components/Form.astro';
+
+import Blogs from '../data/blogs.json';
+
+import { getCollection } from 'astro:content';
+
+// Fetch all posts and sort by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Feature the very latest post
+const featuredPost = sortedPosts[0];
+const remainingPosts = sortedPosts.slice(1);
+
+const {page} = Astro.props;
+
+import '../styles/global.css';
+---
+
+
+<Layout
+	title="Creekside marketing pros" 
+  description="Grow your buiness by 100%"
+>
+	<Nav />
+
+<main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
+  <div class="mx-auto max-w-7xl">
+    
+    <header class="mb-16 border-b border-grey-200 pb-12">
+      <h1 class="text-primary-900 text-4xl font-extrabold tracking-tight sm:text-6xl">
+        Creekside Insights
+      </h1>
+      <p class="text-grey-600 mt-6 max-w-2xl text-lg/8">
+        Expert guides on Google Ads, infrastructure planning, and digital strategy. 
+        Helping you navigate complexity with precision.
+      </p>
+    </header>
+
+    {/* Featured Post - The most recent AI content */}
+    {featuredPost && (
+      <section class="mb-20">
+        <a href={`/blog/${featuredPost.id}`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div class="aspect-video overflow-hidden rounded-2xl bg-grey-200 shadow-lg transition-shadow group-hover:shadow-xl">
+            <img 
+              src={featuredPost.data.image} 
+              alt={featuredPost.data.title} 
+              class="size-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+          </div>
+          <div>
+            <span class="text-secondary-600 text-sm font-bold uppercase tracking-widest">Featured Article</span>
+            <h2 class="text-primary-900 mt-4 text-3xl font-bold transition-colors group-hover:text-secondary-700 sm:text-4xl">
+              {featuredPost.data.title}
+            </h2>
+            <p class="text-grey-600 mt-6 text-lg/7 line-clamp-3">
+              {featuredPost.data.description}
+            </p>
+            <div class="mt-8 flex items-center gap-2 font-bold text-primary-800">
+              Read Full Guide <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </div>
+        </a>
+      </section>
+    )}
+
+    <section class="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      {remainingPosts.map((post) => (
+        <article class="group flex flex-col">
+          <a href={`/blog/${post.id}`} class="flex flex-col h-full">
+            <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
+              <img 
+                src={post.data.image} 
+                alt={post.data.title} 
+                class="size-full object-cover transition-transform duration-500 group-hover:scale-110" 
+              />
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+               <span class="text-secondary-500 text-xs font-bold uppercase tracking-tighter">{post.data.category}</span>
+               <span class="text-grey-300">•</span>
+               <time class="text-grey-400 text-xs">{post.data.date.toLocaleDateString()}</time>
+            </div>
+            <h3 class="text-primary-900 text-xl font-bold leading-snug group-hover:text-secondary-600">
+              {post.data.title}
+            </h3>
+            <p class="text-grey-500 mt-4 line-clamp-2 text-sm/6 italic">
+              {post.data.description}
+            </p>
+            <div class="mt-auto pt-6 text-primary-800 text-sm font-bold flex items-center gap-1 group-hover:text-secondary-500">
+              Read Article <span>→</span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </section>
+  </div>
+</main>
+<Footer/>
+</Layout>
