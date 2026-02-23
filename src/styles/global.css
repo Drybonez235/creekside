@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 
 @theme {
   /* Primary: Deep Creekside Navy (Based on the logo's darker tones) */
@@ -48,3 +50,9 @@ body {
   background-color: var(--color-grey-50);
   color: var(--color-grey-900);
 }
+
+@theme {
+  /* Ensure our primary navy is available for prose headers */
+  --color-primary-900: #102a43;
+}
+

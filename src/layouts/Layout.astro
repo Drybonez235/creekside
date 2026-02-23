@@ -9,6 +9,10 @@ const { title, description, canonicalURL} = Astro.props; // image
     <BaseHead title={title} description={description} canonicalURL={canonicalURL} />
   </head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWQVSPJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->	
 		<slot />
 	</body>
 </html>
