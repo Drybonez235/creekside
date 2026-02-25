@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
 import Footer from '../components/Footer.astro'
 import Clienttrust from '../components/Clienttrust.astro'
-import Testimonial from '../components/Testimonials.astro';
+import ClientCard from '../components/ClientCard.astro';
 import Popup from "../components/Popup.astro"
 
 
@@ -81,7 +81,7 @@ import '../styles/global.css';
       
       <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-			<img src="date-range-svgrepo-com.svg" alt="A calander Icon">
+			<img src="/date-range-svgrepo-com.svg" alt="A calander Icon">
         </div>
         <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
           In-depth data analysis
@@ -94,7 +94,7 @@ import '../styles/global.css';
 
       <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="bar-chart-02-svgrepo-com.svg" alt="A bar chart with accending lines">
+          <img src="/bar-chart-02-svgrepo-com.svg" alt="A bar chart with accending lines">
         </div>
         <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
           Campaign & PPC Optimization
@@ -107,7 +107,7 @@ import '../styles/global.css';
 
       <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="spreadsheet-chart-svgrepo-com.svg" alt="Graphic Spreadsheet with line gragh">
+          <img src="/spreadsheet-chart-svgrepo-com.svg" alt="Graphic Spreadsheet with line gragh">
         </div>
         <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
           Conversion Tracking
@@ -131,7 +131,7 @@ import '../styles/global.css';
           <div class="flex flex-col items-center">
             <div class="aspect-3/4 overflow-hidden rounded-sm bg-grey-100 shadow-sm">
               <img 
-                src="peterson-rainey.png" 
+                src="/peterson-rainey.png" 
                 alt="Peterson Rainey" 
                 class="h-full w-full object-cover"
               />
@@ -145,7 +145,7 @@ import '../styles/global.css';
           <div class="flex flex-col items-center">
             <div class="aspect-3/4 overflow-hidden rounded-sm bg-grey-100 shadow-sm">
               <img 
-                src="cade-maclean.png" 
+                src="/cade-maclean.png" 
                 alt="Cade Maclean" 
                 class="h-full w-full object-cover"
               />
@@ -191,7 +191,7 @@ import '../styles/global.css';
   </div>
 </section>
 
-<section class="bg-[url('nnnoise.svg')] py-16 lg:py-24">
+<section class="bg-[url('/nnnoise.svg')] py-16 lg:py-24">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="mx-auto max-w-5xl">
       
@@ -313,48 +313,7 @@ import '../styles/global.css';
   </div>
 </section>
 
-<section class="bg-white py-20">
-  <div class="container mx-auto px-4">
-    
-    <div class="mb-16 text-center">
-      <h2 class="text-primary-900 text-4xl/10 font-extrabold tracking-tight md:text-5xl/14">
-        Client <span class="text-secondary-500 uppercase">Testimonials</span>
-      </h2>
-      <div class="hidden mt-4 justify-center gap-1">
-        {Array.from({ length: 5 }).map(() => (
-          <svg class="size-6 fill-current text-secondary-500" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-          </svg>
-        ))}
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
-      
-      <Testimonial 
-        name="Lisa Blank"
-        date="August 27, 2025"
-        quote="Creekside Marketing is a team of stellar professionals who deliver results!"
-        rating={5}
-      />
-
-      <Testimonial 
-        name="Bradley Miller"
-        date="August 22, 2025"
-        quote="Never thought I'd put money into advertising but SOOO happy I found Creekside Marketing!!! Cade and Peterson have made this an eye opening experience—started seeing results after only 2 weeks!"
-        rating={5}
-      />
-
-      <Testimonial 
-        name="Scott Mader"
-        date="March 20, 2025"
-        quote="The Facebook Ad campaign and Google Ad campaigns are crushing it. As one of the top local marketing professionals in the United States, trust me, they know their stuff."
-        rating={5}
-      /> 
-
-    </div>
-  </div>
-</section>
+<ClientCard />
 
 <section class="bg-grey-50 py-20 lg:py-32">
   <div class="container mx-auto px-4 lg:px-8">
@@ -364,7 +323,7 @@ import '../styles/global.css';
         <div class="relative">
           <div class="overflow-hidden rounded-sm shadow-sm">
             <img 
-              src="business-launching-like-rocket.png" 
+              src="/business-launching-like-rocket.png" 
               alt="PPC Strategy and Implementation" 
               class="w-full object-cover"
             />

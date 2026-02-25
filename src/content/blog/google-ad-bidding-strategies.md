@@ -1,9 +1,9 @@
 ---
 title: "Google Ads Bidding Strategies Explained: How to Choose the Right One for Your Campaign Goals"
 description: "Not sure which Google Ads bidding strategy to use? Here’s a practical breakdown of maximize conversions, conversion value, clicks, and impression share—plus when each actually works."
-date: "February 4, 2026"
+date: "2026-02-04"
 image: "/article-images/google-ads-bidding-strategies.png"
-catagory: "Campaign Strategy & Structure"
+category: "Campaign Strategy & Structure"
 tags: ["GoogleAds", "SearchCampaigns", "Tutorial"]
 ---
 

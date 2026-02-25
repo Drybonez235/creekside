@@ -1,9 +1,9 @@
 ---
 title: "Google Ads Campaign Types Explained: How to Choose the Right One for Your Business"
 description: "A comprehensive guide to Google Ads campaign types, breaking down which formats work best for service businesses, ecommerce, and lead generation."
-date: "February 2, 2026"
+date: "2026-02-02"
 image: "/article-images/google-ads-campaign-types.png"
-catagory: "Campaign Strategy & Structure"
+category: "Campaign Strategy & Structure"
 tags: ["GoogleAds", "SearchCampaigns", "PerformanceMax", "DisplayAds", "DemandGen", "Tutorial"]
 ---
 

@@ -1,0 +1,175 @@
+---
+import Testimonial from '../components/Testimonials.astro';
+
+const testimonials = [
+  {
+    name: "Lisa Blank",
+    date: "August 27, 2025",
+    
+    quote: "Creekside Marketing is a team of stellar professionals who deliver results! In the under 6 months that our agency has worked with them, we've experienced impeccable communication, well-thought-out strategy, and their reporting is thorough and easy to understand.",
+    rating: 5
+  },
+  {
+    name: "Bradley Miller",
+    date: "August 22, 2025",
+    image: "/review-images/bradly-miller.png",
+    quote: "Never thought I'd put money into advertising but SOOO happy I found Creekside Marketing!!! Cade and Peterson have made this an eye opening experience—started seeing results after only 2 weeks!",
+    rating: 5
+  },
+  {
+    name: "Scott Mader",
+    date: "March 20, 2025",
+    image: "/review-images/scott-mader.png",
+    quote: "The Facebook Ad campaign and Google Ad campaigns are crushing it. As one of the top local marketing professionals in the United States, trust me, they know their stuff.",
+    rating: 5
+  },
+  {
+    name: "Joan Garcia",
+    date: "June 5, 2024",
+    image: "/review-images/joan-garcia.png",
+    quote: "Creekside marketing helped me create a plan to help me figure out what advertising strategy worked for me and my goals. They were honest and made sure to answer any questions I had for them.",
+    rating: 5
+  },
+  {
+    name: "Kam'Ron Young",
+    date: "June 3, 2024",
+   
+    quote: "Awesome team. I appreciate their dedication to their craft.",
+    rating: 5
+  },
+  {
+    name: "Bobby Jackson",
+    date: "June 2, 2024",
+    image: "/review-images/bobby-jackson.png",
+    quote: "I never realized the importance of a well-managed Google My Business page until Creekside Marketing showed us the ropes. Business is booming now!",
+    rating: 5
+  },
+  {
+    name: "Griffin Brake",
+    date: "June 2, 2024",
+   
+    quote: "I never thought my LinkedIn profile could be so impactful until Creekside Marketing revamped it. Now, it's a valuable networking tool.",
+    rating: 5
+  },
+  {
+    name: "J",
+    date: "June 2, 2024",
+    image: "/review-images/j.png",
+    quote: "Email marketing has always been a struggle, but Creekside Marketing's strategies have boosted our open and conversion rates. Highly effective!",
+    rating: 5
+  },
+  {
+    name: "Calendar Viral",
+    date: "June 2, 2024",
+    quote: "Creekside Marketing demonstrated excellent customer service and reply time for my small business. On top of their Local Service Ads, they offered excellent advice on growing my business.",
+    rating: 5
+  },
+  {
+    name: "Teresa Stillman",
+    date: "February 26, 2024",
+    image: "/review-images/teresa-stillman.png",
+    quote: "Highly recommend Creekside Marketing! Their service is truly excellent. What sets them apart is their innovative, outside-the-box thinking tailored to fit your unique needs.",
+    rating: 5
+  },
+  {
+    name: "Denise Mistich",
+    date: "February 22, 2024",
+    image: "/review-images/denise-mistich.png",
+    quote: "Creekside Marketing has helped my clients grow their business while significantly increasing ROI on ad spend. I highly recommend!",
+    rating: 5
+  },
+  {
+    name: "David Kmita",
+    date: "June 3, 2023",
+    quote: "Peterson has been great to work with, has always over delivered, and has taken the hassle out of managing our Google and Social media marketing!",
+    rating: 5
+  }
+];
+---
+
+<section class="bg-grey-50 py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+    
+    <div class="mb-16 text-center">
+      <h2 class="text-primary-900 text-4xl/10 font-extrabold tracking-tight md:text-5xl/14">
+        Client <span class="text-secondary-500 uppercase">Testimonials</span>
+      </h2>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 md:px-16">
+      
+      <button 
+        id="client-pre" 
+        class="absolute left-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:left-2 md:size-12"
+        aria-label="Previous review"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div 
+        id="testimonial-slider" 
+        class="scrollbar-hide flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8"
+      >
+        {testimonials.map((t) => (
+          <div class="min-w-full shrink-0 snap-center md:min-w-[calc(33.333%-1rem)]">
+            <div class="h-full max-w-sm mx-auto">
+              <Testimonial 
+                name={t.name}
+                date={t.date}
+                image={t.image}
+                quote={t.quote}
+                rating={t.rating}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button 
+        id="client-next" 
+        class="absolute right-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:right-2 md:size-12"
+        aria-label="Next review"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("testimonial-slider");
+    const nextBtn = document.getElementById("client-next");
+    const prevBtn = document.getElementById("client-pre");
+
+    function getSlideWidth() {
+      const slide = slider.querySelector("div"); 
+      return slide ? slide.offsetWidth + 24 : 0; 
+      // 24 = gap-6 (1.5rem = 24px)
+    }
+
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({
+        left: getSlideWidth(),
+        behavior: "smooth"
+      });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({
+        left: -getSlideWidth(),
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
