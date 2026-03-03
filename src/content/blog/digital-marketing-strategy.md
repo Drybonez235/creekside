@@ -2,7 +2,7 @@
 title: "Inside Our Digital Marketing Strategy Generator: How Agencies Can Create Better Plans, Faster"
 description: "Learn how to build a comprehensive, full-funnel digital marketing strategy in minutes by focusing on business fundamentals, differentiators, and phased execution."
 date: "2026-01-14"
-image: "/article-images/creekside-marketing-pros-digital-marketing-strategy.png"
+image: "/article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Performance Management & SOPs"
 tags: ["GoogleAds", "Tutorial", "Scalability", "Audit"]
 ---

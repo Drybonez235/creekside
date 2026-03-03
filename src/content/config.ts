@@ -13,8 +13,31 @@ const blogCollection = defineCollection({
   }),
 });
 
+
 // 2. Export the collections object
 // The KEY here ('blog') is what Astro uses to find the folder 'src/content/blog/'
 export const collections = {
   'blog': blogCollection,
+};
+
+const caseStudies = defineCollection({
+  type: 'content', // 'content' for Markdown/MDX files
+  schema: z.object({
+    title: z.string(),
+    client: z.string(),
+    category: z.string(),
+    logo: z.string().optional(),
+    "logo-alt": z.string().optional(),
+    summary: z.string(),
+    tags: z.array(z.string()),
+    metrics: z.object({
+      roas: z.string(),
+      scale: z.string(),
+    }),
+    featured: z.boolean().default(false), // Useful for that big top hero section
+  }),
+});
+
+export const case_collections = {
+  'case-studies': caseStudies,
 };

@@ -20,8 +20,9 @@ import '../styles/global.css';
 
 
 <Layout
-	title="Creekside marketing pros" 
-  description="Grow your buiness by 100%"
+	title="Blog - Creekside Marketing" 
+  description="Master digital advertising with Creekside Marketing’s expert blog. Explore how-to manuals, SEO strategies, and ad spend optimization guides to grow your revenue and stop wasting budget."
+  canonicalURL="https://creeksidemarketingpros.com/blog/"
 >
 	<Nav />
 
@@ -41,8 +42,8 @@ import '../styles/global.css';
     {/* Featured Post - The most recent AI content */}
     {featuredPost && (
       <section class="mb-20">
-        <a href={`/blog/${featuredPost.id}`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div class="aspect-video overflow-hidden rounded-2xl bg-grey-200 shadow-lg transition-shadow group-hover:shadow-xl">
+        <a href={`/blog/${featuredPost.slug}/`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div class="aspect-video hidden md:block overflow-hidden rounded-2xl bg-grey-200 shadow-lg transition-shadow group-hover:shadow-xl">
             <img 
               src={featuredPost.data.image} 
               alt={featuredPost.data.title} 
@@ -62,14 +63,15 @@ import '../styles/global.css';
             </div>
           </div>
         </a>
+        <div class="md:hidden my-8 h-px w-full bg-grey-200 dark:bg-grey-600" aria-hidden="true"></div>
       </section>
     )}
 
     <section class="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
       {remainingPosts.map((post) => (
         <article class="group flex flex-col">
-          <a href={`/blog/${post.id}`} class="flex flex-col h-full">
-            <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
+          <a href={`/blog/${featuredPost.slug}/`} class="flex flex-col h-full">
+            <div class="aspect-video hidden md:block mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
               <img 
                 src={post.data.image} 
                 alt={post.data.title} 
@@ -91,6 +93,7 @@ import '../styles/global.css';
               Read Article <span>→</span>
             </div>
           </a>
+          <div class="my-8  md:hidden h-px w-full bg-grey-200 dark:bg-grey-600" aria-hidden="true"></div>
         </article>
       ))}
     </section>

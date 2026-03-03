@@ -2,7 +2,7 @@
 title: "GOOGLE ADS LOCATION TARGETING: HOW TO DO IT RIGHT (AND WHY IT MATTERS MORE THAN YOU THINK)"
 description: "Location targeting in Google Ads looks simple, but default settings often waste budget. Learn how to lock down your campaigns using Presence targeting and aggressive exclusions."
 date: "2026-02-20"
-image: "/article-images/google-ads-location.png"
+image: "/article-images/google-ads-location.avif"
 category: "Campaign Strategy & Structure"
 tags: ["Google Ads", "SEM", "Keyword Research"]
 ---

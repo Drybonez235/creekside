@@ -1,30 +1,33 @@
 ---
 import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro'
-import PetersonBlogBio from '../../components/PetersonBlogBio.astro'
+import Footer from '../../components/Footer.astro';
+import PetersonBlogBio from '../../components/PetersonBlogBio.astro';
 import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
   return posts.map(post => {
-    const cleanSlug = post.id; 
+    // We use the post's slug (file name without extension) for the URL
     return {
-      params: { slug: cleanSlug },
+      params: { slug: post.slug || post.id }, 
       props: { post },
     };
   });
 }
 
 const { post } = Astro.props;
-
-// If this line fails, it means 'post' is undefined
 const { Content } = await render(post); 
-
-import '../../styles/global.css';
-import Layout from '../../layouts/Layout.astro';
 ---
-<Layout >
+
+
+<Layout 
+    title={post.data.title}
+  description={post.data.description}
+  canonicalURL={Astro.url}
+>
 <Nav />
 <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
     <aside class="hidden lg:block">
