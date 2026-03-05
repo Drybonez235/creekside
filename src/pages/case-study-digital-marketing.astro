@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
 import Footer from '../components/Footer.astro'
 
+
 import { getCollection } from 'astro:content';
 
 const allStudies = await getCollection('case-studies');
@@ -13,24 +14,55 @@ const caseStudies = allStudies.map(study => ({
   ...study.data
 }));
 
+const listSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Creekside Marketing Success Stories",
+  "description": "A collection of digital marketing case studies showing ROAS and revenue growth.",
+  "url": "https://creeksidemarketingpros.com/case-study-digital-marketing/",
+  "numberOfItems": caseStudies.length,
+  "itemListElement": caseStudies.map((study, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "CreativeWork",
+      "name": study.title,
+      "description": study.summary,
+      "url": `https://creeksidemarketingpros.com/case-study-digital-marketing/${study.slug}`,
+      "headline": study.title,
+      "author": {
+        "@type": "Organization",
+        "name": "Creekside Marketing"
+      }
+    }
+  })),
+  "breadcrumb": {
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://creeksidemarketingpros.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://creeksidemarketingpros.com/case-study-digital-marketing/"
+    },
+  ]
+  }
+};
+
 import '../styles/global.css';
 
-// const caseStudies = [{
-//     "slug": "river-delta-scaling",
-//     "title": "Scaling E-commerce via Predictive Attribution",
-//     "client": "River Delta",
-//     "logo": "",
-//     "logo-alt": "",
-//     "category": "Paid Social",
-//     "metrics": { "roas": "4.2x", "scale": "+150%" },
-//     "summary": "How we bypassed tracking limitations to scale spend while maintaining efficiency.",
-//     "tags": ["Meta Ads", "First-Party Data", "E-commerce"],
-//   }]
 ---
 <Layout
   title="Case Study: Digital Marketing - Creekside Marketing" 
   description="Proof is in the profit. Explore our real-world case studies showing 37%+ ROAS improvements, doubled revenue, and scaled ad accounts for law firms, dental practices, and e-commerce brands."
   canonicalURL="https://creeksidemarketingpros.com/case-study-digital-marketing/"
+  schema={listSchema}
 >
     <Nav />
 

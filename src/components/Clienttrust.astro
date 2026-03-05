@@ -30,6 +30,7 @@ const clients = [
       src="/business-handshake.avif" 
       alt="Business Partnership" 
       class="size-full object-cover grayscale opacity-80"
+      loading="lazy"
     />
     <div class="absolute inset-0 bg-linear-to-b from-primary-900/90 to-primary-700/75"></div>
   </div>
@@ -69,7 +70,7 @@ const clients = [
                 <ClientLogo 
                   name={client.name} 
                   logo={client.logo} 
-                  url={client.url} 
+                  url={client.url}
                 />
               </div>
             ))}

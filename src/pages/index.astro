@@ -5,16 +5,15 @@ import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
 import Footer from '../components/Footer.astro'
 import Clienttrust from '../components/Clienttrust.astro'
 import ClientCard from '../components/ClientCard.astro';
-import Popup from "../components/Popup.astro"
-
-
+import { siteSchema } from '../data/structuredData';
 import '../styles/global.css';
 ---
 
 <Layout
 	title="Home - Creekside Marketing" 
-  description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS by 37%+ with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
+  description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS by 37% with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
   canonicalURL="https://creeksidemarketingpros.com/"
+  schema={siteSchema.home}
 >
 	<Nav />
 	<section class="relative min-h-dvh flex items-center overflow-hidden bg-primary-900 py-20 lg:py-32">
@@ -135,6 +134,7 @@ import '../styles/global.css';
                 src="/peterson-rainey.avif" 
                 alt="Peterson Rainey" 
                 class="h-full w-full object-cover"
+                loading="lazy"
               />
             </div>
             <div class="mt-6 text-center">
@@ -149,6 +149,7 @@ import '../styles/global.css';
                 src="/cade-maclean.avif" 
                 alt="Cade Maclean" 
                 class="h-full w-full object-cover"
+                loading="lazy"
               />
             </div>
             <div class="mt-6 text-center">
@@ -263,7 +264,7 @@ import '../styles/global.css';
           We specialize in using Google Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By analyzing key metrics, we optimize campaigns to ensure cost-effective ad spend while aligning with specific business goals. Whether it's increasing brand awareness, generating leads, or driving sales, we create customized strategies that improve ad performance.
         </p>
         <div class="mt-8">
-          <a href="https://creeksidemarketingpros.com/digital-advertising/google-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
+          <a href="/digital-advertising/google-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
             <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
             Learn More
           </a>
@@ -281,7 +282,7 @@ import '../styles/global.css';
           We specialize in using Facebook Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By harnessing audience insights and precise targeting capabilities, we develop tailored campaigns that align with specific business goals, whether it's boosting brand awareness, generating leads, or driving conversions. Our strategy focuses on optimizing ad creatives, placements, and budgets.
         </p>
         <div class="mt-8">
-          <a href="https://creeksidemarketingpros.com/digital-advertising/meta-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
+          <a href="/digital-advertising/meta-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
             <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
             Learn More
           </a>
@@ -302,7 +303,7 @@ import '../styles/global.css';
             Are you an agency that needs a white-label ad team? We offer full white-label PPC and Social Media Marketing services to make sure your clients are happy. We'll act on behalf of your agency, making the transition seamless from beginning to end, including deliverables, client communication, and ongoing optimizations.
           </p>
           <div class="mt-8">
-            <a href="https://creeksidemarketingpros.com/creekside-marketing-partner-program/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
+            <a href="/creekside-marketing-partner-program/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
               <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
               Learn More
             </a>
@@ -327,6 +328,7 @@ import '../styles/global.css';
               src="/business-launching-like-rocket.avif" 
               alt="PPC Strategy and Implementation" 
               class="w-full object-cover"
+              loading="lazy"
             />
           </div>
           <div class="absolute -bottom-6 -left-6 -z-10 hidden size-32 rounded-sm bg-secondary-500/10 lg:block"></div>

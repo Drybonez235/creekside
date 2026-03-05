@@ -2,7 +2,7 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro'
 import Layout from '../layouts/Layout.astro';
-import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
+import { siteSchema } from '../data/structuredData';
 
 import '../styles/global.css';
 import ScheduleConsultation from '../components/Schedule-consultation.astro';
@@ -23,6 +23,7 @@ const advantages = [
 	title="Creekside Marketing Partner Program - Creekside Marketing" 
   description="Scale your agency with Creekside’s white-label growth partners. Get the hands-on service of a freelancer with the proven, scalable systems of a top-tier Google and Meta Ads agency"
    canonicalURL="https://creeksidemarketingpros.com/creekside-marketing-partner-program/"
+   schema={siteSchema.partnerProgram}
 >
 	<Nav />
 

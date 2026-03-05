@@ -3,6 +3,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro'
 import Layout from '../../layouts/Layout.astro';
 import Scheduleconsultatioin from '../../components/Schedule-consultation.astro'
+import { siteSchema } from '../../data/structuredData';
 
 import '../../styles/global.css';
 import ScheduleConsultation from '../../components/Schedule-consultation.astro';
@@ -12,6 +13,7 @@ import ScheduleConsultation from '../../components/Schedule-consultation.astro';
 	title="Meta Ads - Creekside Marketing" 
   description="Scale your business with expert Meta Ads management. With $20M+ in ad spend managed, we combine high-quality creative with advanced Meta Pixel tracking to turn Facebook and Instagram into a growth engine."
   canonicalURL="https://creeksidemarketingpros.com/digital-advertising/meta-ads/"
+  schema={siteSchema.metaAds}
 >
 	<Nav />
     <section class="bg-grey-50 py-16 lg:py-24">
@@ -135,6 +137,7 @@ import ScheduleConsultation from '../../components/Schedule-consultation.astro';
           width="1800" 
           height="1200"
           class="h-auto max-w-full"
+          loading="lazy"
         />
       </div>
 
@@ -145,6 +148,7 @@ import ScheduleConsultation from '../../components/Schedule-consultation.astro';
           width="1800" 
           height="1200"
           class="h-auto max-w-full rounded-sm shadow-sm"
+          loading="lazy"
         />
       </div>
     </div>

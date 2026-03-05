@@ -3,6 +3,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro'
 import Layout from '../layouts/Layout.astro';
 import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
+import { siteSchema } from '../data/structuredData';
 
 import '../styles/global.css';
 
@@ -34,7 +35,7 @@ const teamMembers = [
     lastName: "Caldwell",
     image: "/scott-caldwell-headshot.avif",
     role: "Chief Small Business Consultant",
-    bio: "Digital Strategist at Creekside Marketing with extensive agency and in-house experience, Scott manages multi-channel campaigns and advanced analytics. His background in scaling diverse brands through technical tracking and paid media optimization ensures high-impact results across various industries." 
+    bio: "Digital Strategist at Creekside Marketing with 5 years of agency and in-house experience, Scott manages multi-channel campaigns and advanced analytics. His background in scaling diverse brands through technical tracking and paid media optimization ensures high-impact results across various industries." 
   },
   {
     firstName: "Ahmed",
@@ -109,6 +110,7 @@ const getGridItemClass = (index, length) => {
   title="Meet The Team - Creekside Marketing" 
   description="Get to know the experts behind your growth. Meet the Creekside Marketing team—a collective of specialized Google Ads, Meta Ads, and digital strategy pros dedicated to scaling your business."
   canonicalURL="https://creeksidemarketingpros.com/meet-the-team/"
+  schema={siteSchema.meetTheTeam}
 >
   <Nav />
 
@@ -164,6 +166,7 @@ const getGridItemClass = (index, length) => {
                 src={member.image} 
                 alt={member.firstName}
                 class="size-48 mb-6 rounded-full object-cover shadow-sm"
+                loading="lazy"
               />
             <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
           </div>
@@ -184,6 +187,7 @@ const getGridItemClass = (index, length) => {
                 src={member.image} 
                 alt={member.firstName}
                 class="size-48 mb-6 rounded-full object-cover shadow-sm"
+                loading="lazy"
               />
             <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
           </div>

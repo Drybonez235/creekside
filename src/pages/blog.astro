@@ -15,6 +15,59 @@ const remainingPosts = sortedPosts.slice(1);
 
 const {page} = Astro.props;
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Creekside Insights",
+  "description": "Expert guides on Google Ads, infrastructure planning, and digital strategy.",
+  "url": "https://creeksidemarketingpros.com/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Creekside Marketing",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://creeksidemarketingpros.com/logo.png" // Replace with actual logo path
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://creeksidemarketingpros.com/blog/"
+  },
+  "itemListElement": sortedPosts.map((post, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "BlogPosting",
+      "headline": post.data.title,
+      "description": post.data.description,
+      "url": `https://creeksidemarketingpros.com/blog/${post.slug}/`,
+      "datePublished": post.data.date.toISOString(),
+      "image": post.data.image,
+      "author": {
+        "@type": "Person",
+        "name": "Creekside Marketing Team" // Or post.data.author if available
+      }
+    }
+  })),
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://creeksidemarketingpros.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://creeksidemarketingpros.com/blog/"
+      }
+    ]
+  }
+};
+
 import '../styles/global.css';
 ---
 
@@ -23,6 +76,7 @@ import '../styles/global.css';
 	title="Blog - Creekside Marketing" 
   description="Master digital advertising with Creekside Marketing’s expert blog. Explore how-to manuals, SEO strategies, and ad spend optimization guides to grow your revenue and stop wasting budget."
   canonicalURL="https://creeksidemarketingpros.com/blog/"
+  schema={blogSchema}
 >
 	<Nav />
 

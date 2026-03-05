@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Form from '../components/Form.astro';
+import { siteSchema } from '../data/structuredData';
 import '../styles/global.css';
 ---
 
@@ -10,6 +11,7 @@ import '../styles/global.css';
   title="Contact - Creekside Marketing"
   description="Ready to grow your revenue? Contact Creekside Marketing Pros today for expert Google and Meta Ads management. Call (931) 342-4114 or message us to start your $10K Profit Recovery Audit."
   canonicalURL="https://creeksidemarketingpros.com/contact/"
+  schema={siteSchema.contact}
 >
   <Nav />
   

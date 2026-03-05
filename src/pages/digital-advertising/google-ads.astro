@@ -3,6 +3,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro'
 import Layout from '../../layouts/Layout.astro';
 import Scheduleconsultatioin from '../../components/Schedule-consultation.astro'
+import { siteSchema } from '../../data/structuredData';
 
 import '../../styles/global.css';
 ---
@@ -11,6 +12,7 @@ import '../../styles/global.css';
 	title="Google Ads - Creekside Marketing" 
   description="Maximize online visibility with expert Google Ads management. Backed by $20M+ in audited spend, we build high-converting, tightly themed campaigns with expert GA4 tracking to drive real ROI."
   canonicalURL="https://creeksidemarketingpros.com/digital-advertising/google-ads/"
+  schema={siteSchema.googleAds}
   >
 	<Nav />
     <section class="bg-grey-50 py-16 lg:py-24">
@@ -166,6 +168,7 @@ import '../../styles/global.css';
           width="1800" 
           height="618"
           class="rounded-sm"
+          loading="lazy"
         />
       </div>
       <div class="drop-shadow-sm transition-all duration-500 hover:drop-shadow-md">
@@ -175,6 +178,7 @@ import '../../styles/global.css';
           width="1800" 
           height="620"
           class="rounded-sm"
+          loading="lazy"
         />
       </div>
     </div>
