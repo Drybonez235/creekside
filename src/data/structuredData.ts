@@ -15,6 +15,10 @@ export const siteSchema = {
     "addressRegion": "TN",
     "addressCountry": "US"
   },
+  "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
+    },
   "founder": [
     {
       "@type": "Person",
@@ -93,6 +97,10 @@ export const siteSchema = {
         }
       ]
     },
+    "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
+    },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -124,6 +132,10 @@ export const siteSchema = {
         "addressRegion": "TN",
         "addressCountry": "US"
       }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
     },
     "description": "Scale your agency with Creekside’s white-label growth partners. Get the hands-on service of a freelancer with the proven, scalable systems of a top-tier Google and Meta Ads agency.",
     "areaServed": "US",
@@ -167,6 +179,7 @@ export const siteSchema = {
         }
       ]
     },
+    
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -191,6 +204,10 @@ export const siteSchema = {
     "name": "Contact Creekside Marketing",
     "description": "Get in touch with Creekside Marketing for expert Google and Meta Ads management in Nashville, TN.",
     "url": "https://creeksidemarketingpros.com/contact/",
+    "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
+    },
     "mainEntity": {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
@@ -227,6 +244,10 @@ export const siteSchema = {
     "@type": "Service",
     "serviceType": "Meta Ads Management",
     "name": "Meta Ads (Facebook & Instagram) Advertising Services",
+    "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
+    },
     "provider": {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
@@ -290,6 +311,10 @@ googleAds: {
     "@type": "Service",
     "serviceType": "Google Ads Management",
     "name": "Google Ads (PPC) Management Services",
+    "author": {
+        "@type": "Person",
+        "name": "Peterson Rainey",
+    },
     "provider": {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
