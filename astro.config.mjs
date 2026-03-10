@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     format: 'directory', // Ensures pages are built as /page/index.html
   },
-  site: 'https://creeksidemarketingpros.com',
+  site: 'https://creeksidemarketingpros.com/',
   vite: {
     plugins: [tailwindcss()],
   },
