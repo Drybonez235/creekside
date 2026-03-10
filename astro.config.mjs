@@ -6,6 +6,10 @@ import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  trailingSlash: 'always',
+  build: {
+    format: 'directory', // Ensures pages are built as /page/index.html
+  },
   site: 'https://creeksidemarketingpros.com',
   vite: {
     plugins: [tailwindcss()],
