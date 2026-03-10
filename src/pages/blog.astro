@@ -124,7 +124,7 @@ import '../styles/global.css';
     <section class="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
       {remainingPosts.map((post) => (
         <article class="group flex flex-col">
-          <a href={`/blog/${featuredPost.slug}/`} class="flex flex-col h-full">
+          <a href={`/blog/${post.slug}/`} class="flex flex-col h-full">
             <div class="aspect-video hidden md:block mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
               <img 
                 src={`/${post.data.image}`}
