@@ -2,7 +2,7 @@
 title: "How to Use a Keyword Research Spreadsheet to Launch Cleaner Google Ads Ad Group"
 description: "Stop wasting budget on junk traffic. Learn the repeatable workflow for tracking keyword intent, CPC, and negative lists using SEMrush and Google Keyword Planner."
 date: 2026-02-19
-image: "/article-images/Keyword.avif"
+image: "article-images/Keyword.avif"
 category: "Paid Media"
 tags: ["Google Ads", "SEM", "Keyword Research"]
 ---

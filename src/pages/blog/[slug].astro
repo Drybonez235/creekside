@@ -20,7 +20,35 @@ export async function getStaticPaths() {
 
 
 const { post } = Astro.props;
-const { Content } = await render(post); 
+const { Content } = await render(post);
+
+// JSON-LD Schema Construction
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": `${Astro.site}${post.data.image}`, // Ensure this is a full URL if possible
+  "datePublished": post.data.date.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Peterson Rainey",
+    "url": Astro.site // Or a link to your about page
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Creekside",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}creekside-marketing-icon-192x192.avif` // Replace with your actual logo path
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  },
+  "keywords": post.data.tags.join(", ")
+};
 ---
 
 
@@ -29,6 +57,7 @@ const { Content } = await render(post);
   description={post.data.description}
   canonicalURL={Astro.url}
 >
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 <Nav />
 <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
     <aside class="hidden lg:block">
