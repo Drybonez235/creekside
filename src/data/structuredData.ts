@@ -256,7 +256,7 @@ export const siteSchema = {
     "provider": {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
-      "url": "https://creeksidemarketingpros.com"
+      "url": "https://creeksidemarketingpros.com/"
     },
     "description": "Expert Meta Ads management with $20M+ in ad spend managed. We specialize in high-quality creative, advanced Meta Pixel tracking, and ROI-driven optimization for Facebook and Instagram.",
     "areaServed": {
@@ -323,7 +323,7 @@ googleAds: {
     "provider": {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
-      "url": "https://creeksidemarketingpros.com"
+      "url": "https://creeksidemarketingpros.com/"
     },
     "description": "Expert Google Ads management backed by $20M+ in audited spend. We build high-converting, tightly themed campaigns with GA4 and GTM tracking to drive real ROI.",
     "areaServed": "US",
