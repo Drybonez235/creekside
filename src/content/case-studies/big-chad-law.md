@@ -2,7 +2,7 @@
 title: "Generating 50+ Qualified PI Cases in 4 Months for Arizona Law Firm"
 client: "Big Chad Law"
 category: "Legal Marketing: Google + Meta"
-logo: "logos/big-chad-law.webp"
+logo: "/logos/big-chad-law.webp"
 logo-alt: "Big Chad Law Firm Logo"
 summary: "Solving a lead quality crisis for an Arizona PI firm by implementing advanced conversion tracking and a multi-channel 'surround sound' strategy."
 tags: ["Legal Lead Gen", "Google Ads", "Meta Ads", "Local Service Ads", "Conversion Tracking"]

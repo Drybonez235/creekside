@@ -29,6 +29,11 @@ export const siteSchema = {
       "@type": "Person",
       "name": "Cade Maclean",
       "jobTitle": "Co-Founder & Meta Ads Expert"
+    },
+    {
+      "@type": "Person",
+      "name": "Scott Caldwell",
+      "jobTitle": "Chief Small Business Consultant"
     }
   ],
   "offers": {

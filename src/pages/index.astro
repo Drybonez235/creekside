@@ -124,37 +124,54 @@ import '../styles/global.css';
 
 <section class="bg-white py-16 lg:py-24">
   <div class="container mx-auto px-4 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
       
-      <div class="flex flex-col gap-10">
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div class="flex flex-col items-center gap-10 md:items-start">
+        <div class="grid w-full grid-cols-2 gap-6 sm:gap-8">
           <div class="flex flex-col items-center">
-            <div class="aspect-3/4 overflow-hidden rounded-sm bg-grey-100 shadow-sm">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
               <img 
                 src="/peterson-rainey.avif" 
                 alt="Peterson Rainey" 
-                class="h-full w-full object-cover"
+                class="size-full object-cover"
                 loading="lazy"
               />
             </div>
-            <div class="mt-6 text-center">
-              <h4 class="text-lg font-bold text-primary-900">Peterson Rainey</h4>
-              <p class="text-sm/6 font-medium text-grey-600">Co-Founder & Google Ads Expert</p>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Peterson Rainey</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
             </div>
           </div>
 
           <div class="flex flex-col items-center">
-            <div class="aspect-3/4 overflow-hidden rounded-sm bg-grey-100 shadow-sm">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
               <img 
                 src="/cade-maclean.avif" 
                 alt="Cade Maclean" 
-                class="h-full w-full object-cover"
+                class="size-full object-cover"
                 loading="lazy"
               />
             </div>
-            <div class="mt-6 text-center">
-              <h4 class="text-lg font-bold text-primary-900">Cade Maclean</h4>
-              <p class="text-sm/6 font-medium text-grey-600">Co-Founder & Meta Ads Expert</p>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Cade Maclean</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex w-full justify-center">
+          <div class="flex flex-col items-center">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
+              <img 
+                src="/scott-caldwell-headshot.avif" 
+                alt="Scott Caldwell" 
+                class="size-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Scott Caldwell</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Chief Small Business Consultant</p>
             </div>
           </div>
         </div>
@@ -189,9 +206,11 @@ import '../styles/global.css';
           Our Services
         </a>
       </div>
+
     </div>
   </div>
 </section>
+
 
 <section class="bg-[url('/nnnoise.svg')] py-16 lg:py-24">
   <div class="container mx-auto px-4 lg:px-8">
