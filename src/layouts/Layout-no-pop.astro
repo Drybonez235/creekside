@@ -1,0 +1,23 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+const { title, description, canonicalURL, schema } = Astro.props; // image
+import JsonLd from '../components/JsonLd.astro';
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+    <BaseHead title={title} description={description} canonicalURL={canonicalURL}/>
+	{schema && <JsonLd data={schema} />}
+  </head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWQVSPJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->	
+		<slot />
+	</body>
+</html>
+
+
