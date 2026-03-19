@@ -9,11 +9,10 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-// Feature the very latest post
+// Logic for tiered display
 const featuredPost = sortedPosts[0];
-const remainingPosts = sortedPosts.slice(1);
-
-const {page} = Astro.props;
+const visualPosts = sortedPosts.slice(1, 7); // Next 6 posts with images
+const archivePosts = sortedPosts.slice(7);    // Everything else (text only)
 
 const blogSchema = {
   "@context": "https://schema.org",
@@ -26,12 +25,8 @@ const blogSchema = {
     "name": "Creekside Marketing",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://creeksidemarketingpros.com/logo.png" // Replace with actual logo path
+      "url": "https://creeksidemarketingpros.com/logo.png"
     }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://creeksidemarketingpros.com/blog/"
   },
   "itemListElement": sortedPosts.map((post, index) => ({
     "@type": "ListItem",
@@ -45,113 +40,126 @@ const blogSchema = {
       "image": post.data.image,
       "author": {
         "@type": "Person",
-        "name": "Creekside Marketing Team" // Or post.data.author if available
+        "name": "Creekside Marketing Team"
       }
     }
-  })),
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://creeksidemarketingpros.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://creeksidemarketingpros.com/blog/"
-      }
-    ]
-  }
+  }))
 };
 
 import '../styles/global.css';
 ---
 
-
 <Layout
-	title="Blog - Creekside Marketing" 
-  description="Master digital advertising with Creekside Marketing’s expert blog. Explore how-to manuals, SEO strategies, and ad spend optimization guides to grow your revenue and stop wasting budget."
+  title="Blog - Creekside Marketing" 
+  description="Master digital advertising with Creekside Marketing’s expert blog."
   canonicalURL="https://creeksidemarketingpros.com/blog/"
   schema={blogSchema}
 >
-	<Nav />
+  <Nav />
 
-<main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
-  <div class="mx-auto max-w-7xl">
-    
-    <header class="mb-16 border-b border-grey-200 pb-12">
-      <h1 class="text-primary-900 text-4xl font-extrabold tracking-tight sm:text-6xl">
-        Creekside Insights
-      </h1>
-      <p class="text-grey-600 mt-6 max-w-2xl text-lg/8">
-        Expert guides on Google Ads, infrastructure planning, and digital strategy. 
-        Helping you navigate complexity with precision.
-      </p>
-    </header>
+  <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
+    <div class="mx-auto max-w-7xl">
+      
+      <header class="mb-16 border-b border-grey-200 pb-12">
+        <h1 class="text-primary-900 text-4xl font-extrabold tracking-tight sm:text-6xl">
+          Creekside Insights
+        </h1>
+        <p class="text-grey-600 mt-6 max-w-2xl text-lg/8">
+          Expert guides on Google Ads, infrastructure planning, and digital strategy. 
+          Helping you navigate complexity with precision.
+        </p>
+      </header>
 
-    {/* Featured Post - The most recent AI content */}
-    {featuredPost && (
-      <section class="mb-20">
-        <a href={`/blog/${featuredPost.slug}/`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div class="aspect-video hidden md:block overflow-hidden rounded-2xl bg-grey-200 shadow-lg transition-shadow group-hover:shadow-xl">
-            <img 
-              src={`/${featuredPost.data.image}`}
-              alt={featuredPost.data.title} 
-              class="size-full object-cover transition-transform duration-700 group-hover:scale-105" 
-            />
-          </div>
-          <div>
-            <span class="text-secondary-600 text-sm font-bold uppercase tracking-widest">Featured Article</span>
-            <h2 class="text-primary-900 mt-4 text-3xl font-bold transition-colors group-hover:text-secondary-700 sm:text-4xl">
-              {featuredPost.data.title}
-            </h2>
-            <p class="text-grey-600 mt-6 text-lg/7 line-clamp-3">
-              {featuredPost.data.description}
-            </p>
-            <div class="mt-8 flex items-center gap-2 font-bold text-primary-800">
-              Read Full Guide <span class="transition-transform group-hover:translate-x-1">→</span>
-            </div>
-          </div>
-        </a>
-        <div class="md:hidden my-8 h-px w-full bg-grey-200 dark:bg-grey-600" aria-hidden="true"></div>
-      </section>
-    )}
-
-    <section class="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-      {remainingPosts.map((post) => (
-        <article class="group flex flex-col">
-          <a href={`/blog/${post.slug}/`} class="flex flex-col h-full">
-            <div class="aspect-video hidden md:block mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
+      {/* 1. Featured Post */}
+      {featuredPost && (
+        <section class="mb-20">
+          <a href={`/blog/${featuredPost.slug}/`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div class="aspect-video hidden md:block overflow-hidden rounded-2xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
               <img 
-                src={`/${post.data.image}`}
-                alt={post.data.title} 
-                class="size-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                src={`/${featuredPost.data.image}`}
+                alt={featuredPost.data.title} 
+                class="size-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
             </div>
-            <div class="flex items-center gap-3 mb-3">
-               <span class="text-secondary-500 text-xs font-bold uppercase tracking-tighter">{post.data.category}</span>
-               <span class="text-grey-300">•</span>
-               <time class="text-grey-400 text-xs">{post.data.date.toLocaleDateString()}</time>
-            </div>
-            <h3 class="text-primary-900 text-xl font-bold leading-snug group-hover:text-secondary-600">
-              {post.data.title}
-            </h3>
-            <p class="text-grey-500 mt-4 line-clamp-2 text-sm/6 italic">
-              {post.data.description}
-            </p>
-            <div class="mt-auto pt-6 text-primary-800 text-sm font-bold flex items-center gap-1 group-hover:text-secondary-500">
-              Read Article <span>→</span>
+            <div>
+              <span class="text-secondary-600 text-sm font-bold uppercase tracking-widest">Featured Article</span>
+              <h2 class="text-primary-900 mt-4 text-3xl font-bold transition-colors group-hover:text-secondary-700 sm:text-4xl">
+                {featuredPost.data.title}
+              </h2>
+              <p class="text-grey-600 mt-6 text-lg/7 line-clamp-3">
+                {featuredPost.data.description}
+              </p>
+              <div class="mt-8 flex items-center gap-2 font-bold text-primary-800 transition-colors group-hover:text-secondary-600">
+                Read Full Guide <span class="transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
           </a>
-          <div class="my-8  md:hidden h-px w-full bg-grey-200 dark:bg-grey-600" aria-hidden="true"></div>
-        </article>
-      ))}
-    </section>
-  </div>
-</main>
-<Footer/>
+        </section>
+      )}
+
+      {/* 2. Visual Grid (Next 6 Posts) */}
+      <section class="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        {visualPosts.map((post) => (
+          <article class="group">
+            <a href={`/blog/${post.slug}/`} class="flex flex-col h-full">
+              <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
+                <img 
+                  src={post.data.image ? `/${post.data.image}` : '/creekside-marketing-pros-logo.avif'}
+                  alt={post.data.title} 
+                  class="size-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+              </div>
+              <div class="flex items-center gap-3 mb-3 text-xs font-bold uppercase tracking-tighter">
+                 <span class="text-secondary-500">{post.data.category}</span>
+                 <span class="text-grey-300" aria-hidden="true">•</span>
+                 <time class="text-grey-400">{post.data.date.toLocaleDateString()}</time>
+              </div>
+              <h3 class="text-primary-900 text-xl font-bold leading-snug transition-colors group-hover:text-secondary-600">
+                {post.data.title}
+              </h3>
+              <p class="text-grey-500 mt-4 line-clamp-2 text-sm/6 italic">
+                {post.data.description}
+              </p>
+              <div class="mt-auto pt-6 text-primary-800 text-sm font-bold flex items-center gap-1 transition-colors group-hover:text-secondary-500">
+                Read Article <span>→</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </section>
+
+      {/* 3. Text-Only Archive Section */}
+      {archivePosts.length > 0 && (
+        <section class="mt-24 border-t border-grey-200 pt-16">
+          <h2 class="text-primary-900 mb-10 text-2xl font-bold tracking-tight">More from the Archive</h2>
+          <div class="divide-y divide-grey-200">
+            {archivePosts.map((post) => (
+              <article class="group py-8 first:pt-0">
+                <a href={`/blog/${post.slug}/`} class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                  <div class="max-w-3xl">
+                    <div class="flex items-center gap-3 mb-1 text-xs font-bold uppercase tracking-tighter">
+                      <span class="text-secondary-500">{post.data.category}</span>
+                      <time class="text-grey-400">{post.data.date.toLocaleDateString()}</time>
+                    </div>
+                    <h3 class="text-primary-900 text-lg font-bold transition-colors group-hover:text-secondary-600">
+                      {post.data.title}
+                    </h3>
+                    <p class="text-grey-500 mt-1 line-clamp-1 text-sm/6">
+                      {post.data.description}
+                    </p>
+                  </div>
+                  <div class="text-primary-800 text-sm font-bold transition-colors group-hover:text-secondary-600 sm:shrink-0">
+                    Read Post <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  </main>
+
+  <Footer />
 </Layout>
