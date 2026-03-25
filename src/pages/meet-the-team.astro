@@ -22,13 +22,13 @@ const teamMembers = [
     role: "Co-Owner & Manager",
     bio: "Co-owner of Creekside Marketing with a background in accounting and an MBA, Cade specializes in data-driven Facebook advertising. He brings analytical precision and strategic optimization to help businesses scale profitably."
   },
-  // {
-  //   firstName: "Steve",
-  //   lastName: "Stone",
-  //   image: "/steve-stone-headshot.avif",
-  //   role: "Digital Marketing Consultant",
-  //   bio: "" 
-  // },
+  {
+    firstName: "Baran",
+    lastName: "Eris",
+    image: "/baran-eris.avif",
+    role: "Lead Small Business Consultant ",
+    bio: "Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth. " 
+  },
 
   {
     firstName: "Scott",
@@ -89,7 +89,7 @@ const teamMembers = [
 ];
 
 // Grouping Logic
-const leadership = teamMembers.slice(0, 3);
+const leadership = teamMembers.slice(0, 4);
 const googleTeam = teamMembers.filter(m => m.role.includes("Google Ads"));
 const metaTeam = teamMembers.filter(m => m.role.includes("Meta Ads"));
 const supportTeam = teamMembers.filter(m => 

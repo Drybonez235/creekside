@@ -89,10 +89,10 @@ export const siteSchema = {
         },
         {
           "@type": "Person",
-          "name": "Scott Caldwell",
-          "jobTitle": "Chief Small Business Consultant",
-          "description": "Digital Strategist managing multi-channel campaigns and advanced technical tracking.",
-          "image": "https://creeksidemarketingpros.com/scott-caldwell-headshot.avif"
+          "name": "Baran Eris",
+          "jobTitle": "Lead Small Business Consultant",
+          "description": "Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth.",
+          "image": "https://creeksidemarketingpros.com/baren-eris.avif"
         },
         {
           "@type": "Person",
