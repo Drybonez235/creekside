@@ -90,4 +90,6 @@ Combined segments require manual logic and custom rules. Ignore them until you h
 * **Use Observation mode** for all new campaigns.
 * **Add multiple relevant audiences** without fear of "splitting" traffic.
 * **Avoid targeting** until you have clear performance proof.
-* **Audience data is for future decisions**, such as bid adjustments, exclusions, and budget reallocation.
+* **Audience data is for future decisions**, such as [bid adjustments](/blog/google-ads-bidding-strategies-explained-how-to-choose-the-right-one-for-your-campaign-goals/), exclusions, and budget reallocation.
+
+Audience strategy is a core part of how we manage Google Ads accounts. [See our full Google Ads service](/digital-advertising/google-ads/) to learn how we apply these principles for clients.

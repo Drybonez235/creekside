@@ -311,6 +311,46 @@ export const siteSchema = {
       ]
     }
   },
+pricing: {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Creekside Marketing Ad Management",
+    "description": "Google Ads and Meta Ads management services with transparent, scalable pricing",
+    "brand": { "@type": "Brand", "name": "Creekside Marketing" },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Growth Plan",
+        "description": "Percentage-based pricing ideal for businesses starting or scaling their ad spend",
+        "priceCurrency": "USD",
+        "price": "1000",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1000", "priceCurrency": "USD", "unitText": "month", "description": "$1,000/mo minimum per platform + percentage of ad spend" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Shared Plan",
+        "description": "Flat base fee plus percentage, ideal for multi-platform advertisers spending $20k-$60k/mo",
+        "priceCurrency": "USD",
+        "price": "2000",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2000", "priceCurrency": "USD", "unitText": "month", "description": "$2,000/mo flat + 10% of ad spend" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Retainer Plan",
+        "description": "Fixed monthly fee with no variable costs, ideal for high-spend advertisers above $60k/mo",
+        "priceCurrency": "USD",
+        "price": "8000",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "8000", "priceCurrency": "USD", "unitText": "month", "description": "$8,000/mo flat fee, all platforms included" }
+      }
+    ],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://creeksidemarketingpros.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://creeksidemarketingpros.com/pricing/" }
+      ]
+    }
+  },
 googleAds: {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -376,4 +416,261 @@ googleAds: {
     }
   },
 
+};
+
+export const faqSchemas = {
+  home: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Creekside Marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Creekside Marketing is a Nashville-based digital advertising agency specializing in Google Ads and Meta (Facebook/Instagram) Ads management. Founded by Peterson Rainey, a mechanical engineer, and Cade Maclean, an accountant with an MBA, we bring a data-first, numbers-driven approach that sets us apart from typical marketing agencies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of businesses does Creekside Marketing work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We partner with businesses spending $10K to $100K per month on Google and Meta Ads. Our clients span industries including dental practices, law firms, med spas, home services, ecommerce, real estate, and more. If your business has a proven offer and is serious about growth, we can help."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the $10K Profit Recovery Audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The $10K Profit Recovery Audit is our comprehensive 247-point checklist that identifies 5-7 hidden leaks draining thousands from your Google and Meta ad accounts. We typically charge $800 for this audit, but it is free when you book a consultation call. Most fixes take less than 20 minutes to implement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Creekside Marketing different from other agencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our founders come from engineering and accounting backgrounds, not traditional marketing. We have audited over $20M in ad spend across 200+ accounts, and we focus on revenue generated for your business rather than just leads. We also guarantee a 37% ROAS improvement within 90 days or we work for free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does Creekside Marketing offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer three core services: Google Ads (PPC) management, Meta Ads (Facebook and Instagram) management, and white-label ad management for other agencies. All services include conversion tracking setup with GA4, Meta Pixel, CAPI, Google Tag Manager, and CRM integrations."
+        }
+      }
+    ]
+  },
+  googleAds: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is included in Creekside Marketing's Google Ads management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Google Ads management includes keyword research and negative keyword pruning, ad copy A/B testing, manual or smart bidding strategy selection based on your data, weekly optimizations, strategic scaling, and biweekly performance reviews. We also handle full conversion tracking setup with GA4 and Google Tag Manager."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Google Ads management cost with Creekside Marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer three transparent pricing plans based on your ad spend level — from percentage-based fees starting at $1,000/month to a flat $8,000/month retainer for high-spend advertisers. Visit our pricing page at creeksidemarketingpros.com/pricing for full plan details and a side-by-side comparison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who manages my Google Ads campaigns at Creekside?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Peterson Rainey, co-founder and mechanical engineer, leads Google Ads strategy. Your campaigns are managed by dedicated Google Ads specialists on our team. You work directly with the person optimizing your account — there are no layers of account managers between you and the expert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Creekside track conversions for Google Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We set up expert tracking using GA4, Google Tag Manager, and CRM integrations to track every lead, call, form submission, and booking. We build custom conversion events so your entire funnel is measured and you can see exactly which ads are generating revenue, not just clicks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of Google Ads campaigns does Creekside run?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We run Search, Performance Max, Display, and other campaign types depending on your goals and data. We build tightly themed, conversion-focused campaigns designed to show up when high-intent customers are searching."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly will I see results from Google Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most clients see measurable improvements within the first 30-60 days as we optimize targeting, bidding, and ad copy. We guarantee a 37% ROAS improvement within 90 days or we work for free."
+        }
+      }
+    ]
+  },
+  metaAds: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is included in Creekside Marketing's Meta Ads management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Meta Ads management includes end-to-end campaign management, high-quality creative development, compelling ad copy, advanced audience targeting, ongoing A/B testing of ad formats and messaging, and comprehensive performance analysis. We also set up Meta Pixel and Conversions API (CAPI) tracking for precise optimization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Meta Ads management cost with Creekside Marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer three transparent pricing plans — Growth, Shared, and Retainer — designed to scale with your ad budget. Multi-platform advertisers benefit from our Shared plan which covers all platforms under one base fee. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who manages my Meta Ads campaigns at Creekside?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cade Maclean, co-founder with an accounting background and MBA, leads Meta Ads strategy. Your campaigns are handled by dedicated Meta Ads specialists. You communicate directly with the person managing your ads — no account managers or middlemen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What platforms do your Meta Ads run on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We run ads across Facebook and Instagram through Meta's advertising platform. This includes feed ads, Stories, Reels, and other placements. We test different formats and placements to find what drives the best results for your specific business and audience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Creekside handle conversion tracking for Meta Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We implement Meta Pixel, Conversions API (CAPI), and server-side tracking to capture every user interaction from your ads. This ensures accurate attribution even with iOS privacy changes, and gives us the data needed to optimize campaigns toward revenue rather than vanity metrics."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Creekside help if I am already running Meta Ads but not seeing results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We start with our 247-point Profit Recovery Audit to identify the specific mistakes draining your ad budget. Most accounts have 5-7 hidden leaks that take less than 20 minutes to fix. Book a free consultation and we will show you exactly where your money is being wasted."
+        }
+      }
+    ]
+  },
+  pricing: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does Creekside Marketing charge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer three plans: Growth (percentage-based starting at $1,000/mo), Shared ($2,000/mo flat + 10% of ad spend), and Retainer ($8,000/mo flat). The best plan depends on your monthly ad budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there any long-term contracts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All plans are month-to-month with no long-term commitment required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which plan should I choose?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For budgets under $20k/month, Plan A and Plan B cost the same. Between $20k-$60k, Plan B is more cost-effective. Above $60k, Plan C (flat retainer) saves the most."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is included in the onboarding fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The onboarding fee covers full account audit, conversion tracking setup (GA4, Meta Pixel, CAPI, GTM), campaign strategy development, and initial campaign buildout. Plan C waives onboarding entirely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I switch between plans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can switch plans as your ad spend scales. Many clients start with Plan A or B and move to Plan C as their budget grows."
+        }
+      }
+    ]
+  },
+  partnerProgram: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Creekside Marketing's Partner Program?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Partner Program is a white-label service for agencies that need expert Google Ads and Meta Ads management for their clients. We operate under your brand, handling campaign management, client communication, deliverables, and ongoing optimization so your clients see results while your agency scales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the white-label partnership work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We act as an extension of your agency. We begin with an in-depth audit of your clients' existing campaigns, then manage everything from strategy to execution. Your clients communicate with our consultants who represent your brand. Reporting, deliverables, and all client-facing materials carry your agency's name."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should I outsource to Creekside instead of hiring a freelancer or another agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We combine the personal, hands-on service of a freelancer with the proven systems and scalability of an agency. Our consultants work directly on your campaigns with no middlemen, use battle-tested frameworks developed over $20M+ in ad spend, and collaborate with our entire team's collective expertise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services can I white-label through Creekside?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer white-label Google Ads (PPC) management and Meta Ads (Facebook and Instagram) management. Both include full campaign setup, audience targeting, creative strategy, A/B testing, conversion tracking, budget management, and transparent reporting that you can present to your clients under your brand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I scale up the number of client accounts I white-label with Creekside?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, scalability is a core advantage of our partner model. Adding additional consultants to handle new client accounts is seamless and disruption-free. As your agency grows, our capacity grows with you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started with Creekside's Partner Program?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Schedule a call through our website to discuss your agency's needs and the clients you want to onboard. We will walk through our process, review your current accounts, and build a partnership plan tailored to your agency. There is no long-term commitment required to start."
+        }
+      }
+    ]
+  },
 };

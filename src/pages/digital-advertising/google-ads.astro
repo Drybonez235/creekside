@@ -3,7 +3,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro'
 import Layout from '../../layouts/Layout.astro';
 import Scheduleconsultatioin from '../../components/Schedule-consultation.astro'
-import { siteSchema } from '../../data/structuredData';
+import { siteSchema, faqSchemas } from '../../data/structuredData';
 
 import '../../styles/global.css';
 ---
@@ -13,6 +13,7 @@ import '../../styles/global.css';
   description="Maximize online visibility with expert Google Ads management. Backed by $20M+ in audited spend, we build high-converting, tightly themed campaigns with expert GA4 tracking to drive real ROI."
   canonicalURL="https://creeksidemarketingpros.com/digital-advertising/google-ads/"
   schema={siteSchema.googleAds}
+  faqSchema={faqSchemas.googleAds}
   >
 	<Nav />
     <section class="bg-grey-50 py-16 lg:py-24">

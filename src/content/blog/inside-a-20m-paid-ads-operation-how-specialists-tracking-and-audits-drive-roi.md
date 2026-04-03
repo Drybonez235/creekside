@@ -14,14 +14,14 @@ After auditing more than 200 Google Ads and Meta Ads accounts and reviewing over
 One of the biggest myths in paid advertising is the idea that one person can do everything well. If someone tells you they’re an expert in Google Ads, Meta Ads, TikTok, SEO, CRO, and analytics, they are likely stretched too thin.
 
 That’s why our operation is built around clear specialization:
-* **Google Ads and Acquisition Strategy:** My core focus.
-* **Meta Ads Specialist:** My partner, Cade, handles Facebook and Instagram.
+* **[Google Ads and Acquisition Strategy](/digital-advertising/google-ads/):** My core focus.
+* **[Meta Ads Specialist](/digital-advertising/meta-ads/):** My partner, Cade, handles Facebook and Instagram.
 
 Platform mechanics, auction dynamics, and optimization levers are fundamentally different. Specialists catch things generalists miss, and that difference shows up directly in your ROI.
 
 ### Experience at Scale: $20M+ Audited Across 200+ Accounts
 
-We don’t rely on theory. Our processes were built by auditing dozens of failing accounts and pressure-testing fixes across different industries and budgets. This includes white-label work for agencies and ongoing partnerships with firms like **Duct Tape Marketing**. Running ads for one company is easy; running ads across hundreds of accounts forces you to build systems that actually hold up.
+We don’t rely on theory. Our processes were built by auditing dozens of failing accounts and pressure-testing fixes across different industries and budgets. See the results in our [case studies](/case-study-digital-marketing/). This includes [white-label work for agencies](/creekside-marketing-partner-program/) and ongoing partnerships with firms like **Duct Tape Marketing**. Running ads for one company is easy; running ads across hundreds of accounts forces you to build systems that actually hold up.
 
 ### Radical Transparency
 
@@ -62,3 +62,5 @@ Most sales calls promise growth, but few can explain how they produce it. Our ap
 * **Conversion tracking** is the foundation of ROI—not an afterthought.
 * Transparent account ownership protects the client and builds long-term trust.
 * Data fluency is a competitive advantage that most agencies lack.
+
+Want a specialist-led team managing your paid ads? [Contact us](/contact/) for a free account audit.

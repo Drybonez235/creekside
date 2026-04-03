@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-const { title, description, canonicalURL, schema } = Astro.props; // image
+const { title, description, canonicalURL, schema, faqSchema } = Astro.props; // image
 import JsonLd from '../components/JsonLd.astro';
 import Popup from "../components/Popup.astro"
 
@@ -11,6 +11,7 @@ import Popup from "../components/Popup.astro"
 	<head>
     <BaseHead title={title} description={description} canonicalURL={canonicalURL}/>
 	{schema && <JsonLd data={schema} />}
+	{faqSchema && <JsonLd data={faqSchema} />}
   </head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->

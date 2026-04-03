@@ -32,7 +32,7 @@ Search campaigns also allow you to **optionally include**:
 That flexibility is important. You can test broader reach without committing your entire budget to lower-intent traffic.
 
 **Our default recommendation:**
-If you’re a service business, local business, or B2B company, start with Search. Almost always.
+If you’re a service business, local business, or B2B company, start with Search. Almost always. Once you’ve chosen Search, the next decision is [which bidding strategy to use](/blog/google-ads-bidding-strategies-explained-how-to-choose-the-right-one-for-your-campaign-goals/).
 
 ---
 
@@ -53,7 +53,7 @@ It sounds efficient—and sometimes it is—but there’s a tradeoff.
 * Google automates targeting, placements, and often ad copy
 * Works best when you already have strong conversion data
 
-I think of Performance Max as a less controlled version of Search. It can scale accounts that already perform well, but it’s rarely where I’d start from scratch.
+I think of Performance Max as a less controlled version of Search. It can scale accounts that already perform well, but it’s rarely where I’d start from scratch. If you’re already running PMax, here’s [how to stop it from wasting your budget](/blog/the-easiest-way-to-stop-performance-max-from-wasting-your-google-ads-budget/).
 
 **WHEN PMAX MAKES SENSE**
 * Limited time to manage campaigns
@@ -143,4 +143,4 @@ Here’s the simplified decision framework we use:
 * Shopping is ecommerce-only—no exceptions.
 * Video success depends almost entirely on creative quality.
 
-Choosing the wrong campaign type won’t just hurt performance—it will make optimization impossible. Start simple, prove intent, then expand.
+Choosing the wrong campaign type won’t just hurt performance—it will make optimization impossible. Start simple, prove intent, then expand. If you’d rather have a specialist handle it, [see how our Google Ads team structures campaigns](/digital-advertising/google-ads/) from day one.

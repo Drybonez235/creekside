@@ -7,7 +7,7 @@ category: "Performance Management & SOPs"
 tags: ["GoogleAds", "PerformanceMax", "Audit", "Troubleshooting"]
 ---
 
-Performance Max is powerful—but it’s also one of the easiest ways to waste budget if you let Google run completely unchecked. The platform is designed to automate targeting across Search, Display, YouTube, Discover, and Gmail. In practice, this often means your ads end up on sketchy mobile game sites or converting users who were already searching for your brand anyway.
+Performance Max is powerful—but it’s also one of the easiest ways to waste budget if you let Google run completely unchecked. The platform is designed to automate targeting across Search, Display, YouTube, Discover, and Gmail. (Not sure if PMax is even right for you? Read our [campaign type breakdown](/blog/google-ads-campaign-types-explained-how-to-choose-the-right-one-for-your-business/) first.) In practice, this often means your ads end up on sketchy mobile game sites or converting users who were already searching for your brand anyway.
 
 The good news: you don’t need scripts or advanced hacks to clean this up. Below are two high-impact optimizations I run on almost every Performance Max campaign to improve lead quality.
 
@@ -48,10 +48,12 @@ These optimizations aren't flashy, but together they:
 * **Improve lead quality** by focusing on intent.
 * **Force incremental growth** by moving away from brand poaching.
 
-Performance Max isn’t “set it and forget it.” It’s “trust, but verify.”
+Performance Max isn’t “set it and forget it.” It’s “trust, but verify.” See how this approach drives real results in our [case studies](/case-study-digital-marketing/).
 
 ### Key Takeaways
 * Review **Performance Max placement reports** monthly; Google won't show them proactively.
 * Use **Limited Inventory** settings to protect brand safety and budget.
 * **Exclude brand terms** to ensure you are reaching new audiences.
 * Guardrails are essential for automated campaigns to produce high-quality ROI.
+
+Performance Max requires constant oversight to perform. [Our Google Ads management team](/digital-advertising/google-ads/) runs these audits monthly — so your budget goes to real prospects.

@@ -30,17 +30,28 @@ import Form from '../components/Form.astro'
         </p>
         <Form idPrefix="Scheduleconsultation"/>
 
-        <div class="mt-10 flex flex-col sm:flex-row items-center gap-6">
-          <a 
-            href="https://calendly.com/creekside_marketing/creekside-marketing-strategy-call" 
-            class="inline-flex items-center justify-center px-8 py-4 bg-secondary-500 text-white font-bold uppercase tracking-wider rounded-sm transition-all duration-300 hover:bg-secondary-600 hover:shadow-sm active:scale-95 group"
-          >
-            <span>Book Your Call Now</span>
-            <svg class="ml-2 size-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        <!-- Calendly inline widget: lazy-loaded via Intersection Observer for LCP improvement -->
+        <div id="calendly-lazy-container" class="mt-10">
+          <!-- Placeholder shown before Calendly loads -->
+          <div id="calendly-placeholder" class="flex flex-col items-center gap-4 rounded-sm border-2 border-dashed border-grey-200 bg-grey-50 p-8 text-center">
+            <svg class="size-10 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
-          </a>
-          
+            <p class="text-lg font-bold text-primary-900 uppercase tracking-wide">Book Your Strategy Call</p>
+            <p class="text-sm text-grey-500">Loading calendar...</p>
+            <noscript>
+              <a
+                href="https://calendly.com/creekside_marketing/creekside-marketing-strategy-call"
+                class="inline-flex items-center justify-center px-8 py-4 bg-secondary-500 text-white font-bold uppercase tracking-wider rounded-sm"
+              >Book Your Call Now</a>
+            </noscript>
+          </div>
+
+          <!-- Calendly widget mounts here after lazy load -->
+          <div id="calendly-inline-widget" class="hidden" style="min-width:320px;height:700px;"></div>
+        </div>
+
+        <div class="mt-4 flex flex-col sm:flex-row items-center gap-6">
           <div class="flex flex-col">
             <span class="text-sm font-bold text-primary-900 uppercase">Risk-Free</span>
             <span class="text-xs text-grey-500">Includes $10K Profit Audit</span>
@@ -50,6 +61,58 @@ import Form from '../components/Form.astro'
         <p class="mt-8 text-sm text-grey-500 italic border-l-2 border-secondary-500 pl-4">
           "The biggest risk you can take is not hopping on a call with us to explore how much more your campaigns could achieve."
         </p>
+
+        <script>
+          (function () {
+            var loaded = false;
+            var container = document.getElementById('calendly-lazy-container');
+            if (!container) return;
+
+            function loadCalendly() {
+              if (loaded) return;
+              loaded = true;
+
+              // Load Calendly CSS
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://assets.calendly.com/assets/external/widget.css';
+              document.head.appendChild(link);
+
+              // Load Calendly JS, then init the widget
+              var script = document.createElement('script');
+              script.src = 'https://assets.calendly.com/assets/external/widget.js';
+              script.onload = function () {
+                var placeholder = document.getElementById('calendly-placeholder');
+                var widget = document.getElementById('calendly-inline-widget');
+                if (placeholder) placeholder.classList.add('hidden');
+                if (widget) {
+                  widget.classList.remove('hidden');
+                  Calendly.initInlineWidget({
+                    url: 'https://calendly.com/creekside_marketing/creekside-marketing-strategy-call',
+                    parentElement: widget,
+                  });
+                }
+              };
+              document.head.appendChild(script);
+            }
+
+            // Use Intersection Observer to lazy-load when section scrolls into view
+            if ('IntersectionObserver' in window) {
+              var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    loadCalendly();
+                    observer.disconnect();
+                  }
+                });
+              }, { rootMargin: '200px' });
+              observer.observe(container);
+            } else {
+              // Fallback for older browsers: load after a short delay
+              setTimeout(loadCalendly, 3000);
+            }
+          })();
+        </script>
       </div>
 
     </div>

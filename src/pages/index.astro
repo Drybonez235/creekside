@@ -5,7 +5,7 @@ import Scheduleconsultatioin from '../components/Schedule-consultation.astro'
 import Footer from '../components/Footer.astro'
 import Clienttrust from '../components/Clienttrust.astro'
 import ClientCard from '../components/ClientCard.astro';
-import { siteSchema } from '../data/structuredData';
+import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
 ---
 
@@ -14,6 +14,7 @@ import '../styles/global.css';
   description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS by 37% with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
   canonicalURL="https://creeksidemarketingpros.com/"
   schema={siteSchema.home}
+  faqSchema={faqSchemas.home}
 >
 	<Nav />
 	<section class="relative min-h-dvh flex items-center overflow-hidden bg-primary-900 py-20 lg:py-32">

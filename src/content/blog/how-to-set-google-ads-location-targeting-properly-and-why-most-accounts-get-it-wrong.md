@@ -40,7 +40,7 @@ Yes, the clicks are cheap. No, they don’t convert.
 Always change this to:
 **Presence: People in or regularly in your targeted locations**
 
-This single switch is often the difference between cheap, useless traffic and fewer clicks that actually turn into leads. If you’re targeting a specific geographic area and you skip this step, everything else is damage control.
+This single switch is often the difference between cheap, useless traffic and fewer clicks that actually turn into leads. If you’re targeting a specific geographic area and you skip this step, everything else is damage control. We cover this and other essential launch settings in our guide to [launching Google Ads with no conversion data](/blog/launching-google-ads-with-no-conversion-data-start-with-these-campaign-settings/).
 
 ## STEP 2: USE ADVANCED LOCATION SEARCH (NOT THE BASIC INPUT)
 
@@ -148,3 +148,5 @@ You don’t have to do this to analyze location data—Google reports can show p
 * Be aggressive with **excluded locations**
 * Radius targeting works best for large metros and drive-time businesses
 * Consider breaking locations into segments for advanced optimization
+
+Location targeting is one of many settings we lock down for every client from day one. [See how our Google Ads management works](/digital-advertising/google-ads/).

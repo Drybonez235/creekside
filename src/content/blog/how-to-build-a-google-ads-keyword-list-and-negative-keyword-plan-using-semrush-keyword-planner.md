@@ -73,4 +73,8 @@ Use your spreadsheet to choose starting keywords based on two main columns:
 * Use **Phrase + Exact** match to keep intent clean early.
 * Add **Broad match** only once you have strong negatives and a budget to learn.
 
+For full launch settings, see our guide on [launching Google Ads with no conversion data](/blog/launching-google-ads-with-no-conversion-data-start-with-these-campaign-settings/).
+
+Want a team that does this research for every campaign? [Learn about our Google Ads management service](/digital-advertising/google-ads/) — keyword planning, negative lists, and ongoing optimization included.
+
 ---

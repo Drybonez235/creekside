@@ -15,8 +15,8 @@ That’s exactly why we started using a new strategy-generation tool here at **C
 
 What we’re actually aiming for is much deeper than a few bullet points:
 * **SEO strategy** (technical, on-page, and content)
-* **Google Ads** and paid search structure
-* **Facebook** and paid social targeting
+* **[Google Ads](/digital-advertising/google-ads/)** and paid search structure
+* **[Facebook](/digital-advertising/meta-ads/)** and paid social targeting
 * **Full-funnel planning** (TOF, MOF, and BOF)
 * **Retention** and upsell strategies
 
@@ -50,7 +50,7 @@ Once generated, you receive a playbook that covers:
 * **Execution Guidance:** What to do first and what experiments to test.
 
 ### How We Use This With Clients
-To be blunt: this is a lot of information. Most businesses don’t want—or need—to implement everything at once. We typically:
+To be blunt: this is a lot of information. Most businesses don’t want—or need—to implement everything at once. That’s why we also offer a [partner program](/creekside-marketing-partner-program/) for agencies who want strategy support without the overhead. We typically:
 1.  Start with high-ROI channels (usually paid search or local SEO).
 2.  Roll out strategies in phases.
 3.  Reinvest profits into additional campaigns as results improve.
@@ -63,3 +63,5 @@ Most marketing failures come down to **disconnected execution**. This system for
 * Defining differentiators is just as important as defining audiences.
 * Execution guidance matters more than generic recommendations.
 * Phased implementation beats trying to do everything at once.
+
+Ready to build a strategy for your business? [Get in touch with our team](/contact/) to get started.

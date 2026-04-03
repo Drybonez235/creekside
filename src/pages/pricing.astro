@@ -1,0 +1,405 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import ScheduleConsultation from '../components/Schedule-consultation.astro';
+import { siteSchema, faqSchemas } from '../data/structuredData';
+
+import '../styles/global.css';
+---
+
+<Layout
+  title="Pricing - Creekside Marketing"
+  description="Transparent, scalable pricing for Google Ads and Meta Ads management. Three plans to fit your ad spend — no hidden fees, no long-term contracts."
+  canonicalURL="https://creeksidemarketingpros.com/pricing/"
+  schema={siteSchema.pricing}
+  faqSchema={faqSchemas.pricing}
+>
+  <Nav />
+
+  <!-- Hero Section -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <header class="flex flex-col items-center gap-4">
+          <h1 class="text-primary-900 text-3xl font-extrabold tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+            Transparent Pricing, <span class="text-secondary-500">Real Results</span>
+          </h1>
+          <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        </header>
+        <p class="text-grey-700 max-w-2xl text-lg/8">
+          Choose the plan that fits your ad spend. No hidden fees, no long-term contracts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards Section -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+        <!-- Plan A — Growth -->
+        <div class="relative flex flex-col rounded-sm border-2 border-grey-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+          <div class="h-1 w-full rounded-t-sm bg-secondary-500"></div>
+          <div class="flex flex-1 flex-col p-8">
+            <div class="mb-6">
+              <p class="text-sm font-bold uppercase tracking-widest text-secondary-500">Plan A</p>
+              <h3 class="text-primary-900 text-2xl font-extrabold uppercase tracking-tight">Growth</h3>
+            </div>
+
+            <div class="flex flex-1 flex-col divide-y divide-grey-100">
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Minimum Fee</span>
+                <span class="text-lg font-bold text-primary-900">$1,000<span class="text-sm font-medium text-grey-500">/mo per platform</span></span>
+              </div>
+              <div class="flex flex-col gap-1 py-4">
+                <span class="text-sm font-medium text-grey-600">Variable Fee</span>
+                <div class="flex flex-col gap-0.5 text-sm font-semibold text-primary-900">
+                  <span>20% up to $20k</span>
+                  <span>15% from $20k&ndash;$40k</span>
+                  <span>10% above $40k</span>
+                </div>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Monthly Cap</span>
+                <span class="text-lg font-bold text-primary-900">$12,000</span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Onboarding</span>
+                <span class="text-lg font-bold text-primary-900">$1,000<span class="text-sm font-medium text-grey-500"> per platform</span></span>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                href="#freequote"
+                class="bg-secondary-500 hover:bg-secondary-600 block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan B — Shared (Most Popular) -->
+        <div class="relative flex flex-col rounded-sm border-2 border-secondary-500 bg-white shadow-md transition-shadow hover:shadow-lg md:-mt-4 md:mb-[-1rem]">
+          <div class="h-1 w-full rounded-t-sm" style="background-color: #10b981;"></div>
+          <!-- Most Popular Badge -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="inline-block rounded-full bg-secondary-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white shadow-sm">
+              Most Popular
+            </span>
+          </div>
+          <div class="flex flex-1 flex-col p-8 pt-10">
+            <div class="mb-6">
+              <p class="text-sm font-bold uppercase tracking-widest" style="color: #10b981;">Plan B</p>
+              <h3 class="text-primary-900 text-2xl font-extrabold uppercase tracking-tight">Shared</h3>
+            </div>
+
+            <div class="flex flex-1 flex-col divide-y divide-grey-100">
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Base Fee</span>
+                <span class="text-lg font-bold text-primary-900">$2,000<span class="text-sm font-medium text-grey-500">/mo flat</span></span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Variable Fee</span>
+                <span class="text-lg font-bold text-primary-900">10%<span class="text-sm font-medium text-grey-500"> of total combined spend</span></span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Monthly Cap</span>
+                <span class="text-lg font-bold text-primary-900">$10,000</span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Onboarding</span>
+                <span class="text-lg font-bold text-primary-900">$1,000<span class="text-sm font-medium text-grey-500"> per platform</span></span>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                href="#freequote"
+                class="bg-secondary-500 hover:bg-secondary-600 block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan C — Retainer -->
+        <div class="relative flex flex-col rounded-sm border-2 border-grey-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+          <div class="h-1 w-full rounded-t-sm bg-grey-500"></div>
+          <div class="flex flex-1 flex-col p-8">
+            <div class="mb-6">
+              <p class="text-sm font-bold uppercase tracking-widest text-grey-500">Plan C</p>
+              <h3 class="text-primary-900 text-2xl font-extrabold uppercase tracking-tight">Retainer</h3>
+            </div>
+
+            <div class="flex flex-1 flex-col divide-y divide-grey-100">
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Base Fee</span>
+                <span class="text-lg font-bold text-primary-900">$8,000<span class="text-sm font-medium text-grey-500">/mo flat</span></span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Variable Fee</span>
+                <span class="text-lg font-bold text-primary-900">None<span class="text-sm font-medium text-grey-500"> &mdash; 0% of ad spend</span></span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Monthly Cap</span>
+                <span class="text-lg font-bold text-primary-900">N/A<span class="text-sm font-medium text-grey-500"> &mdash; fee is fixed</span></span>
+              </div>
+              <div class="flex items-baseline justify-between py-4">
+                <span class="text-sm font-medium text-grey-600">Onboarding</span>
+                <span class="text-lg font-bold text-primary-900">$0<span class="text-sm font-medium text-grey-500"> &mdash; waived</span></span>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a
+                href="#freequote"
+                class="bg-secondary-500 hover:bg-secondary-600 block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Chart Section -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 flex flex-col items-center gap-4 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+          How the Plans <span class="text-secondary-500">Compare</span>
+        </h2>
+        <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-700 max-w-3xl text-lg/8">
+          Plans A and B cost exactly the same at $20,000/month in ad spend. As your budget scales past $60,000/month, Plan C (the flat retainer) becomes the most cost-effective option.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div class="rounded-sm border border-grey-200 bg-white p-6 shadow-sm">
+          <h3 class="text-primary-900 mb-4 text-center text-lg font-bold uppercase tracking-wider">Single Platform</h3>
+          <canvas id="chart-single" class="w-full"></canvas>
+        </div>
+        <div class="rounded-sm border border-grey-200 bg-white p-6 shadow-sm">
+          <h3 class="text-primary-900 mb-4 text-center text-lg font-bold uppercase tracking-wider">Two Platforms (50/50 Split)</h3>
+          <canvas id="chart-dual" class="w-full"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Which Plan Section -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 flex flex-col items-center gap-4 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+          Which Plan Is <span class="text-secondary-500">Right for You?</span>
+        </h2>
+        <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+      </header>
+
+      <div class="flex flex-col gap-6">
+        <div class="rounded-sm border-2 border-secondary-500 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="bg-secondary-500 mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">A</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">Under $20k/month in ad spend</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                Plan A and Plan B cost the same at this range. Choose <strong>Plan A</strong> if you are focused on a single platform, or <strong>Plan B</strong> if you want multi-platform coverage under one base fee.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-sm border-2 border-secondary-500 bg-white p-8 shadow-sm" style="border-color: #10b981;">
+          <div class="flex items-start gap-4">
+            <span class="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white" style="background-color: #10b981;">B</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">$20k&ndash;$60k/month in ad spend</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                <strong>Plan B</strong> is the most cost-effective in this range. The flat base plus 10% variable costs less than Plan A's tiered structure.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-sm border-2 border-grey-400 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-grey-500 text-sm font-bold text-white">C</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">$60k+ per month in ad spend</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                <strong>Plan C</strong> (flat retainer) saves the most at scale. With zero variable fees and waived onboarding, it is the clear choice for high-spend advertisers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary-900 py-16 lg:py-24">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl/tight lg:text-5xl/tight">
+        Not sure which plan fits? <span class="text-secondary-300">Let's talk.</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg/8 text-primary-100/80">
+        Book a free strategy call and we will walk through your ad spend, goals, and the plan that makes the most sense for your business.
+      </p>
+      <div class="mt-10">
+        <a
+          href="#freequote"
+          class="bg-secondary-500 hover:bg-secondary-600 inline-block rounded-sm px-8 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+        >
+          Schedule A Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ScheduleConsultation />
+  <Footer />
+</Layout>
+
+<script>
+  // Lazy-load Chart.js and render comparison charts
+  (function () {
+    var chartsLoaded = false;
+    var container = document.querySelector('#chart-single');
+    if (!container) return;
+
+    function buildCharts() {
+      if (chartsLoaded) return;
+      chartsLoaded = true;
+
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+      script.onload = function () {
+        renderCharts();
+      };
+      document.head.appendChild(script);
+    }
+
+    function calcPlanA_single(spend) {
+      if (spend <= 0) return 0;
+      var fee = 0;
+      if (spend <= 20000) {
+        fee = spend * 0.20;
+      } else if (spend <= 40000) {
+        fee = 4000 + (spend - 20000) * 0.15;
+      } else {
+        fee = 4000 + 3000 + (spend - 40000) * 0.10;
+      }
+      fee = Math.max(fee, 1000);
+      return Math.min(fee, 12000);
+    }
+
+    function calcPlanA_dual(totalSpend) {
+      var perPlatform = totalSpend / 2;
+      var feePerPlatform = calcPlanA_single(perPlatform);
+      return Math.min(feePerPlatform * 2, 12000);
+    }
+
+    function calcPlanB(spend) {
+      var fee = 2000 + spend * 0.10;
+      return Math.min(fee, 10000);
+    }
+
+    function calcPlanC() {
+      return 8000;
+    }
+
+    function renderCharts() {
+      var spendPoints = [0, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000];
+      var labels = spendPoints.map(function (v) { return '$' + (v / 1000) + 'k'; });
+
+      var singleA = spendPoints.map(calcPlanA_single);
+      var singleB = spendPoints.map(calcPlanB);
+      var singleC = spendPoints.map(calcPlanC);
+
+      var dualA = spendPoints.map(calcPlanA_dual);
+      var dualB = spendPoints.map(calcPlanB);
+      var dualC = spendPoints.map(calcPlanC);
+
+      var commonOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 13, weight: 'bold' } } },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                return ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+              },
+              title: function (items) {
+                return items[0].label + ' Ad Spend';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 14000,
+            ticks: {
+              stepSize: 2000,
+              callback: function (value) { return '$' + value.toLocaleString(); },
+              font: { size: 12 }
+            },
+            title: { display: true, text: 'Monthly Agency Fee', font: { size: 13, weight: 'bold' } },
+            grid: { color: '#e2e8f0' }
+          },
+          x: {
+            ticks: { font: { size: 11 } },
+            title: { display: true, text: 'Monthly Ad Spend', font: { size: 13, weight: 'bold' } },
+            grid: { color: '#e2e8f0' }
+          }
+        }
+      };
+
+      function makeDatasets(dataA, dataB, dataC) {
+        return [
+          { label: 'Plan A — Growth', data: dataA, borderColor: '#102a43', backgroundColor: '#102a43', tension: 0, borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, borderDash: [] },
+          { label: 'Plan B — Shared', data: dataB, borderColor: '#f59e0b', backgroundColor: '#f59e0b', tension: 0, borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, borderDash: [8, 4] },
+          { label: 'Plan C — Retainer', data: dataC, borderColor: '#10b981', backgroundColor: '#10b981', tension: 0, borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, borderDash: [4, 4] }
+        ];
+      }
+
+      new Chart(document.getElementById('chart-single'), {
+        type: 'line',
+        data: { labels: labels, datasets: makeDatasets(singleA, singleB, singleC) },
+        options: commonOptions
+      });
+
+      new Chart(document.getElementById('chart-dual'), {
+        type: 'line',
+        data: { labels: labels, datasets: makeDatasets(dualA, dualB, dualC) },
+        options: commonOptions
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            buildCharts();
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      observer.observe(container.closest('section'));
+    } else {
+      setTimeout(buildCharts, 2000);
+    }
+  })();
+</script>

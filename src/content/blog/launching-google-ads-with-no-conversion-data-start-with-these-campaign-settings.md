@@ -12,13 +12,13 @@ Launching Google Ads in a brand-new account is where most advertisers burn money
 When you have little or no conversion data, Google’s automation doesn’t have enough signals to optimize intelligently. The goal of a new account isn’t perfection; it’s **collecting clean, high-intent data** as quickly as possible so you can move into profitable optimization.
 
 ### Start With a Search Campaign (Not Performance Max)
-When creating a new campaign, choose **“Create a campaign without guidance”** and select **Search**. While Performance Max can work well later, Search gives you full keyword control and faster feedback loops. It is the quickest way to learn what people actually type before they convert.
+When creating a new campaign, choose **“Create a campaign without guidance”** and select **Search**. While Performance Max can work well later, Search gives you full keyword control and faster feedback loops. It is the quickest way to learn what people actually type before they convert. (Not sure which campaign type? See our [complete guide](/blog/google-ads-campaign-types-explained-how-to-choose-the-right-one-for-your-business/).)
 
 ### Conversion Tracking Is Non-Negotiable
 Before launching anything, conversion tracking must be set up via Google Tag Manager, GA4, or native Google Ads conversions. If Google doesn’t know what a conversion looks like, every optimization decision is blind. Traffic without data is just an expensive experiment.
 
 ### Start With Maximize Clicks (Yes, Really)
-This is where most advertisers get it wrong. In a new account, **do not start with Maximize Conversions** because Google has nothing to optimize toward yet. Instead, start with **Maximize Clicks**, with two caveats:
+This is where most advertisers get it wrong. In a new account, **do not start with Maximize Conversions** because Google has nothing to optimize toward yet. Instead, start with **[Maximize Clicks](/blog/google-ads-bidding-strategies-explained-how-to-choose-the-right-one-for-your-campaign-goals/)**, with two caveats:
 1.  **Only Use Phrase and Exact Match:** Avoid Broad Match entirely. You must control intent manually.
 2.  **The Switch:** Move to Maximize Conversions only after the account (not just the campaign) has reached roughly **20–30 conversions**.
 
@@ -27,7 +27,7 @@ Always uncheck **Search Partners** and the **Display Network**. These networks o
 
 ### Fix Your Location Targeting (The Money Saver)
 Under Location options, select:
-**Presence:** People in or regularly in your targeted locations.
+**Presence:** People in or regularly in your targeted locations. For details, see our [location targeting guide](/blog/how-to-set-google-ads-location-targeting-properly-and-why-most-accounts-get-it-wrong/).
 
 **Never** use “Presence or interest.” If you don't fix this, Google may show your local ads to people thousands of miles away who once searched for your city. For local services, keep your radius tight (10–20 miles) to ensure high conversion rates.
 
@@ -46,3 +46,5 @@ Exclude your own brand to avoid wasting money on organic traffic you would have 
 * **Gather Data:** Use Maximize Clicks to prime the pump.
 * **Pivot:** Switch to Maximize Conversions once you have ~20–30 conversions.
 * **Refine:** Observe audiences and use exclusions to keep data clean.
+
+Launching your first Google Ads campaign can be overwhelming. [Our Google Ads team](/digital-advertising/google-ads/) handles every setting from day one — so you don't burn budget learning.

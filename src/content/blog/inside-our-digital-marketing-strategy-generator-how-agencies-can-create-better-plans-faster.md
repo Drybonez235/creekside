@@ -25,7 +25,7 @@ The first mistake most marketers make is jumping straight into platforms. Instea
 1. Brand name or product name
 2. Business type
 
-In our example, we used a full-service auto repair shop that we already manage Google Ads for. Here’s the key insight: **You don’t need perfect information.** If you’re an agency, or even a consultant pitching a prospect, you can usually pull everything you need from the homepage, services page, and about page.
+In our example, we used a full-service auto repair shop that we already manage Google Ads for. Here’s the key insight: **You don’t need perfect information.** If you’re an agency, or even a consultant pitching a prospect, you can usually pull everything you need from the homepage, services page, and about page. Agencies can also explore our [partner program](/creekside-marketing-partner-program/) for done-for-you strategy support.
 
 ## STEP 2: DESCRIBE THE SERVICE (USE THE CLIENT’S OWN LANGUAGE)
 
@@ -80,7 +80,7 @@ Once entered, the strategy is generated in a few minutes. You get a full-funnel 
 ## WHY THIS WORKS FOR SMBs
 
 Executing a full strategy takes time and resources. That’s why we often recommend **piecemealing execution**:
-1. Start with high-intent Google Ads
+1. Start with [high-intent Google Ads](/digital-advertising/google-ads/)
 2. Use early wins to fund SEO or remarketing
 3. Reinvest profits into additional channels
 
@@ -92,4 +92,4 @@ This approach lowers risk while still moving toward a complete ecosystem.
 * Differentiators matter more than platforms.
 * Execution should be phased, not forced.
 
-A good strategy doesn’t just tell you what to do—it tells you **what to do first.**
+A good strategy doesn’t just tell you what to do—it tells you **what to do first.** [Talk to our team](/contact/) to build yours.

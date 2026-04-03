@@ -29,7 +29,7 @@ Every conversion action is treated equally. A phone call, form submission, chatb
 
 That 15-conversion threshold matters. In practice, Google’s algorithm needs roughly 30 conversions in a 30-day window to stabilize, but campaigns often begin performing reliably once they cross ~15 per month.
 
-> **Common pitfall:** Advertisers turn this on with low budgets and minimal data, then wonder why Google barely spends. Without enough signals, the system gets conservative—and stalls.
+> **Common pitfall:** Advertisers turn this on with low budgets and minimal data, then wonder why Google barely spends. Without enough signals, the system gets conservative—and stalls. If you're starting from scratch, see our guide on [launching Google Ads with no conversion data](/blog/launching-google-ads-with-no-conversion-data-start-with-these-campaign-settings/).
 
 ---
 
@@ -105,3 +105,5 @@ Here’s the practical decision framework most advertisers should follow:
 * **Conversion Value** only works when values are accurate—not guesses.
 * **Maximize Clicks** is a powerful short-term strategy for learning and traction.
 * **Impression Share** is about visibility, not ROI.
+
+Need help choosing the right bidding strategy for your account? [Our Google Ads management team](/digital-advertising/google-ads/) builds campaigns around your data — not guesswork.
