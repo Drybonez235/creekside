@@ -92,7 +92,7 @@ export const siteSchema = {
           "name": "Baran Eris",
           "jobTitle": "Lead Small Business Consultant",
           "description": "Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth.",
-          "image": "https://creeksidemarketingpros.com/baren-eris.avif"
+          "image": "https://creeksidemarketingpros.com/baran-eris.avif"
         },
         {
           "@type": "Person",
@@ -217,7 +217,7 @@ export const siteSchema = {
       "@type": "ProfessionalService",
       "name": "Creekside Marketing",
       "image": "https://creeksidemarketingpros.com/creekside-marketing-logo-sqaure.avif",
-      "telePhone": "+19313424114",
+      "telephone": "+19313424114",
       "email": "info@creeksidemarketingpros.com",
       "address": {
         "@type": "PostalAddress",
