@@ -6,22 +6,73 @@ logo: "../logos/MedSpa-Logo.svg"
 logo-alt: "Advanced Medical Spa Logo"
 summary: "How we saved a 3-location medical spa from closing a branch by cutting cost-per-acquisition in half."
 tags: ["Google Ads", "Meta Ads", "Medical Marketing", "CRO"]
-metrics: 
+metrics:
   roas: "2x Conv"
   scale: "+50% Spend"
 featured: true
+heroTitle: "How {CLIENT} Went from Nearly Closing a Branch to Planning a 4th Location"
+heroSubtitle: "A 3-location medical spa in North Atlanta was on the verge of shutting down a branch. We turned it around by cutting cost-per-acquisition in half."
+clientInfo:
+  - label: "Client"
+    value: "Advanced Medical Spa"
+  - label: "Location"
+    value: "North Atlanta, GA"
+  - label: "Industry"
+    value: "Medical Spa"
+  - label: "Service"
+    value: "Google Ads + Meta Ads"
+metricStrip:
+  - value: "2x"
+    label: "Conversion Increase"
+  - value: "50%"
+    label: "Lower CPA vs Industry"
+  - value: "$5.40"
+    label: "Meta Cost/Conv"
+  - value: "+50%"
+    label: "Ad Spend Growth"
+sections:
+  - type: "text"
+    sectionLabel: "The Challenge"
+    heading: "A MedSpa on the Verge of Closing a Branch"
+    paragraphs:
+      - "In 2023, Advanced Medical Spa (AMS) was struggling to grow its 3 locations in the North Atlanta area. They had worked with digital marketing agencies before, with little to show for the time and money invested. AMS was in danger of having to shut down a branch."
+  - type: "text"
+    sectionLabel: "The Strategy"
+    heading: "Three-Pronged Digital Turnaround"
+    paragraphs:
+      - "Creekside Marketing Pros implemented a three-pronged turnaround strategy. We targeted local keywords with high purchase intent to drive store traffic through Google Search. We used stunning ad creatives on Facebook and Instagram to draw potential customers via social media. And we worked side-by-side with their web team to craft high-converting landing pages."
+    tags:
+      - "Google Ads"
+      - "Meta Ads"
+      - "Landing Page Optimization"
+      - "High-Intent Search"
+      - "CRO"
+  - type: "text"
+    sectionLabel: "The Results"
+    heading: "From Closing to Expanding"
+    paragraphs:
+      - "Within a few months, AMS not only kept their 3rd branch open but increased ad spend by over 50%, accelerating growth toward a 4th branch. At peak performance, Meta Ads alone were driving 238 conversions in a single month at just $2.98 per conversion — with consistent monthly volumes ranging from 97 to 238 leads."
+  - type: "metrics-grid"
+    cards:
+      - value: "~50%"
+        label: "Lower CPA on Google"
+        context: "Reduced cost per conversion by approximately 50% compared to the industry average."
+        variant: "highlight"
+      - value: "$5.40"
+        label: "Meta Cost Per Conversion"
+        context: "Achieved a $5.40 cost per conversion on Meta compared to the $12.50 industry standard."
+        variant: "success"
+      - value: "238"
+        label: "Peak Monthly Conversions"
+        context: "At peak performance, Meta Ads drove 238 conversions in a single month at $2.98 CPA."
+        variant: "default"
+      - value: "4th"
+        label: "Branch Planned"
+        context: "The turnaround was so successful that AMS began planning a 4th location."
+        variant: "default"
+  - type: "highlight-box"
+    bigStat: "$5.40"
+    boxHeading: "Meta Ads Cost Per Conversion"
+    boxText: "While the industry standard for medical spa leads on Meta hovers around $12.50 per conversion, we achieved a $5.40 cost per conversion — less than half the benchmark. This level of efficiency didn't just save a branch; it funded an expansion."
+footerCta: "Ready to transform your medical practice's marketing?"
 ---
-
-## The Challenge
-In 2023, Advanced Medical Spa (AMS) was struggling to grow its 3 locations in the North Atlanta area. They had worked with digital marketing "pros" before, with little to show for the time and money invested. AMS was in danger of having to shut down a branch.
-
-## The Solution
-Creekside Marketing Pros implemented a three-pronged turnaround:
-1. **High-Intent Search:** Targeted local keywords with high purchase intent to drive store traffic.
-2. **Visual Social Ads:** Used stunning ad creatives on Facebook and Instagram to draw potential customers via social media.
-3. **Landing Page Optimization:** Worked side-by-side with their web team to craft high-converting landing pages.
-
-## The Results
-Within a few months, AMS not only kept their 3rd branch open but increased ad spend by over 50%, accelerating growth toward a 4th branch.
-- **Google Ads:** Reduced Cost per Conversion by ~50% vs industry average.
-- **Meta Ads:** Achieved a $5.40 Cost per Conversion compared to the $12.50 industry standard.

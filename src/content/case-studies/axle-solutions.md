@@ -6,25 +6,73 @@ logo: "/logos/axlesolutionsinc.avif"
 logo-alt: "Axle Solutions Logo"
 summary: "Transforming a local semi-truck axle spindle repair shop into a market leader through hyper-precise Google Ads bidding and Local GMB optimization."
 tags: ["Google Ads", "Local SEO", "GMB Optimization", "Lead Funnels"]
-metrics: 
+metrics:
   roas: "#1 Impression Share"
   scale: "Expanded Radius"
 featured: false
+heroTitle: "How {CLIENT} Beat National Chains to Claim #1 Impression Share in 3 States"
+heroSubtitle: "A local semi-truck axle repair shop went from surviving on referrals to dominating Google against national chains — all through precision bidding and local SEO."
+clientInfo:
+  - label: "Client"
+    value: "Axle Solutions"
+  - label: "Location"
+    value: "Illinois (3-State Radius)"
+  - label: "Industry"
+    value: "Semi-Truck Axle Repair"
+  - label: "Service"
+    value: "Google Ads + Local SEO"
+metricStrip:
+  - value: "#1"
+    label: "Impression Share"
+  - value: "38.43%"
+    label: "Absolute Top of Page"
+  - value: "3"
+    label: "State Radius"
+  - value: "#1"
+    label: "Google Maps (State)"
+sections:
+  - type: "text"
+    sectionLabel: "The Challenge"
+    heading: "Outgunned by National Chains"
+    paragraphs:
+      - "In 2022, Axle Solutions was struggling to compete in their local market for semi-truck axle spindle repair. This niche market was dominated by national chains with massive ad spends, leaving this local repair shop holding on by their bootstraps with only referrals and little to no website traffic. They desperately needed a way to get in front of their target audience on Google, where they were being heavily outgunned by the industry giants."
+  - type: "text"
+    sectionLabel: "The Strategy"
+    heading: "Precision Over Budget"
+    paragraphs:
+      - "Instead of trying to outspend the competition, we outmaneuvered them. We optimized their Google My Business profile using proprietary local SEO processes to increase visibility. Instead of blanket bidding, we precisely targeted their ideal customer and fine-tuned ad bids to outmaneuver national chains in highly competitive auctions. We also worked directly with the business owner to develop a dedicated lead funnel designed specifically to improve conversion rates."
+    tags:
+      - "Google Ads"
+      - "GMB Optimization"
+      - "Hyper-Precise Bidding"
+      - "Lead Funnels"
+      - "Local SEO"
+  - type: "text"
+    sectionLabel: "The Results"
+    heading: "Market Leadership Against All Odds"
+    paragraphs:
+      - "Using highly precise targeting, we stretched the ad spend to only bid on the most high-value, underpriced ad placements. This efficiency allowed Axle Solutions to expand their service radius and reach clientele previously thought unreachable. In the first month alone, ad-driven calls increased 136% — from 11 to 26 in just three weeks. By month two, they were receiving 50 calls per month, growing to 99 monthly calls by year-end."
+  - type: "metrics-grid"
+    cards:
+      - value: "#1"
+        label: "Impression Share in 3 States"
+        context: "Axle Solutions achieved the #1 impression share amongst all competitors in their 3-state radius, even against national chains."
+        variant: "highlight"
+      - value: "38.43%"
+        label: "Absolute Top of Page Rate"
+        context: "Achieved a 15.07% Impression Share and a 38.43% Absolute Top of Page rate in competitive auctions."
+        variant: "success"
+      - value: "#1"
+        label: "Google Maps for Illinois"
+        context: "Through GMB optimization, Axle Solutions achieved the top spot on Google Maps for the entire state of Illinois."
+        variant: "default"
+      - value: "99"
+        label: "Monthly Calls by Year-End"
+        context: "Google My Business calls grew from 11/month pre-ads to 99/month within a year, with GMB interactions up 135.7% YoY."
+        variant: "default"
+  - type: "highlight-box"
+    bigStat: "#1"
+    boxHeading: "Google Maps for the Entire State"
+    boxText: "Through our proprietary GMB optimization, Axle Solutions achieved the top spot on Google Maps for the entire state of Illinois — out-competing a national chain twice for their own business name with zero ad spend required. This organic dominance provides lasting value beyond any paid campaign."
+footerCta: "Ready to dominate your niche market?"
 ---
-
-## The Challenge
-In 2022, Axle Solutions was struggling to compete in their local market for semi-truck axle spindle repair. This niche market was dominated by national chains with massive ad spends, leaving this local repair shop holding on by their bootstraps with only referrals and little to no website traffic. They desperately needed a way to get in front of their target audience on Google, where they were being heavily outgunned by the industry giants.
-
-## The Creekside Solution
-We implemented a precision-engineered strategy to help Axle Solutions outmaneuver the competition:
-* **Proprietary Local SEO:** We optimized their Google My Business (GMB) profile using proprietary local SEO processes to increase visibility.
-* **Hyper-Precise Ad Bidding:** Instead of blanket bidding, we precisely targeted their ideal customer and fine-tuned ad bids to outmaneuver national chains in highly competitive auctions.
-* **Direct Lead Funnels:** We worked directly with the business owner to develop a dedicated lead funnel designed specifically to improve conversion rates.
-
-## The Results (May 2023 - April 2024)
-Using highly precise targeting, we stretched the ad spend to only bid on the most high-value, underpriced ad placements. This efficiency allowed Axle Solutions to expand their service radius and reach clientele previously thought unreachable.
-
-### Key Performance Indicators:
-* **Market Leadership:** Axle Solutions achieved the #1 impression share amongst all competitors in their 3-state radius, even against national chains.
-* **Search Dominance:** They achieved a 15.07% Impression Share and a 38.43% Absolute Top of Page rate.
-* **Organic GMB Victory:** Through our GMB optimization, Axle Solutions achieved the top spot on Google Maps for the entire state of Illinois—out-competing a national chain twice for their own business name with no ad spend required.

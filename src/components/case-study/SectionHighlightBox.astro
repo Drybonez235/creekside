@@ -1,0 +1,37 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  bigStat: string;
+  boxHeading: string;
+  boxText: string;
+}
+
+const { bigStat, boxHeading, boxText } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div
+  class="relative overflow-hidden rounded-2xl p-8"
+  style={`background: ${t.heroGradient}`}
+>
+  <div
+    class="absolute -top-1/2 -right-1/5 h-[300px] w-[300px] rounded-full"
+    style={`background: radial-gradient(circle, ${t.accentGlow} 0%, transparent 70%)`}
+  ></div>
+
+  <div class="relative z-10">
+    <div
+      class="mb-1.5 text-5xl font-black leading-none"
+      style={`color: ${t.accentLight}`}
+    >
+      {bigStat}
+    </div>
+    <h3 class="mb-2.5 text-[1.15rem] font-bold text-white">
+      {boxHeading}
+    </h3>
+    <p class="text-[0.88rem] leading-[1.7]" style="color: rgba(255,255,255,0.8)">
+      {boxText}
+    </p>
+  </div>
+</div>

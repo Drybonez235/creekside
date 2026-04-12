@@ -1,0 +1,68 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  sectionLabel?: string;
+  heading?: string;
+  paragraphs?: string[];
+  tableHeaders: string[];
+  tableRows: { cells: string[] }[];
+}
+
+const { sectionLabel, heading, paragraphs = [], tableHeaders, tableRows } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div>
+  {sectionLabel && (
+    <span
+      class="mb-2.5 inline-block text-[0.65rem] font-bold uppercase tracking-[2.5px]"
+      style={`color: ${t.accentColor}`}
+    >
+      {sectionLabel}
+    </span>
+  )}
+
+  {heading && (
+    <h2 class="mb-4 text-[1.6rem] font-bold tracking-tight" style="color: #1a1a2e">
+      {heading}
+    </h2>
+  )}
+
+  {paragraphs.map((p) => (
+    <p class="mb-3.5 text-[0.95rem] leading-[1.8] text-gray-600">
+      {p}
+    </p>
+  ))}
+
+  <div class="mt-5 overflow-hidden rounded-xl border border-gray-200">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr>
+          {tableHeaders.map((h) => (
+            <th
+              class="px-5 py-3.5 text-left text-[0.72rem] font-semibold uppercase tracking-[1.5px] text-white"
+              style={`background: ${t.tableBg}`}
+            >
+              {h}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {tableRows.map((row, ri) => (
+          <tr class={ri % 2 === 1 ? "bg-gray-50" : ""}>
+            {row.cells.map((cell, ci) => (
+              <td
+                class="border-b border-gray-200 px-5 py-3.5 text-[0.88rem] text-gray-600 last:border-b-0"
+                style={ci === 0 ? "font-weight: 600" : ci === 2 ? `font-weight: 700; color: ${t.accentColor}` : ""}
+              >
+                {cell}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

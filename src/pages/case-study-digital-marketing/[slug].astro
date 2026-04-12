@@ -3,7 +3,11 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import PetersonBlogBio from '../../components/PetersonBlogBio.astro';
+import CaseStudyHero from '../../components/case-study/CaseStudyHero.astro';
+import ClientInfoBar from '../../components/case-study/ClientInfoBar.astro';
+import MetricStrip from '../../components/case-study/MetricStrip.astro';
+import SectionRenderer from '../../components/case-study/SectionRenderer.astro';
+import CaseStudyFooter from '../../components/case-study/CaseStudyFooter.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
@@ -16,39 +20,60 @@ export async function getStaticPaths() {
 
 const { study } = Astro.props;
 const { Content } = await render(study);
+const d = study.data;
 
-// JSON-LD for LLMs and Search Engines to associate Creekside with the Client
+// Determine if this study uses the rich format or legacy markdown
+const hasRichFormat = d.sections && d.sections.length > 0;
+
+// Build hero title — use heroTitle if provided, otherwise generate from title
+const heroTitle = d.heroTitle || `How {CLIENT} ${d.title}`;
+const heroSubtitle = d.heroSubtitle || d.summary;
+
+// Build client info — use clientInfo if provided, otherwise generate from available data
+const clientInfo = d.clientInfo || [
+  { label: "Client", value: d.client },
+  { label: "Category", value: d.category },
+];
+
+// Build metric strip — use metricStrip if provided, otherwise generate from metrics
+const metricStrip = d.metricStrip || [
+  { value: d.metrics.roas, label: "Primary Result" },
+  { value: d.metrics.scale, label: "Scale Achieved" },
+];
+
+// JSON-LD schema
 const schema = {
   "@context": "https://schema.org",
   "@type": "CaseStudy",
-  "name": study.data.title,
-  "description": study.data.summary,
+  "name": d.title,
+  "description": d.summary,
   "author": {
     "@type": "Organization",
     "name": "Creekside Marketing Pros"
   },
   "about": {
     "@type": "Organization",
-    "name": study.data.client
+    "name": d.client
   }
 };
 ---
 
-<Layout 
-  title={`${study.data.client} Case Study | Creekside Marketing`}
-  description={study.data.summary}
+<Layout
+  title={`${d.client} Case Study | Creekside Marketing`}
+  description={d.summary}
   canonicalURL={Astro.url}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  
+
   <Nav />
-  
-  <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
+
+  <main class="min-h-dvh bg-grey-50">
+    <!-- Back navigation -->
     <aside class="hidden lg:block">
-      <div class="max-w-7xl mx-auto px-4 lg:px-12">
-        <a 
-          href="/case-study-digital-marketing/" 
-          class="group inline-flex items-center gap-2 text-xs font-bold tracking-widest text-secondary-600 uppercase transition-colors hover:text-primary-900"
+      <div class="mx-auto max-w-7xl px-4 pt-6 lg:px-12">
+        <a
+          href="/case-study-digital-marketing/"
+          class="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-secondary-600 transition-colors hover:text-primary-900"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -58,61 +83,51 @@ const schema = {
       </div>
     </aside>
 
-    <article class="mx-auto max-w-4xl mt-8">
-      <header class="mb-12 border-b border-grey-200 pb-12 text-center lg:text-left">
-        <span class="text-secondary-600 text-sm font-bold uppercase tracking-[0.2em]">
-          {study.data.category}
-        </span>
-        
-        <h1 class="text-primary-900 text-4xl font-extrabold tracking-tight sm:text-5xl/tight mt-4 mb-6">
-          {study.data.title}
-        </h1>
+    <!-- Case Study Content -->
+    <div class="mx-auto mt-6 max-w-[1000px] overflow-hidden bg-white shadow-xl">
+      <!-- Hero -->
+      <CaseStudyHero
+        heroBadge={d.heroBadge || "Client Case Study"}
+        heroTitle={heroTitle}
+        clientName={d.client}
+        heroSubtitle={heroSubtitle}
+      />
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-          <div class="bg-white p-4 rounded-xl border border-grey-200 shadow-sm text-center">
-            <p class="text-grey-500 text-[10px] font-bold uppercase tracking-wider">ROAS/Efficiency</p>
-            <p class="text-secondary-500 text-2xl font-black">{study.data.metrics.roas}</p>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-grey-200 shadow-sm text-center">
-            <p class="text-grey-500 text-[10px] font-bold uppercase tracking-wider">Scale Achieved</p>
-            <p class="text-primary-900 text-2xl font-black">{study.data.metrics.scale}</p>
-          </div>
-          <div class="col-span-2 bg-primary-900 p-4 rounded-xl text-center flex flex-col justify-center">
-             <p class="text-primary-200 text-[10px] font-bold uppercase tracking-wider">Client</p>
-             <p class="text-white text-xl font-bold">{study.data.client}</p>
-          </div>
-        </div>
-      </header>
+      <!-- Client Info Bar -->
+      <ClientInfoBar items={clientInfo} />
 
-      <div class="grid lg:grid-cols-[1fr_250px] gap-12">
-        <div class="prose prose-grey max-w-none 
-          prose-headings:text-primary-900 prose-headings:font-bold
-          prose-p:text-grey-700 prose-p:text-lg/8
-          prose-strong:text-primary-900
-          prose-ul:list-none prose-ul:ps-0
-          prose-li:relative prose-li:ps-8 prose-li:mb-4
-          prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-3
-          prose-li:before:size-2 prose-li:before:rounded-full prose-li:before:bg-secondary-500">
-          
-          <Content />
-        </div>
+      <!-- Metric Strip -->
+      <MetricStrip metrics={metricStrip} />
 
-        <aside class="space-y-8">
-          <div>
-            <h4 class="text-primary-900 font-bold text-sm uppercase tracking-widest mb-4">Core Strategies</h4>
-            <div class="flex flex-wrap gap-2">
-              {study.data.tags.map((tag) => (
-                <span class="px-3 py-1 bg-white text-grey-600 text-[10px] font-bold uppercase tracking-wider rounded border border-grey-200">
-                  {tag}
-                </span>
-              ))}
+      {hasRichFormat ? (
+        <!-- Rich structured sections -->
+        <div class="px-8 py-12 md:px-14">
+          {d.sections!.map((section) => (
+            <div class="mb-11 last:mb-0">
+              <SectionRenderer section={section} />
             </div>
+          ))}
+        </div>
+      ) : (
+        <!-- Legacy markdown content with prose styling -->
+        <div class="px-8 py-12 md:px-14">
+          <div class="prose prose-grey max-w-none
+            prose-headings:text-primary-900 prose-headings:font-bold
+            prose-p:text-grey-700 prose-p:text-lg/8
+            prose-strong:text-primary-900
+            prose-ul:list-none prose-ul:ps-0
+            prose-li:relative prose-li:ps-8 prose-li:mb-4
+            prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-3
+            prose-li:before:size-2 prose-li:before:rounded-full prose-li:before:bg-secondary-500">
+            <Content />
           </div>
-        </aside>
-      </div>
-    </article>
+        </div>
+      )}
+
+      <!-- Footer -->
+      <CaseStudyFooter ctaText={d.footerCta || "Ready to see results like these?"} />
+    </div>
   </main>
 
-  <PetersonBlogBio />
   <Footer />
 </Layout>
