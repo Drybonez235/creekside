@@ -63,13 +63,24 @@
     const overlay = document.getElementById("profit-popup-overlay");
     const content = document.getElementById("profit-popup-content");
     const closeBtn = document.getElementById("close-popup");
+    const DISMISS_KEY = "popup_dismiss_count";
+
+    const getDismissCount = () => {
+      return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
+    };
+
+    const incrementDismiss = () => {
+      const count = getDismissCount() + 1;
+      sessionStorage.setItem(DISMISS_KEY, String(count));
+      return count;
+    };
 
     const showPopup = () => {
-      // 1. Remove hidden so it exists in the layout
+      if (getDismissCount() >= 2) return;
+
       overlay?.classList.remove("hidden");
       overlay?.classList.add("flex");
 
-      // 2. Small delay to allow the 'hidden' removal to register before animating opacity
       setTimeout(() => {
         overlay?.classList.add("opacity-100");
         content?.classList.remove("scale-95");
@@ -84,17 +95,25 @@
       overlay?.classList.add("opacity-0");
       content?.classList.add("scale-95");
       content?.classList.remove("scale-100");
-      
-      // Wait for transition to finish before adding 'hidden' back
+
       setTimeout(() => {
         overlay?.classList.add("hidden");
         overlay?.classList.remove("flex");
       }, 500);
 
       document.body.style.overflow = "";
+
+      const count = incrementDismiss();
+      // If dismissed fewer than 2 times, show again after 15s
+      if (count < 2) {
+        setTimeout(showPopup, 15000);
+      }
     };
 
-    setTimeout(showPopup, 5000);
+    // Only start if not already dismissed twice this session
+    if (getDismissCount() < 2) {
+      setTimeout(showPopup, 15000);
+    }
 
     closeBtn?.addEventListener("click", hidePopup);
     overlay?.addEventListener("click", (e) => {
