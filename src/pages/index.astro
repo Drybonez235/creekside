@@ -2,14 +2,14 @@
 import Nav from '../components/Nav.astro';
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro'
-import Clienttrust from '../components/Clienttrust.astro'
-import ClientCard from '../components/ClientCard.astro';
+import TestimonialScreenshots from '../components/TestimonialScreenshots.astro';
+import VideoTestimonials from '../components/VideoTestimonials.astro';
 import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
 ---
 
 <Layout
-	title="Home - Creekside Marketing"
+	title="Google Ads & Meta Ads Management | Creekside Marketing"
   description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
   canonicalURL="https://creeksidemarketingpros.com/"
   schema={siteSchema.home}
@@ -30,98 +30,73 @@ import '../styles/global.css';
   </div>
 
   <div class="container relative z-10 mx-auto px-4 lg:px-8">
-    <div class="max-w-4xl">
-      <span class="mb-4 block text-sm/none font-bold tracking-widest uppercase text-secondary-300">
-        Creekside Marketing Pros
-      </span>
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 
-      <h1 class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-7xl/tight">
-        <span>Stop Wasting Ad Spend.</span>
-        <span class="text-secondary-400">Start Growing Revenue.</span>
-      </h1>
+      <div>
+        <span class="mb-4 block text-sm/none font-bold tracking-widest uppercase text-secondary-300">
+          Creekside Marketing Pros
+        </span>
 
-      <p class="mt-8 max-w-2xl text-lg/8 text-grey-200 md:text-xl/9">
-        Get your free <strong class="text-white">$10K Profit Recovery Audit</strong> and discover the 5-7 hidden leaks draining thousands from your Google and Meta ad accounts. Most take less than 20 minutes to fix.
-      </p>
+        <h1 class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-5xl/tight xl:text-6xl/tight">
+          <span>Stop Wasting Ad Spend.</span>
+          <span class="text-secondary-400">Start Growing Revenue.</span>
+        </h1>
 
-      <div class="mt-12 flex flex-wrap gap-8 md:gap-16">
-        <div>
-          <div class="text-3xl/none font-bold text-white md:text-4xl/none">$20M+</div>
-          <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">In Ad Spend Audited</div>
+        <p class="mt-8 max-w-2xl text-lg/8 text-grey-200 md:text-xl/9 lg:text-lg/8">
+          We partner with businesses spending $10k - $100k/month on Meta and Google Ads to <strong class="text-white">improve your ROAS within 90 days, or we work for free.</strong> Launch in 7 days.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-8 md:gap-16">
+          <div>
+            <div class="text-3xl/none font-bold text-white md:text-4xl/none">$20M+</div>
+            <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">In Ad Spend Managed</div>
+          </div>
+          <div>
+            <div class="text-3xl/none font-bold text-white md:text-4xl/none">200+</div>
+            <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">Accounts Managed</div>
+          </div>
         </div>
-        <div>
-          <div class="text-3xl/none font-bold text-white md:text-4xl/none">200+</div>
-          <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">Accounts Audited</div>
+
+        <div class="mt-10">
+          <a
+            href="https://calendly.com/creekside_marketing/strategy-call"
+            class="inline-block rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
+          >
+            Schedule Consultation
+          </a>
         </div>
       </div>
 
-      <div class="mt-12">
-        <a
-          href="https://calendly.com/creekside_marketing/strategy-call"
-          class="inline-block rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
-        >
-          Schedule Consultation
-        </a>
+      <div class="hidden lg:block">
+        <div class="aspect-video w-full overflow-hidden rounded-lg shadow-2xl">
+          <iframe
+            src="https://www.youtube.com/embed/5Kb0pe6qaQc"
+            title="Creekside Marketing Introduction"
+            class="size-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ========== HERO VALUE PROP ========== -->
-<section class="bg-white py-16 md:py-24">
-  <div class="container mx-auto px-4 lg:px-8">
-
-    <div class="mb-20 border-l-4 border-grey-200 pl-8">
-      <p class="text-xl/8 font-medium text-grey-900 md:text-2xl/9">
-        We partner with businesses spending $10k - $100k/month on Meta and Google Ads to
-        <span class="font-extrabold">improve your ROAS within 90 days, or we work for free.</span>
-      </p>
-      <p class="mt-6 text-lg/7 text-grey-900">
-        If your business is serious about growth, has a proven offer, and is looking to dominate their competition on Google and/or Meta, Creekside can help. <strong class="text-primary-900">Launch in 7 days.</strong>
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-			<img src="/date-range-svgrepo-com.svg" alt="A calendar icon">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          In-depth data analysis
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-          Data-driven optimization ensures efficient spending and better campaign results.
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="/bar-chart-02-svgrepo-com.svg" alt="A bar chart with ascending lines">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          Campaign & PPC Optimization
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-          Continuous testing and adjustments keep your ads competitive and profitable.
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="/spreadsheet-chart-svgrepo-com.svg" alt="Graphic spreadsheet with line graph">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          Conversion Tracking
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-          Optimized tracking helps scale winning strategies and eliminate wasted spend
-        </p>
-      </div>
-
+<!-- ========== MOBILE INTRO VIDEO ========== -->
+<section class="bg-primary-900 py-8 lg:hidden">
+  <div class="container mx-auto px-4">
+    <div class="aspect-video w-full overflow-hidden rounded-lg shadow-2xl">
+      <iframe
+        src="https://www.youtube.com/embed/5Kb0pe6qaQc"
+        title="Creekside Marketing Introduction"
+        class="size-full"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
     </div>
   </div>
 </section>
@@ -138,7 +113,31 @@ import '../styles/global.css';
       </p>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
+        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
+          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10m-6 10V4M6 20v-6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-primary-900">New Customer Growth, Not Just Low CPA</h3>
+        <p class="mt-3 text-base/7 text-grey-600">
+          Most agencies optimize for cost per action, but Google and Meta don't know if that's a new customer or a repeat buyer. We optimize for what actually matters: new customer acquisition and revenue growth.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
+        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
+          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-primary-900">Direct Access to Your Ad Manager</h3>
+        <p class="mt-3 text-base/7 text-grey-600">
+          No account managers. No support tickets. You work directly with your dedicated strategist who knows your business inside and out.
+        </p>
+      </div>
 
       <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
         <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
@@ -194,92 +193,24 @@ import '../styles/global.css';
   </div>
 </section>
 
-<!-- ========== 3. ABOUT US ========== -->
-<section class="bg-white py-16 lg:py-24">
+<!-- ========== FREE AUDIT CTA ========== -->
+<section class="bg-secondary-500 py-16 lg:py-20">
   <div class="container mx-auto px-4 lg:px-8">
-    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
-
-      <div class="flex flex-col items-center gap-10 md:items-start">
-        <div class="grid w-full grid-cols-2 gap-6 sm:gap-8">
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/peterson-rainey.avif"
-                alt="Peterson Rainey"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Peterson Rainey</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/cade-maclean.avif"
-                alt="Cade Maclean"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Cade Maclean</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex w-full justify-center">
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/baran-eris.avif"
-                alt="Baran Eris"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Baran Eris</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Lead Small Business Consultant </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="h-1 w-24 bg-secondary-300"></div>
-      </div>
-
-      <div class="flex flex-col items-start">
-        <h2 class="text-5xl/none font-extrabold tracking-tight text-primary-900 md:text-6xl/none">
-          ABOUT <span class="text-secondary-500">US</span>
-        </h2>
-
-        <div class="mt-8 flex flex-col gap-6 text-base/7 text-grey-700 md:text-lg/8">
-          <p>
-            At Creekside Marketing, we combine analytical expertise with data-driven marketing to help businesses grow. Founded by longtime friends Cade and Peterson, our agency has been delivering results for over four years.
-          </p>
-          <p>
-            With a background in accounting and an MBA, Cade specializes in Facebook Ads, while Peterson, a mechanical engineer, focuses on Google Ads. Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth. Despite earning degrees in highly technical fields, we recognized the need for marketers with a deep understanding of numbers and data.
-          </p>
-          <p>
-            That expertise has made us the people other marketing professionals turn to when they don't know what to do, and we bring that same level of strategy and precision to every client we work with.
-          </p>
-          <p class="font-medium text-primary-900">
-            Our approach is simple: strategic decision-making, continuous optimization, and custom solutions tailored to your business goals. Let's grow your business together.
-          </p>
-        </div>
-
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl/tight font-extrabold text-white md:text-4xl/tight">
+        Get Your Free $10K Profit Recovery Audit
+      </h2>
+      <p class="mt-4 text-lg/8 text-white/90">
+        Discover the 5-7 hidden leaks draining thousands from your Google and Meta ad accounts. Our 247-point checklist identifies exactly where your money is going — most fixes take less than 20 minutes.
+      </p>
+      <div class="mt-8">
         <a
-          href="#service"
-          class="mt-10 inline-block rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold tracking-widest uppercase text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md active:scale-95"
+          href="https://calendly.com/creekside_marketing/creekside-marketing-strategy-call"
+          class="inline-block rounded-sm bg-white px-8 py-4 text-lg font-bold text-secondary-600 shadow-sm transition-all hover:bg-grey-100 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
         >
-          Our Services
+          Claim Your Free Audit Now &rarr;
         </a>
       </div>
-
     </div>
   </div>
 </section>
@@ -372,8 +303,9 @@ import '../styles/global.css';
   </div>
 </section>
 
-<!-- ========== 5. CLIENT TRUST ========== -->
-<Clienttrust />
+
+<!-- ========== 5. VIDEO TESTIMONIALS ========== -->
+<VideoTestimonials />
 
 <!-- ========== 6. SERVICES ========== -->
 <section id="service" class="bg-grey-50 py-20 lg:py-32">
@@ -410,50 +342,119 @@ import '../styles/global.css';
 
       <div class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500">
         <h3 class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight">
-          Facebook Ads (SMM)
+          Meta Ads
         </h3>
         <div class="my-6 h-0.5 w-full bg-grey-200">
           <div class="h-0.5 w-24 bg-secondary-500"></div>
         </div>
         <p class="grow text-base/7 text-grey-600">
-          We specialize in using Facebook Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By harnessing audience insights and precise targeting capabilities, we develop tailored campaigns that align with specific business goals, whether it's boosting brand awareness, generating leads, or driving conversions. Our strategy focuses on optimizing ad creatives, placements, and budgets.
+          We specialize in using Meta Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By harnessing audience insights and precise targeting capabilities, we develop tailored campaigns that align with specific business goals, whether it's boosting brand awareness, generating leads, or driving conversions. Our strategy focuses on optimizing ad creatives, placements, and budgets.
         </p>
         <div class="mt-8">
           <a href="/digital-advertising/meta-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
             <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-            Start advertising with Facebook
+            Start advertising with Meta Ads
           </a>
         </div>
       </div>
 
-      <div class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500 lg:col-span-2">
-        <div class="mx-auto max-w-4xl text-center">
-          <h3 class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight">
-            White Label
-          </h3>
-          <div class="my-6 flex justify-center">
-            <div class="h-0.5 w-64 bg-grey-200 relative">
-              <div class="absolute inset-0 mx-auto h-0.5 w-24 bg-secondary-500"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. ABOUT US ========== -->
+<section class="bg-white py-16 lg:py-24">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
+
+      <div class="flex flex-col items-center gap-10 md:items-start">
+        <div class="grid w-full grid-cols-2 gap-6 sm:gap-8">
+          <div class="flex flex-col items-center">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
+              <img
+                src="/peterson-rainey.avif"
+                alt="Peterson Rainey"
+                class="size-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Peterson Rainey</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
             </div>
           </div>
-          <p class="text-base/7 text-grey-600">
-            Are you an agency that needs a white-label ad team? We offer full white-label PPC and Social Media Marketing services to make sure your clients are happy. We'll act on behalf of your agency, making the transition seamless from beginning to end, including deliverables, client communication, and ongoing optimizations.
-          </p>
-          <div class="mt-8">
-            <a href="/creekside-marketing-partner-program/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
-              <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-              Learn more about our white label service
-            </a>
+
+          <div class="flex flex-col items-center">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
+              <img
+                src="/cade-maclean.avif"
+                alt="Cade Maclean"
+                class="size-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Cade Maclean</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
+            </div>
           </div>
         </div>
+
+        <div class="flex w-full justify-center">
+          <div class="flex flex-col items-center">
+            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
+              <img
+                src="/baran-eris.avif"
+                alt="Baran Eris"
+                class="size-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-4 text-center">
+              <h4 class="text-base font-bold text-primary-900 md:text-lg">Baran Eris</h4>
+              <p class="text-xs font-medium text-grey-600 md:text-sm">Lead Small Business Consultant</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-1 w-24 bg-secondary-300"></div>
+      </div>
+
+      <div class="flex flex-col items-start">
+        <h2 class="text-5xl/none font-extrabold tracking-tight text-primary-900 md:text-6xl/none">
+          ABOUT <span class="text-secondary-500">US</span>
+        </h2>
+
+        <div class="mt-8 flex flex-col gap-6 text-base/7 text-grey-700 md:text-lg/8">
+          <p>
+            At Creekside Marketing, we combine analytical expertise with data-driven marketing to help businesses grow. Founded by longtime friends Cade and Peterson, our agency has been delivering results for over four years.
+          </p>
+          <p>
+            With a background in accounting and an MBA, Cade leads Meta Ads strategy, while Peterson, a mechanical engineer, leads Google Ads strategy. Together with a team of dedicated specialists, they deliver consistent, measurable growth for every client. Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth. Despite earning degrees in highly technical fields, we recognized the need for marketers with a deep understanding of numbers and data.
+          </p>
+          <p>
+            That expertise has made us the people other marketing professionals turn to when they don't know what to do, and we bring that same level of strategy and precision to every client we work with.
+          </p>
+          <p class="font-medium text-primary-900">
+            Our approach is simple: strategic decision-making, continuous optimization, and custom solutions tailored to your business goals. Let's grow your business together.
+          </p>
+        </div>
+
+        <a
+          href="#service"
+          class="mt-10 inline-block rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold tracking-widest uppercase text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md active:scale-95"
+        >
+          Our Services
+        </a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ========== 7. CLIENT CARDS ========== -->
-<ClientCard />
+<!-- ========== 8. TESTIMONIAL SCREENSHOTS ========== -->
+<TestimonialScreenshots />
 
 <!-- ========== 9. IS CREEKSIDE RIGHT FOR YOU? ========== -->
 <section class="bg-white py-20">
@@ -590,7 +591,7 @@ import '../styles/global.css';
           </span>
         </summary>
         <div class="px-6 pb-6 text-base/7 text-grey-600">
-          We charge a percentage of your monthly ad spend: 20% for $0-$20k, 15% for $20k-$40k, and 10% for $40k+. When you run both Google and Meta with us, we combine your spend for pricing, so you hit discount tiers faster. Pricing starts at $1,000/month. We're month-to-month with no long-term contracts.
+          We charge a percentage of your monthly ad spend: 20% for $0-$20k, 15% for $20k-$40k, and 10% for $40k+. When you run both Google and Meta with us, we combine your spend for pricing, so you hit discount tiers faster. Minimum is $2,000/month. We're month-to-month with no long-term contracts.
         </div>
       </details>
 
@@ -604,7 +605,7 @@ import '../styles/global.css';
           </span>
         </summary>
         <div class="px-6 pb-6 text-base/7 text-grey-600">
-          Three key differences: (1) We optimize for new customer growth and revenue, not just low CPA. (2) You work directly with Peterson or Cade - the people running your ads, not account managers. (3) We prove our expertise with a live audit on the first call before you pay anything.
+          Three key differences: (1) We optimize for new customer growth and revenue, not just low CPA. (2) You get direct access to your dedicated ad manager — no middlemen, no black-box management. Peterson and Cade personally oversee strategy and are always a call away. (3) We prove our expertise with a live audit on the first call before you pay anything.
         </div>
       </details>
 
@@ -633,20 +634,6 @@ import '../styles/global.css';
         </summary>
         <div class="px-6 pb-6 text-base/7 text-grey-600">
           Most clients see improvements within 30-60 days, but we recommend a 90-day commitment to see the full impact. Advertising is about continuous testing and optimization - quick wins are great, but sustainable growth takes time.
-        </div>
-      </details>
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>Do you offer white label services?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          Yes! We offer full white-label PPC and Social Media Marketing services for agencies. We'll act on behalf of your agency, handling deliverables, client communication, and ongoing optimizations seamlessly.
         </div>
       </details>
 

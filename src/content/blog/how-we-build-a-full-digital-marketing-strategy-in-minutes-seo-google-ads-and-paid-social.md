@@ -50,7 +50,7 @@ Once generated, you receive a playbook that covers:
 * **Execution Guidance:** What to do first and what experiments to test.
 
 ### How We Use This With Clients
-To be blunt: this is a lot of information. Most businesses don’t want—or need—to implement everything at once. That’s why we also offer a [partner program](/creekside-marketing-partner-program/) for agencies who want strategy support without the overhead. We typically:
+To be blunt: this is a lot of information. Most businesses don’t want—or need—to implement everything at once. We typically:
 1.  Start with high-ROI channels (usually paid search or local SEO).
 2.  Roll out strategies in phases.
 3.  Reinvest profits into additional campaigns as results improve.

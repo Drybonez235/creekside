@@ -1,0 +1,102 @@
+---
+const screenshots = [
+  { src: "/testimonials/testimonial-01.png", alt: "Upwork client review praising Peterson's Google Ads expertise" },
+  { src: "/testimonials/testimonial-02.png", alt: "5-star Upwork review for Google Ads management" },
+  { src: "/testimonials/testimonial-03.png", alt: "Client testimonial screenshot" },
+  { src: "/testimonials/testimonial-04.png", alt: "Upwork review highlighting campaign results" },
+  { src: "/testimonials/testimonial-05.png", alt: "5-star review for Google Ads expert services" },
+  { src: "/testimonials/testimonial-06.png", alt: "Client message about campaign performance" },
+  { src: "/testimonials/testimonial-13.png", alt: "Client message about advertising results" },
+  { src: "/testimonials/testimonial-14.png", alt: "5-star Upwork review for Digital Advertising Consultant" },
+  { src: "/testimonials/testimonial-15.png", alt: "5-star Upwork review praising Peterson for medical office marketing" },
+  { src: "/testimonials/testimonial-16.png", alt: "5-star Upwork review for Instagram and Facebook Ad setup" },
+  { src: "/testimonials/testimonial-17.png", alt: "5-star Upwork review for Meta Ads audit with Peterson and Cade" },
+  { src: "/testimonials/testimonial-18.png", alt: "5-star Upwork review for Facebook Ad Specialist for E-commerce" },
+];
+---
+
+<section class="bg-grey-50 py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+
+    <div class="mb-16 text-center">
+      <h2 class="text-primary-900 text-4xl/10 font-extrabold tracking-tight md:text-5xl/14">
+        What Our Clients Are <span class="text-secondary-500 uppercase">Saying</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base/7 text-grey-600">
+        Real messages from real clients — unfiltered and unedited.
+      </p>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 md:px-16">
+
+      <button
+        id="screenshot-prev"
+        class="absolute left-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:left-2 md:size-12"
+        aria-label="Previous screenshot"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div
+        id="screenshot-slider"
+        class="screenshot-scrollbar-hide flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8"
+      >
+        {screenshots.map((s) => (
+          <div class="min-w-full shrink-0 snap-center md:min-w-[calc(50%-0.75rem)]">
+            <div class="rounded-lg border border-grey-200 bg-white shadow-sm overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+              <div class="flex h-64 items-center justify-center p-4 md:h-72">
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  class="max-h-full max-w-full object-contain rounded"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button
+        id="screenshot-next"
+        class="absolute right-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:right-2 md:size-12"
+        aria-label="Next screenshot"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .screenshot-scrollbar-hide::-webkit-scrollbar { display: none; }
+  .screenshot-scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("screenshot-slider");
+    const nextBtn = document.getElementById("screenshot-next");
+    const prevBtn = document.getElementById("screenshot-prev");
+
+    if (!slider || !nextBtn || !prevBtn) return;
+
+    function getSlideWidth() {
+      const slide = slider.querySelector("div");
+      return slide ? slide.offsetWidth + 24 : 0;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+    });
+  });
+</script>

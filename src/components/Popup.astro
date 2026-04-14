@@ -14,7 +14,7 @@
   >
     <button
       id="close-popup"
-      class="absolute top-24 right-12 z-20 size-10 flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
+      class="absolute top-24 right-12 z-20 size-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
       aria-label="Close popup"
     >
       <svg
@@ -64,6 +64,7 @@
     const content = document.getElementById("profit-popup-content");
     const closeBtn = document.getElementById("close-popup");
     const DISMISS_KEY = "popup_dismiss_count";
+    let shownOnThisPage = false;
 
     const getDismissCount = () => {
       return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
@@ -76,8 +77,10 @@
     };
 
     const showPopup = () => {
+      if (shownOnThisPage) return;
       if (getDismissCount() >= 2) return;
 
+      shownOnThisPage = true;
       overlay?.classList.remove("hidden");
       overlay?.classList.add("flex");
 
@@ -103,11 +106,7 @@
 
       document.body.style.overflow = "";
 
-      const count = incrementDismiss();
-      // If dismissed fewer than 2 times, show again after 15s
-      if (count < 2) {
-        setTimeout(showPopup, 15000);
-      }
+      incrementDismiss();
     };
 
     // Only start if not already dismissed twice this session
