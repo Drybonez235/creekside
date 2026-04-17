@@ -6,30 +6,73 @@ logo: "/logos/landmark-lawn-and-landscape.jpg"
 logo-alt: "Landmark Lawn & Landscape Logo"
 summary: "How we leveraged seasonal multi-channel campaigns to generate 1500+ conversions and fund a new franchise expansion into Atlanta, GA."
 tags: ["Home Services", "Seasonal Marketing", "Remarketing", "Google Ads", "Meta Ads"]
-metrics: 
+metrics:
   roas: "298% ROI"
   scale: "New Atlanta Branch"
 featured: false
+heroTitle: "How {CLIENT} Used 298% ROI Campaigns to Open a New Franchise in Atlanta"
+heroSubtitle: "A Nashville lawn care business expanded into a new market, generating 1,500+ conversions and $300,000 in additional profit over two years."
+clientInfo:
+  - label: "Client"
+    value: "Landmark Lawn & Landscape"
+  - label: "Location"
+    value: "Nashville, TN → Atlanta, GA"
+  - label: "Industry"
+    value: "Lawn Care & Landscaping"
+  - label: "Service"
+    value: "Google Ads + Meta Ads + GMB"
+metricStrip:
+  - value: "298%"
+    label: "Total ROI"
+  - value: "1,500+"
+    label: "Total Conversions"
+  - value: "$50.35"
+    label: "Avg Cost/Conv"
+  - value: "$300k"
+    label: "Additional Profit"
+sections:
+  - type: "text"
+    sectionLabel: "The Challenge"
+    heading: "Scaling Beyond Nashville"
+    paragraphs:
+      - "In 2021, Landmark was a thriving local lawn care and landscaping business in Nashville, TN. Looking to expand into new markets surrounding their current service area, they needed a high-volume digital marketing campaign to grow these areas quickly to keep routes condensed and make the expansion profitable. Simultaneously, they needed to continue growing their customer base in their current service area to fuel additional growth."
+  - type: "text"
+    sectionLabel: "The Strategy"
+    heading: "Seasonal Multi-Channel Campaigns"
+    paragraphs:
+      - "We implemented a flexible, multi-platform strategy tailored to the home services industry. Google My Business optimization ensured organic first-page visibility. Seasonal campaigns launched specific offers tied to busy periods for individual services throughout the year. Client remarketing upsold current customers on higher-value services. And flexible month-to-month management allowed Landmark to pause during winter breaks to avoid wasting ad spend."
+    tags:
+      - "GMB Optimization"
+      - "Seasonal Campaigns"
+      - "Remarketing"
+      - "Flexible Management"
+      - "Multi-Platform"
+  - type: "text"
+    sectionLabel: "The Results"
+    heading: "Two Years of Compounding Growth"
+    paragraphs:
+      - "Over a two-year period from February 2022 to June 2024, Landmark used the additional revenue from high-ROI campaigns to open a new franchise in Atlanta, GA."
+  - type: "metrics-grid"
+    cards:
+      - value: "298%"
+        label: "Total Return on Investment"
+        context: "Delivered a total return on investment of 298% across the full campaign lifecycle."
+        variant: "highlight"
+      - value: "1,500+"
+        label: "Total Conversions"
+        context: "Generated over 1,500 conversions at a $50.35 average cost per acquisition."
+        variant: "success"
+      - value: "$300k"
+        label: "Additional Profit"
+        context: "Based on a $150 profit-per-year conversion value, the campaigns generated $300,000 in additional profit."
+        variant: "default"
+      - value: "16.07%"
+        label: "Google Impression Share"
+        context: "Achieved dominant impression share, outperforming national aggregators like TruGreen and HomeAdvisor."
+        variant: "default"
+  - type: "highlight-box"
+    bigStat: "298%"
+    boxHeading: "Return on Investment"
+    boxText: "With over 10,000 new website visitors, 400,000+ ad impressions, and 1,500+ conversions, Landmark achieved a 298% ROI that funded a new franchise expansion into Atlanta, GA in early 2024. Their 16.07% Google Ads impression share outperformed national aggregators like TruGreen and HomeAdvisor."
+footerCta: "Ready to expand your home services business?"
 ---
-
-## The Challenge
-In 2021, Landmark was a thriving local lawn care and landscaping business in Nashville, TN. Looking to expand into new markets surrounding their current service area, they needed a high-volume digital marketing campaign to grow these areas quickly to keep routes condensed and make the expansion profitable. Simultaneously, they needed to continue growing their customer base in their current service area to fuel additional growth.
-
-## The Creekside Solution
-Creekside Marketing Pros implemented a flexible, multi-platform strategy tailored to the home services industry:
-* **GMB Optimization:** Optimized their Google My Business profile to show up organically on the first page of Google for local prospects.
-* **Seasonal Campaigns:** Launched specific offers to take advantage of busy seasons for individual services offered throughout the year.
-* **Client Remarketing:** Used remarketing campaigns to upsell current clients on higher-value services.
-* **Flexible Management:** Provided month-to-month management allowing Landmark to pause services during their winter break to avoid wasting ad spend during shutdowns.
-
-## The Results (Feb 2022 - June 2024)
-Over a two-year period, Landmark used the additional revenue from high-ROI campaigns to open a new franchise in Atlanta, GA, in early 2024.
-
-### Performance Highlights:
-* **Total Conversions:** 1500+ conversions at a **$50.35 average cost**.
-* **Proficiency:** Achieved **$300,000 in additional profit** based on a $150 profit-per-year conversion value.
-* **Market Reach:** Generated **10,000+ new website visitors** and over **400,000+ ad impressions**.
-* **ROI:** Delivered a total return on investment of **298%**.
-
-### Competitive Edge:
-Landmark achieved a dominant **16.07% Impression Share** on Google Ads, successfully outperforming national aggregators and competitors like TruGreen and HomeAdvisor.

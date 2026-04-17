@@ -1,0 +1,53 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface MetricCard {
+  value: string;
+  label: string;
+  context: string;
+  variant: "highlight" | "success" | "default";
+}
+
+interface Props {
+  cards: MetricCard[];
+}
+
+const { cards } = Astro.props;
+const t = creeksideTheme;
+
+function getCardStyles(variant: string) {
+  switch (variant) {
+    case "highlight":
+      return { bg: t.highlightBg, border: t.highlightBorder, valColor: t.accentColor };
+    case "success":
+      return { bg: t.successBg, border: t.successBorder, valColor: t.successColor };
+    default:
+      return { bg: "#f8f9fa", border: "#e9ecef", valColor: "#1a1a2e" };
+  }
+}
+---
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+  {cards.map((card) => {
+    const styles = getCardStyles(card.variant);
+    return (
+      <div
+        class="rounded-xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
+        style={`background: ${styles.bg}; border: 1px solid ${styles.border}`}
+      >
+        <div
+          class="mb-1 text-[1.8rem] font-extrabold leading-none"
+          style={`color: ${styles.valColor}`}
+        >
+          {card.value}
+        </div>
+        <div class="mb-2 text-[0.78rem] font-medium text-gray-500">
+          {card.label}
+        </div>
+        <div class="text-[0.72rem] leading-relaxed text-gray-400">
+          {card.context}
+        </div>
+      </div>
+    );
+  })}
+</div>

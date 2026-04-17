@@ -21,7 +21,7 @@ Platform mechanics, auction dynamics, and optimization levers are fundamentally 
 
 ### Experience at Scale: $20M+ Audited Across 200+ Accounts
 
-We don’t rely on theory. Our processes were built by auditing dozens of failing accounts and pressure-testing fixes across different industries and budgets. See the results in our [case studies](/case-study-digital-marketing/). This includes [white-label work for agencies](/creekside-marketing-partner-program/) and ongoing partnerships with firms like **Duct Tape Marketing**. Running ads for one company is easy; running ads across hundreds of accounts forces you to build systems that actually hold up.
+We don’t rely on theory. Our processes were built by auditing dozens of failing accounts and pressure-testing fixes across different industries and budgets. See the results in our [case studies](/case-study-digital-marketing/). This includes ongoing partnerships with firms like **Duct Tape Marketing**. Running ads for one company is easy; running ads across hundreds of accounts forces you to build systems that actually hold up.
 
 ### Radical Transparency
 

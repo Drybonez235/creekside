@@ -1,0 +1,26 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  metrics: { value: string; label: string }[];
+}
+
+const { metrics } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div class="grid grid-cols-2 border-b border-gray-200 md:grid-cols-4">
+  {metrics.map((m, i) => (
+    <div class="border-r border-gray-200 px-8 py-7 text-center last:border-r-0">
+      <div
+        class="mb-1 text-[2.2rem] font-extrabold leading-none"
+        style={`color: ${i === 0 ? t.accentColor : '#1a1a2e'}`}
+      >
+        {m.value}
+      </div>
+      <div class="text-[0.72rem] font-semibold uppercase tracking-[1.5px] text-gray-400">
+        {m.label}
+      </div>
+    </div>
+  ))}
+</div>

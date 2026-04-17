@@ -25,7 +25,7 @@ The first mistake most marketers make is jumping straight into platforms. Instea
 1. Brand name or product name
 2. Business type
 
-In our example, we used a full-service auto repair shop that we already manage Google Ads for. Here’s the key insight: **You don’t need perfect information.** If you’re an agency, or even a consultant pitching a prospect, you can usually pull everything you need from the homepage, services page, and about page. Agencies can also explore our [partner program](/creekside-marketing-partner-program/) for done-for-you strategy support.
+In our example, we used a full-service auto repair shop that we already manage Google Ads for. Here’s the key insight: **You don’t need perfect information.** If you’re an agency, or even a consultant pitching a prospect, you can usually pull everything you need from the homepage, services page, and about page.
 
 ## STEP 2: DESCRIBE THE SERVICE (USE THE CLIENT’S OWN LANGUAGE)
 

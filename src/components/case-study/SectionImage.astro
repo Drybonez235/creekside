@@ -1,0 +1,23 @@
+---
+interface Props {
+  imageUrl: string;
+  imageCaption?: string;
+}
+
+const { imageUrl, imageCaption } = Astro.props;
+---
+
+<div>
+  <div class="overflow-hidden rounded-xl">
+    <img
+      src={imageUrl}
+      alt={imageCaption || "Campaign performance screenshot"}
+      class="block h-auto w-full rounded-xl"
+      style="max-height: 560px; object-fit: cover"
+      loading="lazy"
+    />
+  </div>
+  {imageCaption && (
+    <p class="mt-2 text-center text-xs text-gray-400">{imageCaption}</p>
+  )}
+</div>

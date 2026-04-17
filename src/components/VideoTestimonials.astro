@@ -1,0 +1,145 @@
+---
+const videos = [
+  {
+    title: "Marketing Agency Success Story",
+    client: "Shawn - Sealvertise",
+    description: "How we helped a digital marketing agency improve their Google Ads performance",
+    youtubeId: "jkOEymQzLoo",
+  },
+  {
+    title: "Reverse Mortgage Provider Results",
+    client: "Nick - South River Mortgage",
+    description: "Scaling lead generation for a financial services company",
+    youtubeId: "pDMJBxZiuyw",
+  },
+  {
+    title: "Medical Device Company Growth",
+    client: "Patricia - DialCap",
+    description: "Driving qualified leads for a B2B medical device manufacturer",
+    youtubeId: "9AtxjeHQrHs",
+  },
+  {
+    title: "Dental Practice Transformation",
+    client: "Dr. Laleh - Dental Aesthetics",
+    description: "How we helped a dental practice scale with Google and Meta Ads",
+    youtubeId: "29beCxBvkk0",
+  },
+  {
+    title: "Publishing & Entertainment Success",
+    client: "Carolinamoon Entertainment",
+    description: "Results for a publishing and entertainment company through targeted advertising",
+    youtubeId: "HC8OInxuTDg",
+  },
+  {
+    title: "Digital Marketing Agency Results",
+    client: "Lisa - Duct Tape Marketing",
+    description: "How we delivered results for one of the largest digital marketing consultancies in the US",
+    youtubeId: "CWY5w8tgd5Y",
+  },
+  {
+    title: "Oral Surgery Practice Growth",
+    client: "Peter - Larchmont Oral Surgery",
+    description: "Scaling patient acquisition for an oral surgery practice with Google and Meta Ads",
+    youtubeId: "BRKzGx27_uo",
+  },
+  {
+    title: "Creative Director Testimonial",
+    client: "Joe - Creative Director",
+    description: "How we helped a creative professional scale their advertising campaigns",
+    youtubeId: "9tKHnFqlTx8",
+  },
+];
+---
+
+<section class="bg-white py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+
+    <div class="mb-16 text-center">
+      <h2 class="text-primary-900 text-4xl/10 font-extrabold tracking-tight md:text-5xl/14">
+        See Real <span class="text-secondary-500 uppercase">Results</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base/7 text-grey-600">
+        Watch our clients share their experience working with Creekside Marketing.
+      </p>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 md:px-16">
+
+      <button
+        id="video-prev"
+        class="absolute left-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:left-2 md:size-12"
+        aria-label="Previous video"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div
+        id="video-slider"
+        class="scrollbar-hide flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8"
+      >
+        {videos.map((v) => (
+          <div class="min-w-full shrink-0 snap-center md:min-w-[calc(50%-0.75rem)]">
+            <div class="rounded-lg border border-grey-200 bg-grey-50 shadow-sm overflow-hidden">
+              <div class="aspect-video w-full">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                  title={v.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  class="h-full w-full"
+                ></iframe>
+              </div>
+              <div class="p-5">
+                <h3 class="text-lg font-bold text-primary-900">{v.title}</h3>
+                <p class="mt-1 text-sm font-semibold text-secondary-500">{v.client}</p>
+                <p class="mt-2 text-sm text-grey-600">{v.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button
+        id="video-next"
+        class="absolute right-0 top-1/2 z-30 size-10 -translate-y-1/2 rounded-full border border-grey-200 bg-white text-primary-700 shadow-md transition-all hover:bg-primary-900 hover:text-white cursor-pointer md:right-2 md:size-12"
+        aria-label="Next video"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("video-slider");
+    const nextBtn = document.getElementById("video-next");
+    const prevBtn = document.getElementById("video-prev");
+
+    if (!slider || !nextBtn || !prevBtn) return;
+
+    function getSlideWidth() {
+      const slide = slider.querySelector("div");
+      return slide ? slide.offsetWidth + 24 : 0;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+    });
+  });
+</script>

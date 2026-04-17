@@ -1,0 +1,23 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  quoteText: string;
+  quoteAttr: string;
+}
+
+const { quoteText, quoteAttr } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div
+  class="rounded-r-xl px-6 py-5"
+  style={`border-left: 4px solid ${t.accentColor}; background: ${t.quoteBg}`}
+>
+  <p class="text-base font-medium italic leading-[1.7] text-gray-800">
+    {quoteText}
+  </p>
+  <div class="mt-2 text-[0.78rem] font-semibold" style={`color: ${t.accentColor}`}>
+    {quoteAttr}
+  </div>
+</div>

@@ -1,0 +1,75 @@
+---
+import SectionText from './SectionText.astro';
+import SectionMetricsGrid from './SectionMetricsGrid.astro';
+import SectionTable from './SectionTable.astro';
+import SectionHighlightBox from './SectionHighlightBox.astro';
+import SectionQuote from './SectionQuote.astro';
+import SectionImage from './SectionImage.astro';
+
+interface Props {
+  section: {
+    type: string;
+    sectionLabel?: string;
+    heading?: string;
+    paragraphs?: string[];
+    tags?: string[];
+    cards?: { value: string; label: string; context: string; variant: "highlight" | "success" | "default" }[];
+    tableHeaders?: string[];
+    tableRows?: { cells: string[] }[];
+    bigStat?: string;
+    boxHeading?: string;
+    boxText?: string;
+    quoteText?: string;
+    quoteAttr?: string;
+    imageUrl?: string;
+    imageCaption?: string;
+  };
+}
+
+const { section } = Astro.props;
+---
+
+{section.type === "text" && (
+  <SectionText
+    sectionLabel={section.sectionLabel}
+    heading={section.heading}
+    paragraphs={section.paragraphs}
+    tags={section.tags}
+  />
+)}
+
+{section.type === "metrics-grid" && section.cards && (
+  <SectionMetricsGrid cards={section.cards} />
+)}
+
+{section.type === "table" && section.tableHeaders && section.tableRows && (
+  <SectionTable
+    sectionLabel={section.sectionLabel}
+    heading={section.heading}
+    paragraphs={section.paragraphs}
+    tableHeaders={section.tableHeaders}
+    tableRows={section.tableRows}
+  />
+)}
+
+{section.type === "highlight-box" && section.bigStat && section.boxHeading && section.boxText && (
+  <SectionHighlightBox
+    bigStat={section.bigStat}
+    boxHeading={section.boxHeading}
+    boxText={section.boxText}
+  />
+)}
+
+{section.type === "quote" && section.quoteText && (
+  <SectionQuote
+    quoteText={section.quoteText}
+    quoteAttr={section.quoteAttr || ""}
+  />
+)}
+
+{section.type === "image" && section.imageUrl && (
+  <SectionImage
+    imageUrl={section.imageUrl}
+    imageCaption={section.imageCaption}
+  />
+)}

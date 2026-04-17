@@ -18,6 +18,19 @@ const { idPrefix = "cta" } = Astro.props;
         />
       </div>
 
+      <div class="hidden" aria-hidden="true">
+        <label for={`${idPrefix}-phone-number`}>Phone Number Verification</label>
+        <input 
+          type="tel" 
+          id={`${idPrefix}-phone-number`} 
+          name="entry.1189627616"
+          tabindex="-1"
+          autocomplete="off" 
+          value="" 
+        />
+      </div>
+
+
       <div>
         <label for={`${idPrefix}-first-name`} class="block text-sm/6 font-semibold text-primary-900">First Name*</label>
         <input  

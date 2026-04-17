@@ -124,85 +124,6 @@ export const siteSchema = {
       ]
     }
     },
-    partnerProgram: {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "White-Label Digital Marketing Partner Program",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "Creekside Marketing",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "addressCountry": "US"
-      }
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Peterson Rainey",
-    },
-    "description": "Scale your agency with Creekside’s white-label growth partners. Get the hands-on service of a freelancer with the proven, scalable systems of a top-tier Google and Meta Ads agency.",
-    "areaServed": "US",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "White-Label Services",
-      "itemListElement": [
-        {
-          "@type": "Service",
-          "name": "White-Label Google Ads Management",
-          "description": "Scalable PPC solutions managed by experienced consultants."
-        },
-        {
-          "@type": "Service",
-          "name": "White-Label Meta Ads Management",
-          "description": "Expert Facebook and Instagram advertising strategies for agency partners."
-        }
-      ]
-    },
-    "mainEntity": {
-      "@type": "ItemList",
-      "name": "Creekside Marketing Advantages",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Proven Systems Backed by Experience",
-          "description": "Framework developed over millions in ad spend and hundreds of accounts."
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Access to Collective Expertise",
-          "description": "Consultants collaborate regularly, sharing insights and problem-solving strategies."
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Trust and Accountability",
-          "description": "Work directly with the person handling your campaigns—no middlemen."
-        }
-      ]
-    },
-    
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://creeksidemarketingpros.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Partner Program",
-          "item": "https://creeksidemarketingpros.com/creekside-marketing-partner-program/"
-        }
-      ]
-    }
-  },
   contact: {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -323,8 +244,8 @@ pricing: {
         "name": "Growth Plan",
         "description": "Percentage-based pricing ideal for businesses starting or scaling their ad spend",
         "priceCurrency": "USD",
-        "price": "1000",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1000", "priceCurrency": "USD", "unitText": "month", "description": "$1,000/mo minimum per platform + percentage of ad spend" }
+        "price": "2000",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2000", "priceCurrency": "USD", "unitText": "month", "description": "$2,000/mo minimum + percentage of ad spend" }
       },
       {
         "@type": "Offer",
@@ -460,7 +381,7 @@ export const faqSchemas = {
         "name": "What services does Creekside Marketing offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three core services: Google Ads (PPC) management, Meta Ads (Facebook and Instagram) management, and white-label ad management for other agencies. All services include conversion tracking setup with GA4, Meta Pixel, CAPI, Google Tag Manager, and CRM integrations."
+          "text": "We offer two core services: Google Ads (PPC) management and Meta Ads (Facebook and Instagram) management. All services include conversion tracking setup with GA4, Meta Pixel, CAPI, Google Tag Manager, and CRM integrations."
         }
       }
     ]
@@ -482,7 +403,7 @@ export const faqSchemas = {
         "name": "How much does Google Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three transparent pricing plans based on your ad spend level — from percentage-based fees starting at $1,000/month to a flat $8,000/month retainer for high-spend advertisers. Visit our pricing page at creeksidemarketingpros.com/pricing for full plan details and a side-by-side comparison."
+          "text": "We offer three transparent pricing plans based on your ad spend level — from percentage-based fees starting at $2,000/month to a flat $8,000/month retainer for high-spend advertisers. Visit our pricing page at creeksidemarketingpros.com/pricing for full plan details and a side-by-side comparison."
         }
       },
       {
@@ -582,7 +503,7 @@ export const faqSchemas = {
         "name": "How much does Creekside Marketing charge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three plans: Growth (percentage-based starting at $1,000/mo), Shared ($2,000/mo flat + 10% of ad spend), and Retainer ($8,000/mo flat). The best plan depends on your monthly ad budget."
+          "text": "We offer three plans: Growth (percentage-based starting at $2,000/mo), Shared ($2,000/mo flat + 10% of ad spend), and Retainer ($8,000/mo flat). The best plan depends on your monthly ad budget."
         }
       },
       {
@@ -615,60 +536,6 @@ export const faqSchemas = {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, you can switch plans as your ad spend scales. Many clients start with Plan A or B and move to Plan C as their budget grows."
-        }
-      }
-    ]
-  },
-  partnerProgram: {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Creekside Marketing's Partner Program?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our Partner Program is a white-label service for agencies that need expert Google Ads and Meta Ads management for their clients. We operate under your brand, handling campaign management, client communication, deliverables, and ongoing optimization so your clients see results while your agency scales."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does the white-label partnership work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We act as an extension of your agency. We begin with an in-depth audit of your clients' existing campaigns, then manage everything from strategy to execution. Your clients communicate with our consultants who represent your brand. Reporting, deliverables, and all client-facing materials carry your agency's name."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why should I outsource to Creekside instead of hiring a freelancer or another agency?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We combine the personal, hands-on service of a freelancer with the proven systems and scalability of an agency. Our consultants work directly on your campaigns with no middlemen, use battle-tested frameworks developed over $20M+ in ad spend, and collaborate with our entire team's collective expertise."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What services can I white-label through Creekside?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer white-label Google Ads (PPC) management and Meta Ads (Facebook and Instagram) management. Both include full campaign setup, audience targeting, creative strategy, A/B testing, conversion tracking, budget management, and transparent reporting that you can present to your clients under your brand."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I scale up the number of client accounts I white-label with Creekside?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, scalability is a core advantage of our partner model. Adding additional consultants to handle new client accounts is seamless and disruption-free. As your agency grows, our capacity grows with you."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I get started with Creekside's Partner Program?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Schedule a call through our website to discuss your agency's needs and the clients you want to onboard. We will walk through our process, review your current accounts, and build a partnership plan tailored to your agency. There is no long-term commitment required to start."
         }
       }
     ]

@@ -1,0 +1,22 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  ctaText: string;
+}
+
+const { ctaText } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div
+  class="flex items-center justify-between px-8 py-8 md:px-14"
+  style={`background: ${t.tableBg}; color: white`}
+>
+  <div class="text-sm font-bold tracking-wider">
+    CREEKSIDE MARKETING
+  </div>
+  <div class="text-[0.78rem] text-white/60">
+    {ctaText}
+  </div>
+</div>
