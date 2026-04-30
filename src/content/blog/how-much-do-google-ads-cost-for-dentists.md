@@ -36,6 +36,8 @@ Dental Google Ads cost between $2 and $35 per click, depending on the procedure 
 
 **Dental Implant Keywords** (dental implants, implant dentist, All-on-4): $12 to $35 per click. This is the most expensive category in dental advertising. A single implant case can be worth $3,000 to $30,000, so the math still works even at premium CPCs.
 
+![Google Ads Cost Per Click by Dental Procedure - based on Creekside Marketing campaign data](/article-images/how-much-do-google-ads-cost-for-dentists-cpc-chart.svg)
+
 According to Creekside Marketing's campaign data, one of our dental aesthetics clients in Southern California averaged a $6.41 cost per click across 7,380 clicks over a four-month campaign period. That is well below industry averages because of tight keyword targeting and quality score optimization. You can see the [full campaign breakdown here](/case-study-digital-marketing/dr-laleh/).
 
 ## How Much Should a Dental Practice Spend on Google Ads Per Month?
@@ -107,6 +109,8 @@ Yes. Based on Creekside Marketing's management of dental campaigns totaling over
 **Monthly revenue from Google Ads patients: $24,000**
 **Monthly ad spend: $3,000**
 **Return: 8x your investment**
+
+![Dental Google Ads ROI Calculator - conservative estimates based on Creekside Marketing client data](/article-images/how-much-do-google-ads-cost-for-dentists-roi.svg)
 
 And that is conservative. According to Creekside Marketing's client data, one general dentistry client added $30,000 to $40,000 in monthly revenue after we optimized their Google Ads campaigns. [Polaris Dentistry](/case-study-digital-marketing/polaris-dentistry/) went from losing money to generating a 500%+ ROI after we rebuilt their entire ad strategy, dropping their cost per acquisition to below $4. One of our dental aesthetics clients in Southern California generated an estimated $200,000+ in potential monthly revenue within 90 days of launching their rebuilt campaign.
 
