@@ -115,7 +115,7 @@ That said, multi-location practices benefit from running paid and organic togeth
 
 According to Creekside Marketing's analysis across our dental client base, practices that start with Google Ads first and add SEO after 6 to 12 months of paid success tend to build more durable long-term growth than practices that split a limited budget between both from the start. The reason is data. Google Ads tells you which keywords convert, which ad messages resonate, and which procedures patients actually book. That data makes your SEO investment smarter because you know what to build content around.
 
-Dr. Laleh's dental aesthetics practice illustrates this compounding effect. When we rebuilt their Meta Ads and Google Ads strategy from scratch, monthly consultations grew from 60 to more than 100 within 90 days. That jump added over $200,000 in monthly revenue and restored the profitability the practice needed to invest in the next phase of growth. Paid advertising created the foundation. You can read the full story in our [Dr. Laleh case study](/case-study-digital-marketing/dr-laleh/).
+A high-end cosmetic dental practice illustrates this compounding effect. When we rebuilt their Meta Ads and Google Ads strategy from scratch, monthly consultations grew from 60 to more than 100 within 90 days. That jump added over $200,000 in monthly revenue and restored the profitability the practice needed to invest in the next phase of growth. Paid advertising created the foundation. You can read the full story in our [dental aesthetics case study](/case-study-digital-marketing/dr-laleh/).
 
 The Polaris Dentistry turnaround is detailed in our [dental Google Ads case study results](/blog/dental-google-ads-case-study-results/) if you want to see the specific campaign structure and keyword strategy behind a 15x conversion increase.
 
@@ -125,7 +125,7 @@ The Polaris Dentistry turnaround is detailed in our [dental Google Ads case stud
 
 Google Ads vs SEO for dentists is not a choice between two equal options. It is a question of how fast your practice needs to grow and how much certainty you need about where your next patient is coming from.
 
-If you need new patients this month, Google Ads is the right starting point. It produces leads within weeks, gives you full visibility into your cost per acquisition, and when managed correctly, produces measurable returns. Polaris Dentistry went from 26 conversions per year to 413. Dr. Laleh's practice added $200,000 in monthly revenue in 90 days. These are real outcomes from real campaigns.
+If you need new patients this month, Google Ads is the right starting point. It produces leads within weeks, gives you full visibility into your cost per acquisition, and when managed correctly, produces measurable returns. Polaris Dentistry went from 26 conversions per year to 413. A cosmetic dental practice added $200,000 in monthly revenue in 90 days. These are real outcomes from real campaigns.
 
 SEO is a long game worth playing, and Creekside recommends most established practices build toward it over time. But it is not a substitute for paid advertising in the growth phase. It works best as an addition after the paid foundation is in place.
 

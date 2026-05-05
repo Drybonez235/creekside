@@ -16,10 +16,10 @@ tags: ["CaseStudy", "GoogleAds", "Dental", "Results"]
 > | Conversions (Polaris Dentistry) | 26 to 413 (15x increase) |
 > | Cost Per Conversion (Polaris Dentistry) | $48.79 to under $4 |
 > | ROI (Polaris Dentistry) | 500%+ |
-> | Monthly Revenue Added (Dr. Laleh) | $200,000+ in 90 days |
-> | Monthly Consultations (Dr. Laleh) | 60 to 100+ |
-> | Cost Per Conversion (Dr. Laleh) | $131 across 361 conversions |
-> | Platform | Google Ads (+ Meta Ads for Dr. Laleh) |
+> | Monthly Revenue Added (Cosmetic Practice) | $200,000+ in 90 days |
+> | Monthly Consultations (Cosmetic Practice) | 60 to 100+ |
+> | Cost Per Conversion (Cosmetic Practice) | $131 across 361 conversions |
+> | Platform | Google Ads (+ Meta Ads for the cosmetic practice) |
 > | Source | Creekside Marketing case studies |
 
 # Dental Google Ads Case Study Results: 500%+ ROI and $200k in Monthly Revenue
@@ -59,9 +59,9 @@ As campaign optimization continued, cost per conversion dropped further, eventua
 
 Read the full breakdown: [Polaris Dentistry Google Ads Case Study](/case-study-digital-marketing/polaris-dentistry/)
 
-## Case Study 2: $200k in Monthly Revenue Added in 90 Days (Dr. Laleh Dental Aesthetics)
+## Case Study 2: $200k in Monthly Revenue Added in 90 Days (Cosmetic Dental Practice)
 
-According to Creekside Marketing's case study on Dr. Laleh Dental Aesthetics, a high-end cosmetic dental practice was generating approximately 60 consultations per month through a mix of Meta ads and basic Google campaigns. When a Meta algorithm change caused lead volume to drop 25% in a single week, the previous agency was unable to respond. The practice moved from profitable to losing money in a matter of days.
+According to Creekside Marketing's case study on a high-end cosmetic dental practice, a high-end cosmetic dental practice was generating approximately 60 consultations per month through a mix of Meta ads and basic Google campaigns. When a Meta algorithm change caused lead volume to drop 25% in a single week, the previous agency was unable to respond. The practice moved from profitable to losing money in a matter of days.
 
 This pattern appears frequently in dental aesthetics practices: heavy reliance on one ad platform, campaigns optimized for raw leads rather than booked consultations, and no structured Google Ads presence to capture the search demand that social campaigns generate. When the single platform breaks, revenue collapses.
 
@@ -81,17 +81,17 @@ High-income audience targeting layered over keyword targeting ensured the practi
 
 Creekside Marketing attributes this turnaround to the shift from single-platform reliance to a coordinated Google and Meta strategy with CRM-backed optimization signals.
 
-Read the full breakdown: [Dr. Laleh Dental Aesthetics Case Study](/case-study-digital-marketing/dr-laleh/)
+Read the full breakdown: [a high-end cosmetic dental practice Case Study](/case-study-digital-marketing/dr-laleh/)
 
 ## The Common Thread: What Drove Results in Both Campaigns
 
 According to Creekside Marketing's analysis across both dental engagements, three factors separated these outcomes from what the practices experienced before the restructuring.
 
-**Conversion signal quality.** Both campaigns tracked the outcome that actually mattered to the business. Polaris Dentistry's campaigns tracked phone calls and form completions tied to appointment intent. Dr. Laleh's campaigns used CRM data to optimize for booked consultations rather than raw lead volume. When Google's algorithm receives accurate signals about what success looks like, it compounds performance over time. When it optimizes toward generic form fills, it delivers generic results.
+**Conversion signal quality.** Both campaigns tracked the outcome that actually mattered to the business. Polaris Dentistry's campaigns tracked phone calls and form completions tied to appointment intent. The cosmetic practice's campaigns used CRM data to optimize for booked consultations rather than raw lead volume. When Google's algorithm receives accurate signals about what success looks like, it compounds performance over time. When it optimizes toward generic form fills, it delivers generic results.
 
 **Keyword architecture matched to intent.** Dental accounts that waste budget are almost always targeting too broadly. A keyword like "dentist" captures mixed intent: people searching for a new provider, people looking up a practice they already know, students doing research. A keyword like "emergency tooth extraction near me" has a single intent. Creekside's approach concentrates budget on the second type of keyword, which is why both practices saw dramatic improvements in conversion rate alongside volume growth.
 
-**Budget efficiency over budget size.** Neither practice ran a large budget. Polaris Dentistry's transformation happened at a monthly spend level comparable to what most small practices could allocate. Dr. Laleh's September budget was higher, but the $131 cost per consultation against a roughly $20,000 average client value represents a strong return regardless of total spend. Across Creekside Marketing's dental client portfolio, this pattern is consistent: results follow structure, not budget scale.
+**Budget efficiency over budget size.** Neither practice ran a large budget. Polaris Dentistry's transformation happened at a monthly spend level comparable to what most small practices could allocate. The cosmetic practice's September budget was higher, but the $131 cost per consultation against a roughly $20,000 average client value represents a strong return regardless of total spend. Across Creekside Marketing's dental client portfolio, this pattern is consistent: results follow structure, not budget scale.
 
 ## What Dental Practice Owners Can Apply to Their Own Campaigns
 
@@ -101,7 +101,7 @@ Based on Creekside Marketing's dental case study data and campaign management ex
 
 **Narrow keyword targeting to procedure-specific and local queries.** Dental budgets under $5,000 per month should not run on broad match terms. The Polaris Dentistry case shows that focusing on high-intent local keywords produced 4.7 times more clicks from a much smaller number of impressions. Fewer, better-qualified clicks produce more conversions at lower cost.
 
-**If you are running Meta Ads, add Google Ads to capture the search intent they create.** The Dr. Laleh case study demonstrates what happens at the intersection of these two platforms. Social ads build awareness and intent. Search ads capture it when the patient is ready to book. Running only Meta, or only Google, leaves a meaningful portion of the patient acquisition cycle unaddressed.
+**If you are running Meta Ads, add Google Ads to capture the search intent they create.** The dental aesthetics case study demonstrates what happens at the intersection of these two platforms. Social ads build awareness and intent. Search ads capture it when the patient is ready to book. Running only Meta, or only Google, leaves a meaningful portion of the patient acquisition cycle unaddressed.
 
 For context on what dental Google Ads budgets typically look like at different practice sizes: [How Much Do Google Ads Cost for Dentists?](/blog/how-much-do-google-ads-cost-for-dentists/)
 
@@ -113,7 +113,7 @@ According to Creekside Marketing's data, 500%+ ROI is achievable for practices s
 
 **How long does it take to see results from dental Google Ads?**
 
-Based on Creekside Marketing's case study data, meaningful results appear within 30 to 90 days of a structural rebuild. Dr. Laleh's practice added $200,000 in monthly revenue within 90 days. Polaris Dentistry's full-year comparison shows what sustained optimization produces over time. In Creekside's experience, the first 30 days typically involve learning and refinement. Directional improvement usually appears by day 45 to 60 when the campaign structure is sound from the start.
+Based on Creekside Marketing's case study data, meaningful results appear within 30 to 90 days of a structural rebuild. This practice added $200,000 in monthly revenue within 90 days. Polaris Dentistry's full-year comparison shows what sustained optimization produces over time. In Creekside's experience, the first 30 days typically involve learning and refinement. Directional improvement usually appears by day 45 to 60 when the campaign structure is sound from the start.
 
 **What monthly budget does a dental practice need to run effective Google Ads?**
 
@@ -121,7 +121,7 @@ According to Creekside Marketing's dental vertical benchmarks, single-location p
 
 **Should a dental practice run Google Ads and Meta Ads together?**
 
-For practices with budgets above $3,000 per month, running both platforms produces stronger results than either platform alone, based on Creekside Marketing's multi-platform dental campaigns. Google captures patients actively searching for dental services. Meta builds awareness with patients who are not yet searching but match the target demographic. The Dr. Laleh case study shows what this combination produces when both platforms run with coordinated strategy and shared conversion tracking.
+For practices with budgets above $3,000 per month, running both platforms produces stronger results than either platform alone, based on Creekside Marketing's multi-platform dental campaigns. Google captures patients actively searching for dental services. Meta builds awareness with patients who are not yet searching but match the target demographic. The dental aesthetics case study shows what this combination produces when both platforms run with coordinated strategy and shared conversion tracking.
 
 ---
 
