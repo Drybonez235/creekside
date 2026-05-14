@@ -2,7 +2,7 @@
 title: "Mortgage Lead Generation Case Study: Digital Ads vs. Direct Mail (5x Lower Cost)"
 description: "How a reverse mortgage lender replaced $500k/month in direct mail with Google Ads at 5x lower cost. Real results from a Creekside Marketing case study."
 date: "2026-05-10"
-image: "article-images/mortgage-lead-generation-digital-ads-vs-direct-mail-case-study.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Mortgage & Financial Services Marketing"
 tags: ["CaseStudy", "Google Ads", "Mortgage Marketing", "Results"]
 ---

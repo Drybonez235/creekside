@@ -2,7 +2,7 @@
 title: "How Much Does a Dental Marketing Agency Cost in 2026?"
 description: "Real costs from $20M+ in managed dental ad spend. Agency fees, ad budgets, and ROI data from actual campaigns - no guesswork."
 date: "2026-05-09"
-image: "article-images/how-much-does-a-dental-marketing-agency-cost.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Dental Marketing"
 tags: ["DentalMarketing", "GoogleAds", "AgencyCosts", "PPC"]
 ---

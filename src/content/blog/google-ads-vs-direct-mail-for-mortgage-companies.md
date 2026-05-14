@@ -2,7 +2,7 @@
 title: "Google Ads vs Direct Mail for Mortgage Companies: Which Drives Better Results?"
 description: "Google Ads vs direct mail for mortgage companies compared with real CPL data. See cost per lead, conversion rates, and which channel wins in each scenario."
 date: "2026-05-12"
-image: "article-images/google-ads-vs-direct-mail-for-mortgage-companies.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "DirectMail", "MortgageMarketing", "Comparison"]
 ---

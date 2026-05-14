@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Mortgage Companies? [2026 Real Data]"
 description: "Google Ads for mortgage companies cost $8–$50 per click. Real budget ranges, CPL benchmarks, and ROI analysis from Creekside's mortgage campaigns."
 date: "2026-05-07"
-image: "article-images/how-much-do-google-ads-cost-for-mortgage-companies.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "MortgageMarketing", "CostBreakdown", "PPC"]
 ---

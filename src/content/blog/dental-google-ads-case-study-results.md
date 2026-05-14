@@ -2,7 +2,7 @@
 title: "Dental Google Ads Case Study Results: 500%+ ROI and $200k in Monthly Revenue"
 description: "Real dental Google Ads case study results: 26 to 413 conversions at 500%+ ROI, plus $200k/month added in 90 days. Real data from Creekside Marketing."
 date: "2026-05-05"
-image: "article-images/dental-google-ads-case-study-results.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Dental Marketing"
 tags: ["CaseStudy", "GoogleAds", "Dental", "Results"]
 ---

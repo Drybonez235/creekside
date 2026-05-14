@@ -2,7 +2,7 @@
 title: "Google Ads vs Local Service Ads for Lawyers: Which Drives Better Results?"
 description: "Google Ads vs Local Service Ads for lawyers: real campaign data on costs, lead quality, and ROI. See which channel drives better results."
 date: "2026-05-13"
-image: "article-images/google-ads-vs-local-service-ads-for-lawyers.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Legal Marketing"
 tags: ["GoogleAds", "LocalServiceAds", "LegalMarketing", "Comparison"]
 ---

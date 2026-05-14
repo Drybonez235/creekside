@@ -2,7 +2,7 @@
 title: "Personal Injury Law Firm Google Ads Case Study: 50+ Signed Cases in 4 Months"
 description: "A personal injury law firm Google Ads case study with real numbers: 50+ signed cases, $621 lowest CPA, and a new office opened. See how Creekside did it."
 date: "2026-05-11"
-image: "article-images/personal-injury-law-firm-google-ads-case-study.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Legal Marketing"
 tags: ["CaseStudy", "Google Ads", "Legal", "Results"]
 ---
