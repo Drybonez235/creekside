@@ -16,6 +16,34 @@ import SeoHead from '../components/SeoHead.astro'
 ---
 
 
+<script>
+  !function(w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function() {
+      q.q.push(arguments);
+    };
+    q.q = [];
+    w.oaiq = q;
+    var j = d.createElement(s);
+    j.async = 1;
+    j.src = u;
+    var f = d.getElementsByTagName(s)[0];
+    f.parentNode.insertBefore(j, f);
+  }(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+
+  oaiq("init", {
+    pixelId: "A5dysB8EYSMFAWFErK6PC3",
+    debug: true
+  });
+</script>
+<script>
+  oaiq("measure", "registration_completed", {
+    type: "customer_action",
+    amount: 0,
+    currency: "USD"
+  });
+</script>
+
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
