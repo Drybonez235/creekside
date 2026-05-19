@@ -16,7 +16,7 @@ import SeoHead from '../components/SeoHead.astro'
 ---
 
 
-<script>
+<script is:inline>
   !function(w, d, s, u) {
     if (w.oaiq) return;
     var q = function() {
@@ -36,7 +36,7 @@ import SeoHead from '../components/SeoHead.astro'
     debug: true
   });
 </script>
-<script>
+<script is:inline>
   oaiq("measure", "registration_completed", {
     type: "customer_action",
     amount: 0,
