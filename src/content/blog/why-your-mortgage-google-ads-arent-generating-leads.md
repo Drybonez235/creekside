@@ -2,7 +2,7 @@
 title: "Why Your Mortgage Google Ads Aren't Generating Leads (And How to Fix It)"
 description: "Mortgage Google Ads not working? Creekside's audit data reveals 6 fixable problems that waste 30-50% of lender budgets. Real fixes, real numbers."
 date: "2026-05-14"
-image: "article-images/why-your-mortgage-google-ads-arent-generating-leads.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "MortgageMarketing", "Audit", "Optimization"]
 ---

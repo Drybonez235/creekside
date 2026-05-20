@@ -2,7 +2,7 @@
 title: "How Much Does a Law Firm Marketing Agency Cost? [2026 Real Data]"
 description: "Law firm marketing agencies charge $1,500–$5,000/month in fees plus $5,000–$50,000 in ad spend. Real data from Creekside Marketing's legal campaigns."
 date: "2026-05-17"
-image: "article-images/how-much-does-a-law-firm-marketing-agency-cost.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Legal Marketing"
 tags: ["GoogleAds", "LegalMarketing", "CostBreakdown", "PPC"]
 ---

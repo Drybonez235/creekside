@@ -2,7 +2,7 @@
 title: "Why Your Law Firm Google Ads Are Wasting Money (And How to Fix It)"
 description: "6 structural mistakes that waste law firm Google Ads budgets. Real data from legal PPC audits, with specific fixes for each problem."
 date: "2026-05-15"
-image: "article-images/why-your-law-firm-google-ads-are-wasting-money.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Legal Marketing"
 tags: ["GoogleAds", "Legal", "Audit", "Optimization"]
 ---

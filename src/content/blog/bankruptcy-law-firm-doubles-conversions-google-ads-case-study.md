@@ -2,7 +2,7 @@
 title: "Bankruptcy Law Firm Doubles Conversions with Google Ads: A Case Study"
 description: "How a bankruptcy law firm doubled conversions from 117 to 229 with Google Ads -- and cut cost per lead 42% to $50.29 -- through campaign restructuring."
 date: "2026-05-16"
-image: "article-images/bankruptcy-law-firm-doubles-conversions-google-ads-case-study.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Legal Marketing"
 tags: ["CaseStudy", "GoogleAds", "Legal", "Results"]
 ---
