@@ -241,27 +241,11 @@ pricing: {
     "offers": [
       {
         "@type": "Offer",
-        "name": "Growth Plan",
-        "description": "Percentage-based pricing ideal for businesses starting or scaling their ad spend",
+        "name": "Ad Management Fee",
+        "description": "Percentage-based pricing that scales with your ad spend. Tiered rates decrease as budget grows, capped at $15,000/month.",
         "priceCurrency": "USD",
-        "price": "2000",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2000", "priceCurrency": "USD", "unitText": "month", "description": "$2,000/mo minimum + percentage of ad spend" }
-      },
-      {
-        "@type": "Offer",
-        "name": "Shared Plan",
-        "description": "Flat base fee plus percentage, ideal for multi-platform advertisers spending $20k-$60k/mo",
-        "priceCurrency": "USD",
-        "price": "2000",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2000", "priceCurrency": "USD", "unitText": "month", "description": "$2,000/mo flat + 10% of ad spend" }
-      },
-      {
-        "@type": "Offer",
-        "name": "Retainer Plan",
-        "description": "Fixed monthly fee with no variable costs, ideal for high-spend advertisers above $60k/mo",
-        "priceCurrency": "USD",
-        "price": "8000",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "8000", "priceCurrency": "USD", "unitText": "month", "description": "$8,000/mo flat fee, all platforms included" }
+        "price": "1500",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1500", "priceCurrency": "USD", "unitText": "month", "description": "$1,500/mo minimum per platform, 20%/15%/10% tiered rates, $15,000 monthly cap" }
       }
     ],
     "breadcrumb": {
@@ -403,7 +387,7 @@ export const faqSchemas = {
         "name": "How much does Google Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three transparent pricing plans based on your ad spend level — from percentage-based fees starting at $2,000/month to a flat $8,000/month retainer for high-spend advertisers. Visit our pricing page at creeksidemarketingpros.com/pricing for full plan details and a side-by-side comparison."
+          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
         }
       },
       {
@@ -457,7 +441,7 @@ export const faqSchemas = {
         "name": "How much does Meta Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three transparent pricing plans — Growth, Shared, and Retainer — designed to scale with your ad budget. Multi-platform advertisers benefit from our Shared plan which covers all platforms under one base fee. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
+          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows. Multi-platform advertisers pay the same per-platform rate, and total fees are capped at $15,000/month. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
         }
       },
       {
@@ -503,7 +487,7 @@ export const faqSchemas = {
         "name": "How much does Creekside Marketing charge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer three plans: Growth (percentage-based starting at $2,000/mo), Shared ($2,000/mo flat + 10% of ad spend), and Retainer ($8,000/mo flat). The best plan depends on your monthly ad budget."
+          "text": "Our management fee is a percentage of your ad spend: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. The $1,500 minimum per platform covers your first $7,500 in spend, and fees are capped at $15,000/month."
         }
       },
       {
@@ -519,7 +503,7 @@ export const faqSchemas = {
         "name": "Which plan should I choose?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For budgets under $20k/month, Plan A and Plan B cost the same. Between $20k-$60k, Plan B is more cost-effective. Above $60k, Plan C (flat retainer) saves the most."
+          "text": "Our single pricing structure works for all budget levels. The percentage rate decreases as your spend grows (20% to $30k, 15% to $60k, 10% above), so the more you invest, the lower your effective rate. Fees are capped at $15,000/month."
         }
       },
       {
@@ -527,7 +511,7 @@ export const faqSchemas = {
         "name": "What is included in the onboarding fee?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The onboarding fee covers full account audit, conversion tracking setup (GA4, Meta Pixel, CAPI, GTM), campaign strategy development, and initial campaign buildout. Plan C waives onboarding entirely."
+          "text": "The $1,500 per platform onboarding fee covers a full account audit, conversion tracking setup (GA4, Meta Pixel, CAPI, GTM), campaign strategy development, and initial campaign buildout."
         }
       },
       {
@@ -535,7 +519,7 @@ export const faqSchemas = {
         "name": "Can I switch between plans?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, you can switch plans as your ad spend scales. Many clients start with Plan A or B and move to Plan C as their budget grows."
+          "text": "Our pricing automatically scales with your ad spend. As your budget grows, the percentage rate decreases at $30k and $60k per platform. No plan switching needed."
         }
       }
     ]
