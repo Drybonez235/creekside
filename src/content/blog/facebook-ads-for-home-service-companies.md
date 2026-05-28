@@ -2,7 +2,7 @@
 title: "Facebook Ads for Home Service Companies: What Actually Works in 2026"
 description: "Meta Ads generate contractor leads at $20-$45 each when built correctly. See the exact campaign structure Creekside uses for home services."
 date: "2026-05-20"
-image: "article-images/facebook-ads-for-home-service-companies.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Home Services Marketing"
 tags: ["MetaAds", "FacebookAds", "HomeServices", "LeadGeneration"]
 ---
