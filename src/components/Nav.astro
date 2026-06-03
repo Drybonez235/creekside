@@ -146,6 +146,7 @@
     dropdowns.forEach(dropdown => {
       const button = dropdown.querySelector('button');
       const menu = dropdown.querySelector('div');
+      if (!button || !menu) return;
 
       button.addEventListener('click', (e) => {
         // Prevent the click from immediately bubbling up to the window
@@ -187,12 +188,12 @@
 
     // Toggle Mobile Menu visibility
     const toggleMenu = () => {
-      mobileMenu.classList.toggle('hidden');
+      mobileMenu?.classList.toggle('hidden');
       document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
     };
 
-    openBtn.addEventListener('click', toggleMenu);
-    closeBtn.addEventListener('click', toggleMenu);
+    openBtn?.addEventListener('click', toggleMenu);
+    closeBtn?.addEventListener('click', toggleMenu);
 
     // Accordion Logic for Mobile Dropdowns
     dropdownBtns.forEach(btn => {
