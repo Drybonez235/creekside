@@ -80,10 +80,6 @@
       if (shownOnThisPage) return;
       if (getDismissCount() >= 2) return;
 
-      // Don't show if the GHL iframe failed to load (height <= 20px)
-      const iframe = document.getElementById("inline-8As7Tl468YopNi5PJw9G");
-      if (iframe && iframe.offsetHeight <= 20) return;
-
       shownOnThisPage = true;
       overlay?.classList.remove("hidden");
       overlay?.classList.add("flex");
