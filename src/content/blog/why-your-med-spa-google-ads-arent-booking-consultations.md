@@ -2,7 +2,7 @@
 title: "Why Your Med Spa Google Ads Aren't Booking Consultations (And How to Fix It)"
 description: "6 root causes killing your med spa Google Ads performance, with real audit data and specific fixes from Creekside Marketing."
 date: "2026-05-26"
-image: "article-images/why-your-med-spa-google-ads-arent-booking-consultations.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["GoogleAds", "MedSpa", "Audit", "Optimization"]
 ---

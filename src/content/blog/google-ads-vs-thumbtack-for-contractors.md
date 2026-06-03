@@ -2,7 +2,7 @@
 title: "Google Ads vs Thumbtack for Contractors: Which Drives Better Results?"
 description: "We manage Google Ads for home service contractors. Real data on Google Ads vs Thumbtack and Angi: cost per lead, ROI, and when to use each."
 date: "2026-05-23"
-image: "article-images/google-ads-vs-thumbtack-for-contractors.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Home Services Marketing"
 tags: ["GoogleAds", "Thumbtack", "HomeServices", "Comparison"]
 ---

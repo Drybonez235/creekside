@@ -2,7 +2,7 @@
 title: "Why Your Home Service Google Ads Aren't Getting Calls (And How to Fix Them)"
 description: "Six reasons your home service Google Ads aren't getting calls, with the specific fixes. Based on real audits of contractor accounts wasting 30-50% of budget."
 date: "2026-05-25"
-image: "article-images/why-your-home-service-google-ads-arent-getting-calls.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Home Services Marketing"
 tags: ["GoogleAds", "HomeServices", "Audit", "Optimization"]
 ---

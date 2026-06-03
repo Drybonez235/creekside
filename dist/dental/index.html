@@ -9,6 +9,81 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KFQDMCH5');</script>
     <!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2083657478846396');
+      fbq('trackCustom', 'Dental_LP_PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2083657478846396&ev=Dental_LP_PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Dental LP Tracking: UTM/fbclid capture + custom event delegation -->
+    <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var utmData = {};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(key) {
+        var val = params.get(key);
+        if (val) utmData[key] = val;
+      });
+      if (Object.keys(utmData).length > 0) {
+        try { sessionStorage.setItem('dental_lp_utm', JSON.stringify(utmData)); } catch(e) {}
+      } else {
+        try { var stored = sessionStorage.getItem('dental_lp_utm'); if (stored) utmData = JSON.parse(stored); } catch(e) {}
+      }
+
+      function appendUtmToLinks() {
+        document.querySelectorAll('a[href*="dental.creeksidemarketingpros"], a[href*="calendly.com"]').forEach(function(link) {
+          try {
+            var url = new URL(link.href);
+            Object.keys(utmData).forEach(function(key) {
+              if (!url.searchParams.has(key)) url.searchParams.set(key, utmData[key]);
+            });
+            link.href = url.toString();
+          } catch(e) {}
+        });
+      }
+      var obs = new MutationObserver(function() { appendUtmToLinks(); });
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest ? e.target.closest('a, button') : e.target;
+        if (!el) return;
+        var text = (el.textContent || '').trim();
+        var href = el.getAttribute('href') || '';
+        if (text.match(/Get Your Paid Ads Blueprint/i) || (href.indexOf('dental.creeksidemarketingpros') !== -1 && href !== window.location.href)) {
+          if (window.fbq) window.fbq('trackCustom', 'Dental_LP_BlueprintClick', utmData);
+        }
+        if (text.match(/Book a (Call|Strategy Call)/i) || href.indexOf('calendly.com') !== -1) {
+          if (window.fbq) window.fbq('trackCustom', 'Dental_LP_BookCallClick', utmData);
+        }
+      });
+
+      var _contactFired = false;
+      function fireContactSubmit() {
+        if (_contactFired || !window.fbq) return;
+        _contactFired = true;
+        window.fbq('trackCustom', 'Dental_LP_ContactSubmit', utmData);
+        setTimeout(function() { _contactFired = false; }, 3000);
+      }
+      document.addEventListener('submit', fireContactSubmit);
+      var _fetch = window.fetch;
+      window.fetch = function() {
+        if (typeof arguments[0] === 'string' && arguments[0].indexOf('/api/contact') !== -1) {
+          fireContactSubmit();
+        }
+        return _fetch.apply(this, arguments);
+      };
+    })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD"></script>
     <script>
@@ -17,6 +92,10 @@
       gtag('js', new Date());
       gtag('config', 'G-REHLM40KCD');
     </script>
+    <link rel="icon" type="image/avif" href="/creekside-marketing-logo-icon-32x32.avif" sizes="32x32"/>
+    <link rel="icon" type="image/avif" href="/creekside-marketing-icon-180x180.avif" sizes="180x180"/>
+    <link rel="icon" type="image/avif" href="/creekside-marketing-icon-192x192.avif" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="/creekside-marketing-icon-180x180.avif"/>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -26,16 +105,16 @@
     <meta property="og:title" content="Creekside Marketing - Paid Ads for Dental Practices" />
     <meta property="og:description" content="4-8X return on ad spend for dental practices. See how we doubled Dr. Laleh's revenue to $2M/month. Get your free growth blueprint." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://creeksidemarketing.net" />
-    <meta property="og:image" content="https://creeksidemarketing.net/og-image.png" />
+    <meta property="og:url" content="https://creeksidemarketingpros.com/dental/" />
+    <meta property="og:image" content="https://creeksidemarketingpros.com/dental/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Creekside Marketing - Paid Ads for Dental Practices" />
     <meta name="twitter:description" content="4-8X return on ad spend for dental practices. Get your free Custom Practice Growth Blueprint." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/dental/assets/index-BYNA3BVs.js"></script>
-    <link rel="stylesheet" crossorigin href="/dental/assets/index-1ohrIybr.css">
+    <script type="module" crossorigin src="/dental/assets/index-ClFxRmDg.js"></script>
+    <link rel="stylesheet" crossorigin href="/dental/assets/index-CvT_WHsq.css">
   </head>
 
   <body>

@@ -2,7 +2,7 @@
 title: "Meta Ads for Med Spas: How to Fill Consultation Slots in 2026"
 description: "How med spa owners fill consultation slots with Meta Ads at under $10 per lead. Real campaign data and targeting strategy from Creekside Marketing."
 date: "2026-05-22"
-image: "article-images/meta-ads-for-med-spas-how-to-fill-consultation-slots.avif"
+image: "article-images/Keyword.avif"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["MetaAds", "FacebookAds", "MedSpaMarketing", "LeadGeneration"]
 ---
