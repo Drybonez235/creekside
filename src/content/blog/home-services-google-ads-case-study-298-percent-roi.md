@@ -2,7 +2,7 @@
 title: "Home Services Google Ads Case Study: 298% ROI and a New Franchise Location"
 description: "How a Nashville lawn care business hit 298% ROI, 1,500+ conversions, and funded a new franchise with Google Ads. A Creekside Marketing case study."
 date: "2026-05-27"
-image: "article-images/home-services-google-ads-case-study-298-percent-roi.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Home Services Marketing"
 tags: ["CaseStudy", "GoogleAds", "HomeServices", "Results"]
 ---
