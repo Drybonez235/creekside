@@ -123,6 +123,33 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
+    <!-- Inline YouTube player: click thumbnail → play embed instead of redirecting -->
+    <script>
+    (function() {
+      function extractVideoId(url) {
+        var m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed|v|watch\?v=)\/?)([A-Za-z0-9_-]{11})/);
+        return m ? m[1] : null;
+      }
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href*="youtu.be"], a[href*="youtube.com"]');
+        if (!link) return;
+        var videoId = extractVideoId(link.href);
+        if (!videoId) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var container = link.closest('.aspect-video') || link.parentElement;
+        if (!container) return;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:20;';
+        container.style.position = 'relative';
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      }, true);
+    })();
+    </script>
   </body>
 
 </html>
