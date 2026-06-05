@@ -1,0 +1,311 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import { siteSchema, faqSchemas } from '../data/structuredData';
+
+import '../styles/global.css';
+---
+
+<Layout
+  title="Pricing - Creekside Marketing"
+  description="Transparent, scalable pricing for Google Ads and Meta Ads management. Your fee scales with your ad spend -- no hidden fees, no long-term contracts."
+  canonicalURL="https://creeksidemarketingpros.com/pricing/"
+  schema={siteSchema.pricing}
+  faqSchema={faqSchemas.pricing}
+>
+  <Nav />
+
+  <!-- Hero Section -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <header class="flex flex-col items-center gap-4">
+          <h1 class="text-primary-900 text-3xl font-extrabold tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+            Transparent Pricing, <span class="text-secondary-500">Real Results</span>
+          </h1>
+          <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        </header>
+        <p class="text-grey-700 max-w-2xl text-lg/8">
+          Your management fee scales with your ad spend. As your budget grows, the percentage decreases. No hidden fees, no long-term contracts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Card Section -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto max-w-3xl px-4 lg:px-8">
+
+      <div class="relative flex flex-col rounded-sm border-2 border-secondary-500 bg-white shadow-md">
+        <div class="h-1 w-full rounded-t-sm bg-secondary-500"></div>
+        <div class="flex flex-1 flex-col p-8 pt-10">
+          <div class="mb-6 text-center">
+            <p class="text-sm font-bold uppercase tracking-widest text-secondary-500">Percentage of Ad Spend</p>
+            <h3 class="text-primary-900 text-2xl font-extrabold uppercase tracking-tight">Management Fee</h3>
+          </div>
+
+          <div class="flex flex-1 flex-col divide-y divide-grey-100">
+            <div class="flex flex-col gap-1 py-4">
+              <span class="text-sm font-medium text-grey-600">Variable Fee</span>
+              <div class="flex flex-col gap-0.5 text-sm font-semibold text-primary-900">
+                <span>20% up to $30k/month</span>
+                <span>15% from $30k&ndash;$60k</span>
+                <span>10% above $60k</span>
+              </div>
+              <span class="text-xs text-grey-500">Calculated per platform</span>
+            </div>
+            <div class="flex items-baseline justify-between py-4">
+              <span class="text-sm font-medium text-grey-600">Minimum Fee</span>
+              <span class="text-lg font-bold text-primary-900">$1,500<span class="text-sm font-medium text-grey-500">/mo per platform</span></span>
+            </div>
+            <div class="flex items-baseline justify-between py-4">
+              <span class="text-sm font-medium text-grey-600">Monthly Cap</span>
+              <span class="text-lg font-bold text-primary-900">$15,000</span>
+            </div>
+            <div class="flex items-baseline justify-between py-4">
+              <span class="text-sm font-medium text-grey-600">Onboarding</span>
+              <span class="text-lg font-bold text-primary-900">$1,500<span class="text-sm font-medium text-grey-500"> per platform</span></span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="#freequote"
+              class="bg-secondary-500 hover:bg-secondary-600 block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-4 text-center text-sm text-grey-500">
+        The $1,500 minimum fee per platform acts as a floor, covering your first $7,500 in ad spend. Once you spend over $7,500, the 20% rate naturally takes over.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Fee Scaling Chart Section -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 flex flex-col items-center gap-4 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+          How It <span class="text-secondary-500">Scales</span>
+        </h2>
+        <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-700 max-w-3xl text-lg/8">
+          Your management fee drops at $30,000 and again at $60,000 per platform. The $15,000 monthly cap means your costs stay predictable even as you grow.
+        </p>
+      </header>
+
+      <div class="rounded-sm border border-grey-200 bg-white p-6 shadow-sm">
+        <h3 class="text-primary-900 mb-4 text-center text-lg font-bold uppercase tracking-wider">Monthly Management Fee by Ad Spend</h3>
+        <canvas id="chart-fee" class="w-full"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 flex flex-col items-center gap-4 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+          How It <span class="text-secondary-500">Works</span>
+        </h2>
+        <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+      </header>
+
+      <div class="flex flex-col gap-6">
+        <div class="rounded-sm border-2 border-secondary-500 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="bg-secondary-500 mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">1</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">Under $30k/month per platform</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                Your fee is 20% of ad spend per platform, with a $1,500 minimum. This keeps your costs low as you ramp up and test campaigns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-sm border-2 border-secondary-500 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="bg-secondary-500 mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">2</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">$30k&ndash;$60k/month per platform</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                The rate drops to 15% on spend above $30,000. You save more as your budget scales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-sm border-2 border-secondary-500 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="bg-secondary-500 mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white">3</span>
+            <div>
+              <h3 class="text-primary-900 text-lg font-bold">$60k+/month per platform</h3>
+              <p class="text-grey-700 mt-1 text-base/7">
+                Above $60,000, the rate drops to 10%. And your total fee never exceeds $15,000/month regardless of how much you spend.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="freequote" class="bg-primary-900 py-16 lg:py-24">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl/tight lg:text-5xl/tight">
+        Ready to grow? <span class="text-secondary-300">Let's talk.</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg/8 text-primary-100/80">
+        Book a free strategy call and we will walk through your ad spend, goals, and what your management fee would look like.
+      </p>
+      <div class="mt-10">
+        <a
+          href="https://calendly.com/creekside_marketing/creekside-marketing-strategy-call"
+          class="bg-secondary-500 hover:bg-secondary-600 inline-block rounded-sm px-8 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
+        >
+          Schedule A Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Lazy-load Chart.js and render fee scaling chart
+  (function () {
+    var chartsLoaded = false;
+    var container = document.querySelector('#chart-fee');
+    if (!container) return;
+
+    function buildCharts() {
+      if (chartsLoaded) return;
+      chartsLoaded = true;
+
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+      script.onload = function () {
+        renderChart();
+      };
+      document.head.appendChild(script);
+    }
+
+    function calcFee_single(spend) {
+      if (spend <= 0) return 0;
+      var fee = 0;
+      if (spend <= 30000) {
+        fee = spend * 0.20;
+      } else if (spend <= 60000) {
+        fee = 6000 + (spend - 30000) * 0.15;
+      } else {
+        fee = 6000 + 4500 + (spend - 60000) * 0.10;
+      }
+      fee = Math.max(fee, 1500);
+      return Math.min(fee, 15000);
+    }
+
+    function calcFee_dual(totalSpend) {
+      var perPlatform = totalSpend / 2;
+      var feePerPlatform = calcFee_single(perPlatform);
+      return Math.min(feePerPlatform * 2, 15000);
+    }
+
+    function renderChart() {
+      var spendPoints = [0, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000];
+      var labels = spendPoints.map(function (v) { return '$' + (v / 1000) + 'k'; });
+
+      var feeSingle = spendPoints.map(calcFee_single);
+      var feeDual = spendPoints.map(calcFee_dual);
+
+      new Chart(document.getElementById('chart-fee'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            { label: 'Single Platform', data: feeSingle, borderColor: '#102a43', backgroundColor: '#102a43', tension: 0, borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, borderDash: [] },
+            { label: 'Two Platforms (50/50 Split)', data: feeDual, borderColor: '#f59e0b', backgroundColor: '#f59e0b', tension: 0, borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, borderDash: [8, 4] }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 13, weight: 'bold' } } },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) {
+                  return ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+                },
+                title: function (items) {
+                  return items[0].label + ' Ad Spend';
+                }
+              }
+            },
+            annotation: {
+              annotations: {
+                capLine: {
+                  type: 'line',
+                  yMin: 15000,
+                  yMax: 15000,
+                  borderColor: '#dc2626',
+                  borderWidth: 1.5,
+                  borderDash: [6, 4],
+                  label: {
+                    display: true,
+                    content: '$15,000 cap',
+                    position: 'start',
+                    backgroundColor: 'transparent',
+                    color: '#dc2626',
+                    font: { size: 11, weight: 'bold' }
+                  }
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 17000,
+              ticks: {
+                stepSize: 2500,
+                callback: function (value) { return '$' + value.toLocaleString(); },
+                font: { size: 12 }
+              },
+              title: { display: true, text: 'Monthly Management Fee', font: { size: 13, weight: 'bold' } },
+              grid: { color: '#e2e8f0' }
+            },
+            x: {
+              ticks: { font: { size: 11 } },
+              title: { display: true, text: 'Monthly Ad Spend', font: { size: 13, weight: 'bold' } },
+              grid: { color: '#e2e8f0' }
+            }
+          }
+        }
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            buildCharts();
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      observer.observe(container.closest('section'));
+    } else {
+      setTimeout(buildCharts, 2000);
+    }
+  })();
+</script>
