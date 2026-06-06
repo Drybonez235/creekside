@@ -28,19 +28,20 @@ const schema = {
   "@type": "BlogPosting",
   "headline": post.data.title,
   "description": post.data.description,
-  "image": `${Astro.site}${post.data.image}`, // Ensure this is a full URL if possible
+  "image": `${Astro.site}${post.data.image}`,
   "datePublished": post.data.date.toISOString(),
+  ...(post.data.lastModified && { "dateModified": post.data.lastModified.toISOString() }),
   "author": {
     "@type": "Person",
     "name": "Peterson Rainey",
-    "url": Astro.site // Or a link to your about page
+    "url": `${Astro.site}meet-the-team/`
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Creekside",
+    "name": "Creekside Marketing",
     "logo": {
       "@type": "ImageObject",
-      "url": `${Astro.site}creekside-marketing-icon-192x192.avif` // Replace with your actual logo path
+      "url": `${Astro.site}creekside-marketing-icon-192x192.avif`
     }
   },
   "mainEntityOfPage": {
@@ -48,6 +49,32 @@ const schema = {
     "@id": Astro.url.href
   },
   "keywords": post.data.tags.join(", ")
+};
+
+// Breadcrumb schema for blog posts
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `${Astro.site}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": `${Astro.site}blog/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.data.title,
+      "item": Astro.url.href
+    }
+  ]
 };
 ---
 
@@ -58,6 +85,7 @@ const schema = {
   canonicalURL={Astro.url}
 >
 <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
 <Nav />
 <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
     <aside class="hidden lg:block">
