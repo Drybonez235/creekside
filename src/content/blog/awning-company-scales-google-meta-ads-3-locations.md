@@ -2,7 +2,7 @@
 title: "Awning Company Scales Google and Meta Ads Across 3 Locations: A Real Case Study"
 description: "A Florida awning company ran Google and Meta ads across 3 locations on $7.2K/month. See how an 85-point audit found the flaw silently wasting their budget."
 date: "2026-05-30"
-image: "article-images/awning-company-scales-google-meta-ads-3-locations.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Home Services Marketing"
 tags: ["CaseStudy", "Google Ads", "Meta Ads", "Home Services", "Results"]
 ---

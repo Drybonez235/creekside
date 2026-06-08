@@ -7,29 +7,17 @@ const { idPrefix = "cta" } = Astro.props;
 <section class="">
   <div class="mx-auto max-w-xl rounded-2xl bg-white p-8 shadow-sm border border-grey-200">
     <form id={`${idPrefix}-form`} class="google-submission-form grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+      
       <div class="hidden" aria-hidden="true">
-        <label for={`${idPrefix}-website-url`}>Website URL</label>
+        <label for={`${idPrefix}-spam-trap`}>Website URL</label>
         <input 
           type="text" 
-          id={`${idPrefix}-website-url`} 
+          id={`${idPrefix}-spam-trap`} 
           name="website-url" 
           tabindex="-1" 
           autocomplete="off" 
         />
       </div>
-
-      <div class="hidden" aria-hidden="true">
-        <label for={`${idPrefix}-phone-number`}>Phone Number Verification</label>
-        <input 
-          type="tel" 
-          id={`${idPrefix}-phone-number`} 
-          name="entry.1189627616"
-          tabindex="-1"
-          autocomplete="off" 
-          value="" 
-        />
-      </div>
-
 
       <div>
         <label for={`${idPrefix}-first-name`} class="block text-sm/6 font-semibold text-primary-900">First Name*</label>
@@ -85,6 +73,34 @@ const { idPrefix = "cta" } = Astro.props;
         ></textarea>
       </div>
 
+     <div class="sm:col-span-2 flex flex-col gap-y-2">
+        <label for={`${idPrefix}-captcha`} class="block text-sm/6 font-semibold text-primary-900">
+          Security Verification*
+        </label>
+        <div class="flex flex-col gap-4 items-start">
+          <div class="w-full sm:max-w-xs bg-grey-100 p-3 rounded-md border border-grey-200 shrink-0 flex items-center justify-center">
+            <img 
+              src="/captcha.png" 
+              alt="Math security question" 
+              class="block h-auto max-h-24 w-full object-contain"
+            />
+          </div>
+          <div class="w-full">
+            <input  
+              type="text"  
+              id={`${idPrefix}-captcha`}  
+              name="entry.1189627616"
+              required  
+              placeholder="Answer the math question"
+              class="block w-full rounded-md border-grey-300 px-3.5 py-2 text-primary-900 shadow-xs ring-1 ring-inset ring-grey-300 focus:ring-2 focus:ring-inset focus:ring-secondary-500 outline-hidden"
+            />
+          </div>
+        </div>
+        <p id={`${idPrefix}-captcha-error`} class="hidden text-xs font-semibold text-accent-alert">
+          Incorrect answer. Please solve the math problem to send your message.
+        </p>
+      </div>
+
       <div class="sm:col-span-2">
         <button  
           type="submit"  
@@ -111,8 +127,23 @@ const { idPrefix = "cta" } = Astro.props;
       
       const prefix = form.id.replace('-form', '');
       const feedback = document.getElementById(`${prefix}-feedback`);
+      const captchaError = document.getElementById(`${prefix}-captcha-error`);
+      const captchaInput = document.getElementById(`${prefix}-captcha`);
       const formData = new FormData(form);
 
+      // Clean presentation defaults on fresh attempt
+      if (captchaError) captchaError.classList.add('hidden');
+
+      // 1. Client-Side Captcha Validation
+      if (captchaInput && captchaInput.value.trim() !== "11") {
+        if (captchaError) {
+          captchaError.classList.remove('hidden');
+        }
+        captchaInput.focus();
+        return; 
+      }
+
+      // 2. Active Spambot Honeypot Validation
       const honeyPotValue = formData.get('website-url');
       if (honeyPotValue) {
         form.reset();
@@ -123,6 +154,7 @@ const { idPrefix = "cta" } = Astro.props;
         return; 
       }
       
+      // 3. Execution of Safe submission to Google's endpoint
       try {
         await fetch(FORM_URL, {
           method: 'POST',

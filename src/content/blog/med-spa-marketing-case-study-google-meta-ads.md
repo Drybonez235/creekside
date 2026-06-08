@@ -2,7 +2,7 @@
 title: "From Closing a Branch to Opening a 4th: A Med Spa Marketing Case Study (Google & Meta Ads)"
 description: "A 3-location North Atlanta med spa nearly closed a branch. See the Google Ads and Meta Ads strategy that cut CPA 50% and drove 238 leads in a single month."
 date: "2026-05-28"
-image: "article-images/med-spa-marketing-case-study-google-meta-ads.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["CaseStudy", "Google Ads", "Meta Ads", "Results"]
 ---

@@ -1,20 +1,16 @@
----
-/* Revised Popup: Fixed interaction blocking issues */
----
-
 <div
   id="profit-popup-overlay"
-  class="fixed inset-0 z-100 hidden items-center justify-center bg-primary-900/60 opacity-0 transition-opacity duration-500 backdrop-blur-sm overflow-y-auto"
+  class="fixed inset-0 z-[100] flex items-start md:items-center justify-center bg-primary-900/60 backdrop-blur-xs overflow-y-auto p-4 opacity-0 invisible pointer-events-none transition-opacity duration-500"
   role="dialog"
   aria-modal="true"
 >
   <div
     id="profit-popup-content"
-    class="relative w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl transition-transform duration-500 scale-95"
+    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl scale-95 transition-transform duration-500"
   >
     <button
       id="close-popup"
-      class="absolute top-24 right-12 z-20 size-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
+      class="absolute top-4 right-4 z-20 size-11 flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
       aria-label="Close popup"
     >
       <svg
@@ -28,43 +24,57 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
+          d="M6 18L18 6M6 6l12 12"
+        />
       </svg>
     </button>
 
-    <div class="p-2 md:p-4">
-      <div class="relative w-full flex items-center justify-center">
+    <div class="p-2 md:p-4 pt-14 md:pt-4">
+      <div class="relative w-full">
         <iframe
-    src="https://api.msglink.cloud/widget/form/8As7Tl468YopNi5PJw9G"
-    style="width:100%;min-height:400px;border:none;border-radius:3px"
-    id="inline-8As7Tl468YopNi5PJw9G"
-    data-layout="{'id':'INLINE'}"
-    data-trigger-type="alwaysShow"
-    data-trigger-value=""
-    data-activation-type="alwaysActivated"
-    data-activation-value=""
-    data-deactivation-type="deactivateAfter"
-    data-deactivation-value="2"
-    data-form-name="Lead Magnet Client"
-    data-height="776"
-    data-layout-iframe-id="inline-8As7Tl468YopNi5PJw9G"
-    data-form-id="8As7Tl468YopNi5PJw9G"
-    title="Lead Magnet Client"
-        >
-</iframe>
-     </div>
+          src="https://api.msglink.cloud/widget/form/8As7Tl468YopNi5PJw9G"
+          id="inline-8As7Tl468YopNi5PJw9G"
+          class="block w-full border-0"
+          style="height:776px;"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="deactivateAfter"
+          data-deactivation-value="2"
+          data-form-name="Lead Magnet Client"
+          data-height="776"
+          data-layout-iframe-id="inline-8As7Tl468YopNi5PJw9G"
+          data-form-id="8As7Tl468YopNi5PJw9G"
+          title="Lead Magnet Client"
+        ></iframe>
+      </div>
     </div>
   </div>
 </div>
+
+<style is:global>
+  .ep-iFrameContainer,
+  .ep-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+
 <script src="https://api.msglink.cloud/js/form_embed.js" is:inline></script>
 
 <script>
-  const setupPopup = () => {
+  (() => {
+    if (window.__profitPopupInitialized) return;
+    window.__profitPopupInitialized = true;
+
+    const DISMISS_KEY = "popup_dismiss_count";
+    let shownOnThisPage = false;
+
     const overlay = document.getElementById("profit-popup-overlay");
     const content = document.getElementById("profit-popup-content");
     const closeBtn = document.getElementById("close-popup");
-    const DISMISS_KEY = "popup_dismiss_count";
-    let shownOnThisPage = false;
 
     const getDismissCount = () => {
       return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
@@ -73,7 +83,6 @@
     const incrementDismiss = () => {
       const count = getDismissCount() + 1;
       sessionStorage.setItem(DISMISS_KEY, String(count));
-      return count;
     };
 
     const showPopup = () => {
@@ -81,45 +90,56 @@
       if (getDismissCount() >= 2) return;
 
       shownOnThisPage = true;
-      overlay?.classList.remove("hidden");
-      overlay?.classList.add("flex");
 
-      setTimeout(() => {
-        overlay?.classList.add("opacity-100");
-        content?.classList.remove("scale-95");
-        content?.classList.add("scale-100");
-      }, 10);
+      overlay.classList.remove(
+        "opacity-0",
+        "invisible",
+        "pointer-events-none"
+      );
+
+      content.classList.remove("scale-95");
+      content.classList.add("scale-100");
 
       document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        window.dispatchEvent(new Event("resize"));
+
+        setTimeout(() => {
+          window.dispatchEvent(new Event("resize"));
+        }, 300);
+      });
     };
 
     const hidePopup = () => {
-      overlay?.classList.remove("opacity-100");
-      overlay?.classList.add("opacity-0");
-      content?.classList.add("scale-95");
-      content?.classList.remove("scale-100");
+      overlay.classList.add(
+        "opacity-0",
+        "invisible",
+        "pointer-events-none"
+      );
 
-      setTimeout(() => {
-        overlay?.classList.add("hidden");
-        overlay?.classList.remove("flex");
-      }, 500);
+      content.classList.remove("scale-100");
+      content.classList.add("scale-95");
 
       document.body.style.overflow = "";
 
       incrementDismiss();
     };
 
-    // Only start if not already dismissed twice this session
+    closeBtn?.addEventListener("click", hidePopup);
+
+    overlay?.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        hidePopup();
+      }
+    });
+
     if (getDismissCount() < 2) {
       setTimeout(showPopup, 15000);
     }
 
-    closeBtn?.addEventListener("click", hidePopup);
-    overlay?.addEventListener("click", (e) => {
-      if (e.target === overlay) hidePopup();
+    document.addEventListener("astro:after-swap", () => {
+      shownOnThisPage = false;
     });
-  };
-
-  setupPopup();
-  document.addEventListener("astro:after-swap", setupPopup);
+  })();
 </script>

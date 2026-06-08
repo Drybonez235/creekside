@@ -2,7 +2,7 @@
 title: "Facebook Ads for Mortgage Lenders: Compliance, Targeting, and What Actually Works"
 description: "Facebook ads for mortgage lenders require Special Ad Category setup. Exact campaign structure, compliant targeting, and real CPL data from Creekside Marketing."
 date: "2026-05-29"
-image: "article-images/facebook-ads-for-mortgage-lenders-compliance-and-targeting.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Mortgage & Financial Services Marketing"
 tags: ["MetaAds", "FacebookAds", "MortgageMarketing", "LeadGeneration"]
 ---
