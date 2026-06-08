@@ -1,12 +1,16 @@
+---
+/* Revised Popup: Fixed interaction blocking and iframe dynamic calculation */
+---
+
 <div
   id="profit-popup-overlay"
-  class="fixed inset-0 z-[100] flex items-start md:items-center justify-center bg-primary-900/60 backdrop-blur-xs overflow-y-auto p-4 opacity-0 invisible pointer-events-none transition-opacity duration-500"
+  class="fixed inset-0 z-100 hidden items-start md:items-center justify-center bg-primary-900/60 opacity-0 transition-opacity duration-500 backdrop-blur-xs overflow-y-auto p-4"
   role="dialog"
   aria-modal="true"
 >
   <div
     id="profit-popup-content"
-    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl scale-95 transition-transform duration-500"
+    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl transition-transform duration-500 scale-95"
   >
     <button
       id="close-popup"
@@ -30,12 +34,11 @@
     </button>
 
     <div class="p-2 md:p-4 pt-14 md:pt-4">
-      <div class="relative w-full">
+      <div class="relative w-full h-[776px] block">
         <iframe
           src="https://api.msglink.cloud/widget/form/8As7Tl468YopNi5PJw9G"
           id="inline-8As7Tl468YopNi5PJw9G"
-          class="block w-full border-0"
-          style="height:776px;"
+          class="w-full h-full border-none rounded-xs"
           data-layout="{'id':'INLINE'}"
           data-trigger-type="alwaysShow"
           data-trigger-value=""
@@ -48,14 +51,15 @@
           data-layout-iframe-id="inline-8As7Tl468YopNi5PJw9G"
           data-form-id="8As7Tl468YopNi5PJw9G"
           title="Lead Magnet Client"
-        ></iframe>
+        >
+        </iframe>
       </div>
     </div>
   </div>
 </div>
 
 <style is:global>
-  .ep-iFrameContainer,
+  .ep-iFrameContainer, 
   .ep-wrapper {
     width: 100% !important;
     height: 100% !important;
@@ -65,16 +69,12 @@
 <script src="https://api.msglink.cloud/js/form_embed.js" is:inline></script>
 
 <script>
-  (() => {
-    if (window.__profitPopupInitialized) return;
-    window.__profitPopupInitialized = true;
-
-    const DISMISS_KEY = "popup_dismiss_count";
-    let shownOnThisPage = false;
-
+  const setupPopup = () => {
     const overlay = document.getElementById("profit-popup-overlay");
     const content = document.getElementById("profit-popup-content");
     const closeBtn = document.getElementById("close-popup");
+    const DISMISS_KEY = "popup_dismiss_count";
+    let shownOnThisPage = false;
 
     const getDismissCount = () => {
       return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
@@ -83,6 +83,7 @@
     const incrementDismiss = () => {
       const count = getDismissCount() + 1;
       sessionStorage.setItem(DISMISS_KEY, String(count));
+      return count;
     };
 
     const showPopup = () => {
@@ -90,56 +91,50 @@
       if (getDismissCount() >= 2) return;
 
       shownOnThisPage = true;
+      
+      // 1. Safe change back to display: hidden pattern to clear layout positioning overhead
+      overlay?.classList.remove("hidden");
+      overlay?.classList.add("flex");
 
-      overlay.classList.remove(
-        "opacity-0",
-        "invisible",
-        "pointer-events-none"
-      );
+      // 2. Force custom runtime event dispatch loop so the widget container initializes perfectly while visible
+      window.dispatchEvent(new Event('resize'));
 
-      content.classList.remove("scale-95");
-      content.classList.add("scale-100");
+      setTimeout(() => {
+        overlay?.classList.add("opacity-100");
+        content?.classList.remove("scale-95");
+        content?.classList.add("scale-100");
+        
+        // Secondary recalculation verification pass after the transition scales execute
+        window.dispatchEvent(new Event('resize'));
+      }, 10);
 
       document.body.style.overflow = "hidden";
-
-      requestAnimationFrame(() => {
-        window.dispatchEvent(new Event("resize"));
-
-        setTimeout(() => {
-          window.dispatchEvent(new Event("resize"));
-        }, 300);
-      });
     };
 
     const hidePopup = () => {
-      overlay.classList.add(
-        "opacity-0",
-        "invisible",
-        "pointer-events-none"
-      );
+      overlay?.classList.remove("opacity-100");
+      content?.classList.add("scale-95");
+      content?.classList.remove("scale-100");
 
-      content.classList.remove("scale-100");
-      content.classList.add("scale-95");
+      setTimeout(() => {
+        overlay?.classList.add("hidden");
+        overlay?.classList.remove("flex");
+      }, 500);
 
       document.body.style.overflow = "";
-
       incrementDismiss();
     };
-
-    closeBtn?.addEventListener("click", hidePopup);
-
-    overlay?.addEventListener("click", (e) => {
-      if (e.target === overlay) {
-        hidePopup();
-      }
-    });
 
     if (getDismissCount() < 2) {
       setTimeout(showPopup, 15000);
     }
 
-    document.addEventListener("astro:after-swap", () => {
-      shownOnThisPage = false;
+    closeBtn?.addEventListener("click", hidePopup);
+    overlay?.addEventListener("click", (e) => {
+      if (e.target === overlay) hidePopup();
     });
-  })();
+  };
+
+  setupPopup();
+  document.addEventListener("astro:after-swap", setupPopup);
 </script>
