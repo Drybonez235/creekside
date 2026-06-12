@@ -9,6 +9,15 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KFQDMCH5');</script>
     <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-REHLM40KCD');
+      gtag('event', 'Dental_LP_PageView');
+    </script>
     <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
@@ -61,17 +70,20 @@
         var href = el.getAttribute('href') || '';
         if (text.match(/Get Your Paid Ads Blueprint/i) || (href.indexOf('dental.creeksidemarketingpros') !== -1 && href !== window.location.href)) {
           if (window.fbq) window.fbq('trackCustom', 'Dental_LP_BlueprintClick', utmData);
+          if (window.gtag) window.gtag('event', 'Dental_LP_BlueprintClick', utmData);
         }
         if (text.match(/Book a (Call|Strategy Call)/i) || href.indexOf('calendly.com') !== -1) {
           if (window.fbq) window.fbq('trackCustom', 'Dental_LP_BookCallClick', utmData);
+          if (window.gtag) window.gtag('event', 'Dental_LP_BookCallClick', utmData);
         }
       });
 
       var _contactFired = false;
       function fireContactSubmit() {
-        if (_contactFired || !window.fbq) return;
+        if (_contactFired) return;
         _contactFired = true;
-        window.fbq('trackCustom', 'Dental_LP_ContactSubmit', utmData);
+        if (window.fbq) window.fbq('trackCustom', 'Dental_LP_ContactSubmit', utmData);
+        if (window.gtag) window.gtag('event', 'Dental_LP_ContactSubmit', utmData);
         setTimeout(function() { _contactFired = false; }, 3000);
       }
       document.addEventListener('submit', fireContactSubmit);
@@ -83,14 +95,6 @@
         return _fetch.apply(this, arguments);
       };
     })();
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-REHLM40KCD');
     </script>
     <link rel="icon" type="image/avif" href="/creekside-marketing-logo-icon-32x32.avif" sizes="32x32"/>
     <link rel="icon" type="image/avif" href="/creekside-marketing-icon-180x180.avif" sizes="180x180"/>

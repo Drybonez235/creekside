@@ -2,7 +2,7 @@
 title: "Meal Prep Facebook Ads Case Study: 20x ROAS and 3 New Markets"
 description: "How a Dallas meal prep brand hit 20x ROAS and expanded into 3 Texas markets at $10 CPA using Meta Ads. A Creekside Marketing case study."
 date: "2026-05-31"
-image: "article-images/meal-prep-facebook-ads-case-study-20x-roas.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Meal Prep & Food Delivery Marketing"
 tags: ["CaseStudy", "MetaAds", "MealPrep", "Results"]
 ---

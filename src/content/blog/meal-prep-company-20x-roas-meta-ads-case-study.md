@@ -2,7 +2,7 @@
 title: "How a Meal Prep Company Hits 20x ROAS with Meta Ads and Expands Into 3 New Markets"
 description: "A meal prep company hit 20x ROAS and expanded into 3 new Texas markets using Meta Ads. Creekside Marketing breaks down the strategy behind the results."
 date: "2026-06-02"
-image: "article-images/meal-prep-company-20x-roas-meta-ads-case-study.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Meal Prep & Food Delivery Marketing"
 tags: ["CaseStudy", "MetaAds", "MealPrep", "Results"]
 ---
