@@ -68,7 +68,10 @@
         if (!el) return;
         var text = (el.textContent || '').trim();
         var href = el.getAttribute('href') || '';
-        if (text.match(/Get Your Paid Ads Blueprint/i) || (href.indexOf('dental.creeksidemarketingpros') !== -1 && href !== window.location.href)) {
+        if (href.match(/dental\.creeksidemarketingpros[^"]*\/blueprint\/[0-9a-f-]{36}/i)) {
+          if (window.fbq) window.fbq('trackCustom', 'Dental_LP_ExampleView', utmData);
+          if (window.gtag) window.gtag('event', 'Dental_LP_ExampleView', utmData);
+        } else if (text.match(/Get Your (Free )?(Paid Ads )?Blueprint/i) || (href.indexOf('dental.creeksidemarketingpros') !== -1 && href !== window.location.href)) {
           if (window.fbq) window.fbq('trackCustom', 'Dental_LP_BlueprintClick', utmData);
           if (window.gtag) window.gtag('event', 'Dental_LP_BlueprintClick', utmData);
         }
@@ -105,7 +108,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Creekside Marketing - Paid Ads for Dental Practices</title>
-    <meta name="description" content="Paid patient acquisition for cosmetic dental practices. Google, Meta, TikTok, ChatGPT Ads, programmatic, and Bing. 4-8X return on ad spend. Get your free Custom Practice Growth Blueprint." />
+    <meta name="description" content="Paid patient acquisition for cosmetic dental practices. Google, Meta, TikTok, ChatGPT Ads, programmatic, and Bing. 4-8X return on ad spend. Get your free Paid Ads Blueprint." />
     <meta property="og:title" content="Creekside Marketing - Paid Ads for Dental Practices" />
     <meta property="og:description" content="4-8X return on ad spend for dental practices. See how we doubled Dr. Laleh's revenue to $2M/month. Get your free growth blueprint." />
     <meta property="og:type" content="website" />
@@ -113,12 +116,12 @@
     <meta property="og:image" content="https://creeksidemarketingpros.com/dental/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Creekside Marketing - Paid Ads for Dental Practices" />
-    <meta name="twitter:description" content="4-8X return on ad spend for dental practices. Get your free Custom Practice Growth Blueprint." />
+    <meta name="twitter:description" content="4-8X return on ad spend for dental practices. Get your free Paid Ads Blueprint." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/dental/assets/index-ClFxRmDg.js"></script>
-    <link rel="stylesheet" crossorigin href="/dental/assets/index-CvT_WHsq.css">
+    <script type="module" crossorigin src="/dental/assets/index-Divhv3Wg.js"></script>
+    <link rel="stylesheet" crossorigin href="/dental/assets/index-Dw-mRUDl.css">
   </head>
 
   <body>
