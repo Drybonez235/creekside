@@ -2,34 +2,39 @@
 <html lang="en">
 
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KFQDMCH5');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD"></script>
+    <!-- Tracking stubs (GTM + GA4 + Meta Pixel): events queue immediately,
+         vendor scripts load after window load (or first interaction) so they
+         don't compete with the app bundle on slow connections. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       gtag('js', new Date());
       gtag('config', 'G-REHLM40KCD');
       gtag('event', 'Dental_LP_PageView');
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      n.queue=[];}(window);
       fbq('init', '2083657478846396');
       fbq('trackCustom', 'Dental_LP_PageView');
+      (function() {
+        var loaded = false;
+        function loadTrackers() {
+          if (loaded) return; loaded = true;
+          ['https://www.googletagmanager.com/gtm.js?id=GTM-KFQDMCH5',
+           'https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD',
+           'https://connect.facebook.net/en_US/fbevents.js'].forEach(function(src) {
+            var s = document.createElement('script'); s.async = true; s.src = src;
+            document.head.appendChild(s);
+          });
+        }
+        if (document.readyState === 'complete') { setTimeout(loadTrackers, 1); }
+        else { window.addEventListener('load', function() { setTimeout(loadTrackers, 1); }); }
+        ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev) {
+          window.addEventListener(ev, loadTrackers, { once: true, passive: true });
+        });
+      })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=2083657478846396&ev=Dental_LP_PageView&noscript=1"/></noscript>
@@ -119,9 +124,10 @@
     <meta name="twitter:description" content="4-8X return on ad spend for dental practices. Get your free Paid Ads Blueprint." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/dental/assets/index-CXBw6x1q.js"></script>
-    <link rel="stylesheet" crossorigin href="/dental/assets/index-Cv6tjDv8.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+    <script type="module" crossorigin src="/dental/assets/index-3WwHLF6u.js"></script>
+    <link rel="stylesheet" crossorigin href="/dental/assets/index-BcTxcz8F.css">
   </head>
 
   <body>
