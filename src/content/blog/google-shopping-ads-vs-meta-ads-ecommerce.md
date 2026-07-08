@@ -2,7 +2,7 @@
 title: "Google Shopping Ads vs Meta Ads for E-Commerce: Which Drives Better Results?"
 description: "We manage both Google Shopping and Meta Ads for e-commerce brands. Here's what our campaign data actually shows about ROAS, cost, and when to use each."
 date: "2026-06-05"
-image: "article-images/google-shopping-ads-vs-meta-ads-ecommerce.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "E-Commerce Marketing"
 tags: ["GoogleAds", "MetaAds", "ECommerce", "Comparison"]
 ---

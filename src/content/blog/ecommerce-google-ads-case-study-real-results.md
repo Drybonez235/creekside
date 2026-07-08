@@ -2,7 +2,7 @@
 title: "Ecommerce Google Ads Case Study: Real Results from Two Online Store Campaigns"
 description: "Two ecommerce Google Ads case studies with real ROAS data: 8-10x ROAS on cold traffic, 40x+ peaks on Meta Ads, and the strategy behind each result."
 date: "2026-06-06"
-image: "article-images/ecommerce-google-ads-case-study-real-results.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "E-Commerce Marketing"
 tags: ["CaseStudy", "GoogleAds", "E-Commerce", "Results"]
 ---

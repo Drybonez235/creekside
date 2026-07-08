@@ -2,7 +2,7 @@
 title: "Meta Ads for E-Commerce Brands: Full Funnel Strategy That Actually Works"
 description: "How to run Meta Ads for e-commerce brands with a full-funnel strategy. Real data from brands generating 7-40x ROAS on Facebook and Instagram ads."
 date: "2026-06-04"
-image: "article-images/meta-ads-for-ecommerce-brands-full-funnel-strategy.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "E-commerce Marketing"
 tags: ["MetaAds", "FacebookAds", "Ecommerce", "LeadGeneration"]
 ---

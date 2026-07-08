@@ -2,7 +2,7 @@
 title: "App Install Campaign Case Study: 47% CPI Reduction with Meta Ads"
 description: "How Creekside Marketing drove 2,662 app installs and cut cost per install 47% for a mobile app, from $7.36 to $3.90, using Meta Ads."
 date: "2026-06-08"
-image: "article-images/app-install-campaign-case-study-47-percent-cpi-reduction.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "SaaS & Apps Marketing"
 tags: ["CaseStudy", "MetaAds", "AppInstalls", "Results"]
 ---
