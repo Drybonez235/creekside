@@ -387,7 +387,7 @@ export const faqSchemas = {
         "name": "How much does Google Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
+          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap."
         }
       },
       {
@@ -441,7 +441,7 @@ export const faqSchemas = {
         "name": "How much does Meta Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows. Multi-platform advertisers pay the same per-platform rate, and total fees are capped at $15,000/month. Visit our pricing page at creeksidemarketingpros.com/pricing for full details."
+          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows. Multi-platform advertisers pay the same per-platform rate, and total fees are capped at $15,000/month."
         }
       },
       {
