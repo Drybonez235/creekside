@@ -30,24 +30,19 @@ import Form from '../components/Form.astro'
         </p>
         <Form idPrefix="Scheduleconsultation"/>
 
-        <!-- Calendly popup: opens scheduling overlay on button click -->
+        <!-- Booking link: opens Google Calendar appointment page in a new tab -->
         <div class="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-          <button
-            id="calendly-popup-btn"
-            type="button"
+          <a
+            href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
+            target="_blank"
+            rel="noopener"
             class="inline-flex items-center justify-center gap-3 rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
           >
             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
             Book Your Strategy Call
-          </button>
-          <noscript>
-            <a
-              href="https://calendly.com/creekside_marketing/creekside-marketing-strategy-call"
-              class="inline-flex items-center justify-center px-8 py-4 bg-secondary-500 text-white font-bold uppercase tracking-wider rounded-sm"
-            >Book Your Call Now</a>
-          </noscript>
+          </a>
         </div>
 
         <div class="mt-6 flex flex-col sm:flex-row items-center gap-6">
@@ -61,39 +56,6 @@ import Form from '../components/Form.astro'
           "The biggest risk you can take is not hopping on a call with us to explore how much more your campaigns could achieve."
         </p>
 
-        <script>
-          (function () {
-            var btn = document.getElementById('calendly-popup-btn');
-            if (!btn) return;
-
-            var calendlyReady = false;
-
-            function loadCalendlyScript(callback) {
-              if (calendlyReady) { callback(); return; }
-
-              var link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'https://assets.calendly.com/assets/external/widget.css';
-              document.head.appendChild(link);
-
-              var script = document.createElement('script');
-              script.src = 'https://assets.calendly.com/assets/external/widget.js';
-              script.onload = function () {
-                calendlyReady = true;
-                callback();
-              };
-              document.head.appendChild(script);
-            }
-
-            btn.addEventListener('click', function () {
-              loadCalendlyScript(function () {
-                Calendly.initPopupWidget({
-                  url: 'https://calendly.com/creekside_marketing/creekside-marketing-strategy-call',
-                });
-              });
-            });
-          })();
-        </script>
       </div>
 
     </div>
