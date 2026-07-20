@@ -2,7 +2,7 @@
 title: "The Raw Text Trick: Why Your AI Lead Response Drafts Sound Generic (And the Two-Instruction Fix)"
 description: "Why AI-drafted lead follow-ups sound generic and the two specific instructions Creekside uses to draft specific, credible responses from the agency brain."
 date: "2026-07-19"
-image: "article-images/ai-lead-response-raw-text-trick.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Lead Response", "Google Ads"]
 ---
@@ -35,7 +35,6 @@ The brain contains months of accumulated operational data ingested by automated 
 
 This is the core distinction from a generic AI prompt. Feeding a general-purpose AI the name of a lead and asking for a follow-up produces generic output because the AI has no data about that lead. The Creekside Brain has months of data and knows how to surface it.
 
-![How the Creekside Brain pulls from multiple data sources to draft lead follow-ups and client responses](/article-images/ai-lead-response-raw-text-trick-data-flow.svg)
 
 ## The 24-Hour Gap: The One Part You Always Have to Paste Manually
 
@@ -66,7 +65,6 @@ The fix is two specific instructions added to any lead or client response reques
 
 Both instructions. Every time.
 
-![The two prompting instructions that separate specific AI lead response drafts from generic output](/article-images/ai-lead-response-raw-text-trick-prompt-method.svg)
 
 ## How Upwork Follow-Ups Work Differently
 

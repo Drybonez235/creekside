@@ -43,7 +43,7 @@ According to the installation walkthrough, team members working in the agency Cl
 
 The two-store architecture is intentional. Files that change infrequently (SOPs, agent behavior definitions, playbooks) live in GitHub, where they have version control. Live operational data (client notes, campaign performance, email and call history) lives in Supabase, where the agency pipelines update it continuously. This separation keeps the system current without requiring manual maintenance from the people using it.
 
-![Creekside Brain architecture: Claude Code connecting to GitHub and Supabase for agency operations](/article-images/how-google-ads-agencies-use-claude-code-ai-brain-architecture.svg)
+
 
 ## How the Windows Installation Works: 7 Steps from Download to Active Session
 
@@ -77,7 +77,6 @@ Two specific steps cause the majority of installation failures on Windows. Both 
 
 Neither issue recurs after the initial setup is complete. They are first-run friction points, not ongoing problems.
 
-![Creekside Brain Windows setup: 7-step installation workflow from download to active session](/article-images/how-google-ads-agencies-use-claude-code-ai-brain-setup-steps.svg)
 
 ## Why We Built This Instead of Using a Wiki or Shared Drive
 

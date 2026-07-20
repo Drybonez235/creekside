@@ -2,7 +2,7 @@
 title: "How to Stop AI Agent Hallucinations: The Raw Text Method We Use at Our Google Ads Agency"
 description: "Learn how our Google Ads agency stops AI agent hallucinations using the raw text method, plus how to run four autonomous Claude Code agents simultaneously."
 date: "2026-07-18"
-image: "article-images/how-to-stop-ai-agent-hallucinations-raw-text-method.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 ---
@@ -42,7 +42,7 @@ The structure is similar to a well-organized spreadsheet, but live and continuou
 
 Retrieval happens through two distinct methods that serve different purposes. Semantic search uses AI vector matching to find records based on conceptual meaning. It understands that "budget concerns" and "hesitant about spend" are related, even when the exact words do not match. This method is slower because it processes meaning through an AI model. Keyword search uses a Python script and does not involve AI at all. According to the video, that makes it faster and better suited for situations where you know the specific name or term you are looking for. Both methods search the summary layer for speed. The critical step is what happens next.
 
-![Creekside Brain two-layer data architecture showing AI Summary layer for finding and Raw Text layer for answering](/article-images/how-to-stop-ai-agent-hallucinations-raw-text-method-data-layers.svg)
+
 
 ## The Two-Step Anti-Hallucination Method
 
@@ -70,7 +70,7 @@ The 200-turn limit in the configuration is a deliberate safeguard. Each instruct
 
 There is also a workflow split worth building into your process. The Claude Code app connects more reliably to external tools and API integrations (MCPs), things like Chrome automation, database connectors, or external platform APIs. The terminal is better for operations that stay within the file system and the core database. The approach described in the video: build and test an agent in the app first, where MCP connectivity is better. Switch to terminal for execution at scale, where performance overhead matters.
 
-![Claude Code terminal vs app: four autonomous agents running simultaneously in terminal compared to single app session resource usage](/article-images/how-to-stop-ai-agent-hallucinations-raw-text-method-terminal-setup.svg)
+
 
 ## Setting Realistic Expectations for AI Agents
 

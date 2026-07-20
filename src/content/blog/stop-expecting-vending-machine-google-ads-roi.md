@@ -45,7 +45,6 @@ The cycle repeats. And every time it does, the business owner is spending the mo
 
 The algorithm does not care about the story you tell yourself about why you switched. It only knows how many conversion signals it has seen, what patterns it has learned, and how much runway it has had to optimize. Every reset throws that away and starts the clock over.
 
-![Vending Machine vs. Investment Mindset: How Two Approaches to Google Ads Play Out](/article-images/stop-expecting-vending-machine-google-ads-roi-mindset-comparison.svg)
 
 ## Why Advertising Is an Investment, Not a Vending Machine
 
@@ -63,7 +62,6 @@ The way you get there is by growing what you could call a portfolio of data: fee
 
 That is why the investment mindset works. The patience is not arbitrary. It is because there is a compounding mechanism underneath that becomes more powerful the longer you run without disrupting it.
 
-![Google Ads Account Performance Over Time: The Compounding Data Curve](/article-images/stop-expecting-vending-machine-google-ads-roi-investment-curve.svg)
 
 ## What Shifts When You Start Treating Google Ads as an Investment
 

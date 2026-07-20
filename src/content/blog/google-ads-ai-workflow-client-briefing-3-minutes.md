@@ -34,7 +34,7 @@ What makes this a genuine operational shift is not the speed alone. It is the qu
 
 The counterintuitive implication: this only works if the source data is complete. If discovery calls are not being recorded and transcribed, if internal decisions happen in conversations that go undocumented, the briefing quality drops. The AI is only as good as what it can actually reach. Getting the 3-to-5-minute result requires having invested in the infrastructure that captures client information in the first place.
 
-![AI-powered Google Ads client briefing workflow: 4 use cases with time and accuracy metrics](/article-images/google-ads-ai-workflow-client-briefing-3-minutes-time-comparison.svg)
+
 
 ## Weekly Reporting That Used to Take an Hour
 
@@ -50,7 +50,7 @@ That caveat is worth taking seriously. This workflow is not a set-and-forget aut
 
 For context on how different [Google Ads campaign types](/blog/google-ads-campaign-types-explained-how-to-choose-the-right-one-for-your-business/) and structures factor into what a reporting sheet needs to track, that post covers the main options in detail. The more clearly structured the account, the more consistent the automated data pull tends to be.
 
-![Weekly Google Ads reporting time: before AI versus after AI workflow at Creekside Marketing](/article-images/google-ads-ai-workflow-client-briefing-3-minutes-reporting-before-after.svg)
+
 
 ## Account Onboarding: How AI Generates Ad Copy at 90% Accuracy
 

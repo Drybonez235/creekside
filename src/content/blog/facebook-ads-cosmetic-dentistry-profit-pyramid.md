@@ -2,7 +2,7 @@
 title: "Stop Marketing $15,000 Smiles Like $500 Whitening: The Facebook Ads Framework for Cosmetic Dentists"
 description: "Cosmetic dentists who split Facebook ad budgets evenly across all procedures leave $200K monthly on the table. Here is the profit pyramid that fixes this."
 date: "2026-07-14"
-image: "article-images/facebook-ads-cosmetic-dentistry-profit-pyramid.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Facebook Ads"
 tags: ["FacebookAds", "DentalMarketing", "CosmeticDentistry", "MetaAds"]
 ---
@@ -50,7 +50,6 @@ Revenue: $15,000. Profit: $8,000. Patients needed to generate $8,000 in profit: 
 
 One smile makeover patient generates the same profit as 25 to 40 whitening patients. That ratio is structural. It does not change based on creative quality or targeting precision. It is determined by the economics of the procedures themselves.
 
-![The Cosmetic Dentistry Profit Pyramid: 4 tiers showing each procedure's revenue, profit per patient, and patients required to generate $8,000 in practice profit](/article-images/facebook-ads-cosmetic-dentistry-profit-pyramid-tiers.svg)
 
 Most cosmetic practices know this intuitively. The problem is that their Facebook budget does not reflect it.
 
@@ -93,7 +92,7 @@ Results: 53 smile makeover cases per month. $424K makeover profit. $65K other co
 
 The math: $10K more in total monthly spend. $209K more in monthly profit. The tradeoff is real: other cosmetic procedures generate $15K less per month because they receive less budget. That reduction is the expected and accepted cost of concentrating on the highest-margin service. The net gain is $209K.
 
-![Before vs after budget reallocation: monthly cosmetic profit comparison showing $280K vs $489K and the budget shift from equal distribution to veneer-focused allocation](/article-images/facebook-ads-cosmetic-dentistry-profit-pyramid-roi.svg)
+
 
 The reallocation moves $15K out of whitening and $5K out of bonding, adds $45K to veneer campaigns, and puts $10K more into Invisalign. The veneer campaigns go from $25K to $70K per month. That is where the leverage lives.
 

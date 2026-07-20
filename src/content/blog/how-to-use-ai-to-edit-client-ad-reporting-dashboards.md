@@ -35,7 +35,7 @@ For example, if a client wants all of their metric values displayed in a differe
 
 This is a meaningful operational shift from how most agencies manage dashboards. Most agency reporting workflows treat the dashboard as a fixed artifact: you build it once, connect a data feed, and leave the visual structure alone until someone files a formal change request. We treat the dashboard as an editable surface that Claude can modify on instruction at any time, for any client. Reporting changes that used to require a developer's time now require a sentence.
 
-![How Creekside uses Claude to edit live client ad reporting dashboards](/article-images/how-to-use-ai-to-edit-client-ad-reporting-dashboards-workflow.svg)
+
 
 ---
 
@@ -59,7 +59,7 @@ The practical effect is that team members do not need to be conservative when ed
 
 This changes the psychology of reporting edits in a way that matters for client relationships. Agencies that are afraid to change dashboards end up with stale reports that clients lose interest in over time. Agencies with a reliable reset mechanism can experiment freely and keep reports feeling current.
 
-![Creekside client dashboard backup template and reporting feature architecture](/article-images/how-to-use-ai-to-edit-client-ad-reporting-dashboards-backup.svg)
+
 
 ---
 
