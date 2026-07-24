@@ -10,6 +10,7 @@ const blogCollection = defineCollection({
     image: z.string(),
     category: z.string().optional(),
     tags: z.array(z.string()).default([]),
+   
   }),
 });
 
@@ -31,7 +32,7 @@ const tableRowSchema = z.object({
  * Each section has a type discriminator + type-specific fields.
  */
 const sectionSchema = z.object({
-  type: z.enum(["text", "metrics-grid", "table", "highlight-box", "quote", "image"]),
+  type: z.enum(["text", "metrics-grid", "table", "highlight-box", "quote", "image","video",]),
   sectionLabel: z.string().optional(),
   heading: z.string().optional(),
   paragraphs: z.array(z.string()).optional(),
