@@ -2,7 +2,9 @@
 title: "Asphalt Contractor Generates 3 Leads Per Day and Cuts CPL 31% with Google Ads"
 client: "Perfect Parking Asphalt Services"
 category: "Home Services: Google Ads"
-summary: "How we built a lead generation engine for a Virginia asphalt contractor, driving 32 leads in 12 days and cutting cost per lead from $185 to $127 — then expanding into sealcoating and striping campaigns."
+logo: "/logos/perfect-parking.webp"
+logo-alt: "Perfect Parking Asphalt Services Logo"
+summary: "How we built a lead generation engine for a Virginia asphalt contractor, driving 32 leads in 12 days and cutting cost per lead from $185 to $127, then expanding into sealcoating and striping campaigns."
 tags: ["Google Ads", "Home Services", "Lead Generation", "CPA Optimization", "Campaign Expansion"]
 metrics:
   roas: "3 Leads/Day"
@@ -39,7 +41,7 @@ sections:
     heading: "Precision Google Ads with Service-Line Expansion"
     paragraphs:
       - "We launched with asphalt and driveway paving campaigns as the primary lead drivers, using phrase match keywords and a comprehensive negative keyword strategy to eliminate waste. As the account matured, we expanded into dedicated campaigns for sealcoating and parking lot striping, each with separate budgets and targeting."
-      - "Budget discipline was critical — we monitored spend daily to stay within the approved $8,000-$9,000 monthly budget while maximizing lead volume. Conversion tracking was optimized for both phone calls and form submissions to capture every qualified inquiry."
+      - "Budget discipline was critical: we monitored spend daily to stay within the approved $8,000-$9,000 monthly budget while maximizing lead volume. Conversion tracking was optimized for both phone calls and form submissions to capture every qualified inquiry."
     tags:
       - "Google Ads"
       - "Negative Keywords"
@@ -50,7 +52,7 @@ sections:
     sectionLabel: "The Results"
     heading: "3x the Target Lead Volume"
     paragraphs:
-      - "Within weeks, the account exceeded every target. The goal was one qualified lead per day — we delivered three."
+      - "Within weeks, the account exceeded every target. The goal was one qualified lead per day. We delivered three."
   - type: "metrics-grid"
     cards:
       - value: "32"
@@ -59,7 +61,7 @@ sections:
         variant: "highlight"
       - value: "$127"
         label: "Cost Per Lead"
-        context: "Down from $185 in the previous period — a 31% reduction driven by negative keyword strategy and optimization."
+        context: "Down from $185 in the previous period, a 31% reduction driven by negative keyword strategy and optimization."
         variant: "success"
       - value: "62.8%"
         label: "Impression Share"
@@ -72,6 +74,9 @@ sections:
   - type: "highlight-box"
     bigStat: "3x"
     boxHeading: "Lead Target Exceeded"
-    boxText: "With average residential asphalt paving jobs in Virginia ranging from $4,500 to $9,000, each $127 lead represents a potential 35-70x return on ad spend when closed. The primary constraint on this account became budget, not demand — the owner reported being overwhelmed with estimates, a problem every contractor wants to have."
+    boxText: "With average residential asphalt paving jobs in Virginia ranging from $4,500 to $9,000, each $127 lead represents a potential 35-70x return on ad spend when closed. The primary constraint on this account became budget, not demand. The owner reported being overwhelmed with estimates, a problem every contractor wants to have."
+  - type: "quote"
+    quoteText: "Creekside Marketing has significantly improved our business growth and online visibility for the past few months. Since they took over our digital marketing, we've seen a noticeable increase in inbound calls, leads, and customer engagement. Their expertise in SEO, local search optimization, and marketing strategy has made a measurable impact on our results. They are highly responsive, attentive to detail, and quick to address any questions or requests. We highly recommend Creekside to anyone looking to grow their business"
+    quoteAttr: "— Alex Klimenko, Perfect Parking Asphalt Services (Google Review)"
 footerCta: "Ready to fill your pipeline with qualified leads?"
 ---

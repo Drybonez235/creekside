@@ -2,12 +2,14 @@
 title: "Adding Over $200k in Monthly Revenue for a Dental Aesthetics Practice in 90 Days"
 client: "Dr. Laleh Dental Aesthetics"
 category: "Dental Aesthetics: Google + Meta"
+logo: "/logos/dr-laleh.png"
+logo-alt: "Doctor Laleh Dental Aesthetics Logo"
 summary: "How we rebuilt a failing ad strategy from scratch and grew monthly consultations from 60 to 100+, adding over $200,000 in monthly revenue within 3 months."
 tags: ["Google Ads", "Meta Ads", "Dental Marketing", "Full-Funnel", "CRM Integration", "Performance Max"]
 metrics:
   roas: "$2M+ Revenue"
   scale: "100+ Consults/mo"
-featured: false
+featured: true
 heroTitle: "How {CLIENT} Went from Losing Money to $2M+ in Revenue in 90 Days"
 heroSubtitle: "A dental aesthetics practice lost 25% of leads overnight when Meta's algorithm changed. We rebuilt everything from scratch and added over $200k in monthly revenue."
 clientInfo:
@@ -60,7 +62,7 @@ sections:
         variant: "highlight"
       - value: "100+"
         label: "Monthly Consultations"
-        context: "Grew from roughly 60 consultations per month to over 100 — a record high for the practice."
+        context: "Grew from roughly 60 consultations per month to over 100, a record high for the practice."
         variant: "success"
       - value: "$131"
         label: "Cost Per Conversion"
@@ -77,5 +79,8 @@ sections:
     bigStat: "$200k+"
     boxHeading: "Additional Monthly Revenue"
     boxText: "By rebuilding Meta from scratch, launching structured Google Ads campaigns, and integrating CRM tracking to optimize for booked consultations rather than raw leads, we restored profitability and added over $200,000 in monthly revenue within 90 days."
+  - type: "video"
+    videoUrl: "https://www.youtube.com/watch?v=29beCxBvkk0"
+    videoCaption: "Dr. Laleh shares how Creekside took her dental aesthetics practice from losing money to a record high of 100+ monthly consultations"
 footerCta: "Ready to transform your dental practice's marketing?"
 ---

@@ -11,7 +11,7 @@ metrics:
   scale: "2x Ad Spend"
 featured: false
 heroTitle: "How {CLIENT} Achieved 464% YoY Growth with the 'Metazation' Strategy"
-heroSubtitle: "A $2.7M seed-funded SaaS startup went from zero inbound to a repeatable growth engine — achieving 464% year-over-year growth by synchronizing Meta awareness with Google intent."
+heroSubtitle: "A $2.7M seed-funded SaaS startup went from zero inbound to a repeatable growth engine, achieving 464% year-over-year growth by synchronizing Meta awareness with Google intent."
 clientInfo:
   - label: "Client"
     value: "ReferPro"
@@ -35,7 +35,7 @@ sections:
     sectionLabel: "The Challenge"
     heading: "A Funded Startup with No Inbound Pipeline"
     paragraphs:
-      - "In late 2024, Murphy & ReferPro raised $2.7 million in seed funding for their referral automation software aimed at home service contractors. While they had a proven product and offer, they lacked a consistent, scalable system for generating inbound leads. Their target market — contractors — often didn't even know such a solution existed, making traditional search-only strategies ineffective."
+      - "In late 2024, Murphy & ReferPro raised $2.7 million in seed funding for their referral automation software aimed at home service contractors. While they had a proven product and offer, they lacked a consistent, scalable system for generating inbound leads. Their target market (contractors) often didn't even know such a solution existed, making traditional search-only strategies ineffective."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "The 'Metazation' Surround Sound System"
@@ -74,6 +74,6 @@ sections:
   - type: "highlight-box"
     bigStat: "464%"
     boxHeading: "Year-over-Year Growth"
-    boxText: "By synchronizing social awareness with search intent, we created a repeatable growth engine that transformed ReferPro from a newly funded startup into a market-scaling leader — achieving 464% YoY growth and earning recognition as a '2025 Startup to Watch.' The efficiency of the initial 3-month run allowed ReferPro to double their monthly ad spend while maintaining high performance. Referral leads convert 3x more than standard leads, and our campaigns fed that engine at scale."
+    boxText: "By synchronizing social awareness with search intent, we created a repeatable growth engine that transformed ReferPro from a newly funded startup into a market-scaling leader, achieving 464% YoY growth and earning recognition as a '2025 Startup to Watch.' The efficiency of the initial 3-month run allowed ReferPro to double their monthly ad spend while maintaining high performance. Referral leads convert 3x more than standard leads, and our campaigns fed that engine at scale."
 footerCta: "Ready to build a repeatable growth engine for your SaaS?"
 ---

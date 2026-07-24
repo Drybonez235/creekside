@@ -2,6 +2,8 @@
 title: "NYC Notary Service Generates 440 Conversions at $27.92 CPA"
 client: "NYC Notary on Demand"
 category: "Professional Services: Google Ads"
+logo: "/logos/nyc-notary.png"
+logo-alt: "NYC Notary on Demand Logo"
 summary: "How we optimized Google Ads for a New York City mobile notary and apostille service, driving 440 conversions with a $16 CPA reduction through systematic campaign expansion."
 tags: ["Google Ads", "Professional Services", "Notary", "Lead Generation", "CPA Optimization"]
 metrics:
@@ -33,12 +35,12 @@ sections:
     sectionLabel: "The Challenge"
     heading: "Scaling in the Most Competitive Market in the US"
     paragraphs:
-      - "NYC Notary on Demand provides mobile notary and apostille services across New York City — one of the most competitive local service markets in the country. They needed a Google Ads strategy that could generate consistent lead volume at a sustainable CPA, while expanding into specialized service lines like apostille processing."
+      - "NYC Notary on Demand provides mobile notary and apostille services across New York City, one of the most competitive local service markets in the country. They needed a Google Ads strategy that could generate consistent lead volume at a sustainable CPA, while expanding into specialized service lines like apostille processing."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "Service-Specific Ad Groups with Continuous Optimization"
     paragraphs:
-      - "We structured the account with dedicated ad groups for each service line — general notary, mobile notary, and apostille services — allowing precise budget allocation and bid optimization per service. New ad groups were added based on client guidance to capture emerging demand."
+      - "We structured the account with dedicated ad groups for each service line (general notary, mobile notary, and apostille services), allowing precise budget allocation and bid optimization per service. New ad groups were added based on client guidance to capture emerging demand."
       - "Continuous conversion tracking refinement ensured every lead was properly attributed, while systematic search term analysis and negative keyword management kept the account efficient."
     tags:
       - "Google Ads"
@@ -50,12 +52,12 @@ sections:
     sectionLabel: "The Results"
     heading: "440 Qualified Leads with Falling Costs"
     paragraphs:
-      - "The optimized campaigns delivered 440 conversions while systematically reducing cost per conversion — proving that scale and efficiency can improve simultaneously."
+      - "The optimized campaigns delivered 440 conversions while systematically reducing cost per conversion, proving that scale and efficiency can improve simultaneously."
   - type: "metrics-grid"
     cards:
       - value: "440"
         label: "Total Conversions"
-        context: "Up 177 conversions compared to the prior period — a 67% increase in lead volume."
+        context: "Up 177 conversions compared to the prior period, a 67% increase in lead volume."
         variant: "highlight"
       - value: "$27.92"
         label: "Cost Per Conversion"
@@ -72,6 +74,9 @@ sections:
   - type: "highlight-box"
     bigStat: "$27.92"
     boxHeading: "Cost Per Qualified Lead"
-    boxText: "In one of the most competitive local service markets in the country, we drove the cost per conversion down to $27.92 — a $16.04 reduction from the prior period. With mobile notary appointments averaging $100-$150 and apostille services ranging $310-$375, each $27.92 lead has significant revenue potential. Lead volume increased 67% while ad spend grew only 6%."
+    boxText: "In one of the most competitive local service markets in the country, we drove the cost per conversion down to $27.92, a $16.04 reduction from the prior period. With mobile notary appointments averaging $100-$150 and apostille services ranging $310-$375, each $27.92 lead has significant revenue potential. Lead volume increased 67% while ad spend grew only 6%."
+  - type: "image"
+    imageUrl: "/case-study-screenshots/nyc-notary-google-ads.png"
+    imageCaption: "NYC Notary on Demand Google Ads account: 440 conversions, $27.92 cost per conversion, 67% growth in lead volume"
 footerCta: "Ready to dominate your local service market?"
 ---

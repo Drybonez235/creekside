@@ -2,6 +2,8 @@
 title: "Education Brand Cuts CPA 52% While Doubling Application Volume"
 client: "Adventures in Wisdom"
 category: "Education / Coaching: Meta Ads"
+logo: "/logos/adventures-in-wisdom.webp"
+logo-alt: "Adventures in Wisdom Logo"
 summary: "How we took over Meta Ads management and cut cost-per-application from $256 to $123 while more than doubling monthly applications from 41 to 90."
 tags: ["Meta Ads", "Education Marketing", "CPA Optimization", "Audience Testing", "Scaling"]
 metrics:
@@ -33,14 +35,14 @@ sections:
     sectionLabel: "The Challenge"
     heading: "High CPA with No Scalable Structure"
     paragraphs:
-      - "Adventures in Wisdom (AIW) is an education and coaching brand that uses Meta Ads to drive application volume for its programs and webinars. Before our involvement, AIW was generating applications — but at a high and unstable CPA. In January 2025, they spent $10,503 for just 41 applications at a $256 CPA. February wasn't much better: $8,083 for 42 applications at $192."
+      - "Adventures in Wisdom (AIW) is an education and coaching brand that uses Meta Ads to drive application volume for its programs and webinars. Before our involvement, AIW was generating applications, but at a high and unstable CPA. In January 2025, they spent $10,503 for just 41 applications at a $256 CPA. February wasn't much better: $8,083 for 42 applications at $192."
       - "The core challenge was clear: they needed more volume without paying $200-$250 per application. And their existing structure collapsed every time they tried to increase spend."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "Tightening the System, Not Throwing Budget at It"
     paragraphs:
-      - "We focused on building a repeatable testing and scaling framework rather than simply increasing spend. We launched and tested multiple campaign angles to identify what actually produced scalable application volume. We used performance data to make strategic spend shifts — what to scale, what to cap, what to cut."
-      - "A key breakthrough was developing new audience segments, including a strong 'Retirement' segment that became a top performer. We also provided feedback on ad copy and creative formatting to improve clarity, hooks, and conversion alignment. In May, performance improved without launching any new creatives — proving the account wasn't reliant on constant creative churn."
+      - "We focused on building a repeatable testing and scaling framework rather than simply increasing spend. We launched and tested multiple campaign angles to identify what actually produced scalable application volume. We used performance data to make strategic spend shifts: what to scale, what to cap, what to cut."
+      - "A key breakthrough was developing new audience segments, including a strong 'Retirement' segment that became a top performer. We also provided feedback on ad copy and creative formatting to improve clarity, hooks, and conversion alignment. In May, performance improved without launching any new creatives, proving the account wasn't reliant on constant creative churn."
     tags:
       - "Testing Framework"
       - "Audience Segmentation"
@@ -56,11 +58,11 @@ sections:
     cards:
       - value: "$123"
         label: "Peak Month CPA (October)"
-        context: "$11,069 spend generated 90 applications at $123 CPA — down from $256 in January."
+        context: "$11,069 spend generated 90 applications at $123 CPA, down from $256 in January."
         variant: "highlight"
       - value: "90"
         label: "Monthly Applications"
-        context: "Up from 41 in January — a 120% increase in application volume."
+        context: "Up from 41 in January, a 120% increase in application volume."
         variant: "success"
       - value: "~5%"
         label: "Spend Increase"
@@ -68,11 +70,11 @@ sections:
         variant: "default"
       - value: "52%"
         label: "CPA Reduction vs January"
-        context: "CPA dropped from $256 to $123 — a 52% reduction through systematic optimization."
+        context: "CPA dropped from $256 to $123, a 52% reduction through systematic optimization."
         variant: "default"
   - type: "highlight-box"
     bigStat: "52%"
     boxHeading: "CPA Reduction While Doubling Volume"
-    boxText: "Cut CPA approximately 45-52% while scaling application volume 117-120% from the January-February baseline to the October peak. Spend increased only ~19% while more than doubling applications — proving that systematic optimization outperforms simply increasing budget."
+    boxText: "Cut CPA approximately 45-52% while scaling application volume 117-120% from the January-February baseline to the October peak. Spend increased only ~19% while more than doubling applications, proving that systematic optimization outperforms simply increasing budget."
 footerCta: "Ready to scale your education program's lead generation?"
 ---

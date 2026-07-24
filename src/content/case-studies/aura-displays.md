@@ -9,7 +9,7 @@ metrics:
   scale: "49 Countries"
 featured: false
 heroTitle: "How {CLIENT} Achieved 8-10x ROAS on Cold Traffic and Scaled Across 49 Countries"
-heroSubtitle: "A portable laptop display brand doing $1M+ monthly on Shopify needed to prove Google Ads could drive genuinely new customers — not just capture existing brand demand. Non-branded campaigns delivered 8-10x ROAS."
+heroSubtitle: "A portable laptop display brand doing $1M+ monthly on Shopify needed to prove Google Ads could drive genuinely new customers, not just capture existing brand demand. Non-branded campaigns delivered 8-10x ROAS."
 clientInfo:
   - label: "Client"
     value: "Aura Displays"
@@ -33,14 +33,14 @@ sections:
     sectionLabel: "The Challenge"
     heading: "Proving Google Ads ROI for an Organic Powerhouse"
     paragraphs:
-      - "Aura Displays sells portable triple-screen laptop monitors and accessories, generating over $1 million per month in Shopify revenue primarily through organic traffic — 40 to 50 sales per day without paid ads. The challenge wasn't generating sales; it was proving that paid advertising could drive genuinely incremental revenue beyond what the brand was already capturing organically."
+      - "Aura Displays sells portable triple-screen laptop monitors and accessories, generating over $1 million per month in Shopify revenue primarily through organic traffic: 40 to 50 sales per day without paid ads. The challenge wasn't generating sales; it was proving that paid advertising could drive genuinely incremental revenue beyond what the brand was already capturing organically."
       - "The founding team was skeptical that Google Ads could add value when organic was already so strong. They needed hard data showing that paid campaigns were reaching new customers, not just capturing existing demand."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "Branded Foundation, Then Non-Branded Expansion"
     paragraphs:
       - "We built a phased approach: first, establish a branded search foundation to protect the brand's search presence and build conversion data. Then, systematically expand into non-branded campaigns targeting category terms like 'triple screen monitor' and 'portable laptop display' to prove incremental reach."
-      - "The campaign architecture included branded Search at $200/day, non-branded Shopping and Search campaigns at $50/day each, and eventually Performance Max to leverage Google's full network — Search, Display, YouTube, and Discover. International expansion covered 49 countries with localized targeting."
+      - "The campaign architecture included branded Search at $200/day, non-branded Shopping and Search campaigns at $50/day each, and eventually Performance Max to leverage Google's full network: Search, Display, YouTube, and Discover. International expansion covered 49 countries with localized targeting."
     tags:
       - "Branded Search"
       - "Shopping Ads"
@@ -56,7 +56,7 @@ sections:
     cards:
       - value: "8-10x"
         label: "Non-Branded ROAS"
-        context: "Cold traffic campaigns targeting category terms like 'triple screen monitor' achieved 8-10x ROAS — proving incremental value beyond brand searches."
+        context: "Cold traffic campaigns targeting category terms like 'triple screen monitor' achieved 8-10x ROAS, proving incremental value beyond brand searches."
         variant: "highlight"
       - value: "27x"
         label: "Branded ROAS"
@@ -73,6 +73,6 @@ sections:
   - type: "highlight-box"
     bigStat: "10x"
     boxHeading: "Non-Branded ROAS on Cold Traffic"
-    boxText: "The true test of Google Ads for a brand with strong organic sales is non-branded performance — reaching people who have never heard of the product. Our non-branded campaigns achieved 8-10x ROAS on cold traffic, proving that Google Ads drives genuinely incremental revenue. Branded campaigns added another layer at 27x ROAS, protecting search presence across 49 countries."
+    boxText: "The true test of Google Ads for a brand with strong organic sales is non-branded performance: reaching people who have never heard of the product. Our non-branded campaigns achieved 8-10x ROAS on cold traffic, proving that Google Ads drives genuinely incremental revenue. Branded campaigns added another layer at 27x ROAS, protecting search presence across 49 countries."
 footerCta: "Ready to scale your e-commerce brand with Google Ads?"
 ---

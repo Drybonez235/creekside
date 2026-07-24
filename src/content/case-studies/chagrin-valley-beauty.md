@@ -2,6 +2,8 @@
 title: "How Chagrin Valley Built a Profitable New-Customer Acquisition Engine"
 client: "Chagrin Valley Beauty"
 category: "E-Commerce: Google Ads"
+logo: "/logos/chagrin-valley-beauty.svg"
+logo-alt: "Chagrin Valley Soap & Salve Logo"
 summary: "A natural beauty brand grew beyond organic traffic by building a paid acquisition engine that brings new beauty buyers into the brand without wrecking margins. 3,211 new customers at $28.74 per order, 6.1x ROAS."
 tags: ["Google Ads", "E-Commerce", "Beauty", "Performance Max", "Demand Gen", "Customer Acquisition"]
 metrics:

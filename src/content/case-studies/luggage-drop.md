@@ -38,8 +38,8 @@ sections:
     sectionLabel: "The Strategy"
     heading: "Dual-Targeting: National Exact Match + Local Radius"
     paragraphs:
-      - "We built two parallel campaign structures. The first was a US-wide exact match campaign targeting travelers researching luggage storage in Nashville before their trip — excluding Tennessee residents to avoid overlap. The second was a local Nashville campaign within a 20-50 mile radius targeting 'near me' and immediate-need searches."
-      - "This dual approach ensured we captured demand at both stages of the customer journey — planning and in-the-moment — without the campaigns competing against each other."
+      - "We built two parallel campaign structures. The first was a US-wide exact match campaign targeting travelers researching luggage storage in Nashville before their trip, excluding Tennessee residents to avoid overlap. The second was a local Nashville campaign within a 20-50 mile radius targeting 'near me' and immediate-need searches."
+      - "This dual approach ensured we captured demand at both stages of the customer journey (planning and in-the-moment) without the campaigns competing against each other."
     tags:
       - "Dual Targeting"
       - "National + Local"
@@ -55,7 +55,7 @@ sections:
     cards:
       - value: "$2.44"
         label: "Cost Per Purchase"
-        context: "Down $1.19 from the prior period — an extraordinary CPA for a booking-based service."
+        context: "Down $1.19 from the prior period, an extraordinary CPA for a booking-based service."
         variant: "highlight"
       - value: "1,050"
         label: "Total Purchases"
@@ -72,6 +72,9 @@ sections:
   - type: "highlight-box"
     bigStat: "$2.44"
     boxHeading: "Cost Per Booking"
-    boxText: "The dual-targeting strategy — national exact match for travelers planning ahead, local radius for in-the-moment searches — ensured maximum coverage without campaign overlap. This Nashville proof-of-concept demonstrated that paid Google Ads could profitably drive bookings at scale, paving the way for expansion across the company's 30+ US locations."
+    boxText: "The dual-targeting strategy (national exact match for travelers planning ahead, local radius for in-the-moment searches) ensured maximum coverage without campaign overlap. This Nashville proof-of-concept demonstrated that paid Google Ads could profitably drive bookings at scale, paving the way for expansion across the company's 30+ US locations."
+  - type: "image"
+    imageUrl: "/case-study-screenshots/luggage-drop-google-ads.png"
+    imageCaption: "Luggage Drop Google Ads account: 1,050 purchases, $2.44 cost per purchase, 804 purchase increase over prior period"
 footerCta: "Ready to build a high-volume, low-CPA advertising engine?"
 ---

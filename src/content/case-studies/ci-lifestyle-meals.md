@@ -2,6 +2,8 @@
 title: "How CI Lifestyle Meals Acquires New Customers at $25 CPA with a 4.5x ROAS"
 client: "CI Lifestyle Meals"
 category: "Meal Prep & Delivery: Meta Ads"
+logo: "/logos/ci-lifestyle-meals.png"
+logo-alt: "CI Lifestyle Meals Logo"
 summary: "A Portland-based meal prep company driving efficient new customer acquisition through targeted paid social campaigns that exclude all previous purchasers."
 tags: ["Meta Ads", "New Customer Acquisition", "Exclusion Audiences", "Purchase Optimization", "Capital Efficiency"]
 metrics:

@@ -9,7 +9,7 @@ tags: ["Google Ads", "Meta Ads", "Medical Marketing", "CRO"]
 metrics:
   roas: "2x Conv"
   scale: "+50% Spend"
-featured: true
+featured: false
 heroTitle: "How {CLIENT} Went from Nearly Closing a Branch to Planning a 4th Location"
 heroSubtitle: "A 3-location medical spa in North Atlanta was on the verge of shutting down a branch. We turned it around by cutting cost-per-acquisition in half."
 clientInfo:
@@ -51,7 +51,7 @@ sections:
     sectionLabel: "The Results"
     heading: "From Closing to Expanding"
     paragraphs:
-      - "Within a few months, AMS not only kept their 3rd branch open but increased ad spend by over 50%, accelerating growth toward a 4th branch. At peak performance, Meta Ads alone were driving 238 conversions in a single month at just $2.98 per conversion — with consistent monthly volumes ranging from 97 to 238 leads."
+      - "Within a few months, AMS not only kept their 3rd branch open but increased ad spend by over 50%, accelerating growth toward a 4th branch. At peak performance, Meta Ads alone were driving 238 conversions in a single month at just $2.98 per conversion, with consistent monthly volumes ranging from 97 to 238 leads."
   - type: "metrics-grid"
     cards:
       - value: "~50%"
@@ -73,6 +73,6 @@ sections:
   - type: "highlight-box"
     bigStat: "$5.40"
     boxHeading: "Meta Ads Cost Per Conversion"
-    boxText: "While the industry standard for medical spa leads on Meta hovers around $12.50 per conversion, we achieved a $5.40 cost per conversion — less than half the benchmark. This level of efficiency didn't just save a branch; it funded an expansion."
+    boxText: "While the industry standard for medical spa leads on Meta hovers around $12.50 per conversion, we achieved a $5.40 cost per conversion, less than half the benchmark. This level of efficiency didn't just save a branch; it funded an expansion."
 footerCta: "Ready to transform your medical practice's marketing?"
 ---

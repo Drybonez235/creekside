@@ -95,5 +95,11 @@ sections:
   - type: "quote"
     quoteText: "Just hit our highest sales record. It's because of you."
     quoteAttr: "- Brad Miller, Owner & Executive Chef, Punch Drunk Chef"
+  - type: "video"
+    videoUrl: "https://www.youtube.com/watch?v=toYliw7CHUE"
+    videoCaption: "Bradley Miller, Owner of Punch Drunk Chef Meal Prep, shares his experience with Creekside Marketing"
+  - type: "quote"
+    quoteText: "Never thought I'd put money into advertising/marketing but SOOO happy I found Creekside Marketing!!! Cade and Peterson have made this not only an eye opening experience but started seeing result after only 2 weeks of working with these guys! ... in the first month alone I saw a 9% increase on top of my normal trend YTD. And also it was in July, the slowest month of the year! If you want growth for your business, these are your guys!!!"
+    quoteAttr: "— Bradley Miller, Punch Drunk Chef (Google Review)"
 footerCta: "Ready to scale your meal prep business?"
 ---

@@ -2,6 +2,8 @@
 title: "Bankruptcy Law Firm Doubles Conversions and Cuts CPA 42% with Google Ads"
 client: "Winterbotham Parham Teeple"
 category: "Legal: Google Ads"
+logo: "/logos/winterbotham-parham-teeple.png"
+logo-alt: "Winterbotham Parham Teeple Logo"
 summary: "How we restructured Google Ads for a bankruptcy law firm, doubling conversions from 117 to 229 while reducing cost per conversion by 42% to $50.29."
 tags: ["Google Ads", "Legal Marketing", "Bankruptcy Law", "CPA Optimization", "Conversion Growth"]
 metrics:
@@ -49,16 +51,16 @@ sections:
     sectionLabel: "The Results"
     heading: "Doubled Leads, Halved Costs"
     paragraphs:
-      - "The restructured campaigns delivered a complete reversal in performance trajectory — doubling conversion volume while cutting costs nearly in half."
+      - "The restructured campaigns delivered a complete reversal in performance trajectory, doubling conversion volume while cutting costs nearly in half."
   - type: "metrics-grid"
     cards:
       - value: "229"
         label: "Total Conversions"
-        context: "Up from 117 in the prior period — a 96% increase in qualified leads."
+        context: "Up from 117 in the prior period, a 96% increase in qualified leads."
         variant: "highlight"
       - value: "$50.29"
         label: "Cost Per Conversion"
-        context: "Down from $86.09 — a 42% reduction in acquisition cost."
+        context: "Down from $86.09, a 42% reduction in acquisition cost."
         variant: "success"
       - value: "$11.5K"
         label: "Total Ad Spend"
@@ -72,5 +74,8 @@ sections:
     bigStat: "$50.29"
     boxHeading: "Cost Per Bankruptcy Lead"
     boxText: "With average bankruptcy case fees ranging from $1,500 to $4,000, a $50.29 cost per lead represents a potential 30-80x return on every closed case. The Orange County campaign emerged as the standout performer, with higher conversion rates and conversion volume growth. The client reported consistent weekly call quality and expressed satisfaction with lead volume throughout the engagement."
+  - type: "image"
+    imageUrl: "/case-study-screenshots/winterbotham-google-ads.png"
+    imageCaption: "Winterbotham Parham Teeple Google Ads account: 229 conversions, $50.29 cost per conversion, 42% CPA reduction"
 footerCta: "Ready to cut your legal marketing costs while growing your caseload?"
 ---

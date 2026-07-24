@@ -11,7 +11,7 @@ metrics:
   scale: "Expanded Radius"
 featured: false
 heroTitle: "How {CLIENT} Beat National Chains to Claim #1 Impression Share in 3 States"
-heroSubtitle: "A local semi-truck axle repair shop went from surviving on referrals to dominating Google against national chains — all through precision bidding and local SEO."
+heroSubtitle: "A local semi-truck axle repair shop went from surviving on referrals to dominating Google against national chains, all through precision bidding and local SEO."
 clientInfo:
   - label: "Client"
     value: "Axle Solutions"
@@ -51,7 +51,7 @@ sections:
     sectionLabel: "The Results"
     heading: "Market Leadership Against All Odds"
     paragraphs:
-      - "Using highly precise targeting, we stretched the ad spend to only bid on the most high-value, underpriced ad placements. This efficiency allowed Axle Solutions to expand their service radius and reach clientele previously thought unreachable. In the first month alone, ad-driven calls increased 136% — from 11 to 26 in just three weeks. By month two, they were receiving 50 calls per month, growing to 99 monthly calls by year-end."
+      - "Using highly precise targeting, we stretched the ad spend to only bid on the most high-value, underpriced ad placements. This efficiency allowed Axle Solutions to expand their service radius and reach clientele previously thought unreachable. In the first month alone, ad-driven calls increased 136%, from 11 to 26 in just three weeks. By month two, they were receiving 50 calls per month, growing to 99 monthly calls by year-end."
   - type: "metrics-grid"
     cards:
       - value: "#1"
@@ -73,6 +73,6 @@ sections:
   - type: "highlight-box"
     bigStat: "#1"
     boxHeading: "Google Maps for the Entire State"
-    boxText: "Through our proprietary GMB optimization, Axle Solutions achieved the top spot on Google Maps for the entire state of Illinois — out-competing a national chain twice for their own business name with zero ad spend required. This organic dominance provides lasting value beyond any paid campaign."
+    boxText: "Through our proprietary GMB optimization, Axle Solutions achieved the top spot on Google Maps for the entire state of Illinois, out-competing a national chain twice for their own business name with zero ad spend required. This organic dominance provides lasting value beyond any paid campaign."
 footerCta: "Ready to dominate your niche market?"
 ---

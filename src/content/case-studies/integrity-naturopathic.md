@@ -33,12 +33,12 @@ sections:
     sectionLabel: "The Challenge"
     heading: "Standing Out in a Competitive Wellness Market"
     paragraphs:
-      - "Integrity Naturopathic, led by Dr. Jamie Brinkley in Sacramento, California, needed a reliable digital channel to attract new patients for naturopathic medicine, functional medicine, holistic health, and sports medicine services. The practice had previously run Google Ads with mixed results — broad wellness terms generated traffic but low conversions, while the account lacked the structure to scale efficiently on a modest budget."
+      - "Integrity Naturopathic, led by Dr. Jamie Brinkley in Sacramento, California, needed a reliable digital channel to attract new patients for naturopathic medicine, functional medicine, holistic health, and sports medicine services. The practice had previously run Google Ads with mixed results: broad wellness terms generated traffic but low conversions, while the account lacked the structure to scale efficiently on a modest budget."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "Service-Intent Keywords with Precision Targeting"
     paragraphs:
-      - "We restructured the Google Ads account around high-intent, service-focused keywords — targeting patients actively searching for naturopathic doctors, holistic practitioners, and functional medicine in the Sacramento area. Location-specific terms consistently outperformed broad wellness searches."
+      - "We restructured the Google Ads account around high-intent, service-focused keywords, targeting patients actively searching for naturopathic doctors, holistic practitioners, and functional medicine in the Sacramento area. Location-specific terms consistently outperformed broad wellness searches."
       - "As the account matured, we expanded into a dedicated sports medicine campaign and tested Performance Max alongside standard Search. Budget was carefully managed at $2,350/month to maximize every dollar, with continuous negative keyword refinement to eliminate waste."
     tags:
       - "Google Ads"
@@ -64,6 +64,6 @@ sections:
   - type: "highlight-box"
     bigStat: "$14"
     boxHeading: "Cost Per Patient Inquiry"
-    boxText: "Core naturopathic and holistic keywords consistently deliver patient inquiries at $14-$18 per conversion — exceptional for healthcare marketing where CPAs of $50-$100+ are common. The Sacramento-specific terms perform even better, with 'Sacramento Naturopathic' converting at just $6.22 per lead."
+    boxText: "Core naturopathic and holistic keywords consistently deliver patient inquiries at $14-$18 per conversion, exceptional for healthcare marketing where CPAs of $50-$100+ are common. The Sacramento-specific terms perform even better, with 'Sacramento Naturopathic' converting at just $6.22 per lead."
 footerCta: "Ready to grow your healthcare practice with precision Google Ads?"
 ---

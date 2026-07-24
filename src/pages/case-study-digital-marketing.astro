@@ -17,6 +17,12 @@ const rest = caseStudies.filter(s => s.slug !== featured.slug);
 
 const t = creeksideTheme;
 
+// Use metricStrip from frontmatter if available, otherwise fall back to 2-metric display
+const featuredMetrics = (featured as any).metricStrip || [
+  { value: featured.metrics.roas, label: 'Primary Result' },
+  { value: featured.metrics.scale, label: 'Scale' },
+];
+
 const listSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -60,6 +66,28 @@ const listSchema = {
 
 import '../styles/global.css';
 ---
+
+<style>
+  .filter-tab {
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    background: white;
+    cursor: pointer;
+  }
+  .filter-tab:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+  }
+  .filter-tab.active {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: white;
+  }
+  .study-card[style*="none"] {
+    display: none;
+  }
+</style>
+
 <Layout
   title="Case Study: Digital Marketing - Creekside Marketing"
   description="Proof is in the profit. Explore our real-world case studies showing 37%+ ROAS improvements, doubled revenue, and scaled ad accounts for law firms, dental practices, and e-commerce brands."
@@ -69,9 +97,11 @@ import '../styles/global.css';
   <Nav />
 
   <main class="min-h-dvh bg-grey-50">
-    <!-- Hero header with gradient -->
-    <div class="relative overflow-hidden px-4 py-20 lg:px-12" style={`background: ${t.heroGradient}`}>
+
+    <!-- Hero header -->
+    <div class="relative overflow-hidden px-4 pb-16 pt-20 lg:px-12" style={`background: ${t.heroGradient}`}>
       <div class="absolute -top-1/2 -right-1/5 h-[500px] w-[500px] rounded-full" style={`background: radial-gradient(circle, ${t.accentGlow} 0%, transparent 70%)`}></div>
+      <div class="absolute bottom-0 left-0 h-[300px] w-[600px] opacity-30" style="background: radial-gradient(ellipse at bottom left, rgba(2,132,199,0.25), transparent)"></div>
       <div class="mx-auto max-w-7xl relative z-10">
         <span class="mb-4 inline-block rounded-full px-4 py-1.5 text-[0.7rem] font-bold uppercase tracking-[2px]" style={`background: ${t.badgeBg}; border: 1px solid ${t.badgeBorder}; color: ${t.badgeText}`}>
           Client Results
@@ -85,70 +115,131 @@ import '../styles/global.css';
       </div>
     </div>
 
+    <!-- Stat strip -->
+    <div class="border-b border-grey-200 bg-white shadow-sm">
+      <div class="mx-auto max-w-7xl px-4 lg:px-12">
+        <div class="grid grid-cols-2 divide-x divide-grey-100 sm:grid-cols-4">
+          <div class="px-6 py-7 text-center">
+            <div class="text-3xl font-extrabold" style={`color: ${t.accentColor}`}>{caseStudies.length}+</div>
+            <div class="mt-1 text-[0.65rem] font-bold uppercase tracking-[1.5px] text-grey-400">Client Results</div>
+          </div>
+          <div class="px-6 py-7 text-center">
+            <div class="text-3xl font-extrabold" style={`color: ${t.accentColor}`}>$2M+</div>
+            <div class="mt-1 text-[0.65rem] font-bold uppercase tracking-[1.5px] text-grey-400">ARR Impact</div>
+          </div>
+          <div class="px-6 py-7 text-center">
+            <div class="text-3xl font-extrabold" style={`color: ${t.accentColor}`}>10+</div>
+            <div class="mt-1 text-[0.65rem] font-bold uppercase tracking-[1.5px] text-grey-400">Industries Served</div>
+          </div>
+          <div class="px-6 py-7 text-center">
+            <div class="text-3xl font-extrabold" style={`color: ${t.accentColor}`}>5x+</div>
+            <div class="mt-1 text-[0.65rem] font-bold uppercase tracking-[1.5px] text-grey-400">Typical ROAS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="mx-auto max-w-7xl px-4 py-12 lg:px-12">
 
       <!-- Featured Study -->
-      <section class="mb-12 overflow-hidden rounded-2xl bg-white shadow-lg">
-        <div class="lg:flex">
-          <div class="flex shrink-0 items-center justify-center p-12 lg:w-1/3" style={`background: ${t.heroGradient}`}>
+      <div class="mb-3">
+        <span class="text-[0.65rem] font-bold uppercase tracking-[2.5px]" style={`color: ${t.accentColor}`}>Featured Case Study</span>
+      </div>
+      <section class="mb-16 overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+        <div class="lg:flex min-h-[340px]">
+
+          <!-- Left: Logo panel -->
+          <div class="relative flex shrink-0 items-center justify-center p-12 lg:w-2/5" style={`background: ${t.heroGradient}`}>
+            <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,1) 40px, rgba(255,255,255,1) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,1) 40px, rgba(255,255,255,1) 41px);"></div>
             {featured.logo ? (
               <img
                 src={featured.logo}
                 alt={featured["logo-alt"]}
-                class="max-h-32 w-auto object-contain"
+                class="relative z-10 max-h-40 w-auto object-contain drop-shadow-2xl"
               />
             ) : (
-              <div class="flex size-48 items-center justify-center rounded-full border border-white/20 bg-white/10">
+              <div class="relative z-10 flex size-48 items-center justify-center rounded-full border border-white/20 bg-white/10">
                 <span class="font-bold italic text-white/50">Logo Pending</span>
               </div>
             )}
           </div>
 
-          <div class="flex flex-col justify-center p-8 lg:p-12">
+          <!-- Right: Content panel -->
+          <div class="flex flex-col justify-center bg-white p-8 lg:p-12">
             <span class="text-[0.65rem] font-bold uppercase tracking-[2.5px]" style={`color: ${t.accentColor}`}>
               {featured.category}
             </span>
-            <h2 class="mt-3 text-2xl font-bold text-primary-900 sm:text-3xl/10">
+            <h2 class="mt-3 text-2xl font-bold text-primary-900 sm:text-3xl/tight">
               {featured.title}
             </h2>
             <p class="mt-4 max-w-xl text-base leading-relaxed text-grey-600">
               {featured.summary}
             </p>
-            <div class="mt-6 flex items-center gap-6">
-              <div>
-                <div class="text-2xl font-extrabold" style={`color: ${t.accentColor}`}>{featured.metrics.roas}</div>
-                <div class="text-[0.65rem] font-semibold uppercase tracking-[1.5px] text-gray-400">Primary Result</div>
-              </div>
-              <div>
-                <div class="text-2xl font-extrabold text-primary-900">{featured.metrics.scale}</div>
-                <div class="text-[0.65rem] font-semibold uppercase tracking-[1.5px] text-gray-400">Scale</div>
-              </div>
+
+            <!-- Metrics grid -->
+            <div class="mt-6 grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-4">
+              {featuredMetrics.map((m: { value: string; label: string }) => (
+                <div>
+                  <div class="text-xl font-extrabold sm:text-2xl" style={`color: ${t.accentColor}`}>{m.value}</div>
+                  <div class="mt-0.5 text-[0.6rem] font-semibold uppercase tracking-[1.5px] text-gray-400">{m.label}</div>
+                </div>
+              ))}
             </div>
+
             <div class="mt-8">
               <a href={`/case-study-digital-marketing/${featured.slug}/`} class="inline-block rounded-lg bg-secondary-500 px-8 py-3.5 text-sm font-bold text-white transition-colors hover:bg-secondary-400">
-                View Full Case Study
+                View Full Case Study &rarr;
               </a>
             </div>
           </div>
+
         </div>
       </section>
 
+      <!-- Grid header + filter tabs -->
+      <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <span class="text-[0.65rem] font-bold uppercase tracking-[2.5px]" style={`color: ${t.accentColor}`}>All Case Studies</span>
+          <h2 class="mt-1 text-xl font-bold text-primary-900">More Client Results</h2>
+        </div>
+        <div class="flex flex-wrap gap-2" id="filter-tabs">
+          {['All', 'Google Ads', 'Meta Ads', 'Legal', 'Home Services', 'E-Commerce', 'B2B'].map((label, i) => (
+            <button
+              class={`filter-tab rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${i === 0 ? 'active' : ''}`}
+              data-filter={label}
+            >{label}</button>
+          ))}
+        </div>
+      </div>
+
       <!-- Case Study Grid -->
-      <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="case-study-grid">
         {rest.map((study) => (
-          <a href={`/case-study-digital-marketing/${study.slug}/`} class="group flex flex-col overflow-hidden rounded-xl border border-grey-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+          <a
+            href={`/case-study-digital-marketing/${study.slug}/`}
+            class="study-card group flex flex-col overflow-hidden rounded-xl border border-grey-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+            data-tags={(study.tags || []).join(',')}
+          >
             <!-- Card accent bar -->
-            <div class="h-1" style={`background: ${t.heroGradient}`}></div>
+            <div class="h-1 shrink-0" style={`background: ${t.heroGradient}`}></div>
 
+            <!-- Logo area -->
+            <div class="flex h-28 shrink-0 flex-col items-center justify-center gap-1.5 border-b border-grey-100 bg-slate-50 px-6">
+              {study.logo && (
+                <img src={study.logo} alt={study["logo-alt"]} class="max-h-10 max-w-[170px] object-contain" />
+              )}
+              <span class={`text-center px-2 ${study.logo ? 'text-[0.6rem] font-semibold uppercase tracking-wide text-grey-400' : 'text-sm font-bold text-grey-600'}`}>
+                {(study as any).client || study.title}
+              </span>
+            </div>
+
+            <!-- Content -->
             <div class="flex flex-1 flex-col p-6">
-              <div class="flex items-center gap-3">
-                {study.logo && <img src={study.logo} alt={study["logo-alt"]} class="size-8 object-contain" />}
-                <span class="text-[0.65rem] font-bold uppercase tracking-[2px]" style={`color: ${t.accentColor}`}>
-                  {study.category}
-                </span>
-              </div>
+              <span class="text-[0.6rem] font-bold uppercase tracking-[2px]" style={`color: ${t.accentColor}`}>
+                {study.category}
+              </span>
 
-              <h3 class="mt-4 text-lg font-bold leading-snug text-primary-900 transition-colors group-hover:text-secondary-500">
+              <h3 class="mt-2 text-base font-bold leading-snug text-primary-900 transition-colors group-hover:text-secondary-500">
                 {study.title}
               </h3>
 
@@ -156,23 +247,47 @@ import '../styles/global.css';
                 {study.summary}
               </p>
 
-              <!-- Metrics preview -->
-              <div class="mt-auto flex items-center gap-6 border-t border-grey-100 pt-4 mt-6">
-                <div>
-                  <div class="text-xl font-extrabold" style={`color: ${t.accentColor}`}>{study.metrics.roas}</div>
-                  <div class="text-[0.6rem] font-semibold uppercase tracking-[1.5px] text-gray-400">Result</div>
+              <!-- Metrics + arrow -->
+              <div class="mt-auto flex items-end justify-between border-t border-grey-100 pt-4 mt-5">
+                <div class="flex items-start gap-6">
+                  <div>
+                    <div class="text-lg font-extrabold leading-none" style={`color: ${t.accentColor}`}>{study.metrics.roas}</div>
+                    <div class="mt-1 text-[0.55rem] font-semibold uppercase tracking-[1px] text-gray-400">Result</div>
+                  </div>
+                  <div>
+                    <div class="text-lg font-extrabold leading-none text-primary-900">{study.metrics.scale}</div>
+                    <div class="mt-1 text-[0.55rem] font-semibold uppercase tracking-[1px] text-gray-400">Scale</div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-xl font-extrabold text-primary-900">{study.metrics.scale}</div>
-                  <div class="text-[0.6rem] font-semibold uppercase tracking-[1.5px] text-gray-400">Scale</div>
-                </div>
+                <span class="text-xl text-grey-300 transition-colors group-hover:text-secondary-500">&rarr;</span>
               </div>
             </div>
           </a>
         ))}
       </section>
+
     </div>
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+  const cards = document.querySelectorAll<HTMLElement>('.study-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter || 'All';
+
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').toLowerCase();
+        const show = filter === 'All' || tags.includes(filter.toLowerCase());
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

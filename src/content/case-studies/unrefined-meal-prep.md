@@ -2,6 +2,8 @@
 title: "How Unrefined Meal Prep Expanded from Cleveland to Columbus at 4x New Customer ROAS"
 client: "Unrefined Meal Prep"
 category: "Meal Prep & Delivery: Meta Ads"
+logo: "/logos/unrefined-meal-prep.webp"
+logo-alt: "Unrefined Meal Prep Logo"
 summary: "Northeast Ohio's leading meal prep service entered an entirely new market, acquiring new customers at $20 CPA with $8-$10 cost per purchase across scaled ad sets."
 tags: ["Meta Ads", "Market Expansion", "New Customer Acquisition", "Exclusion Audiences", "Creative Testing", "LTV Optimization"]
 metrics:
@@ -51,7 +53,7 @@ sections:
     sectionLabel: "The Results"
     heading: "Profitable Expansion and Efficient Customer Growth"
     paragraphs:
-      - "Both campaign tracks delivered strong results. In the core Cleveland market, the new customer acquisition campaigns consistently delivered 4x ROAS at $20 CPA — proving the paid media engine is healthy and scalable. The Columbus expansion campaign achieved approximately 2x ROAS in its first month of entering a completely new market with zero brand recognition, approaching the 2.5x target with creative refreshes planned to push performance further."
+      - "Both campaign tracks delivered strong results. In the core Cleveland market, the new customer acquisition campaigns consistently delivered 4x ROAS at $20 CPA, proving the paid media engine is healthy and scalable. The Columbus expansion campaign achieved approximately 2x ROAS in its first month of entering a completely new market with zero brand recognition, approaching the 2.5x target with creative refreshes planned to push performance further."
   - type: "image"
     imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663291059308/XxnH6o3BmuhXaMbCwgKnqi/unrefined-dashboard_a77883ee.png"
   - type: "metrics-grid"

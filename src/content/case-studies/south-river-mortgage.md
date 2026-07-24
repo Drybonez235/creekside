@@ -11,7 +11,7 @@ metrics:
   scale: "$50k+/mo Spend"
 featured: false
 heroTitle: "How {CLIENT} Replaced $500k/mo in Direct Mail with Digital at 5x Lower Cost"
-heroSubtitle: "From a $10k test budget to $50k+/month in just 5 months — generating 20-30 qualified leads daily through precision digital targeting."
+heroSubtitle: "From a $10k test budget to $50k+/month in just 5 months, generating 20-30 qualified leads daily through precision digital targeting."
 clientInfo:
   - label: "Client"
     value: "South River Mortgage"
@@ -41,7 +41,7 @@ sections:
     heading: "Multi-Channel Digital Funnel"
     paragraphs:
       - "We implemented a sophisticated multi-channel funnel to prove that digital could not only compete but win. Performance Max campaigns identified high-performing audiences and search terms at the top of the funnel. Standard Search campaigns captured the interest Pmax generated. Meta handled heavy retargeting of interested leads and top-of-funnel awareness."
-      - "The key differentiator was advanced lead qualification — we set up tracking optimized specifically for high-quality leads, defined as prospects who spoke with a loan officer for 3+ minutes or completed qualifying form questions."
+      - "The key differentiator was advanced lead qualification: we set up tracking optimized specifically for high-quality leads, defined as prospects who spoke with a loan officer for 3+ minutes or completed qualifying form questions."
     tags:
       - "Performance Max"
       - "Demand Gen"
@@ -52,7 +52,7 @@ sections:
     sectionLabel: "The Results"
     heading: "A Scalable Digital Alternative"
     paragraphs:
-      - "The transformation was rapid, proving digital's viability for high-ticket financial services. Starting with a $10,000 test budget, we generated 90 qualified leads in the first week alone. Performance Max campaigns achieved a $28 cost per lead in the initial 14-day period. As confidence grew, the budget scaled to over $55,000 per month — with Google Ads cost per lead dropping below $50."
+      - "The transformation was rapid, proving digital's viability for high-ticket financial services. Starting with a $10,000 test budget, we generated 90 qualified leads in the first week alone. Performance Max campaigns achieved a $28 cost per lead in the initial 14-day period. As confidence grew, the budget scaled to over $55,000 per month, with Google Ads cost per lead dropping below $50."
   - type: "metrics-grid"
     cards:
       - value: ">5x"
@@ -75,5 +75,8 @@ sections:
     bigStat: ">5x"
     boxHeading: "Return on Ad Spend"
     boxText: "By focusing on lead quality rather than just volume, Creekside provided South River Mortgage with a scalable, high-efficiency alternative to their traditional $500,000/month mail spend. Google Ads delivered leads that convert 7-8x higher than direct mail at a 5x lower cost per customer."
+  - type: "video"
+    videoUrl: "https://www.youtube.com/watch?v=pDMJBxZiuyw"
+    videoCaption: "Nick shares how South River Mortgage scaled from a $10K test budget to $50K+ monthly with Creekside"
 footerCta: "Ready to outperform your traditional marketing channels?"
 ---
