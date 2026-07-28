@@ -2,7 +2,7 @@
 title: "The Google and Meta Dental Ad Strategy That Doubled Monthly Consults Without Increasing Spend"
 description: "How we doubled a cosmetic dental practice's monthly consultations using a Google and Meta split strategy without touching their $100K+ monthly ad budget."
 date: "2026-07-22"
-image: "article-images/google-meta-dental-ads-double-consults.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["GoogleAds", "MetaAds", "DentalMarketing", "CosmeticDentistry", "PaidAds"]
 ---
