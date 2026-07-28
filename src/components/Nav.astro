@@ -1,9 +1,4 @@
----
-
----
-
-<header class=" top-0 z-50 w-full border-b border-grey-200 bg-white shadow-sm">
-
+<header class="top-0 z-50 w-full border-b border-grey-200 bg-white shadow-sm">
 
   <div class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
     
@@ -17,13 +12,14 @@
       </a>
     </div>
 
-    <nav class="hidden items-center gap-8 lg:flex" aria-label="Main Menu">
+    <!-- MAIN NAV (Targeted by JS) -->
+    <nav id="main-desktop-nav" class="hidden items-center gap-8 lg:flex" aria-label="Main Menu">
       <div class="group relative">
         <button class="flex items-center gap-1 text-base/6 font-medium text-primary-900 transition-colors hover:text-secondary-500">
           Services
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div class="invisible absolute top-full left-0 w-48 z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+        <div class="nav-dropdown-menu invisible absolute top-full left-0 w-48 z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
           <a href="/digital-advertising/google-ads/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Google Ads (PPC)</a>
           <a href="/digital-advertising/meta-ads/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Meta Ads</a>
         </div>
@@ -34,10 +30,10 @@
           Learn
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div class="invisible absolute top-full left-0 w-48 z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-         <a href="/case-study-digital-marketing/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Case Studies</a>
+        <div class="nav-dropdown-menu invisible absolute top-full left-0 w-48 z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+          <a href="/case-study-digital-marketing/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Case Studies</a>
           <a href="https://www.youtube.com/@CreeksideMarketing1" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">YouTube</a>
-          <a href="https://www.linkedin.com/company/creekside-marketing/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Linkedin</a>
+          <a href="https://www.linkedin.com/company/creekside-marketing/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">LinkedIn</a>
           <a href="/blog/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Blog</a>
           <a href="/newsletter/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Newsletter</a>
         </div>
@@ -48,7 +44,7 @@
           About
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div class="invisible absolute top-full left-0 w-48  z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+        <div class="nav-dropdown-menu invisible absolute top-full left-0 w-48 z-50 translate-y-2 rounded-sm border border-grey-100 bg-white p-2 shadow-sm opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
           <a href="/meet-the-team/" class="block rounded-xs px-4 py-2 text-sm/6 text-grey-700 hover:bg-grey-50 hover:text-secondary-600">Meet The Team</a>
         </div>
       </div>
@@ -73,142 +69,138 @@
   </div>
 
   <div 
-  id="mobile-menu" 
-  class="fixed inset-0 z-100 hidden bg-white lg:hidden"
-  role="dialog" 
-  aria-modal="true"
->
-  <div class="flex items-center justify-between border-b border-grey-200 px-4 py-4">
-    <a href="/" class="shrink-0">
-      <img src="/creekside-marketing-pros-logo.avif" alt="Creekside marketing logo" class="h-12 w-auto" />
-    </a>
-    <button id="close-menu" class="p-2 text-primary-900" aria-label="Close Menu">
-      <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
+    id="mobile-menu" 
+    class="fixed inset-0 z-100 hidden bg-white lg:hidden"
+    role="dialog" 
+    aria-modal="true"
+  >
+    <div class="flex items-center justify-between border-b border-grey-200 px-4 py-4">
+      <a href="/" class="shrink-0">
+        <img src="/creekside-marketing-pros-logo.avif" alt="Creekside marketing logo" class="h-12 w-auto" />
+      </a>
+      <button id="close-menu" class="p-2 text-primary-900" aria-label="Close Menu">
+        <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col overflow-y-auto px-4 py-6" aria-label="Mobile Navigation">
+      <div class="border-b border-grey-100 py-4">
+        <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+          Services
+          <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+          <a href="/digital-advertising/google-ads/" class="text-base/6 text-grey-600">Google Ads (PPC)</a>
+          <a href="/digital-advertising/meta-ads/" class="text-base/6 text-grey-600">Meta Ads</a>
+        </div>
+      </div>
+
+      <div class="border-b border-grey-100 py-4">
+        <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+          Learn
+          <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+          <a href="/case-study-digital-marketing/" class="text-base/6 text-grey-600">Case Studies</a>
+          <a href="https://www.youtube.com/@CreeksideMarketing1" class="text-base/6 text-grey-600">YouTube</a>
+          <a href="https://www.linkedin.com/company/creekside-marketing/" class="text-base/6 text-grey-600">LinkedIn</a>
+          <a href="/blog/" class="text-base/6 text-grey-600">Blog</a>
+          <a href="/newsletter/" class="text-base/6 text-grey-600">Newsletter</a>
+        </div>
+      </div>
+
+      <div class="border-b border-grey-100 py-4">
+        <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
+          About
+          <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
+          <a href="/meet-the-team/" class="text-base/6 text-grey-600">Meet The Team</a>
+        </div>
+      </div>
+
+      <a href="/contact/" class="border-b border-grey-100 py-4 text-lg/7 font-bold text-primary-900">Contact</a>
+
+      <div class="mt-8">
+        <a 
+          href="https://calendar.app.google/wSdVbfwaJRzkw12E7" 
+          class="block w-full rounded-sm bg-secondary-500 py-4 text-center text-base font-bold text-white shadow-sm"
+        >
+          Get A Free Audit
+        </a>
+      </div>
+    </nav>
   </div>
 
-  <nav class="flex flex-col overflow-y-auto px-4 py-6" aria-label="Mobile Navigation">
-    
-    <div class="border-b border-grey-100 py-4">
-      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
-        Services
-        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-      </button>
-      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
-        <a href="/digital-advertising/google-ads/" class="text-base/6 text-grey-600">Google Ads (PPC)</a>
-        <a href="/digital-advertising/meta-ads/" class="text-base/6 text-grey-600">Meta Ads</a>
-      </div>
-    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Scope explicitly to the main nav container ONLY
+      const desktopNav = document.getElementById('main-desktop-nav');
+      if (!desktopNav) return;
 
-    <div class="border-b border-grey-100 py-4">
-      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
-        Learn
-        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-      </button>
-      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
-        <a href="/case-study-digital-marketing/" class="text-base/6 text-grey-600">Case Studies</a>
-        <a href="https://www.youtube.com/@CreeksideMarketing1" class="text-base/6 text-grey-600">YouTube</a>
-        <a href="https://www.linkedin.com/company/creekside-marketing/" class="text-base/6 text-grey-600">LinkedIn</a>
-         <a href="/blog/" class="text-base/6 text-grey-600">Blog</a>
-        <a href="/newsletter/" class="text-base/6 text-grey-600">Newsletter</a>
-      </div>
-    </div>
+      const dropdowns = desktopNav.querySelectorAll('.group.relative');
 
-    <div class="border-b border-grey-100 py-4">
-      <button class="mobile-dropdown-btn flex w-full items-center justify-between text-lg/7 font-bold text-primary-900">
-        About
-        <svg class="size-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-      </button>
-      <div class="mobile-dropdown-content hidden flex-col gap-4 pl-4 pt-4">
-        <a href="/meet-the-team/" class="text-base/6 text-grey-600">Meet The Team</a>
-      </div>
-    </div>
+      function closeAllMenus() {
+        dropdowns.forEach(dropdown => {
+          // Strictly target the specific menu class inside nav
+          const menu = dropdown.querySelector('.nav-dropdown-menu');
+          if (menu) {
+            menu.classList.add('invisible', 'opacity-0', 'translate-y-2');
+            menu.classList.remove('visible', 'opacity-100', 'translate-y-0');
+          }
+        });
+      }
 
-    <a href="/contact/" class="border-b border-grey-100 py-4 text-lg/7 font-bold text-primary-900">Contact</a>
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('button');
+        const menu = dropdown.querySelector('.nav-dropdown-menu');
+        if (!button || !menu) return;
 
-    <div class="mt-8">
-      <a 
-        href="https://calendar.app.google/wSdVbfwaJRzkw12E7" 
-        class="block w-full rounded-sm bg-secondary-500 py-4 text-center text-base font-bold text-white shadow-sm"
-      >
-        Get A Free Audit
-      </a>
-    </div>
-  </nav>
-</div>
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          const isOpen = !menu.classList.contains('invisible');
+
+          closeAllMenus();
+
+          if (!isOpen) {
+            menu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+            menu.classList.add('visible', 'opacity-100', 'translate-y-0');
+          }
+        });
+      });
+
+      window.addEventListener('click', closeAllMenus);
+    });
+  </script> 
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const dropdowns = document.querySelectorAll('.group.relative');
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const openBtn = document.querySelector('[aria-label="Toggle Menu"]');
+      const closeBtn = document.getElementById('close-menu');
+      const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
 
-    dropdowns.forEach(dropdown => {
-      const button = dropdown.querySelector('button');
-      const menu = dropdown.querySelector('div');
-      if (!button || !menu) return;
+      const toggleMenu = () => {
+        mobileMenu?.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+      };
 
-      button.addEventListener('click', (e) => {
-        // Prevent the click from immediately bubbling up to the window
-        e.stopPropagation();
+      openBtn?.addEventListener('click', toggleMenu);
+      closeBtn?.addEventListener('click', toggleMenu);
 
-        const isOpen = !menu.classList.contains('invisible');
-
-        // Close all other menus first for a clean UI
-        closeAllMenus();
-
-        if (!isOpen) {
-          // Show the menu
-          menu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
-          menu.classList.add('visible', 'opacity-100', 'translate-y-0');
-        }
+      dropdownBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector('svg');
+          
+          content?.classList.toggle('hidden');
+          content?.classList.toggle('flex');
+          icon?.classList.toggle('rotate-180');
+        });
       });
     });
-
-    // Close menus when clicking anywhere else on the screen
-    window.addEventListener('click', () => {
-      closeAllMenus();
-    });
-
-    function closeAllMenus() {
-      dropdowns.forEach(dropdown => {
-        const menu = dropdown.querySelector('div');
-        menu.classList.add('invisible', 'opacity-0', 'translate-y-2');
-        menu.classList.remove('visible', 'opacity-100', 'translate-y-0');
-      });
-    }
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openBtn = document.querySelector('[aria-label="Toggle Menu"]');
-    const closeBtn = document.getElementById('close-menu');
-    const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-
-    // Toggle Mobile Menu visibility
-    const toggleMenu = () => {
-      mobileMenu?.classList.toggle('hidden');
-      document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
-    };
-
-    openBtn?.addEventListener('click', toggleMenu);
-    closeBtn?.addEventListener('click', toggleMenu);
-
-    // Accordion Logic for Mobile Dropdowns
-    dropdownBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        const icon = btn.querySelector('svg');
-        
-        // Toggle the hidden class on the menu content
-        content.classList.toggle('hidden');
-        content.classList.toggle('flex');
-        
-        // Rotate the arrow icon
-        icon.classList.toggle('rotate-180');
-      });
-    });
-  });
-</script>
+  </script>
 </header>
