@@ -9,88 +9,119 @@ import '../styles/global.css';
 ---
 
 <Layout
-	title="Google Ads & Meta Ads Management | Creekside Marketing"
+  title="Google Ads & Meta Ads Management | Creekside Marketing"
   description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
   canonicalURL="https://creeksidemarketingpros.com/"
-  schema={siteSchema.home}
-  faqSchema={faqSchemas.home}
+  schema="{siteSchema.home}"
+  faqSchema="{faqSchemas.home}"
 >
-	<Nav />
+  <nav />
 
-	<!-- ========== 1. HERO ========== -->
-	<section class="relative min-h-dvh flex items-center overflow-hidden bg-primary-900 py-20 lg:py-32">
-  <div class="absolute inset-0 z-0">
-    <img
-      src="/hero-image.avif"
-      alt="Creekside Marketing Background"
-      width="1800"
-      height="768"
-      class="h-full w-full object-cover"
-      loading="eager"
-    />
-    <div class="absolute inset-0 bg-linear-to-r from-primary-900/95 via-primary-900/80 to-primary-900/40"></div>
-  </div>
-
-  <div class="container relative z-10 mx-auto px-4 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-
-      <div>
-        <span class="mb-4 block text-sm/none font-bold tracking-widest uppercase text-secondary-300">
-          Creekside Marketing Pros
-        </span>
-
-        <h1 class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-5xl/tight xl:text-6xl/tight">
-          <span>Stop Wasting Ad Spend.</span>
-          <span class="text-secondary-400">Start Growing Revenue.</span>
-        </h1>
-
-        <p class="mt-8 max-w-2xl text-lg/8 text-grey-200 md:text-xl/9 lg:text-lg/8">
-          We partner with businesses spending $10k - $100k/month on Meta and Google Ads to <strong class="text-white">improve your ROAS within 90 days, or we work for free.</strong> Launch in 7 days.
-        </p>
-
-        <div class="mt-10 flex flex-wrap gap-8 md:gap-16">
-          <div>
-            <div class="text-3xl/none font-bold text-white md:text-4xl/none">$20M+</div>
-            <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">In Ad Spend Managed</div>
-          </div>
-          <div>
-            <div class="text-3xl/none font-bold text-white md:text-4xl/none">200+</div>
-            <div class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide">Accounts Managed</div>
-          </div>
-        </div>
-
-        <div class="mt-10">
-          <a
-            href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
-            class="inline-block rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
-          >
-            Schedule Consultation
-          </a>
-        </div>
-      </div>
-
-     <div class="hidden lg:block">
-  <div id="video-wrapper" class="aspect-video w-full overflow-hidden rounded-lg shadow-2xl relative bg-black group cursor-pointer">
-    
-    <!-- The Facade Placeholder (Loads instantly with 0MB YouTube overhead) -->
-    <div id="video-facade" class="absolute inset-0 size-full flex items-center justify-center" onclick="activateYoutubeEmbed()">
-      <!-- Background Thumbnail -->
-      <img 
-        src="/youtube-dummy-image.avif"
-        alt="Creekside Marketing Introduction Video Thumbnail" 
-        class="absolute inset-0 size-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-        fetchpriority="high"
-      >
+  <!-- ========== 1. HERO ========== -->
+  <section
+    class="relative min-h-dvh flex items-center overflow-hidden bg-primary-900 py-20 lg:py-32"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/hero-image.avif"
+        alt="Creekside Marketing Background"
+        width="1800"
+        height="768"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-r from-primary-900/95 via-primary-900/80 to-primary-900/40"
+      ></div>
     </div>
 
-  </div>
-</div>
-<script is:inline>
-function activateYoutubeEmbed() {
-  const container = document.getElementById('video-wrapper');
-  
-  // Notice we appended &autoplay=1 so the user doesn't have to click play a second time
-  container.innerHTML = `
+    <div class="container relative z-10 mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div>
+          <span
+            class="mb-4 block text-sm/none font-bold tracking-widest uppercase text-secondary-300"
+          >
+            Creekside Marketing Pros
+          </span>
+
+          <h1
+            class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-5xl/tight xl:text-6xl/tight"
+          >
+            <span>Stop Wasting Ad Spend.</span>
+            <span class="text-secondary-400">Start Growing Revenue.</span>
+          </h1>
+
+          <p
+            class="mt-8 max-w-2xl text-lg/8 text-grey-200 md:text-xl/9 lg:text-lg/8"
+          >
+            We partner with businesses spending $10k - $100k/month on Meta and
+            Google Ads to
+            <strong class="text-white"
+              >improve your ROAS within 90 days, or we work for free.</strong
+            >
+            Launch in 7 days.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-8 md:gap-16">
+            <div>
+              <div class="text-3xl/none font-bold text-white md:text-4xl/none">
+                $20M+
+              </div>
+              <div
+                class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide"
+              >
+                In Ad Spend Managed
+              </div>
+            </div>
+            <div>
+              <div class="text-3xl/none font-bold text-white md:text-4xl/none">
+                200+
+              </div>
+              <div
+                class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide"
+              >
+                Accounts Managed
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <a
+              href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
+              class="inline-block rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
+            >
+              Schedule Consultation
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <div
+            id="video-wrapper"
+            class="aspect-video w-full overflow-hidden rounded-lg shadow-2xl relative bg-black group cursor-pointer transform-gpu"
+          >
+            <!-- The Facade Placeholder (Loads instantly with 0MB YouTube overhead) -->
+            <div
+              id="video-facade"
+              class="absolute inset-0 size-full flex items-center justify-center"
+              onclick="activateYoutubeEmbed()"
+            >
+              <!-- Background Thumbnail -->
+              <img
+                src="/youtube-dummy-image.avif"
+                alt="Creekside Marketing Introduction Video Thumbnail"
+                class="absolute inset-0 size-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+        <script is:inline>
+          function activateYoutubeEmbed() {
+            const container = document.getElementById("video-wrapper");
+
+            // Notice we appended &autoplay=1 so the user doesn't have to click play a second time
+            container.innerHTML = `
     <iframe
       src="https://www.youtube.com/embed/5Kb0pe6qaQc?autoplay=1"
       title="Creekside Marketing Introduction"
@@ -99,598 +130,1046 @@ function activateYoutubeEmbed() {
       allowfullscreen
     ></iframe>
   `;
-}
-</script>
+          }
+        </script>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========== 2. WHY CHOOSE CREEKSIDE ========== -->
-<section class="bg-white py-20 lg:py-28">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
-        Why Marketing Professionals <span class="text-secondary-500">Choose Creekside</span>
-      </h2>
-      <p class="mt-6 text-lg/8 text-grey-700">
-        We're the team other marketers call when they're stuck. Here's what makes us different.
-      </p>
-    </div>
-
-    <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10m-6 10V4M6 20v-6"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">New Customer Growth, Not Just Low CPA</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          Most agencies optimize for cost per action, but Google and Meta don't know if that's a new customer or a repeat buyer. We optimize for what actually matters: new customer acquisition and revenue growth.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">Direct Access to Your Ad Manager</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          No account managers. No support tickets. You work directly with your dedicated strategist who knows your business inside and out.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">Month-to-Month, No Contracts</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          We earn your business every single month. If we're not delivering results, you can walk away anytime. No long-term commitments required.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V10m4 6V6m4 10V8m4 8V4"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">Live Audits on First Call</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          We prove our expertise before you pay us anything. Get a real audit of your account on the first call - not a sales pitch.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">Data-Driven Optimization</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          With backgrounds in accounting (MBA) and mechanical engineering, we bring analytical rigor that most marketers lack. Every decision is backed by data.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
-          <svg class="size-6 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3l3.057-1.528A1 1 0 018.943 1.5L12 5l3.057-3.5a1 1 0 01.886-.028L19 3l-2 4h-2l-1 10H10L9 7H7L5 3z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 17l-2 4h8l-2-4"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-primary-900">$20M+ in Ad Spend Managed</h3>
-        <p class="mt-3 text-base/7 text-grey-600">
-          We've audited 200+ ad accounts and managed over $20 million in ad spend across every major industry. We've seen it all and know what works.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== FREE AUDIT CTA ========== -->
-<section class="bg-secondary-500 py-16 lg:py-20">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-3xl/tight font-extrabold text-white md:text-4xl/tight">
-        Get Your Free $10K Profit Recovery Audit
-      </h2>
-      <p class="mt-4 text-lg/8 text-white/90">
-        Discover the 5-7 hidden leaks draining thousands from your Google and Meta ad accounts. Our 247-point checklist identifies exactly where your money is going — most fixes take less than 20 minutes.
-      </p>
-      <div class="mt-8">
-        <a
-          href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
-          class="inline-block rounded-sm bg-white px-8 py-4 text-lg font-bold text-secondary-600 shadow-sm transition-all hover:bg-grey-100 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
+  <!-- ========== 2. WHY CHOOSE CREEKSIDE ========== -->
+  <section class="bg-white py-20 lg:py-28">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
         >
-          Claim Your Free Audit Now &rarr;
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 4. HOW WE WORK TOGETHER ========== -->
-<section class="bg-grey-50 py-20 lg:py-28">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
-        How We <span class="text-secondary-500">Work Together</span>
-      </h2>
-      <p class="mt-6 text-lg/8 text-grey-700">
-        A simple, transparent process designed to get you results fast.
-      </p>
-    </div>
-
-    <div class="mx-auto mt-16 flex max-w-3xl flex-col gap-6">
-
-      <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
-        <div class="flex items-start gap-6">
-          <div class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500">
-            01
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-primary-900">Consultation</h3>
-            <p class="mt-3 text-base/7 text-grey-600">
-              Book a free call where we'll audit your current ad accounts live. No sales pitch - just real analysis and actionable insights you can use immediately.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
-        <div class="flex items-start gap-6">
-          <div class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500">
-            02
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-primary-900">Customization</h3>
-            <p class="mt-3 text-base/7 text-grey-600">
-              We build a custom 90-day strategy tailored to your business goals, budget, and industry. Every plan is unique because every business is different.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
-        <div class="flex items-start gap-6">
-          <div class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500">
-            03
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-primary-900">Strategy</h3>
-            <p class="mt-3 text-base/7 text-grey-600">
-              We present our findings and recommended approach. You'll see exactly what we'll do, why we'll do it, and what results to expect.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
-        <div class="flex items-start gap-6">
-          <div class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500">
-            04
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-primary-900">Implementation</h3>
-            <p class="mt-3 text-base/7 text-grey-600">
-              Once you're ready to move forward, we implement the strategy and start optimizing your campaigns for new customer growth and revenue.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
-        <div class="flex items-start gap-6">
-          <div class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500">
-            05
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-primary-900">Support</h3>
-            <p class="mt-3 text-base/7 text-grey-600">
-              You get direct access to your ad manager (no middlemen), weekly updates, and ongoing optimization. We're with you every step of the way.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ========== 5. VIDEO TESTIMONIALS ========== -->
-<VideoTestimonials />
-
-<!-- ========== 6. SERVICES ========== -->
-<section id="service" class="bg-grey-50 py-20 lg:py-32">
-  <div class="container mx-auto px-4 lg:px-8">
-
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
-        Our <span class="text-secondary-500 uppercase">Services</span>
-      </h2>
-      <p class="mt-6 text-lg/8 text-grey-700">
-        Elevate your digital marketing with Creekside Marketing's precision-driven strategies. With a deep focus on data, performance, and ROI, we help businesses cut through the noise, maximize ad spend, and connect with the right audience.
-      </p>
-    </div>
-
-    <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-
-      <div class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500">
-        <h3 class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight">
-          Google Ads (PPC)
-        </h3>
-        <div class="my-6 h-0.5 w-full bg-grey-200">
-          <div class="h-0.5 w-24 bg-secondary-500"></div>
-        </div>
-        <p class="grow text-base/7 text-grey-600">
-          We specialize in using Google Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By analyzing key metrics, we optimize campaigns to ensure cost-effective ad spend while aligning with specific business goals. Whether it's increasing brand awareness, generating leads, or driving sales, we create customized strategies that improve ad performance.
-        </p>
-        <div class="mt-8">
-          <a href="/digital-advertising/google-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
-            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-            Get started with Google Ads
-          </a>
-        </div>
-      </div>
-
-      <div class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500">
-        <h3 class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight">
-          Meta Ads
-        </h3>
-        <div class="my-6 h-0.5 w-full bg-grey-200">
-          <div class="h-0.5 w-24 bg-secondary-500"></div>
-        </div>
-        <p class="grow text-base/7 text-grey-600">
-          We specialize in using Meta Ads to drive targeted traffic and maximize ROI for businesses of all sizes. By harnessing audience insights and precise targeting capabilities, we develop tailored campaigns that align with specific business goals, whether it's boosting brand awareness, generating leads, or driving conversions. Our strategy focuses on optimizing ad creatives, placements, and budgets.
-        </p>
-        <div class="mt-8">
-          <a href="/digital-advertising/meta-ads/" class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600">
-            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
-            Start advertising with Meta Ads
-          </a>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== 7. ABOUT US ========== -->
-<section class="bg-white py-16 lg:py-24">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
-
-      <div class="flex flex-col items-center gap-10 md:items-start">
-        <div class="grid w-full grid-cols-2 gap-6 sm:gap-8">
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/peterson-rainey.avif"
-                alt="Peterson Rainey"
-                width="1024"
-                height="1464"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Peterson Rainey</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/cade-maclean.avif"
-                alt="Cade Maclean"
-                width="1024"
-                height="1464"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Cade Maclean</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Co-Founder</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex w-full justify-center">
-          <div class="flex flex-col items-center">
-            <div class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56">
-              <img
-                src="/baran-eris.avif"
-                alt="Baran Eris"
-                width="928"
-                height="1016"
-                class="size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 text-center">
-              <h4 class="text-base font-bold text-primary-900 md:text-lg">Baran Eris</h4>
-              <p class="text-xs font-medium text-grey-600 md:text-sm">Lead Small Business Consultant</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="h-1 w-24 bg-secondary-300"></div>
-      </div>
-
-      <div class="flex flex-col items-start">
-        <h2 class="text-5xl/none font-extrabold tracking-tight text-primary-900 md:text-6xl/none">
-          ABOUT <span class="text-secondary-500">US</span>
+          Why Marketing Professionals
+          <span class="text-secondary-500">Choose Creekside</span>
         </h2>
+        <p class="mt-6 text-lg/8 text-grey-700">
+          We're the team other marketers call when they're stuck. Here's what
+          makes us different.
+        </p>
+      </div>
 
-        <div class="mt-8 flex flex-col gap-6 text-base/7 text-grey-700 md:text-lg/8">
-          <p>
-            At Creekside Marketing, we combine analytical expertise with data-driven marketing to help businesses grow. Founded by longtime friends Cade and Peterson, our agency has been delivering results for over five years.
-          </p>
-          <p>
-            With a background in accounting and an MBA, Cade leads Meta Ads strategy, while Peterson, a mechanical engineer, leads Google Ads strategy. Together with a team of dedicated specialists, they deliver consistent, measurable growth for every client. Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth. Despite earning degrees in highly technical fields, we recognized the need for marketers with a deep understanding of numbers and data.
-          </p>
-          <p>
-            That expertise has made us the people other marketing professionals turn to when they don't know what to do, and we bring that same level of strategy and precision to every client we work with.
-          </p>
-          <p class="font-medium text-primary-900">
-            Our approach is simple: strategic decision-making, continuous optimization, and custom solutions tailored to your business goals. Let's grow your business together.
-          </p>
-        </div>
-
-        <a
-          href="#service"
-          class="mt-10 inline-block rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold tracking-widest uppercase text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md active:scale-95"
+      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
         >
-          Our Services
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== 8. TESTIMONIAL SCREENSHOTS ========== -->
-<TestimonialScreenshots />
-
-<!-- ========== 9. IS CREEKSIDE RIGHT FOR YOU? ========== -->
-<section class="bg-white py-20">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
-        Is Creekside <span class="text-secondary-500">Right for You?</span>
-      </h2>
-      <p class="mt-6 text-lg/8 text-grey-700">
-        We work best with businesses that meet these criteria:
-      </p>
-    </div>
-
-    <div class="mx-auto mt-12 max-w-4xl rounded-lg border border-grey-200 bg-white p-10 shadow-sm md:p-12">
-      <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
-
-        <div>
-          <h3 class="mb-6 flex items-center gap-2 text-lg font-bold text-accent-success">
-            <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M18 20V10m-6 10V4M6 20v-6"
+              />
             </svg>
-            Perfect Fit
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            New Customer Growth, Not Just Low CPA
           </h3>
-          <ul class="flex flex-col gap-4">
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Spending $10,000+ per month on ads
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Have a proven offer that converts
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Ready to scale and grow revenue
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Want direct access to your ad manager
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Value data-driven decision making
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-700">
-              <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Looking for long-term strategic partnership
-            </li>
-          </ul>
+          <p class="mt-3 text-base/7 text-grey-600">
+            Most agencies optimize for cost per action, but Google and Meta
+            don't know if that's a new customer or a repeat buyer. We optimize
+            for what actually matters: new customer acquisition and revenue
+            growth.
+          </p>
         </div>
 
-        <div>
-          <h3 class="mb-6 flex items-center gap-2 text-lg font-bold text-grey-400">
-            <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/>
-            </svg>
-            Not a Good Fit
-          </h3>
-          <ul class="flex flex-col gap-4">
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Budget under $10,000/month in ad spend
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Just starting out, no proven offer yet
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Looking for the cheapest option
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Want set-it-and-forget-it management
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Need immediate results in 30 days
-            </li>
-            <li class="flex items-start gap-3 text-base/7 text-grey-500">
-              <svg class="mt-1 size-5 shrink-0 text-grey-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              Prefer working with large agencies
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 10. FAQ ========== -->
-<section class="bg-grey-50 py-20 lg:py-28">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
-        Frequently Asked <span class="text-secondary-500">Questions</span>
-      </h2>
-    </div>
-
-    <div class="mx-auto mt-12 flex max-w-3xl flex-col gap-4">
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>What's your pricing structure?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          We charge a percentage of your monthly ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500/month minimum per platform and fees are capped at $15,000/month. We're month-to-month with no long-term contracts.
-        </div>
-      </details>
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>How is this different from other agencies?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          Three key differences: (1) We optimize for new customer growth and revenue, not just low CPA. (2) You get direct access to your dedicated ad manager — no middlemen, no black-box management. Peterson and Cade personally oversee strategy and are always a call away. (3) We prove our expertise with a live audit on the first call before you pay anything.
-        </div>
-      </details>
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>What industries do you work with?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          We've worked with 200+ businesses across healthcare, legal, finance, SaaS, e-commerce, home services, and more. Our data-driven approach works across industries because we focus on fundamentals: targeting, messaging, conversion tracking, and optimization.
-        </div>
-      </details>
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>How long does it take to see results?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          Most clients see improvements within 30-60 days, but we recommend a 90-day commitment to see the full impact. Advertising is about continuous testing and optimization - quick wins are great, but sustainable growth takes time.
-        </div>
-      </details>
-
-      <details name="faq-accordion" class="group rounded-lg bg-white shadow-sm">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
-          <span>What's included in the free audit?</span>
-          <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
-            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6 text-base/7 text-grey-600">
-          On your first call, we'll do a live audit of your current ad accounts using our $10K Profit Recovery framework - a 247+ point checklist that identifies the 5-7 hidden leaks draining your budget. You'll walk away with actionable insights whether you work with us or not.
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== 11. FINAL CTA BANNER ========== -->
-<section class="bg-primary-900 py-20 lg:py-28">
-  <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-4xl/tight font-extrabold text-white md:text-5xl/tight">
-        Ready to Stop Wasting Ad Spend?
-      </h2>
-      <p class="mt-6 text-lg/8 text-grey-300">
-        Get your free $10K Profit Recovery Audit and discover exactly where your money is leaking. No sales pitch - just real insights you can use immediately.
-      </p>
-      <div class="mt-10">
-        <a
-          href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
-          class="inline-block rounded-sm bg-white px-8 py-4 text-lg font-bold text-primary-900 shadow-sm transition-all hover:bg-grey-100 hover:shadow-md active:scale-95"
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
         >
-          Schedule Your Free Audit Now &rarr;
-        </a>
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            Direct Access to Your Ad Manager
+          </h3>
+          <p class="mt-3 text-base/7 text-grey-600">
+            No account managers. No support tickets. You work directly with your
+            dedicated strategist who knows your business inside and out.
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
+        >
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            Month-to-Month, No Contracts
+          </h3>
+          <p class="mt-3 text-base/7 text-grey-600">
+            We earn your business every single month. If we're not delivering
+            results, you can walk away anytime. No long-term commitments
+            required.
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
+        >
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3v18h18"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7 16V10m4 6V6m4 10V8m4 8V4"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            Live Audits on First Call
+          </h3>
+          <p class="mt-3 text-base/7 text-grey-600">
+            We prove our expertise before you pay us anything. Get a real audit
+            of your account on the first call - not a sales pitch.
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
+        >
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            Data-Driven Optimization
+          </h3>
+          <p class="mt-3 text-base/7 text-grey-600">
+            With backgrounds in accounting (MBA) and mechanical engineering, we
+            bring analytical rigor that most marketers lack. Every decision is
+            backed by data.
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
+        >
+          <div
+            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
+          >
+            <svg
+              class="size-6 text-secondary-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 3l3.057-1.528A1 1 0 018.943 1.5L12 5l3.057-3.5a1 1 0 01.886-.028L19 3l-2 4h-2l-1 10H10L9 7H7L5 3z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 17l-2 4h8l-2-4"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900">
+            $20M+ in Ad Spend Managed
+          </h3>
+          <p class="mt-3 text-base/7 text-grey-600">
+            We've audited 200+ ad accounts and managed over $20 million in ad
+            spend across every major industry. We've seen it all and know what
+            works.
+          </p>
+        </div>
       </div>
-      <p class="mt-6 text-sm text-grey-400">
-        No long-term contracts &bull; Month-to-month &bull; Cancel anytime
-      </p>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ========== FREE AUDIT CTA ========== -->
+  <section class="bg-secondary-500 py-16 lg:py-20">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl/tight font-extrabold text-white md:text-4xl/tight">
+          Get Your Free $10K Profit Recovery Audit
+        </h2>
+        <p class="mt-4 text-lg/8 text-white/90">
+          Discover the 5-7 hidden leaks draining thousands from your Google and
+          Meta ad accounts. Our 247-point checklist identifies exactly where
+          your money is going — most fixes take less than 20 minutes.
+        </p>
+        <div class="mt-8">
+          <a
+            href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
+            class="inline-block rounded-sm bg-white px-8 py-4 text-lg font-bold text-secondary-600 shadow-sm transition-all hover:bg-grey-100 hover:shadow-md hover:translate-y-[-2px] active:scale-95"
+          >
+            Claim Your Free Audit Now &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ========== 13. FOOTER ========== -->
-<Footer/>
+  <!-- ========== 4. HOW WE WORK TOGETHER ========== -->
+  <section class="bg-grey-50 py-20 lg:py-28">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
+        >
+          How We <span class="text-secondary-500">Work Together</span>
+        </h2>
+        <p class="mt-6 text-lg/8 text-grey-700">
+          A simple, transparent process designed to get you results fast.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 flex max-w-3xl flex-col gap-6">
+        <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div
+              class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500"
+            >
+              01
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-primary-900">Consultation</h3>
+              <p class="mt-3 text-base/7 text-grey-600">
+                Book a free call where we'll audit your current ad accounts
+                live. No sales pitch - just real analysis and actionable
+                insights you can use immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div
+              class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500"
+            >
+              02
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-primary-900">Customization</h3>
+              <p class="mt-3 text-base/7 text-grey-600">
+                We build a custom 90-day strategy tailored to your business
+                goals, budget, and industry. Every plan is unique because every
+                business is different.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div
+              class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500"
+            >
+              03
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-primary-900">Strategy</h3>
+              <p class="mt-3 text-base/7 text-grey-600">
+                We present our findings and recommended approach. You'll see
+                exactly what we'll do, why we'll do it, and what results to
+                expect.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div
+              class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500"
+            >
+              04
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-primary-900">Implementation</h3>
+              <p class="mt-3 text-base/7 text-grey-600">
+                Once you're ready to move forward, we implement the strategy and
+                start optimizing your campaigns for new customer growth and
+                revenue.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-grey-200 bg-white p-8 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div
+              class="flex size-14 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-lg font-bold text-secondary-500"
+            >
+              05
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-primary-900">Support</h3>
+              <p class="mt-3 text-base/7 text-grey-600">
+                You get direct access to your ad manager (no middlemen), weekly
+                updates, and ongoing optimization. We're with you every step of
+                the way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. VIDEO TESTIMONIALS ========== -->
+  <VideoTestimonials />
+
+  <!-- ========== 6. SERVICES ========== -->
+  <section id="service" class="bg-grey-50 py-20 lg:py-32">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
+        >
+          Our <span class="text-secondary-500 uppercase">Services</span>
+        </h2>
+        <p class="mt-6 text-lg/8 text-grey-700">
+          Elevate your digital marketing with Creekside Marketing's
+          precision-driven strategies. With a deep focus on data, performance,
+          and ROI, we help businesses cut through the noise, maximize ad spend,
+          and connect with the right audience.
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div
+          class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500"
+        >
+          <h3
+            class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight"
+          >
+            Google Ads (PPC)
+          </h3>
+          <div class="my-6 h-0.5 w-full bg-grey-200">
+            <div class="h-0.5 w-24 bg-secondary-500"></div>
+          </div>
+          <p class="grow text-base/7 text-grey-600">
+            We specialize in using Google Ads to drive targeted traffic and
+            maximize ROI for businesses of all sizes. By analyzing key metrics,
+            we optimize campaigns to ensure cost-effective ad spend while
+            aligning with specific business goals. Whether it's increasing brand
+            awareness, generating leads, or driving sales, we create customized
+            strategies that improve ad performance.
+          </p>
+          <div class="mt-8">
+            <a
+              href="/digital-advertising/google-ads/"
+              class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600"
+            >
+              <svg
+                class="size-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+              Get started with Google Ads
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col rounded-sm bg-white p-8 shadow-sm transition-shadow hover:shadow-md border-t-4 border-secondary-500"
+        >
+          <h3
+            class="text-2xl font-extrabold text-primary-900 uppercase tracking-tight"
+          >
+            Meta Ads
+          </h3>
+          <div class="my-6 h-0.5 w-full bg-grey-200">
+            <div class="h-0.5 w-24 bg-secondary-500"></div>
+          </div>
+          <p class="grow text-base/7 text-grey-600">
+            We specialize in using Meta Ads to drive targeted traffic and
+            maximize ROI for businesses of all sizes. By harnessing audience
+            insights and precise targeting capabilities, we develop tailored
+            campaigns that align with specific business goals, whether it's
+            boosting brand awareness, generating leads, or driving conversions.
+            Our strategy focuses on optimizing ad creatives, placements, and
+            budgets.
+          </p>
+          <div class="mt-8">
+            <a
+              href="/digital-advertising/meta-ads/"
+              class="inline-flex items-center gap-2 rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-secondary-600"
+            >
+              <svg
+                class="size-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+              Start advertising with Meta Ads
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. ABOUT US ========== -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="flex flex-col items-center gap-10 md:items-start">
+          <div class="grid w-full grid-cols-2 gap-6 sm:gap-8">
+            <div class="flex flex-col items-center">
+              <div
+                class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56"
+              >
+                <img
+                  src="/peterson-rainey.avif"
+                  alt="Peterson Rainey"
+                  width="1024"
+                  height="1464"
+                  class="size-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-4 text-center">
+                <h4 class="text-base font-bold text-primary-900 md:text-lg">
+                  Peterson Rainey
+                </h4>
+                <p class="text-xs font-medium text-grey-600 md:text-sm">
+                  Co-Founder
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56"
+              >
+                <img
+                  src="/cade-maclean.avif"
+                  alt="Cade Maclean"
+                  width="1024"
+                  height="1464"
+                  class="size-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-4 text-center">
+                <h4 class="text-base font-bold text-primary-900 md:text-lg">
+                  Cade Maclean
+                </h4>
+                <p class="text-xs font-medium text-grey-600 md:text-sm">
+                  Co-Founder
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex w-full justify-center">
+            <div class="flex flex-col items-center">
+              <div
+                class="aspect-3/4 w-full max-w-48 overflow-hidden rounded-sm bg-grey-100 shadow-sm md:max-w-56"
+              >
+                <img
+                  src="/baran-eris.avif"
+                  alt="Baran Eris"
+                  width="928"
+                  height="1016"
+                  class="size-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-4 text-center">
+                <h4 class="text-base font-bold text-primary-900 md:text-lg">
+                  Baran Eris
+                </h4>
+                <p class="text-xs font-medium text-grey-600 md:text-sm">
+                  Lead Small Business Consultant
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-1 w-24 bg-secondary-300"></div>
+        </div>
+
+        <div class="flex flex-col items-start">
+          <h2
+            class="text-5xl/none font-extrabold tracking-tight text-primary-900 md:text-6xl/none"
+          >
+            ABOUT <span class="text-secondary-500">US</span>
+          </h2>
+
+          <div
+            class="mt-8 flex flex-col gap-6 text-base/7 text-grey-700 md:text-lg/8"
+          >
+            <p>
+              At Creekside Marketing, we combine analytical expertise with
+              data-driven marketing to help businesses grow. Founded by longtime
+              friends Cade and Peterson, our agency has been delivering results
+              for over five years.
+            </p>
+            <p>
+              With a background in accounting and an MBA, Cade leads Meta Ads
+              strategy, while Peterson, a mechanical engineer, leads Google Ads
+              strategy. Together with a team of dedicated specialists, they
+              deliver consistent, measurable growth for every client. Baran
+              helps businesses generate and convert traffic with scalable ad
+              campaigns. He focuses on building high-converting funnels and
+              making sure every step of the customer journey supports profitable
+              growth. Despite earning degrees in highly technical fields, we
+              recognized the need for marketers with a deep understanding of
+              numbers and data.
+            </p>
+            <p>
+              That expertise has made us the people other marketing
+              professionals turn to when they don't know what to do, and we
+              bring that same level of strategy and precision to every client we
+              work with.
+            </p>
+            <p class="font-medium text-primary-900">
+              Our approach is simple: strategic decision-making, continuous
+              optimization, and custom solutions tailored to your business
+              goals. Let's grow your business together.
+            </p>
+          </div>
+
+          <a
+            href="#service"
+            class="mt-10 inline-block rounded-sm bg-secondary-500 px-8 py-3 text-sm font-bold tracking-widest uppercase text-white shadow-sm transition-all hover:bg-secondary-600 hover:shadow-md active:scale-95"
+          >
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. TESTIMONIAL SCREENSHOTS ========== -->
+  <TestimonialScreenshots />
+
+  <!-- ========== 9. IS CREEKSIDE RIGHT FOR YOU? ========== -->
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
+        >
+          Is Creekside <span class="text-secondary-500">Right for You?</span>
+        </h2>
+        <p class="mt-6 text-lg/8 text-grey-700">
+          We work best with businesses that meet these criteria:
+        </p>
+      </div>
+
+      <div
+        class="mx-auto mt-12 max-w-4xl rounded-lg border border-grey-200 bg-white p-10 shadow-sm md:p-12"
+      >
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
+          <div>
+            <h3
+              class="mb-6 flex items-center gap-2 text-lg font-bold text-accent-success"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Perfect Fit
+            </h3>
+            <ul class="flex flex-col gap-4">
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Spending $10,000+ per month on ads
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Have a proven offer that converts
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Ready to scale and grow revenue
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Want direct access to your ad manager
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Value data-driven decision making
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-700">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-accent-success"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Looking for long-term strategic partnership
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="mb-6 flex items-center gap-2 text-lg font-bold text-grey-400"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+              Not a Good Fit
+            </h3>
+            <ul class="flex flex-col gap-4">
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Budget under $10,000/month in ad spend
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Just starting out, no proven offer yet
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Looking for the cheapest option
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Want set-it-and-forget-it management
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Need immediate results in 30 days
+              </li>
+              <li class="flex items-start gap-3 text-base/7 text-grey-500">
+                <svg
+                  class="mt-1 size-5 shrink-0 text-grey-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Prefer working with large agencies
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 10. FAQ ========== -->
+  <section class="bg-grey-50 py-20 lg:py-28">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
+        >
+          Frequently Asked <span class="text-secondary-500">Questions</span>
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-12 flex max-w-3xl flex-col gap-4">
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>What's your pricing structure?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            We charge a percentage of your monthly ad spend with tiered rates
+            that decrease as your budget grows: 20% up to $30k, 15% from $30k to
+            $60k, and 10% above $60k per platform. There's a $1,500/month
+            minimum per platform and fees are capped at $15,000/month. We're
+            month-to-month with no long-term contracts.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>How is this different from other agencies?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            Three key differences: (1) We optimize for new customer growth and
+            revenue, not just low CPA. (2) You get direct access to your
+            dedicated ad manager — no middlemen, no black-box management.
+            Peterson and Cade personally oversee strategy and are always a call
+            away. (3) We prove our expertise with a live audit on the first call
+            before you pay anything.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>What industries do you work with?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            We've worked with 200+ businesses across healthcare, legal, finance,
+            SaaS, e-commerce, home services, and more. Our data-driven approach
+            works across industries because we focus on fundamentals: targeting,
+            messaging, conversion tracking, and optimization.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>How long does it take to see results?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            Most clients see improvements within 30-60 days, but we recommend a
+            90-day commitment to see the full impact. Advertising is about
+            continuous testing and optimization - quick wins are great, but
+            sustainable growth takes time.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>What's included in the free audit?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            On your first call, we'll do a live audit of your current ad
+            accounts using our $10K Profit Recovery framework - a 247+ point
+            checklist that identifies the 5-7 hidden leaks draining your budget.
+            You'll walk away with actionable insights whether you work with us
+            or not.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 11. FINAL CTA BANNER ========== -->
+  <section class="bg-primary-900 py-20 lg:py-28">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-4xl/tight font-extrabold text-white md:text-5xl/tight">
+          Ready to Stop Wasting Ad Spend?
+        </h2>
+        <p class="mt-6 text-lg/8 text-grey-300">
+          Get your free $10K Profit Recovery Audit and discover exactly where
+          your money is leaking. No sales pitch - just real insights you can use
+          immediately.
+        </p>
+        <div class="mt-10">
+          <a
+            href="https://calendar.app.google/wSdVbfwaJRzkw12E7"
+            class="inline-block rounded-sm bg-white px-8 py-4 text-lg font-bold text-primary-900 shadow-sm transition-all hover:bg-grey-100 hover:shadow-md active:scale-95"
+          >
+            Schedule Your Free Audit Now &rarr;
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-grey-400">
+          No long-term contracts &bull; Month-to-month &bull; Cancel anytime
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 13. FOOTER ========== -->
+  <footer />
 </Layout>

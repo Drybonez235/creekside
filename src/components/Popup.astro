@@ -1,16 +1,17 @@
 ---
-/* Revised Popup: Fixed interaction blocking and iframe dynamic calculation */
+/* Revised Popup: iframe loads in background via Tailwind visibility utilities
+   (not display:none), and iFrameResize is forced to recalculate height a few
+   times after the popup opens to catch late-loading images. */
 ---
-
 <div
   id="profit-popup-overlay"
-  class="fixed inset-0 z-100 hidden items-start md:items-center justify-center bg-primary-900/60 opacity-0 transition-opacity duration-500 backdrop-blur-xs overflow-y-auto p-4"
+  class="fixed inset-0 z-100 flex items-start md:items-center justify-center bg-primary-900/60 opacity-0 invisible pointer-events-none overflow-y-auto p-4 transition-opacity duration-500"
   role="dialog"
   aria-modal="true"
 >
   <div
     id="profit-popup-content"
-    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl transition-transform duration-500 scale-95"
+    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl"
   >
     <button
       id="close-popup"
@@ -32,25 +33,15 @@
         />
       </svg>
     </button>
-
     <div class="p-2 md:p-4 pt-14 md:pt-4">
-      <div class="relative w-full h-[776px] block">
+      <div>
         <iframe
           src="https://api.msglink.cloud/widget/form/8As7Tl468YopNi5PJw9G"
           id="inline-8As7Tl468YopNi5PJw9G"
-          class="w-full h-full border-none rounded-xs"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="deactivateAfter"
-          data-deactivation-value="2"
-          data-form-name="Lead Magnet Client"
-          data-height="776"
-          data-layout-iframe-id="inline-8As7Tl468YopNi5PJw9G"
-          data-form-id="8As7Tl468YopNi5PJw9G"
+          class="w-full border-none rounded-xs"
+          scrolling="no"
           title="Lead Magnet Client"
+          style="width: 100%; border: none;"
         >
         </iframe>
       </div>
@@ -59,66 +50,78 @@
 </div>
 
 <style is:global>
-  .ep-iFrameContainer, 
+  .ep-iFrameContainer,
   .ep-wrapper {
     width: 100% !important;
-    height: 100% !important;
   }
 </style>
-
-<script src="https://api.msglink.cloud/js/form_embed.js" is:inline></script>
 
 <script>
   const setupPopup = () => {
     const overlay = document.getElementById("profit-popup-overlay");
     const content = document.getElementById("profit-popup-content");
     const closeBtn = document.getElementById("close-popup");
+    const iframeEl = document.getElementById("inline-8As7Tl468YopNi5PJw9G");
     const DISMISS_KEY = "popup_dismiss_count";
     let shownOnThisPage = false;
+    let resizerInitialized = false;
 
     const getDismissCount = () => {
       return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
     };
-
     const incrementDismiss = () => {
       const count = getDismissCount() + 1;
       sessionStorage.setItem(DISMISS_KEY, String(count));
       return count;
     };
 
+    const forceResize = () => {
+      // @ts-ignore - iFrameResizer attaches this API to the element at runtime
+      iframeEl?.iFrameResizer?.resize();
+    };
+
+    // Bind the resizer as soon as possible so the iframe starts loading
+    // (and being tracked) in the background, well before the popup opens.
+    if (!resizerInitialized && window.iFrameResize) {
+      window.iFrameResize(
+        { log: false, checkOrigin: false, warningTimeout: 0 },
+        "#inline-8As7Tl468YopNi5PJw9G"
+      );
+      resizerInitialized = true;
+    }
+
+    // Recalculate once the iframe's own load event fires, in case the
+    // header image finishes shortly after.
+    iframeEl?.addEventListener("load", () => {
+      setTimeout(forceResize, 500);
+    });
+
     const showPopup = () => {
       if (shownOnThisPage) return;
       if (getDismissCount() >= 2) return;
-
       shownOnThisPage = true;
-      
-      // 1. Safe change back to display: hidden pattern to clear layout positioning overhead
-      overlay?.classList.remove("hidden");
-      overlay?.classList.add("flex");
 
-      // 2. Force custom runtime event dispatch loop so the widget container initializes perfectly while visible
-      window.dispatchEvent(new Event('resize'));
+      overlay?.classList.remove("invisible", "pointer-events-none");
 
       setTimeout(() => {
+        overlay?.classList.remove("opacity-0");
         overlay?.classList.add("opacity-100");
         content?.classList.remove("scale-95");
         content?.classList.add("scale-100");
-        
-        // Secondary recalculation verification pass after the transition scales execute
-        window.dispatchEvent(new Event('resize'));
       }, 10);
 
       document.body.style.overflow = "hidden";
+
     };
 
     const hidePopup = () => {
       overlay?.classList.remove("opacity-100");
+      overlay?.classList.add("opacity-0");
       content?.classList.add("scale-95");
       content?.classList.remove("scale-100");
 
       setTimeout(() => {
-        overlay?.classList.add("hidden");
-        overlay?.classList.remove("flex");
+        overlay?.classList.add("invisible", "pointer-events-none");
       }, 500);
 
       document.body.style.overflow = "";
