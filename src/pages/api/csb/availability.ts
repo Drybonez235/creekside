@@ -3,6 +3,8 @@ import { store } from "../../../lib/csb/store";
 import { slotsForMonth } from "../../../lib/csb/availability";
 import { errorResponse, jsonResponse } from "../../../lib/csb/http";
 
+export const prerender = false;
+
 export const GET: APIRoute = async ({ url }) => {
 	const providerKey = (url.searchParams.get("provider") || "").trim();
 	const year = Number(url.searchParams.get("year"));

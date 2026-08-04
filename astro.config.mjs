@@ -12,7 +12,11 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
   site: 'https://creeksidemarketingpros.com/',
-  output: 'server',
+  // Static by default (output left unset). Only the booking widget, its API routes, and the
+  // admin page opt into on-demand rendering via `export const prerender = false` in each of
+  // those files — everything else (109+ blog posts, case studies, etc.) stays prerendered
+  // static HTML, same as before the booking feature was added. An adapter is still required
+  // because *some* routes are on-demand.
   adapter: node({
     mode: 'standalone',
   }),

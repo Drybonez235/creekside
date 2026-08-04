@@ -3,6 +3,8 @@ import { createState } from "../../../../lib/csb/oauth-state";
 import { authUrl } from "../../../../lib/csb/google-client";
 import { googleConfigured } from "../../../../lib/csb/constants";
 
+export const prerender = false;
+
 export const GET: APIRoute = ({ redirect }) => {
 	if (!googleConfigured()) {
 		return new Response(

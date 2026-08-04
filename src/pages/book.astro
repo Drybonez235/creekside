@@ -1,4 +1,9 @@
 ---
+// On-demand rendered: the widget calls same-origin /api/csb/* routes for live availability,
+// which only exist as server routes. The rest of the site stays statically prerendered
+// (see astro.config.mjs) — this is the only page besides /admin/booking that opts out.
+export const prerender = false;
+
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';

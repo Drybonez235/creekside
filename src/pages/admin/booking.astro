@@ -4,6 +4,10 @@
 // to Astro's request/response model — settings-save and test-connection are handled
 // directly here (POST-then-render) instead of PHP's redirect+transient dance, since Astro
 // doesn't need a redirect to render a fresh response.
+//
+// On-demand rendered — required for both the Basic Auth gate (src/middleware.ts only runs
+// for on-demand routes, not prerendered ones) and the POST-then-render admin actions below.
+export const prerender = false;
 
 import Layout from "../../layouts/Layout.astro";
 import { store } from "../../lib/csb/store";

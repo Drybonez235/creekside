@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import { store, type CsbBookingRow } from "../../../../lib/csb/store";
 
+export const prerender = false;
+
 const COLUMNS: (keyof CsbBookingRow)[] = [
 	"id",
 	"createdAt",

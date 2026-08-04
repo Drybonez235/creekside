@@ -7,6 +7,8 @@ import { consumeState } from "../../../../lib/csb/oauth-state";
 import { exchangeCode, ensureBookingCalendar, CsbApiError } from "../../../../lib/csb/google-client";
 import { keyForEmail, encrypt, defaultHours } from "../../../../lib/csb/accounts";
 
+export const prerender = false;
+
 function capitalize(s: string): string {
 	return s ? s[0].toUpperCase() + s.slice(1) : s;
 }

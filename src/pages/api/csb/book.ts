@@ -11,6 +11,8 @@ import { wallClockToInstant, toRfc3339, formatWallClockDateTime } from "../../..
 import { clientIp, errorResponse, jsonResponse } from "../../../lib/csb/http";
 import { withSlotLock } from "../../../lib/csb/slot-lock";
 
+export const prerender = false;
+
 // 1. Rate limit (NFR-9): 5 attempts / 10 min / IP. In-memory — fine for a single standalone
 // Node process, same pattern as src/lib/antibot.ts's rateLimited().
 const WINDOW_MS = 10 * 60 * 1000;
