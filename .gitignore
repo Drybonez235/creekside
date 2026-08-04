@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Creekside Booking local dev DB (customer PII + encrypted tokens — never commit)
+data/
+
 # macOS-specific files
 .DS_Store
 

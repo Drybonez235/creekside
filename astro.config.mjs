@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 //import sitemap from "@astrojs/sitemap";
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,10 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
   site: 'https://creeksidemarketingpros.com/',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone',
+  }),
   vite: {
     plugins: [tailwindcss()],
   },

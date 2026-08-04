@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import BookingWidget from '../components/BookingWidget.astro';
+import { siteSchema } from '../data/structuredData';
+import '../styles/global.css';
+---
+
+<Layout
+  title="Book a Consultation - Creekside Marketing"
+  description="Book your free consultation with Creekside Marketing Pros directly — pick a time that works and it's confirmed instantly on our calendar."
+  canonicalURL="https://creeksidemarketingpros.com/book/"
+  schema={siteSchema.contact}
+  showPopup={false}
+>
+  <Nav />
+
+  <main class="bg-grey-50 py-16 md:py-24">
+    <div class="mx-auto max-w-3xl px-6 lg:px-8">
+      <h1 class="text-4xl/tight font-black tracking-tight text-primary-900 md:text-5xl/tight">
+        BOOK YOUR FREE CONSULTATION
+      </h1>
+      <p class="mt-6 text-lg/8 text-grey-600">
+        Pick a time below to schedule a call with us.
+      </p>
+
+      <div class="mt-10 rounded-2xl bg-white p-8 shadow-sm border border-grey-200">
+        <BookingWidget />
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
