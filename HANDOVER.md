@@ -228,6 +228,14 @@ account (not mocked):
 
 ## 8. Before this goes live
 
+- **Publish the OAuth consent screen.** The Google Cloud OAuth client is still in **Testing**
+  status, which means Google force-expires every connected account's refresh token after 7
+  days — whoever connected their calendar has to reconnect weekly, indefinitely, until this
+  is done. Flip the consent screen to **In production** in Google Cloud Console. Because this
+  app deliberately uses only non-sensitive scopes (`openid`, `email`, `calendar.app.created`,
+  `calendar.freebusy` — see §1), publishing does **not** trigger Google's app-verification
+  review; it's a self-service toggle. This is a hard blocker for a real launch, not optional
+  polish.
 - **SQLite persistence on Railway.** `CSB_DB_DRIVER` only has a `sqlite` implementation
   today. Railway's filesystem is not guaranteed to persist across deploys/restarts — without
   a mounted volume, connected accounts and the entire reconciliation log can vanish on the
