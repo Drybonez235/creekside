@@ -32,7 +32,7 @@ const tableRowSchema = z.object({
  * Each section has a type discriminator + type-specific fields.
  */
 const sectionSchema = z.object({
-  type: z.enum(["text", "metrics-grid", "table", "highlight-box", "quote", "image","video",]),
+  type: z.enum(["text", "metrics-grid", "table", "highlight-box", "quote", "image","video","faq",]),
   sectionLabel: z.string().optional(),
   heading: z.string().optional(),
   paragraphs: z.array(z.string()).optional(),
@@ -47,6 +47,10 @@ const sectionSchema = z.object({
   quoteAttr: z.string().optional(),
   imageUrl: z.string().optional(),
   imageCaption: z.string().optional(),
+  faqItems: z.array(z.object({
+    question: z.string(),
+    answer: z.string(),
+  })).optional(),
 });
 
 const caseStudies = defineCollection({
@@ -65,6 +69,7 @@ const caseStudies = defineCollection({
     }),
     featured: z.boolean().default(false),
     website: z.string().optional(),
+    lastModified: z.coerce.date().optional(),
     // Rich format fields (optional for backward compat during migration)
     heroBadge: z.string().default("Client Case Study"),
     heroTitle: z.string().optional(),

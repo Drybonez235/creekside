@@ -5,6 +5,7 @@ import SectionTable from './SectionTable.astro';
 import SectionHighlightBox from './SectionHighlightBox.astro';
 import SectionQuote from './SectionQuote.astro';
 import SectionImage from './SectionImage.astro';
+import SectionFAQ from './SectionFAQ.astro';
 
 interface Props {
   section: {
@@ -23,6 +24,7 @@ interface Props {
     quoteAttr?: string;
     imageUrl?: string;
     imageCaption?: string;
+    faqItems?: { question: string; answer: string }[];
   };
 }
 
@@ -71,5 +73,13 @@ const { section } = Astro.props;
   <SectionImage
     imageUrl={section.imageUrl}
     imageCaption={section.imageCaption}
+  />
+)}
+
+{section.type === "faq" && section.faqItems && (
+  <SectionFAQ
+    sectionLabel={section.sectionLabel}
+    heading={section.heading}
+    faqItems={section.faqItems}
   />
 )}

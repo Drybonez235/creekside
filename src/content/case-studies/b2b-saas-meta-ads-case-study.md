@@ -8,6 +8,7 @@ metrics:
   roas: "417 Demos Booked"
   scale: "$145k+ Managed Spend"
 featured: false
+lastModified: "2026-08-05"
 heroTitle: "How a B2B Medical AI SaaS Booked 417 Sales Demos From Cold Meta Traffic"
 heroSubtitle: "Selling AI software to medical specialists is one of the hardest plays on Meta. A disciplined creative rotation system cut cost per booked demo from $250+ down to $59-89 in the best ad sets."
 clientInfo:
@@ -90,6 +91,18 @@ sections:
   - type: "image"
     imageUrl: "/case-study-screenshots/medical-ai-saas-spend-ramp.jpg"
     imageCaption: "Monthly spend ramp across the engagement as demo costs came down (account details redacted)"
+  - type: "faq"
+    sectionLabel: "FAQ"
+    heading: "B2B SaaS Meta Ads: Common Questions"
+    faqItems:
+      - question: "What is a good cost per booked demo for B2B SaaS Meta ads?"
+        answer: "It depends heavily on the audience. In this engagement targeting medical specialists, unoptimized creative tests came in at $250-$310+ per booked demo, while the optimized system reached $59-$89 in the best ad sets with a weighted account average around $134. For narrow professional audiences, anything under $150 per demo is strong performance."
+      - question: "Do Meta ads work for B2B SaaS demo generation?"
+        answer: "Yes, when the account optimizes on the right signal. This campaign generated 417 booked sales demos from cold Meta traffic by wiring the booked-demo event into Meta through the Conversions API, so the algorithm optimized for demos rather than clicks or cheap leads."
+      - question: "How long does it take to lower cost per booked demo on Meta?"
+        answer: "With a disciplined testing cadence, meaningful improvement compounds over months, not days. This account used a red/yellow/green creative rotation with a 12-14 day cut window for underperformers. Over the engagement, cost per demo dropped from $250+ in early tests to $59-$89 in the best ad sets."
+      - question: "Should B2B SaaS companies optimize Meta ads for leads or demos?"
+        answer: "Demos. Optimizing for form leads produces volume that rarely converts to pipeline for high-consideration B2B products. Passing the booked-demo event back to Meta via the Conversions API trains delivery on the action that actually generates revenue, which is what made this account scalable."
   - type: "highlight-box"
     bigStat: "$59-89"
     boxHeading: "Cost Per Booked Demo in the Best Ad Sets"

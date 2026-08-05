@@ -1,0 +1,42 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  sectionLabel?: string;
+  heading?: string;
+  faqItems: { question: string; answer: string }[];
+}
+
+const { sectionLabel, heading, faqItems } = Astro.props;
+const t = creeksideTheme;
+---
+
+<div>
+  {sectionLabel && (
+    <span
+      class="mb-2.5 inline-block text-[0.65rem] font-bold uppercase tracking-[2.5px]"
+      style={`color: ${t.accentColor}`}
+    >
+      {sectionLabel}
+    </span>
+  )}
+
+  {heading && (
+    <h2 class="mb-4 text-[1.6rem] font-bold tracking-tight" style="color: #1a1a2e">
+      {heading}
+    </h2>
+  )}
+
+  <div class="mt-2 space-y-4">
+    {faqItems.map((item) => (
+      <div class="rounded-xl border border-gray-200 bg-gray-50 px-5 py-4">
+        <h3 class="mb-2 text-[1rem] font-bold" style="color: #1a1a2e">
+          {item.question}
+        </h3>
+        <p class="text-[0.95rem] leading-[1.8] text-gray-600">
+          {item.answer}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
