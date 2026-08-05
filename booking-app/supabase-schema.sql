@@ -1,8 +1,8 @@
 -- Creekside Booking — Postgres schema (Supabase), mirrors sqlite-store.ts's table shape.
--- Run this once in the Supabase SQL Editor for project gibbweiprixkeaxzkeuf before flipping
--- CSB_DB_DRIVER=postgres. postgres-store.ts uses the service-role (secret) key, which
--- bypasses RLS entirely, so RLS is left disabled here deliberately -- this table is never
--- queried by an end-user-scoped Supabase client, only by the trusted server-side store.
+-- Run this once in the Supabase SQL Editor for the project referenced by SUPABASE_URL before
+-- flipping CSB_DB_DRIVER=postgres. postgres-store.ts uses the service-role (secret) key,
+-- which bypasses RLS entirely, so RLS is left disabled here deliberately -- this table is
+-- never queried by an end-user-scoped Supabase client, only by the trusted server-side store.
 
 CREATE TABLE IF NOT EXISTS csb_accounts (
   key TEXT PRIMARY KEY,

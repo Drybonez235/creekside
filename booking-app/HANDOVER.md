@@ -120,7 +120,7 @@ session.
 | `CSB_ADMIN_ENABLED` | Kill switch — see §4 |
 | `CSB_DB_DRIVER` | `sqlite` (default, local dev) or `postgres` (Supabase — the production driver) |
 | `CSB_BASE_URL` | Origin used to build the OAuth redirect URI; must match Google Cloud exactly |
-| `SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY` / `SUPABASE_SECRET_KEY` / `SUPABASE_JWKS_URL` | Only needed when `CSB_DB_DRIVER=postgres`. Project `gibbweiprixkeaxzkeuf` — a dedicated Supabase project for this client, separate from JT's own warehouse project. `postgres-store.ts` uses the **secret** key directly via `@supabase/supabase-js` (bypasses RLS, same as a service-role key) — not `@supabase/server`'s request-auth wrapper, since this is trusted server-side code talking to its own tables, not a public API authenticating callers. |
+| `SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY` / `SUPABASE_SECRET_KEY` / `SUPABASE_JWKS_URL` | Only needed when `CSB_DB_DRIVER=postgres`. Project `ssizilzugycbhryqsmlr` — a dedicated Supabase project for this client, separate from JT's own warehouse project (moved here 2026-08-05 from an earlier dedicated project, `gibbweiprixkeaxzkeuf` — if you see that ref anywhere, it's stale). `postgres-store.ts` uses the **secret** key directly via `@supabase/supabase-js` (bypasses RLS, same as a service-role key) — not `@supabase/server`'s request-auth wrapper, since this is trusted server-side code talking to its own tables, not a public API authenticating callers. |
 
 Register `http://localhost:3000/api/csb/oauth/callback/` (trailing slash matters — this
 project's `trailingSlash: 'always'` config makes the extensionless route 404 without it) as
@@ -194,11 +194,12 @@ actually up for review.
 - **Test connection** — runs token refresh → calendar read → freebusy → slot computation,
   PASS/FAIL per step. Use this first when something's not working.
 - **Per-provider settings** — label, slot minutes, weekly hours (JSON), lead time, booking
-  window. **Caution:** the settings-save form resaves every visible account's `enabled`
-  state based on which checkboxes are present in the submitted form — a partial/manual form
-  POST (e.g. testing via curl) that omits an account's checkbox will silently disable it.
-  Submitting the real rendered form in a browser always includes every account correctly;
-  this only bites hand-crafted requests.
+  window. Fixed 2026-08-05: the settings-save handler used to resave every visible account's
+  `enabled` state based on which checkboxes were present in the submitted form, so a
+  partial/manual form POST (e.g. testing via curl) that omitted an account's checkbox would
+  silently disable it — bit testing twice before the fix. Now an account is only touched if
+  its `label__<key>` field is present at all, so a partial submission leaves accounts it
+  doesn't mention untouched rather than resetting them to disabled.
 - **Recent bookings / Export CSV** — the reconciliation log, joinable to Google Calendar by
   event ID.
 
@@ -236,8 +237,9 @@ reconnect an account after a refresh-token revocation, or to pull a CSV export.
 | Widget shows the fallback message immediately | Check `CSB_GOOGLE_CLIENT_ID`/`SECRET` are set and correct; verified behavior — see §7 |
 | `/admin/booking` returns 404 even with correct creds | `CSB_ADMIN_ENABLED=false` — this is the kill switch, not a bug |
 | Slots don't reflect a just-made calendar change | 60s availability cache (per provider/month) — wait it out |
-| A connected account "disappears" from the widget | Check `enabled` on that account row — see the admin-guide caution in §4 about partial form submissions |
+| A connected account "disappears" from the widget | Check `enabled` on that account row — the settings-save partial-submission bug that used to cause this is fixed (§4), but it's still possible to uncheck a box by hand in the real form |
 | 502/503 from Apache on `/book`, `/admin`, or `/api/csb/*` | The Node process (systemd service, per `DEPLOY.md`) isn't running or crashed — check `journalctl -u creekside-booking` |
+| Admin settings-save or "Test connection" returns 403 "Cross-site POST form submissions are forbidden" | Astro's built-in CSRF origin-check (`security.checkOrigin`, on by default) rejected it. This should already be fixed via `security.allowedDomains` in `astro.config.mjs`, but if a new host/port is added (a new dev port, a domain change), it needs adding to that list too — see the comment above it in `astro.config.mjs` for why the default behavior misfires. |
 
 ---
 
@@ -278,6 +280,19 @@ project, re-verified against real data on **both** adapters before settling on N
 | :-- | :-- |
 | `@astrojs/vercel`, deployed to Vercel (`jt-consulting2/booking-app`) | Pass — full booking flow, availability, admin auth gating, and CSV export all worked correctly against the live Supabase project through an actual Vercel deployment. Reversed afterward for the cost reasons in §3, not a technical failure. |
 | `@astrojs/node`, run via `npm run start` (the real production entrypoint, not `astro dev`) | Pass — `/book/`, `/api/csb/providers`, and admin auth gating (401/200) all verified against the built server binary, matching dev-mode behavior exactly. |
+
+**Admin form submission, against the new Supabase project (2026-08-05):** the earlier test
+passes above never actually exercised a real `<form>` POST from a browser (curl doesn't send
+an `Origin` header, and JSON `fetch()` calls aren't form submissions) — the first real
+attempt caught two genuine bugs, both fixed and reverified:
+
+| Bug | Fix | Verified |
+| :-- | :-- | :-- |
+| Astro's CSRF origin-check (`security.checkOrigin`, on by default) silently discards the real `Host` header and falls back to a bare `localhost` (no port) whenever `security.allowedDomains` isn't configured — which never matches a real `Origin` header, so **every** admin form POST 403'd, including in what would have been production. Confirmed by reading `node_modules/astro/dist/core/app/validate-headers.js` directly. | Added `security.allowedDomains` to `astro.config.mjs` listing both the dev host and `creeksidemarketingpros.com`. | Pass — "Test connection" (a real browser form submission, not curl) returned all 4 PASS checks afterward. |
+| Settings-save resaved every visible account's `enabled` state from the submitted form's checkboxes, so a partial/manual POST omitting an account's checkbox silently disabled it (bit testing twice) | Skip an account entirely if its `label__<key>` field isn't present in the submission at all, rather than defaulting to disabled | Pass — a partial POST no longer disables the connected account. |
+
+Full booking flow (availability, book, event creation) also re-verified end-to-end against
+the new Supabase project after both fixes.
 
 ---
 

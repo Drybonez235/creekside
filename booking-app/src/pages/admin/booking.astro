@@ -37,6 +37,13 @@ if (Astro.request.method === "POST") {
 
 		for (const a of await store.getAccounts()) {
 			const label = form.get(`label__${a.key}`);
+			// The rendered form always includes every visible account's fields, so an absent
+			// label field means this account's row genuinely wasn't part of the submission
+			// (a partial/manual POST) -- skip it rather than resaving with defaults, which
+			// would silently disable it (checkboxes are omitted entirely when unchecked, so
+			// a missing enabled__<key> field is indistinguishable from "unchecked" otherwise).
+			if (label === null) continue;
+
 			const slot = form.get(`slot__${a.key}`);
 			const hoursRaw = form.get(`hours__${a.key}`);
 			const enabled = form.get(`enabled__${a.key}`) === "on";
