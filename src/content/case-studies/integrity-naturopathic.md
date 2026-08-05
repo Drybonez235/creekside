@@ -8,6 +8,7 @@ metrics:
   roas: "$14 CPA"
   scale: "150+ Conv"
 featured: false
+website: "https://www.integritynaturopathic.com/"
 heroTitle: "How {CLIENT} Fills Their Patient Calendar at $14-$40 CPA with Google Ads"
 heroSubtitle: "A Sacramento naturopathic practice needed a steady flow of new patients. We built a Google Ads system that consistently delivers qualified inquiries at CPAs as low as $14."
 clientInfo:

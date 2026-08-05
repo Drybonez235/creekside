@@ -10,6 +10,7 @@ metrics:
   roas: "6.1x ROAS"
   scale: "3,211 Orders"
 featured: false
+website: "https://www.chagrinvalleysoapandsalve.com/"
 heroTitle: "How {CLIENT} Built a Profitable New-Customer Acquisition Engine"
 heroSubtitle: "A natural beauty brand grew beyond organic traffic by building a paid acquisition engine that brings new beauty buyers into the brand without wrecking margins. 3,211 new customers at $28.74 per order, 6.1x ROAS."
 clientInfo:

@@ -10,6 +10,7 @@ metrics:
   roas: "500% ROI"
   scale: "$4 Cost/Conv"
 featured: false
+website: "https://polarisdentistry.com/"
 heroTitle: "How {CLIENT} Went from 26 to 413 Conversions and Cut Cost Per Patient to Under $4"
 heroSubtitle: "A struggling dental practice with a limited budget needed to survive, not experiment. We rebuilt their Google Ads account, fixed broken campaign structure, and delivered a 15x increase in conversions with 80% lower acquisition cost."
 clientInfo:

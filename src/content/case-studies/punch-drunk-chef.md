@@ -8,6 +8,7 @@ metrics:
   roas: "20x ROAS"
   scale: "3 New Markets"
 featured: false
+website: "https://pdcmealprep.com/"
 heroTitle: "How {CLIENT} Hit 20x ROAS and Expanded Into 3 New Texas Markets"
 heroSubtitle: "From a single South Dallas location to dominating Frisco, Plano, and Denton. This growth was fueled by paid media strategy that consistently delivers double-digit returns."
 clientInfo:

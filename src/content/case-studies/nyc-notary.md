@@ -10,6 +10,7 @@ metrics:
   roas: "$27.92 CPA"
   scale: "440 Conversions"
 featured: false
+website: "https://nycnod.com/"
 heroTitle: "How {CLIENT} Generated 440 Leads at $27.92 CPA with Google Ads"
 heroSubtitle: "A New York City mobile notary and apostille service needed more qualified leads. We drove 440 conversions while cutting CPA by $16 through systematic optimization."
 clientInfo:

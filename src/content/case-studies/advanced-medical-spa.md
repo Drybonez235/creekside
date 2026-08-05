@@ -10,6 +10,7 @@ metrics:
   roas: "2x Conv"
   scale: "+50% Spend"
 featured: false
+website: "https://advancedmedicalspas.com/"
 heroTitle: "How {CLIENT} Went from Nearly Closing a Branch to Planning a 4th Location"
 heroSubtitle: "A 3-location medical spa in North Atlanta was on the verge of shutting down a branch. We turned it around by cutting cost-per-acquisition in half."
 clientInfo:

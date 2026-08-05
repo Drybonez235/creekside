@@ -8,6 +8,7 @@ metrics:
   roas: "DTC Growth"
   scale: "Multi-Channel"
 featured: false
+website: "https://blushcamera.com/"
 heroTitle: "How {CLIENT} Built Its Growth Foundation with Creekside as Performance Marketing Partner"
 heroSubtitle: "A fast-growing DTC camera brand needed a team that understood performance marketing, social media growth, e-commerce, and customer acquisition across multiple channels. Creekside built the foundation during a critical growth stage and continued as a strategic partner through scale."
 clientInfo:

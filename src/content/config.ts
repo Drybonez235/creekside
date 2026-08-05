@@ -64,6 +64,7 @@ const caseStudies = defineCollection({
       scale: z.string(),
     }),
     featured: z.boolean().default(false),
+    website: z.string().optional(),
     // Rich format fields (optional for backward compat during migration)
     heroBadge: z.string().default("Client Case Study"),
     heroTitle: z.string().optional(),

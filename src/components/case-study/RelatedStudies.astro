@@ -1,0 +1,79 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface RelatedStudy {
+  slug: string;
+  title: string;
+  client: string;
+  category: string;
+  summary: string;
+  logo?: string;
+  "logo-alt"?: string;
+  metrics: { roas: string; scale: string };
+  tags: string[];
+}
+
+interface Props {
+  studies: RelatedStudy[];
+}
+
+const { studies } = Astro.props;
+const t = creeksideTheme;
+---
+
+{studies.length > 0 && (
+  <div class="border-t border-grey-200 bg-grey-50 px-8 py-12 md:px-14">
+    <span class="text-[0.65rem] font-bold uppercase tracking-[2.5px]" style={`color: ${t.accentColor}`}>
+      Related Case Studies
+    </span>
+    <h3 class="mt-1 text-lg font-bold text-primary-900">More Results Like This</h3>
+
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {studies.map((study) => (
+        <a
+          href={`/case-study-digital-marketing/${study.slug}/`}
+          class="group flex flex-col overflow-hidden rounded-xl border border-grey-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+        >
+          <div class="h-1 shrink-0" style={`background: ${t.heroGradient}`}></div>
+
+          <div class="flex h-24 shrink-0 flex-col items-center justify-center gap-1 border-b border-grey-100 bg-slate-50 px-4">
+            {study.logo && (
+              <img src={study.logo} alt={study["logo-alt"]} class="max-h-8 max-w-[140px] object-contain" />
+            )}
+            <span class={`text-center px-2 ${study.logo ? 'text-[0.55rem] font-semibold uppercase tracking-wide text-grey-400' : 'text-sm font-bold text-grey-600'}`}>
+              {study.client}
+            </span>
+          </div>
+
+          <div class="flex flex-1 flex-col p-5">
+            <span class="text-[0.55rem] font-bold uppercase tracking-[2px]" style={`color: ${t.accentColor}`}>
+              {study.category}
+            </span>
+
+            <h4 class="mt-1.5 text-sm font-bold leading-snug text-primary-900 transition-colors group-hover:text-secondary-500">
+              {study.title}
+            </h4>
+
+            <p class="mt-1.5 line-clamp-2 text-xs leading-relaxed text-grey-500">
+              {study.summary}
+            </p>
+
+            <div class="mt-auto flex items-end justify-between border-t border-grey-100 pt-3 mt-4">
+              <div class="flex items-start gap-5">
+                <div>
+                  <div class="text-base font-extrabold leading-none" style={`color: ${t.accentColor}`}>{study.metrics.roas}</div>
+                  <div class="mt-0.5 text-[0.5rem] font-semibold uppercase tracking-[1px] text-gray-400">Result</div>
+                </div>
+                <div>
+                  <div class="text-base font-extrabold leading-none text-primary-900">{study.metrics.scale}</div>
+                  <div class="mt-0.5 text-[0.5rem] font-semibold uppercase tracking-[1px] text-gray-400">Scale</div>
+                </div>
+              </div>
+              <span class="text-lg text-grey-300 transition-colors group-hover:text-secondary-500">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+)}

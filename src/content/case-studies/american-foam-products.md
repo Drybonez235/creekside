@@ -10,6 +10,7 @@ metrics:
   roas: "5.1x ROAS"
   scale: "684 Leads"
 featured: false
+website: "https://www.americanfoamproducts.com/"
 heroTitle: "How {CLIENT} Turned Google Search Into a Predictable B2B Quote Pipeline"
 heroSubtitle: "A custom-foam manufacturer stopped depending on trade shows and referrals by building a high-intent search engine that delivers qualified B2B buyers every week. 684 leads at $52.18 each, 5.1x estimated ROAS."
 clientInfo:

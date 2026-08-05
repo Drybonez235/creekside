@@ -8,6 +8,7 @@ metrics:
   roas: "17x ROAS"
   scale: "$7.5K/mo Budget"
 featured: false
+website: "https://www.fitnesssuperstore.com/"
 heroTitle: "How {CLIENT} Built a 17x Average ROAS on Meta Ads"
 heroSubtitle: "A fitness equipment retailer needed Meta Ads that could drive both online sales and showroom foot traffic from the same budget. We built the structure, solved the creative fatigue problem, and averaged 17x ROAS across the full engagement."
 clientInfo:

@@ -8,6 +8,7 @@ metrics:
   roas: "4-6x ROAS"
   scale: "$8-$17 CPA"
 featured: false
+website: "https://duckadiet.com/"
 heroTitle: "How {CLIENT} Drives New Customer Acquisition at 4-6x ROAS with $8-$17 CPA"
 heroSubtitle: "A Huntley, Illinois meal prep brand focused exclusively on growing its customer base, achieving consistent double-digit returns on pure new customer campaigns."
 clientInfo:

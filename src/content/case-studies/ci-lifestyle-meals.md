@@ -10,6 +10,7 @@ metrics:
   roas: "14x ROAS"
   scale: "4.5x New Cust."
 featured: false
+website: "https://cilifestylemeals.com/"
 heroTitle: "How {CLIENT} Acquires New Customers at $25 CPA with a 4.5x ROAS"
 heroSubtitle: "A Portland-based meal prep company driving efficient new customer acquisition through targeted paid social campaigns that exclude all previous purchasers."
 clientInfo:

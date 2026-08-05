@@ -10,6 +10,7 @@ metrics:
   roas: "-52% CPA"
   scale: "2x Applications"
 featured: false
+website: "https://adventuresinwisdom.com/"
 heroTitle: "How {CLIENT} Cut CPA 52% and Doubled Application Volume with Meta Ads"
 heroSubtitle: "An education and coaching brand was paying $256 per application with no scalable structure. We rebuilt the system and drove 90 applications at $123 CPA within 8 months."
 clientInfo:

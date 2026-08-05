@@ -8,6 +8,7 @@ metrics:
   roas: "$2.44 CPA"
   scale: "1,050 Purchases"
 featured: false
+website: "https://www.luggagedrop.com/"
 heroTitle: "How {CLIENT} Drove 1,050 Bookings at $2.44 Per Purchase with Google Ads"
 heroSubtitle: "A luggage storage service with 30+ US locations needed a Google Ads strategy that captured both travelers planning ahead and locals searching nearby. We delivered over 1,000 bookings at an exceptional $2.44 CPA."
 clientInfo:

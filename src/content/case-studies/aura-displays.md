@@ -8,6 +8,7 @@ metrics:
   roas: "8-10x ROAS"
   scale: "49 Countries"
 featured: false
+website: "https://us.aura-displays.com/"
 heroTitle: "How {CLIENT} Achieved 8-10x ROAS on Cold Traffic and Scaled Across 49 Countries"
 heroSubtitle: "A portable laptop display brand doing $1M+ monthly on Shopify needed to prove Google Ads could drive genuinely new customers, not just capture existing brand demand. Non-branded campaigns delivered 8-10x ROAS."
 clientInfo:

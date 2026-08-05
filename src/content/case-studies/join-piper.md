@@ -8,11 +8,12 @@ metrics:
   roas: "$456K Revenue"
   scale: "9.74x ROAS"
 featured: false
+website: "https://www.joinpolly.com/"
 heroTitle: "How {CLIENT} Generated $456K in Revenue on $46.8K in Ad Spend in 30 Days"
 heroSubtitle: "A GLP-1 weight loss provider had a Google Ads account that looked fine on the surface. Our audit found 6 structural issues that were wasting spend and misreporting results. We fixed all 6 and delivered a 9.74x return inside the first month."
 clientInfo:
   - label: "Client"
-    value: "Join Piper (Piper Wellness)"
+    value: "Join Piper (now Polly)"
   - label: "Industry"
     value: "Weight Loss / GLP-1 Medications"
   - label: "Service"

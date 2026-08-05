@@ -10,6 +10,7 @@ metrics:
   roas: "$2M+ Revenue"
   scale: "100+ Consults/mo"
 featured: true
+website: "https://doctorlaleh.com/"
 heroTitle: "How {CLIENT} Went from Losing Money to $2M+ in Revenue in 90 Days"
 heroSubtitle: "A dental aesthetics practice lost 25% of leads overnight when Meta's algorithm changed. We rebuilt everything from scratch and added over $200k in monthly revenue."
 clientInfo:

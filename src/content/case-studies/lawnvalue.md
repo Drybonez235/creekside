@@ -10,6 +10,7 @@ metrics:
   roas: "2000+ Leads"
   scale: "New Florida Branch"
 featured: false
+website: "https://lawnvalue.com/"
 heroTitle: "How {CLIENT} Generated 2,000+ Leads and Funded a New State Expansion"
 heroSubtitle: "A Tennessee lawn care provider ditched traditional mailers for a full-funnel digital strategy, generating 2,000+ leads across four channels, jumping from page 3 to page 1 on Google Maps, and using the revenue to open a Florida branch in under 12 months."
 clientInfo:

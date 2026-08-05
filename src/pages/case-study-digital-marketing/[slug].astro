@@ -8,17 +8,37 @@ import ClientInfoBar from '../../components/case-study/ClientInfoBar.astro';
 import MetricStrip from '../../components/case-study/MetricStrip.astro';
 import SectionRenderer from '../../components/case-study/SectionRenderer.astro';
 import CaseStudyFooter from '../../components/case-study/CaseStudyFooter.astro';
+import RelatedStudies from '../../components/case-study/RelatedStudies.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
   const studies = await getCollection('case-studies');
   return studies.map(study => ({
     params: { slug: study.slug },
-    props: { study },
+    props: { study, allStudies: studies },
   }));
 }
 
-const { study } = Astro.props;
+const { study, allStudies } = Astro.props;
+
+// Find related studies by industry + tag overlap
+const platformTags = new Set(['google ads', 'meta ads', 'facebook ads', 'instagram ads', 'paid social', 'paid search', 'ppc']);
+const currentTags = new Set(study.data.tags.map((t: string) => t.toLowerCase()));
+const currentIndustry = study.data.category.split(':')[0].trim().split(' ')[0].toLowerCase();
+const others = allStudies.filter((s: typeof study) => s.slug !== study.slug);
+const scored = others.map((s: typeof study) => {
+  const otherIndustry = s.data.category.split(':')[0].trim().split(' ')[0].toLowerCase();
+  const sameIndustry = otherIndustry === currentIndustry ? 5 : 0;
+  const overlap = s.data.tags.filter((t: string) => {
+    const tag = t.toLowerCase();
+    return currentTags.has(tag) && !platformTags.has(tag);
+  }).length;
+  return { study: s, score: sameIndustry + overlap * 2 };
+}).sort((a: { score: number }, b: { score: number }) => b.score - a.score);
+const relatedStudies = scored.slice(0, 3).map((s: { study: typeof study }) => ({
+  slug: s.study.slug,
+  ...s.study.data,
+}));
 const { Content } = await render(study);
 const d = study.data;
 
@@ -62,7 +82,8 @@ const schema = {
   },
   "about": {
     "@type": "Organization",
-    "name": d.client
+    "name": d.client,
+    ...(d.website && { "url": d.website }),
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -135,7 +156,7 @@ const breadcrumbSchema = {
       />
 
       <!-- Client Info Bar -->
-      <ClientInfoBar items={clientInfo} />
+      <ClientInfoBar items={clientInfo} website={d.website} />
 
       <!-- Metric Strip -->
       <MetricStrip metrics={metricStrip} />
@@ -164,6 +185,9 @@ const breadcrumbSchema = {
           </div>
         </div>
       )}
+
+      <!-- Related Studies -->
+      <RelatedStudies studies={relatedStudies} />
 
       <!-- Footer -->
       <CaseStudyFooter ctaText={d.footerCta || "Ready to see results like these?"} />

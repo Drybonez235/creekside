@@ -10,6 +10,7 @@ metrics:
   roas: "690 Conv"
   scale: "$92.5K Spend"
 featured: false
+website: "https://roothair.com/"
 heroTitle: "How {CLIENT} Generated 690 Patient Inquiries and Cut Cost Per Conversion by $44"
 heroSubtitle: "A Seattle hair transplant clinic needed to reach patients at the research stage and capture them at the point of decision. We built a YouTube + Search architecture that grew conversions 42% while dropping cost per inquiry from $178 to $134."
 clientInfo:

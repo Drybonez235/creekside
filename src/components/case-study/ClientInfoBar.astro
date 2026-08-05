@@ -1,9 +1,10 @@
 ---
 interface Props {
   items: { label: string; value: string }[];
+  website?: string;
 }
 
-const { items } = Astro.props;
+const { items, website } = Astro.props;
 ---
 
 <div class="flex flex-wrap items-center gap-6 border-b border-gray-200 bg-gray-50 px-8 py-5 md:px-14">
@@ -13,4 +14,10 @@ const { items } = Astro.props;
       <span>{item.value}</span>
     </div>
   ))}
+  {website && (
+    <div class="flex items-center gap-2 text-[0.82rem] text-gray-500">
+      <span class="font-semibold text-gray-800">Website:</span>
+      <a href={website} target="_blank" rel="noopener noreferrer" class="text-sky-600 underline decoration-sky-300 underline-offset-2 transition-colors hover:text-sky-800">{website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a>
+    </div>
+  )}
 </div>

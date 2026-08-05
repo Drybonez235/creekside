@@ -8,6 +8,7 @@ metrics:
   roas: "47% CPI Drop"
   scale: "2,662 Installs"
 featured: false
+website: "https://loyalpatron.com/"
 heroTitle: "How {CLIENT} Drove 2,662 App Installs and Cut CPI by 47%"
 heroSubtitle: "From zero properly optimized campaigns to 2,662 app installs across two markets, with cost per install dropping from $7.36 to $3.90 through systematic creative testing and campaign restructuring."
 clientInfo:

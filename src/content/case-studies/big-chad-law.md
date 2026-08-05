@@ -10,6 +10,7 @@ metrics:
   roas: "50+ Cases"
   scale: "6th Office Open"
 featured: false
+website: "https://www.bigchadlaw.com/"
 heroTitle: "How {CLIENT} Signed 50+ PI Cases and Opened a 6th Office in 4 Months"
 heroSubtitle: "An Arizona personal injury firm was drowning in unqualified leads. We fixed their tracking, rebuilt their strategy, and fueled an office expansion."
 clientInfo:

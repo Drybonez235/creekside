@@ -8,6 +8,7 @@ metrics:
   roas: "-19% CPA"
   scale: "79 Conversions"
 featured: false
+website: "https://gshieldpest.com/"
 heroTitle: "How {CLIENT} Grew Leads 34% While Cutting Cost Per Lead 19%"
 heroSubtitle: "A pest control company needed more qualified leads at a lower cost. A proven campaign framework (tight radius targeting, minimal keywords per ad group, and high-intent search focus) delivered both at once."
 clientInfo:
