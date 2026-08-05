@@ -1,0 +1,143 @@
+---
+/* Revised Popup: iframe loads in background via Tailwind visibility utilities
+   (not display:none), and iFrameResize is forced to recalculate height a few
+   times after the popup opens to catch late-loading images. */
+---
+<div
+  id="profit-popup-overlay"
+  class="fixed inset-0 z-100 flex items-start md:items-center justify-center bg-primary-900/60 opacity-0 invisible pointer-events-none overflow-y-auto p-4 transition-opacity duration-500"
+  role="dialog"
+  aria-modal="true"
+>
+  <div
+    id="profit-popup-content"
+    class="relative my-auto w-full max-w-2xl overflow-hidden rounded-xl bg-grey-50 shadow-2xl"
+  >
+    <button
+      id="close-popup"
+      class="absolute top-4 right-4 z-20 size-11 flex items-center justify-center rounded-full bg-grey-100 text-grey-600 hover:bg-grey-200 hover:text-primary-900 transition-colors cursor-pointer"
+      aria-label="Close popup"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <div class="p-2 md:p-4 pt-14 md:pt-4">
+      <div>
+        <iframe
+          src="https://api.msglink.cloud/widget/form/8As7Tl468YopNi5PJw9G"
+          id="inline-8As7Tl468YopNi5PJw9G"
+          class="w-full border-none rounded-xs"
+          scrolling="no"
+          title="Lead Magnet Client"
+          style="width: 100%; border: none;"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .ep-iFrameContainer,
+  .ep-wrapper {
+    width: 100% !important;
+  }
+</style>
+
+<script>
+  const setupPopup = () => {
+    const overlay = document.getElementById("profit-popup-overlay");
+    const content = document.getElementById("profit-popup-content");
+    const closeBtn = document.getElementById("close-popup");
+    const iframeEl = document.getElementById("inline-8As7Tl468YopNi5PJw9G");
+    const DISMISS_KEY = "popup_dismiss_count";
+    let shownOnThisPage = false;
+    let resizerInitialized = false;
+
+    const getDismissCount = () => {
+      return parseInt(sessionStorage.getItem(DISMISS_KEY) || "0", 10);
+    };
+    const incrementDismiss = () => {
+      const count = getDismissCount() + 1;
+      sessionStorage.setItem(DISMISS_KEY, String(count));
+      return count;
+    };
+
+    const forceResize = () => {
+      // @ts-ignore - iFrameResizer attaches this API to the element at runtime
+      iframeEl?.iFrameResizer?.resize();
+    };
+
+    // Bind the resizer as soon as possible so the iframe starts loading
+    // (and being tracked) in the background, well before the popup opens.
+    if (!resizerInitialized && window.iFrameResize) {
+      window.iFrameResize(
+        { log: false, checkOrigin: false, warningTimeout: 0 },
+        "#inline-8As7Tl468YopNi5PJw9G"
+      );
+      resizerInitialized = true;
+    }
+
+    // Recalculate once the iframe's own load event fires, in case the
+    // header image finishes shortly after.
+    iframeEl?.addEventListener("load", () => {
+      setTimeout(forceResize, 500);
+    });
+
+    const showPopup = () => {
+      if (shownOnThisPage) return;
+      if (getDismissCount() >= 2) return;
+      shownOnThisPage = true;
+
+      overlay?.classList.remove("invisible", "pointer-events-none");
+
+      setTimeout(() => {
+        overlay?.classList.remove("opacity-0");
+        overlay?.classList.add("opacity-100");
+        content?.classList.remove("scale-95");
+        content?.classList.add("scale-100");
+      }, 10);
+
+      document.body.style.overflow = "hidden";
+
+    };
+
+    const hidePopup = () => {
+      overlay?.classList.remove("opacity-100");
+      overlay?.classList.add("opacity-0");
+      content?.classList.add("scale-95");
+      content?.classList.remove("scale-100");
+
+      setTimeout(() => {
+        overlay?.classList.add("invisible", "pointer-events-none");
+      }, 500);
+
+      document.body.style.overflow = "";
+      incrementDismiss();
+    };
+
+    if (getDismissCount() < 2) {
+      setTimeout(showPopup, 20000);
+    }
+
+    closeBtn?.addEventListener("click", hidePopup);
+    overlay?.addEventListener("click", (e) => {
+      if (e.target === overlay) hidePopup();
+    });
+  };
+
+  setupPopup();
+  document.addEventListener("astro:after-swap", setupPopup);
+</script>

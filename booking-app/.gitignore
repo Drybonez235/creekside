@@ -1,0 +1,15 @@
+# build output
+dist/
+.astro/
+.vercel/
+
+# dependencies
+node_modules/
+
+# environment variables (.env.example is intentionally NOT ignored -- it's the template)
+.env
+.env.*
+!.env.example
+
+# local dev DB (sqlite driver only)
+data/
