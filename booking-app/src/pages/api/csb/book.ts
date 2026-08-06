@@ -20,11 +20,17 @@ const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
 
 function rateLimited(ip: string | null): boolean {
-	if (!ip) return false;
+	// Fail closed, not open: if the client IP can't be determined (e.g. a proxy
+	// misconfiguration stops forwarding X-Forwarded-For), don't silently disable rate
+	// limiting for the whole endpoint -- bucket all such requests together instead. This
+	// bucket is stricter than a normal per-IP one by construction (shared across every
+	// unknown-IP requester), which is the point: it should be rare in a correctly configured
+	// deployment, not a normal traffic path.
+	const key = ip || "__unknown__";
 	const now = Date.now();
-	const recent = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+	const recent = (hits.get(key) || []).filter((t) => now - t < WINDOW_MS);
 	recent.push(now);
-	hits.set(ip, recent);
+	hits.set(key, recent);
 	if (hits.size > 5000) {
 		for (const [k, v] of hits) if (v.every((t) => now - t >= WINDOW_MS)) hits.delete(k);
 	}

@@ -294,6 +294,32 @@ attempt caught two genuine bugs, both fixed and reverified:
 Full booking flow (availability, book, event creation) also re-verified end-to-end against
 the new Supabase project after both fixes.
 
+**Full code review pass (2026-08-06):** read through every file under `src/lib/csb/`,
+`src/pages/api/csb/`, `src/pages/admin/booking.astro`, `src/middleware.ts`, and
+`src/components/BookingWidget.astro` looking specifically for bugs, not style. Found and
+fixed four real ones:
+
+| Bug | Fix |
+| :-- | :-- |
+| **CSV/formula injection (CWE-1236):** customer-controlled free text (name, company, etc.) flowed straight into the admin CSV export. A booking with a name like `=cmd\|'/c calc'!A1` would execute as a live formula if Peterson or Cade opened the export in Excel/Sheets. | `csvCell()` in `export.csv.ts` now prefixes any value starting with `=`, `+`, `-`, `@`, tab, or CR with a bare quote — the standard defense, forces spreadsheet apps to treat it as text. Verified with an actual formula-shaped booking. |
+| **HTTP Basic Auth credentials split on every colon**, not just the first (RFC 7617 requires splitting on the first colon only — everything after belongs to the password). A `CSB_ADMIN_PASS` containing a colon would get silently truncated, permanently locking out that credential. | `middleware.ts` now splits only on the first colon via `indexOf`. |
+| **Rate limiting fails open** when the client IP can't be determined (`clientIp()` returns `null`) — the whole `/api/csb/book` endpoint's rate limit silently disabled itself rather than just that one request. Apache should always forward `X-Forwarded-For` by default (`ProxyAddHeaders` is on unless explicitly disabled), so this shouldn't trigger in a correctly configured deployment, but the old behavior had no safety net if it ever did. | Requests with no determinable IP now share a single bucketed key instead of bypassing the limit entirely. |
+| **`testConnection`'s "Slot computation" step used `now.getUTCMonth()`/`getUTCFullYear()`** instead of the Central-time-aware helpers the rest of the codebase is careful to use — exactly the naive-UTC bug class the file's own comments warn against (D-6/D-7). Near a UTC month boundary (e.g. shortly after midnight UTC, still evening of the previous day in Central), the admin diagnostics panel would silently test the wrong month. Customer-facing availability was never affected — only this one informational admin panel value. | Added `currentYearMonthInTz()` to `datetime.ts`; `diagnostics.ts` uses it instead of the raw UTC getters. |
+
+Also reviewed and ruled out as non-issues: a client-side "today" comparison in
+`BookingWidget.astro`'s calendar navigation uses the customer's own browser-local timezone,
+not Central — cosmetic only (a UI nicety for graying out past dates), since the server
+remains the actual source of truth for slot validity regardless of what the widget's nav
+buttons show. A hardcoded `year < 2026` floor in the availability route is a sanity check
+against malformed input, not a forward-compatibility bug (it only rejects past years, never
+future ones). `ensureBookingCalendar`'s theoretical create-calendar race on an account's
+very first booking is moot in practice — the OAuth callback already creates the booking
+calendar eagerly at connect time, before any booking can happen.
+
+All four fixes verified with a real build (`npm run build` + `npm run start`, not `astro
+dev`) — providers, admin auth gating, a real form-based "Test connection" submission, a real
+booking, and a booking with formula-shaped input all confirmed working correctly afterward.
+
 ---
 
 ## 8. Before this goes live

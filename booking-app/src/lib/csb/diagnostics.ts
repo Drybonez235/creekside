@@ -4,7 +4,7 @@
 import type { CsbAccount } from "./store";
 import { accessToken, ensureBookingCalendar, freebusy, CsbApiError } from "./google-client";
 import { slotsForMonth } from "./availability";
-import { toRfc3339 } from "./datetime";
+import { toRfc3339, currentYearMonthInTz } from "./datetime";
 
 export type DiagnosticStep = [label: string, pass: boolean, detail: string];
 export interface DiagnosticResult {
@@ -53,7 +53,8 @@ export async function testConnection(account: CsbAccount): Promise<DiagnosticRes
 	}
 
 	try {
-		const slots = await slotsForMonth(account, now.getUTCFullYear(), now.getUTCMonth() + 1);
+		const { year, month } = currentYearMonthInTz();
+		const slots = await slotsForMonth(account, year, month);
 		const total = Object.values(slots).reduce((sum, day) => sum + day.length, 0);
 		steps.push([
 			"Slot computation",

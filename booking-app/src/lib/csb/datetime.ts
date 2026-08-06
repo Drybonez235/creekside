@@ -49,3 +49,14 @@ export function formatWallClockHM(instant: Date): string {
 export function formatWallClockDateTime(instant: Date): string {
 	return formatInTimeZone(instant, CSB_TZ, "yyyy-MM-dd HH:mm:ss");
 }
+
+/** Today's {year, month} in CSB_TZ, not the system/UTC clock's -- near a UTC month boundary
+ * (e.g. shortly after midnight UTC, still evening of the previous day in Central), a raw
+ * `now.getUTCMonth()` would pick the wrong month. Same bug class the rest of this file
+ * exists to avoid (D-6/D-7); this is the one to call at any "what month is it right now"
+ * site, e.g. the admin diagnostics panel. */
+export function currentYearMonthInTz(): { year: number; month: number } {
+	const ymd = formatInTimeZone(new Date(), CSB_TZ, "yyyy-MM");
+	const [year, month] = ymd.split("-").map(Number);
+	return { year, month };
+}

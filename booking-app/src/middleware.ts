@@ -35,7 +35,12 @@ export const onRequest = defineMiddleware((context, next) => {
 	const header = context.request.headers.get("authorization") || "";
 	const [scheme, encoded] = header.split(" ");
 	if (scheme === "Basic" && encoded) {
-		const [u, p] = Buffer.from(encoded, "base64").toString("utf8").split(":");
+		const decoded = Buffer.from(encoded, "base64").toString("utf8");
+		// Split on the FIRST colon only (RFC 7617) -- a naive .split(":") truncates any
+		// password that itself contains a colon, silently locking out that credential.
+		const sep = decoded.indexOf(":");
+		const u = sep === -1 ? decoded : decoded.slice(0, sep);
+		const p = sep === -1 ? "" : decoded.slice(sep + 1);
 		if (u === user && p === pass) return next();
 	}
 

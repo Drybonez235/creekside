@@ -26,8 +26,15 @@ const COLUMNS: (keyof CsbBookingRow)[] = [
 	"errorDetail",
 ];
 
+// CSV/formula injection (CWE-1236): several of these columns (customerName, company,
+// service, etc.) are customer-controlled free text from the public booking form. If a value
+// starts with =, +, -, or @, Excel/Sheets treats it as a formula when the export is opened --
+// a malicious booking could embed something like `=HYPERLINK(...)` that runs when Peterson
+// or Cade opens the CSV. Prefixing with a bare quote is the standard defense: it forces
+// spreadsheet apps to treat the cell as text, and is itself stripped by the app on display.
 function csvCell(value: unknown): string {
-	const s = value === null || value === undefined ? "" : String(value);
+	let s = value === null || value === undefined ? "" : String(value);
+	if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
 	return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 
