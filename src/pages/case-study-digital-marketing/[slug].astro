@@ -8,7 +8,6 @@ import ClientInfoBar from '../../components/case-study/ClientInfoBar.astro';
 import MetricStrip from '../../components/case-study/MetricStrip.astro';
 import SectionRenderer from '../../components/case-study/SectionRenderer.astro';
 import CaseStudyFooter from '../../components/case-study/CaseStudyFooter.astro';
-import RelatedStudies from '../../components/case-study/RelatedStudies.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
@@ -16,9 +15,30 @@ export async function getStaticPaths() {
   return studies.map(study => ({
     params: { slug: study.slug },
     props: { study, allStudies: studies },
+    props: { study, allStudies: studies },
   }));
 }
 
+const { study, allStudies } = Astro.props;
+
+// Find related studies by industry + tag overlap
+const platformTags = new Set(['google ads', 'meta ads', 'facebook ads', 'instagram ads', 'paid social', 'paid search', 'ppc']);
+const currentTags = new Set(study.data.tags.map((t: string) => t.toLowerCase()));
+const currentIndustry = study.data.category.split(':')[0].trim().split(' ')[0].toLowerCase();
+const others = allStudies.filter((s: typeof study) => s.slug !== study.slug);
+const scored = others.map((s: typeof study) => {
+  const otherIndustry = s.data.category.split(':')[0].trim().split(' ')[0].toLowerCase();
+  const sameIndustry = otherIndustry === currentIndustry ? 5 : 0;
+  const overlap = s.data.tags.filter((t: string) => {
+    const tag = t.toLowerCase();
+    return currentTags.has(tag) && !platformTags.has(tag);
+  }).length;
+  return { study: s, score: sameIndustry + overlap * 2 };
+}).sort((a: { score: number }, b: { score: number }) => b.score - a.score);
+const relatedStudies = scored.slice(0, 3).map((s: { study: typeof study }) => ({
+  slug: s.study.slug,
+  ...s.study.data,
+}));
 const { study, allStudies } = Astro.props;
 
 // Find related studies by industry + tag overlap
@@ -68,6 +88,7 @@ const schema = {
   "headline": d.title,
   "description": d.summary,
   ...(d.lastModified && { "dateModified": d.lastModified.toISOString() }),
+  ...(d.lastModified && { "dateModified": d.lastModified.toISOString() }),
   "author": {
     "@type": "Organization",
     "name": "Creekside Marketing",
@@ -85,6 +106,8 @@ const schema = {
     "@type": "Organization",
     "name": d.client,
     ...(d.website && { "url": d.website }),
+    "name": d.client,
+    ...(d.website && { "url": d.website }),
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -92,6 +115,30 @@ const schema = {
   },
   "keywords": d.tags.join(", ")
 };
+
+// FAQPage schema from any faq sections
+const faqItems = (d.sections || [])
+  .filter((s) => s.type === 'faq' && s.faqItems)
+  .flatMap((s) => s.faqItems!);
+const faqSchema = faqItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
+
+// Service page links derived from category (e.g. "Dental Aesthetics: Google + Meta")
+const categoryLower = d.category.toLowerCase();
+const serviceLinks = [
+  ...(categoryLower.includes('google') ? [{ href: '/digital-advertising/google-ads/', label: 'Google Ads Management' }] : []),
+  ...(categoryLower.includes('meta') || categoryLower.includes('facebook') ? [{ href: '/digital-advertising/meta-ads/', label: 'Meta Ads Management' }] : []),
+];
 
 // FAQPage schema from any faq sections
 const faqItems = (d.sections || [])
@@ -146,11 +193,13 @@ const breadcrumbSchema = {
 
 <Layout
   title={`${d.title} | Creekside Marketing`}
+  title={`${d.title} | Creekside Marketing`}
   description={d.summary}
   canonicalURL={Astro.url}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
   {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
 
   <Nav />
@@ -182,6 +231,7 @@ const breadcrumbSchema = {
       />
 
       <!-- Client Info Bar -->
+      <ClientInfoBar items={clientInfo} website={d.website} />
       <ClientInfoBar items={clientInfo} website={d.website} />
 
       <!-- Metric Strip -->
@@ -235,7 +285,6 @@ const breadcrumbSchema = {
       )}
 
       <!-- Related Studies -->
-      <RelatedStudies studies={relatedStudies} />
 
       <!-- Footer -->
       <CaseStudyFooter ctaText={d.footerCta || "Ready to see results like these?"} />
