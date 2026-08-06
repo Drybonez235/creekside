@@ -1,0 +1,298 @@
+---
+// Booking admin: connect Google accounts, per-provider config, bookings list, CSV export.
+// Gated by HTTP Basic Auth in src/middleware.ts. Ported from class-csb-admin.php, adapted
+// to Astro's request/response model — settings-save and test-connection are handled
+// directly here (POST-then-render) instead of PHP's redirect+transient dance, since Astro
+// doesn't need a redirect to render a fresh response.
+//
+// On-demand rendered — required for both the Basic Auth gate (src/middleware.ts only runs
+// for on-demand routes, not prerendered ones) and the POST-then-render admin actions below.
+export const prerender = false;
+
+import Layout from "../../layouts/Layout.astro";
+import { store } from "../../lib/csb/store";
+import type { WeeklyHours } from "../../lib/csb/store";
+import { redirectUri } from "../../lib/csb/google-client";
+import { googleConfigured } from "../../lib/csb/constants";
+import { testConnection, type DiagnosticResult } from "../../lib/csb/diagnostics";
+import "../../styles/global.css";
+
+let testResults: DiagnosticResult[] | null = null;
+let savedMessage = "";
+
+if (Astro.request.method === "POST") {
+	const form = await Astro.request.formData();
+	const intent = form.get("intent");
+
+	if (intent === "save_settings") {
+		// Math.max(0, NaN) is NaN, so a non-numeric value here used to persist the literal
+		// string "NaN" -- which reads back as NaN and, because every comparison against NaN
+		// is false, silently switched OFF the lead time and booking window rather than
+		// erroring. The number inputs make this hard to hit from the rendered form, but not
+		// from a hand-built POST. Fall back to the documented default instead.
+		const numSetting = (raw: FormDataEntryValue | null, min: number, fallback: number) => {
+			const n = Number(raw ?? fallback);
+			return String(Math.max(min, Number.isFinite(n) ? n : fallback));
+		};
+
+		await store.setSetting("fallback_phone", String(form.get("fallback_phone") ?? ""));
+		await store.setSetting("lead_minutes", numSetting(form.get("lead_minutes"), 0, 60));
+		await store.setSetting("window_days", numSetting(form.get("window_days"), 1, 42));
+
+		for (const a of await store.getAccounts()) {
+			const label = form.get(`label__${a.key}`);
+			// The rendered form always includes every visible account's fields, so an absent
+			// label field means this account's row genuinely wasn't part of the submission
+			// (a partial/manual POST) -- skip it rather than resaving with defaults, which
+			// would silently disable it (checkboxes are omitted entirely when unchecked, so
+			// a missing enabled__<key> field is indistinguishable from "unchecked" otherwise).
+			if (label === null) continue;
+
+			const slot = form.get(`slot__${a.key}`);
+			const hoursRaw = form.get(`hours__${a.key}`);
+			const enabled = form.get(`enabled__${a.key}`) === "on";
+
+			let hours: WeeklyHours = a.hours;
+			if (typeof hoursRaw === "string") {
+				try {
+					hours = JSON.parse(hoursRaw);
+				} catch {
+					/* keep existing hours on invalid JSON */
+				}
+			}
+
+			await store.saveAccount({
+				...a,
+				label: typeof label === "string" && label ? label : a.label,
+				slotMinutes: slot ? Math.max(5, Number(slot)) : a.slotMinutes,
+				hours,
+				enabled,
+			});
+		}
+		savedMessage = "Saved.";
+	}
+
+	if (intent === "test_connection") {
+		const accounts = await store.getAccounts();
+		testResults = await Promise.all(accounts.map(testConnection));
+	}
+}
+
+const accounts = await store.getAccounts();
+const fallbackPhone = await store.getSetting("fallback_phone", "");
+const leadMinutes = await store.getSetting("lead_minutes", "60");
+const windowDays = await store.getSetting("window_days", "42");
+const bookings = await store.listBookings(50);
+const connected = Astro.url.searchParams.get("connected");
+const configured = googleConfigured();
+
+const STATUS_BADGE: Record<string, string> = {
+	created: "bg-accent-success/10 text-accent-success",
+	error: "bg-accent-alert/10 text-accent-alert",
+	pending: "bg-secondary-500/10 text-secondary-600",
+};
+---
+
+<Layout title="Creekside Booking Admin" showPopup={false}>
+	<main class="mx-auto max-w-6xl px-6 py-10 text-grey-900">
+		<div class="flex flex-wrap items-center justify-between gap-4">
+			<h1 class="text-3xl font-bold text-primary-900">Creekside Booking</h1>
+			<span class={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${configured ? "bg-accent-success/10 text-accent-success" : "bg-accent-alert/10 text-accent-alert"}`}>
+				{configured ? "Google client configured" : "Google client not configured"}
+			</span>
+		</div>
+
+		{connected && (
+			<p class="mt-4 rounded-xl border border-accent-success/20 bg-accent-success/10 px-4 py-3 font-medium text-accent-success">
+				Connected: {connected}
+			</p>
+		)}
+		{savedMessage && (
+			<p class="mt-4 rounded-xl border border-accent-success/20 bg-accent-success/10 px-4 py-3 font-medium text-accent-success">{savedMessage}</p>
+		)}
+
+		{!configured ? (
+			<p class="mt-4 rounded-xl border border-accent-alert/20 bg-accent-alert/10 px-4 py-3 text-accent-alert">
+				Set <code>CSB_GOOGLE_CLIENT_ID</code> and <code>CSB_GOOGLE_CLIENT_SECRET</code> in
+				<code>.env</code>. OAuth redirect URI: <code>{redirectUri()}</code>
+			</p>
+		) : (
+			<div class="mt-6 flex flex-wrap items-center gap-3 rounded-2xl border border-grey-200 bg-white p-4 shadow-xs">
+				<a href="/api/csb/admin/connect/" class="rounded-sm bg-secondary-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-secondary-600">
+					Connect Google Account
+				</a>
+				{accounts.length > 0 && (
+					<form method="POST">
+						<input type="hidden" name="intent" value="test_connection" />
+						<button type="submit" class="rounded-sm border border-grey-300 px-4 py-2 font-semibold text-primary-900 transition-colors hover:bg-grey-100">
+							Test connection
+						</button>
+					</form>
+				)}
+				<span class="text-sm text-grey-600">
+					Redirect URI: <code class="rounded bg-grey-100 px-1.5 py-0.5 text-xs">{redirectUri()}</code>
+				</span>
+			</div>
+		)}
+
+		{testResults && (
+			<section class="mt-8">
+				<h2 class="text-xl font-bold text-primary-900">Connection test</h2>
+				<div class="mt-3 overflow-x-auto rounded-2xl border border-grey-200 bg-white shadow-xs">
+					<table class="w-full border-collapse text-sm">
+						<thead>
+							<tr class="border-b border-grey-200 text-left text-grey-500">
+								<th class="px-4 py-3 font-semibold">Account</th>
+								<th class="px-4 py-3 font-semibold">Check</th>
+								<th class="px-4 py-3 font-semibold">Result</th>
+								<th class="px-4 py-3 font-semibold">Detail</th>
+							</tr>
+						</thead>
+						<tbody>
+							{testResults.flatMap((row) =>
+								row.steps.map(([label, pass, detail], i) => (
+									<tr class="border-b border-grey-100 last:border-0">
+										<td class="px-4 py-3">{i === 0 ? row.email : ""}</td>
+										<td class="px-4 py-3">{label}</td>
+										<td class="px-4 py-3">
+											<span class={`rounded-full px-2.5 py-1 text-xs font-bold uppercase ${pass ? "bg-accent-success/10 text-accent-success" : "bg-accent-alert/10 text-accent-alert"}`}>
+												{pass ? "Pass" : "Fail"}
+											</span>
+										</td>
+										<td class="px-4 py-3"><code class="text-xs text-grey-600">{detail}</code></td>
+									</tr>
+								)),
+							)}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		)}
+
+		<form method="POST" class="mt-10">
+			<input type="hidden" name="intent" value="save_settings" />
+
+			<h2 class="text-xl font-bold text-primary-900">Agents</h2>
+			<p class="mt-1 text-sm text-grey-600">Each connected Google account is one bookable agent. Customers see the label, never the email.</p>
+
+			<div class="mt-4 grid gap-4 md:grid-cols-2">
+				{accounts.map((a) => (
+					<div class="rounded-2xl border border-grey-200 bg-white p-5 shadow-xs">
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<p class="font-semibold text-primary-900">{a.email}</p>
+								{a.authErrorAt ? (
+									<span class="mt-1 inline-block rounded-full bg-accent-alert/10 px-2.5 py-0.5 text-xs font-bold uppercase text-accent-alert">
+										Reconnect needed ({a.authErrorAt})
+									</span>
+								) : (
+									<span class="mt-1 inline-block rounded-full bg-accent-success/10 px-2.5 py-0.5 text-xs font-bold uppercase text-accent-success">
+										Auth OK
+									</span>
+								)}
+							</div>
+							<label class="flex items-center gap-2 text-sm font-medium text-grey-600">
+								<input type="checkbox" name={`enabled__${a.key}`} checked={a.enabled} class="size-4 accent-secondary-500" />
+								Enabled
+							</label>
+						</div>
+
+						<div class="mt-4 grid grid-cols-2 gap-3">
+							<label class="block">
+								<span class="text-xs font-semibold uppercase text-grey-500">Label (shown to customers)</span>
+								<input name={`label__${a.key}`} value={a.label} class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 text-sm focus:ring-2 focus:ring-secondary-500 outline-hidden" />
+							</label>
+							<label class="block">
+								<span class="text-xs font-semibold uppercase text-grey-500">Slot (min)</span>
+								<input name={`slot__${a.key}`} type="number" value={a.slotMinutes} class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 text-sm focus:ring-2 focus:ring-secondary-500 outline-hidden" />
+							</label>
+						</div>
+
+						<label class="mt-3 block">
+							<span class="text-xs font-semibold uppercase text-grey-500">Hours JSON</span>
+							<textarea name={`hours__${a.key}`} rows={3} class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 font-mono text-xs focus:ring-2 focus:ring-secondary-500 outline-hidden">{JSON.stringify(a.hours)}</textarea>
+						</label>
+
+						<p class="mt-3 truncate text-xs text-grey-400" title={a.calendarId}>
+							Booking calendar: <code>{a.calendarId || "— created on first booking —"}</code>
+						</p>
+					</div>
+				))}
+				{accounts.length === 0 && (
+					<p class="text-sm text-grey-500">No accounts connected yet — click "Connect Google Account" above.</p>
+				)}
+			</div>
+
+			<h2 class="mt-8 text-xl font-bold text-primary-900">Booking rules</h2>
+			<div class="mt-3 grid gap-4 rounded-2xl border border-grey-200 bg-white p-5 shadow-xs sm:grid-cols-3">
+				<label class="block">
+					<span class="text-xs font-semibold uppercase text-grey-500">Fallback phone</span>
+					<input name="fallback_phone" value={fallbackPhone} placeholder="(931) 342-4114" class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 text-sm focus:ring-2 focus:ring-secondary-500 outline-hidden" />
+					<span class="mt-1 block text-xs text-grey-400">Shown when Calendar is unreachable</span>
+				</label>
+				<label class="block">
+					<span class="text-xs font-semibold uppercase text-grey-500">Lead time (minutes)</span>
+					<input name="lead_minutes" type="number" value={leadMinutes} class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 text-sm focus:ring-2 focus:ring-secondary-500 outline-hidden" />
+				</label>
+				<label class="block">
+					<span class="text-xs font-semibold uppercase text-grey-500">Booking window (days)</span>
+					<input name="window_days" type="number" value={windowDays} class="mt-1 w-full rounded-md border border-grey-300 px-3 py-2 text-sm focus:ring-2 focus:ring-secondary-500 outline-hidden" />
+				</label>
+			</div>
+
+			<button type="submit" class="mt-6 rounded-sm bg-primary-900 px-5 py-2 font-semibold text-white transition-colors hover:bg-primary-800">
+				Save settings
+			</button>
+		</form>
+
+		<section class="mt-10">
+			<div class="flex items-center justify-between gap-4">
+				<h2 class="text-xl font-bold text-primary-900">Recent bookings</h2>
+				<a href="/api/csb/admin/export.csv" class="rounded-sm border border-grey-300 px-3 py-1.5 text-sm font-semibold text-primary-900 transition-colors hover:bg-grey-100">
+					Export CSV
+				</a>
+			</div>
+			<div class="mt-3 overflow-x-auto rounded-2xl border border-grey-200 bg-white shadow-xs">
+				<table class="w-full border-collapse text-sm">
+					<thead>
+						<tr class="border-b border-grey-200 text-left text-grey-500">
+							<th class="px-4 py-3 font-semibold">ID</th>
+							<th class="px-4 py-3 font-semibold">Created</th>
+							<th class="px-4 py-3 font-semibold">Customer</th>
+							<th class="px-4 py-3 font-semibold">Service</th>
+							<th class="px-4 py-3 font-semibold">Agent</th>
+							<th class="px-4 py-3 font-semibold">Start</th>
+							<th class="px-4 py-3 font-semibold">Status</th>
+							<th class="px-4 py-3 font-semibold">Event ID</th>
+							<th class="px-4 py-3 font-semibold">GCLID</th>
+						</tr>
+					</thead>
+					<tbody>
+						{bookings.map((r) => (
+							<tr class="border-b border-grey-100 last:border-0 hover:bg-grey-50">
+								<td class="px-4 py-3">{r.id}</td>
+								<td class="px-4 py-3 whitespace-nowrap text-grey-600">{r.createdAt}</td>
+								<td class="px-4 py-3 font-medium text-primary-900">{r.customerName}</td>
+								<td class="max-w-32 truncate px-4 py-3 text-grey-600" title={r.service}>{r.service}</td>
+								<td class="px-4 py-3 text-grey-600">{r.providerKey}</td>
+								<td class="px-4 py-3 whitespace-nowrap text-grey-600">{r.startAt}</td>
+								<td class="px-4 py-3">
+									<span class={`rounded-full px-2.5 py-1 text-xs font-bold uppercase ${STATUS_BADGE[r.status] ?? "bg-grey-100 text-grey-600"}`}>
+										{r.status}
+									</span>
+								</td>
+								<td class="max-w-40 truncate px-4 py-3" title={r.eventId}>
+									<code class="text-xs text-grey-500">{r.eventId}</code>
+								</td>
+								<td class="px-4 py-3">{r.gclid ? "yes" : ""}</td>
+							</tr>
+						))}
+						{bookings.length === 0 && (
+							<tr><td colspan="9" class="px-4 py-6 text-center text-grey-400">No bookings yet.</td></tr>
+						)}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+</Layout>

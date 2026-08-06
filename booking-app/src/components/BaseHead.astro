@@ -1,0 +1,74 @@
+---
+// src/components/BaseHead.astro
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL: string;
+//   image?: string;
+}
+
+const { title, description, canonicalURL,} = Astro.props; //image = '/placeholder-social.avif'
+
+import SeoHead from '../components/SeoHead.astro'
+// This helper ensures your URLs are always absolute (required for OG tags)
+//const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// const socialImageURL = new URL(image, Astro.url);
+---
+
+
+<script is:inline>
+  !function(w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function() {
+      q.q.push(arguments);
+    };
+    q.q = [];
+    w.oaiq = q;
+    var j = d.createElement(s);
+    j.async = 1;
+    j.src = u;
+    var f = d.getElementsByTagName(s)[0];
+    f.parentNode.insertBefore(j, f);
+  }(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+
+  oaiq("init", {
+    pixelId: "A5dysB8EYSMFAWFErK6PC3",
+    debug: false
+  });
+</script>
+<script is:inline>
+  oaiq("measure", "registration_completed", {
+    type: "customer_action",
+    amount: 0,
+    currency: "USD"
+  });
+</script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MWQVSPJ');</script>
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Preconnect to Google Calendar booking for faster scheduling link navigation -->
+<link rel="preconnect" href="https://calendar.app.google" crossorigin />
+<link rel="preconnect" href="https://calendar.google.com" crossorigin />
+<title>{title}</title>
+<meta name="author" content="Peterson Rainey">
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<meta name="twitter:description" content={description}>
+<meta name="twitter:title" content={title}>
+<meta property="og:type" content={'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL}>
+<SeoHead />
+

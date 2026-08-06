@@ -1,0 +1,684 @@
+---
+// Booking widget: 4-step flow (service -> date/time -> your info -> confirm), matching the
+// "Creekside calendar booking tool" design (claude.ai/design project c0f60b32-...,
+// Scheduler.dc.html). That file is a UX/layout mock built on a generic preview framework
+// (dc-runtime/support.js) with placeholder oklch colors and fake random availability --
+// this is a from-scratch reimplementation of its flow and visual language against the real
+// backend (src/pages/api/csb/*), using Creekside's actual brand tokens instead of the
+// mock's placeholder teal accentColor.
+import { store } from "../lib/csb/store";
+
+interface Props {
+	/**
+	 * Pin the widget to one provider's key (see /api/csb/providers for the list) and skip
+	 * the provider-choice UI entirely -- for a dedicated per-provider page. Omit to keep the
+	 * default "by provider" behavior: auto-select if only one account is connected, else show
+	 * a picker.
+	 */
+	providerKey?: string;
+}
+
+const { providerKey = "" } = Astro.props;
+const fallbackPhone = await store.getSetting("fallback_phone", "");
+---
+
+<div id="csb-booking-root" aria-live="polite" class="min-h-[24rem]"></div>
+
+<script define:vars={{ apiBase: "/api/csb", fallbackPhone, fixedProviderKey: providerKey }}>
+	(function () {
+		"use strict";
+		var root = document.getElementById("csb-booking-root");
+		if (!root) return;
+
+		/* ---- shared style tokens (Creekside brand, not the mock's placeholder teal) ---- */
+		var BTN = "rounded-sm border border-grey-300 px-4 py-2 font-semibold text-primary-900 hover:bg-grey-100 transition-colors cursor-pointer";
+		var TITLE = "text-xl font-bold text-primary-900";
+		var SUBTITLE = "mt-1 text-sm text-grey-600 mb-6";
+		var INPUT = "mt-1.5 block w-full rounded-md border border-grey-300 px-3.5 py-2.5 text-sm text-primary-900 shadow-xs focus:ring-2 focus:ring-secondary-500 outline-hidden";
+		var LABEL = "block text-sm font-semibold text-primary-900";
+		var PRIMARY_BTN = "rounded-sm bg-secondary-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-secondary-600 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer";
+		var SECONDARY_BTN = "rounded-sm border border-grey-300 px-6 py-3 text-sm font-semibold text-primary-900 hover:bg-grey-100 transition-colors cursor-pointer";
+
+		var NAV_BTN = "flex size-9 items-center justify-center rounded-full border border-grey-300 text-grey-600 hover:border-secondary-500 hover:text-secondary-500 transition-colors cursor-pointer disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-grey-300 disabled:hover:text-grey-600";
+		var DAY_CELL = "aspect-square rounded-md border border-grey-200 text-sm font-semibold text-primary-900 hover:border-secondary-500 hover:bg-secondary-50 transition-colors cursor-pointer";
+		var DAY_CELL_SELECTED = "aspect-square rounded-md border border-secondary-500 bg-secondary-500 text-sm font-semibold text-white cursor-pointer";
+		var DAY_CELL_TODAY = " ring-2 ring-secondary-300 ring-offset-1";
+		var DAY_CELL_MUTED = "aspect-square rounded-md text-sm text-grey-300";
+		var TIME_ROW = "w-full text-left rounded-md border px-4 py-2.5 text-sm font-semibold transition-colors cursor-pointer";
+		var TIME_ROW_IDLE = TIME_ROW + " border-grey-200 text-primary-900 hover:border-secondary-500 hover:bg-secondary-50";
+		var TIME_ROW_SELECTED = TIME_ROW + " border-secondary-500 bg-secondary-500 text-white";
+
+		var MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var WEEKDAY_LABELS = ["S", "M", "T", "W", "T", "F", "S"];
+		var SERVICE_OPTIONS = [
+			{ key: "google", title: "Google Ads (PPC)", desc: "Search, Shopping, and Performance Max campaign strategy." },
+			{ key: "meta", title: "Meta Ads", desc: "Facebook and Instagram acquisition campaigns." },
+		];
+		var BUDGET_OPTIONS = ["Under $10k/mo", "$10k–$30k/mo", "$30k–$60k/mo", "$60k+/mo"];
+		var STEP_LABELS = ["Service", "Date & Time", "Your Info", "Confirm"];
+
+		function daysInMonth(y, m) { return new Date(y, m, 0).getDate(); }
+		function pad2(n) { return String(n).padStart(2, "0"); }
+
+		// Display-only: the wire format (state.time, the /book payload, the API contract)
+		// stays 24h Central wall-clock ("14:30") throughout -- only how it's shown changes.
+		function formatTime12h(hhmm) {
+			var parts = hhmm.split(":").map(Number);
+			var h = parts[0], m = parts[1];
+			var ampm = h >= 12 ? "PM" : "AM";
+			var h12 = h % 12;
+			if (h12 === 0) h12 = 12;
+			return h12 + ":" + pad2(m) + " " + ampm;
+		}
+
+		/* ---- click-id capture: land -> sessionStorage -> booking (FR-24) ---- */
+		var qs = new URLSearchParams(window.location.search);
+		["gclid", "fbclid"].forEach(function (k) {
+			if (qs.get(k)) {
+				try { sessionStorage.setItem("csb_" + k, qs.get(k)); } catch (e) {}
+			}
+		});
+		function clickId(k) {
+			try { return sessionStorage.getItem("csb_" + k) || ""; } catch (e) { return ""; }
+		}
+
+		var state = {
+			providers: [],
+			provider: null,
+			step: 1,
+			services: [],
+			otherChecked: false,
+			otherText: "",
+			month: null,
+			slots: {},
+			slotMinutes: 30,
+			date: null,
+			time: null,
+			form: { name: "", email: "", phone: "", company: "", budget: "" },
+			submitting: false,
+			submitError: "",
+			result: null,
+		};
+		var now = new Date();
+		state.month = { y: now.getFullYear(), m: now.getMonth() + 1 };
+
+		function api(path, opts) {
+			return fetch(apiBase + path, opts).then(function (r) {
+				return r.json().then(function (j) {
+					return { status: r.status, body: j };
+				});
+			});
+		}
+
+		function h(tag, attrs, children) {
+			var el = document.createElement(tag);
+			Object.keys(attrs || {}).forEach(function (k) {
+				if (k === "onclick") el.addEventListener("click", attrs[k]);
+				else if (k === "onchange") el.addEventListener("change", attrs[k]);
+				else if (k === "text") el.textContent = attrs[k];
+				else el.setAttribute(k, attrs[k]);
+			});
+			(children || []).forEach(function (c) { el.appendChild(c); });
+			return el;
+		}
+
+		function fallback() {
+			root.innerHTML = "";
+			root.appendChild(
+				h("div", { class: "rounded-md bg-grey-100 p-6 text-center" }, [
+					h("p", { class: "text-grey-700", text: "Online booking is temporarily unavailable." }),
+					h("p", {
+						class: "mt-2 font-semibold text-primary-900",
+						text: fallbackPhone
+							? "Please call us at " + fallbackPhone + " to book your appointment."
+							: "Please contact us directly to book your appointment.",
+					}),
+				]),
+			);
+		}
+
+		function serviceLabel() {
+			var meta = {};
+			SERVICE_OPTIONS.forEach(function (o) { meta[o.key] = o.title; });
+			var labels = state.services.map(function (k) { return meta[k]; });
+			if (state.otherChecked && state.otherText.trim()) labels.push(state.otherText.trim());
+			return labels.length ? labels.join(", ") : "General Consultation";
+		}
+
+		/* ---- stepper header, shown above every step ---- */
+		function renderStepper() {
+			var wrap = h("div", { class: "flex items-center gap-2 mb-8 flex-wrap" });
+			STEP_LABELS.forEach(function (label, i) {
+				var num = i + 1;
+				var active = state.step === num;
+				var done = state.step > num;
+				var circleClass = "flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold " +
+					(active || done ? "bg-secondary-500 text-white" : "border border-grey-300 text-grey-500");
+				wrap.appendChild(
+					h("div", { class: "flex items-center gap-2" }, [
+						h("div", { class: circleClass, text: done ? "✓" : String(num) }),
+						h("div", { class: "text-sm " + (active ? "font-bold text-primary-900" : "text-grey-500"), text: label }),
+						i < STEP_LABELS.length - 1 ? h("div", { class: "w-6 h-px bg-grey-300 mx-1" }) : null,
+					].filter(Boolean)),
+				);
+			});
+			return wrap;
+		}
+
+		function renderShell(bodyNodes) {
+			root.innerHTML = "";
+			root.appendChild(renderStepper());
+			bodyNodes.forEach(function (n) { root.appendChild(n); });
+		}
+
+		/* ---- load providers, then land on step 1 ---- */
+		function loadProviders() {
+			api("/providers/").then(function (r) {
+				if (r.status !== 200 || !Array.isArray(r.body) || !r.body.length) return fallback();
+				state.providers = r.body;
+				if (fixedProviderKey) {
+					// Pinned to one provider (dedicated per-provider page) -- the picker never
+					// shows regardless of how many accounts are connected overall. If the pinned
+					// key isn't an active provider, there's no sensible substitute for this page.
+					var fixed = state.providers.filter(function (p) { return p.key === fixedProviderKey; })[0];
+					if (!fixed) return fallback();
+					state.provider = fixed;
+				} else if (state.providers.length === 1) {
+					state.provider = state.providers[0];
+				}
+				renderStep1();
+			}).catch(fallback);
+		}
+
+		/* ---- step 1: provider (if >1 and not pinned) + service selection ---- */
+		function renderStep1() {
+			var body = [];
+			body.push(h("h3", { class: TITLE, text: "What can we help you with?" }));
+			body.push(h("p", { class: SUBTITLE, text: "Choose the service you'd like to discuss." }));
+
+			if (!fixedProviderKey && state.providers.length > 1) {
+				body.push(h("p", { class: "text-xs font-semibold uppercase text-grey-500 mb-2", text: "Agent" }));
+				var provWrap = h("div", { class: "flex flex-wrap gap-2 mb-6" });
+				state.providers.forEach(function (p) {
+					provWrap.appendChild(
+						h("button", {
+							class: state.provider && state.provider.key === p.key ? "rounded-sm border border-secondary-500 bg-secondary-500 px-4 py-2 text-sm font-semibold text-white cursor-pointer" : BTN,
+							text: p.label,
+							onclick: function () { state.provider = p; renderStep1(); },
+						}),
+					);
+				});
+				body.push(provWrap);
+			}
+
+			var grid = h("div", { class: "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6" });
+			SERVICE_OPTIONS.forEach(function (opt) {
+				var selected = state.services.indexOf(opt.key) !== -1;
+				grid.appendChild(
+					h("div", {
+						class: "flex gap-3 cursor-pointer rounded-md border p-4 transition-colors " +
+							(selected ? "border-secondary-500 bg-secondary-50" : "border-grey-200 hover:border-grey-300"),
+						onclick: function () {
+							state.services = selected ? state.services.filter(function (k) { return k !== opt.key; }) : state.services.concat(opt.key);
+							renderStep1();
+						},
+					}, [
+						h("div", {
+							class: "mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded border text-[10px] font-bold text-white " +
+								(selected ? "border-secondary-500 bg-secondary-500" : "border-grey-300 bg-white"),
+							text: selected ? "✓" : "",
+						}),
+						h("div", {}, [
+							h("div", { class: "text-sm font-bold " + (selected ? "text-secondary-600" : "text-primary-900"), text: opt.title }),
+							h("div", { class: "mt-1 text-xs text-grey-500", text: opt.desc }),
+						]),
+					]),
+				);
+			});
+
+			var otherWrap = h("div", {
+				class: "flex flex-col gap-3 cursor-pointer rounded-md border p-4 transition-colors " +
+					(state.otherChecked ? "border-secondary-500 bg-secondary-50" : "border-grey-200 hover:border-grey-300"),
+				onclick: function () { state.otherChecked = !state.otherChecked; renderStep1(); },
+			});
+			otherWrap.appendChild(
+				h("div", { class: "flex gap-3" }, [
+					h("div", {
+						class: "mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded border text-[10px] font-bold text-white " +
+							(state.otherChecked ? "border-secondary-500 bg-secondary-500" : "border-grey-300 bg-white"),
+						text: state.otherChecked ? "✓" : "",
+					}),
+					h("div", {}, [
+						h("div", { class: "text-sm font-bold " + (state.otherChecked ? "text-secondary-600" : "text-primary-900"), text: "Other" }),
+						h("div", { class: "mt-1 text-xs text-grey-500", text: "Something else on your mind? Tell us about it below." }),
+					]),
+				]),
+			);
+			if (state.otherChecked) {
+				var otherInput = h("input", { class: INPUT, placeholder: "Tell us what you need", value: state.otherText });
+				otherInput.addEventListener("click", function (e) { e.stopPropagation(); });
+				otherInput.addEventListener("input", function (e) {
+					state.otherText = e.target.value;
+					// Update the Continue button in place rather than a full re-render, so typing
+					// doesn't steal focus/cursor position out of this input.
+					var stillHasSelection = state.services.length > 0 || state.otherText.trim().length > 0;
+					if (continueBtn) continueBtn.disabled = !stillHasSelection || needsProvider;
+				});
+				otherWrap.appendChild(otherInput);
+			}
+			grid.appendChild(otherWrap);
+			body.push(grid);
+
+			var hasSelection = state.services.length > 0 || (state.otherChecked && state.otherText.trim().length > 0);
+			var needsProvider = state.providers.length > 1 && !state.provider;
+			var continueBtn = h("button", {
+				class: PRIMARY_BTN,
+				text: "Continue",
+				onclick: function () { if (hasSelection && !needsProvider) goToStep2(); },
+			});
+			if (!hasSelection || needsProvider) continueBtn.setAttribute("disabled", "disabled");
+			body.push(continueBtn);
+
+			renderShell(body);
+		}
+
+		/* ---- step 2: calendar + slots ---- */
+		function goToStep2() {
+			state.step = 2;
+			root.innerHTML = "";
+			root.appendChild(renderStepper());
+			root.appendChild(h("p", { class: "text-grey-600", text: "Loading availability…" }));
+			loadFirstAvailableMonth(state.month.y, state.month.m, 0);
+		}
+
+		// Only used for the initial landing on step 2: walks forward from the current month
+		// until it finds one with any open day, then pre-selects that day so times are ready
+		// immediately -- avoids landing on "No availability this month" when this month (or
+		// several) are already fully booked. Manual ‹ › browsing (loadMonth, below) does NOT
+		// auto-skip -- a user who deliberately navigates to an empty month should just see
+		// that, not get redirected out from under them.
+		var MAX_MONTH_LOOKAHEAD = 6;
+		function loadFirstAvailableMonth(y, m, monthsChecked) {
+			api("/availability/?provider=" + encodeURIComponent(state.provider.key) + "&year=" + y + "&month=" + m)
+				.then(function (r) {
+					if (r.status !== 200) return fallback();
+					var slots = r.body.slots || {};
+					var days = Object.keys(slots).sort();
+					if (!days.length && monthsChecked < MAX_MONTH_LOOKAHEAD) {
+						var nm = m + 1, ny = y;
+						if (nm > 12) { nm = 1; ny++; }
+						return loadFirstAvailableMonth(ny, nm, monthsChecked + 1);
+					}
+					state.month = { y: y, m: m };
+					state.slots = slots;
+					state.slotMinutes = r.body.slot_minutes || 30;
+					if (days.length) state.date = days[0];
+					renderStep2();
+				})
+				.catch(fallback);
+		}
+
+		function loadMonth() {
+			api("/availability/?provider=" + encodeURIComponent(state.provider.key) + "&year=" + state.month.y + "&month=" + state.month.m)
+				.then(function (r) {
+					if (r.status !== 200) return fallback();
+					state.slots = r.body.slots || {};
+					state.slotMinutes = r.body.slot_minutes || 30;
+					renderStep2();
+				})
+				.catch(fallback);
+		}
+
+		function renderStep2() {
+			var body = [];
+			body.push(h("h3", { class: TITLE, text: "Pick a date & time" }));
+			body.push(h("p", { class: SUBTITLE, text: "All times shown in America/Chicago." }));
+
+			var row = h("div", { class: "flex flex-wrap gap-8 mb-6" });
+
+			/* calendar column */
+			var calCol = h("div", { class: "flex-1 min-w-[280px]" });
+			var today = new Date();
+			var canGoBack = !(state.month.y === today.getFullYear() && state.month.m === today.getMonth() + 1);
+			var prevAttrs = { class: NAV_BTN, text: "‹", onclick: function () { shiftMonth(-1); }, "aria-label": "Previous month" };
+			if (!canGoBack) prevAttrs.disabled = "disabled";
+			calCol.appendChild(
+				h("div", { class: "flex items-center justify-between mb-3" }, [
+					h("button", prevAttrs),
+					h("span", { class: "text-sm font-bold text-primary-900", text: MONTH_NAMES[state.month.m - 1] + " " + state.month.y }),
+					h("button", { class: NAV_BTN, text: "›", onclick: function () { shiftMonth(1); }, "aria-label": "Next month" }),
+				]),
+			);
+			var weekdayRow = h("div", { class: "grid grid-cols-7 gap-1 mb-1" });
+			WEEKDAY_LABELS.forEach(function (w) {
+				weekdayRow.appendChild(h("div", { class: "text-center text-xs font-semibold uppercase text-grey-400", text: w }));
+			});
+			calCol.appendChild(weekdayRow);
+
+			var numDays = daysInMonth(state.month.y, state.month.m);
+			var firstDow = new Date(state.month.y, state.month.m - 1, 1).getDay();
+			var isCurrentMonth = state.month.y === today.getFullYear() && state.month.m === today.getMonth() + 1;
+			var todayDate = today.getDate();
+			var grid = h("div", { class: "grid grid-cols-7 gap-1" });
+			for (var i = 0; i < firstDow; i++) grid.appendChild(h("div", {}));
+			var hasAnySlots = false;
+			for (var day = 1; day <= numDays; day++) {
+				var dStr = state.month.y + "-" + pad2(state.month.m) + "-" + pad2(day);
+				var hasSlots = !!(state.slots[dStr] && state.slots[dStr].length);
+				var isToday = isCurrentMonth && day === todayDate;
+				if (hasSlots) {
+					hasAnySlots = true;
+					var cls = (state.date === dStr ? DAY_CELL_SELECTED : DAY_CELL) + (isToday ? DAY_CELL_TODAY : "");
+					grid.appendChild(
+						h("button", {
+							class: cls,
+							text: String(day),
+							onclick: (function (d) { return function () { state.date = d; state.time = null; renderStep2(); }; })(dStr),
+						}),
+					);
+				} else {
+					grid.appendChild(h("div", { class: DAY_CELL_MUTED + (isToday ? DAY_CELL_TODAY : ""), text: String(day) }));
+				}
+			}
+			calCol.appendChild(grid);
+			if (!hasAnySlots) calCol.appendChild(h("p", { class: "mt-4 text-sm text-grey-600", text: "No availability this month — try the next month." }));
+			body.push(row);
+			row.appendChild(calCol);
+
+			/* times column */
+			var timeCol = h("div", { class: "flex-1 min-w-[220px]" });
+			timeCol.appendChild(
+				h("div", { class: "text-xs font-bold uppercase text-grey-500 mb-3", text: state.date ? "Available times — " + state.date : "Available times" }),
+			);
+			if (state.date && state.slots[state.date] && state.slots[state.date].length) {
+				var list = h("div", { class: "flex flex-col gap-2 max-h-80 overflow-y-auto pr-1" });
+				state.slots[state.date].forEach(function (t) {
+					list.appendChild(
+						h("button", {
+							class: state.time === t ? TIME_ROW_SELECTED : TIME_ROW_IDLE,
+							text: formatTime12h(t),
+							onclick: function () { state.time = t; renderStep2(); },
+						}),
+					);
+				});
+				timeCol.appendChild(list);
+			} else {
+				timeCol.appendChild(h("div", { class: "rounded-md border border-dashed border-grey-300 p-3 text-sm text-grey-500", text: "Select a date to see available times." }));
+			}
+			row.appendChild(timeCol);
+
+			var actions = h("div", { class: "flex gap-3" }, [
+				h("button", { class: SECONDARY_BTN, text: "Back", onclick: renderStep1 }),
+				(function () {
+					var canContinue = !!(state.date && state.time);
+					var btn = h("button", { class: PRIMARY_BTN, text: "Continue", onclick: function () { if (canContinue) { state.step = 3; renderStep3(); } } });
+					if (!canContinue) btn.setAttribute("disabled", "disabled");
+					return btn;
+				})(),
+			]);
+			body.push(actions);
+
+			renderShell(body);
+		}
+
+		function shiftMonth(delta) {
+			var m = state.month.m + delta, y = state.month.y;
+			if (m < 1) { m = 12; y--; }
+			if (m > 12) { m = 1; y++; }
+			var today = new Date();
+			if (y < today.getFullYear() || (y === today.getFullYear() && m < today.getMonth() + 1)) return;
+			state.month = { y: y, m: m };
+			state.date = null;
+			state.time = null;
+			loadMonth();
+		}
+
+		/* ---- step 3: your info ---- */
+		function renderStep3() {
+			var body = [];
+			body.push(h("h3", { class: TITLE, text: "Your information" }));
+			body.push(h("p", { class: SUBTITLE, text: serviceLabel() + " · " + state.date + " at " + formatTime12h(state.time) }));
+
+			var form = h("form", {});
+			var grid = h("div", { class: "grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2" });
+
+			// name/autocomplete are load-bearing, not decorative: without them autofill has to
+			// guess what belongs in an unlabeled input, which is what was producing garbled
+			// autofill behavior here. Giving the browser/password-manager the real semantics
+			// makes it fill these correctly instead of guessing.
+			//
+			// Fields are read live from the DOM at submit time (below), not from state kept in
+			// sync via 'input' listeners -- autofill (confirmed: Bitwarden) doesn't reliably
+			// fire 'input' events when it fills a field, so JS state can silently stay empty
+			// even though the field visually shows a value, permanently blocking submission.
+			// Native `required` attributes are the actual gate now: the browser's own
+			// constraint validation reads the field's real current value, autofilled or not.
+			var AUTOCOMPLETE = { name: "name", email: "email", phone: "tel", company: "organization" };
+			var fieldInputs = {};
+
+			function field(labelText, key, type, required, placeholder) {
+				var wrap = h("div", {});
+				wrap.appendChild(h("label", { class: LABEL, text: labelText + (required ? " *" : "") }));
+				var attrs = {
+					class: INPUT,
+					type: type,
+					name: key,
+					autocomplete: AUTOCOMPLETE[key] || "off",
+					value: state.form[key],
+					placeholder: placeholder || "",
+				};
+				if (required) attrs.required = "required";
+				var input = h("input", attrs);
+				wrap.appendChild(input);
+				fieldInputs[key] = input;
+				return wrap;
+			}
+
+			grid.appendChild(field("Full name", "name", "text", true, "Jane Smith"));
+			grid.appendChild(field("Email", "email", "email", true, "jane@company.com"));
+			grid.appendChild(field("Phone", "phone", "tel", true, "(555) 123-4567"));
+			grid.appendChild(field("Company", "company", "text", false, "Acme Co."));
+
+			var budgetWrap = h("div", {});
+			budgetWrap.appendChild(h("label", { class: LABEL, text: "Monthly ad spend" }));
+			var select = h("select", { class: INPUT });
+			select.appendChild(h("option", { value: "", text: "—" }));
+			BUDGET_OPTIONS.forEach(function (b) {
+				var opt = h("option", { value: b, text: b });
+				if (state.form.budget === b) opt.setAttribute("selected", "selected");
+				select.appendChild(opt);
+			});
+			budgetWrap.appendChild(select);
+			grid.appendChild(budgetWrap);
+
+			form.appendChild(grid);
+
+			// Honeypot -- hidden from humans. display:none is the one CSS property that
+			// reliably survives password-manager autofill overlays (confirmed: Bitwarden),
+			// which otherwise fill anything merely positioned off-screen.
+			var hpWrap = h("div", { style: "display:none;", "aria-hidden": "true" });
+			var hpInput = h("input", { tabindex: "-1", autocomplete: "off" });
+			hpWrap.appendChild(hpInput);
+			form.appendChild(hpWrap);
+
+			var err = h("p", { class: "mt-3 text-sm font-semibold text-accent-alert", text: state.submitError });
+			form.appendChild(err);
+
+			var actions = h("div", { class: "flex gap-3" }, [
+				h("button", { class: SECONDARY_BTN, type: "button", text: "Back", onclick: function () { renderStep2(); } }),
+				h("button", { class: PRIMARY_BTN, type: "submit", text: state.submitting ? "Booking…" : "Confirm Booking" }),
+			]);
+			form.appendChild(actions);
+
+			form.addEventListener("submit", function (e) {
+				e.preventDefault();
+				if (state.submitting) return;
+				// Read live DOM values now -- see the note above on why this can't trust
+				// per-keystroke state sync when autofill is involved.
+				state.form.name = fieldInputs.name.value;
+				state.form.email = fieldInputs.email.value;
+				state.form.phone = fieldInputs.phone.value;
+				state.form.company = fieldInputs.company.value;
+				state.form.budget = select.value;
+				if (!state.form.name || !state.form.email || !state.form.phone) return;
+				state.submitting = true;
+				state.submitError = "";
+				renderStep3();
+				api("/book/", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						provider: state.provider.key,
+						date: state.date,
+						time: state.time,
+						name: state.form.name,
+						phone: state.form.phone,
+						email: state.form.email,
+						service: serviceLabel(),
+						company: state.form.company,
+						budget: state.form.budget,
+						website: hpInput.value,
+						gclid: clickId("gclid"),
+						fbclid: clickId("fbclid"),
+					}),
+				}).then(function (r) {
+					state.submitting = false;
+					// transaction_id (the real Google event id) must be present -- never trust a
+					// bare {ok:true} alone as a confirmed booking (that's also what the honeypot's
+					// bot-absorb response looks like, and a conversion must never fire on that).
+					if (r.status === 200 && r.body.ok && r.body.transaction_id) {
+						state.result = r.body;
+						confirmed();
+						return;
+					}
+					if (r.status === 409 && r.body.code === "csb_slot_taken") {
+						state.submitError = "Sorry — that time was just taken. Please pick another.";
+						state.date = null;
+						state.time = null;
+						renderStep3();
+						setTimeout(function () { renderStep2(); loadMonth(); }, 1200);
+					} else if (r.status === 409) {
+						state.submitError = "It looks like you already booked this time.";
+						renderStep3();
+					} else if (r.status === 429) {
+						state.submitError = "Too many attempts — please wait a few minutes.";
+						renderStep3();
+					} else if (r.status === 503) {
+						fallback();
+					} else {
+						state.submitError = "Please check your details and try again.";
+						renderStep3();
+					}
+				}).catch(function () {
+					state.submitting = false;
+					fallback();
+				});
+			});
+
+			body.push(form);
+			renderShell(body);
+		}
+
+		/* ---- step 4: confirmation + conversion (FR-25) + ICS download ---- */
+
+		// RFC 5545 TEXT escaping: backslash, semicolon, comma and newlines are all structural
+		// in ICS and must be escaped inside a value. This isn't a rare edge case here --
+		// serviceLabel() joins multiple selections with ", ", so ANY booking that picks two
+		// services emits a raw comma, which strict parsers read as a value-list separator.
+		// Customer names ("Smith, Jr.") and free-text "Other" input hit it too.
+		function icsText(s) {
+			return String(s)
+				.replace(/\\/g, "\\\\")
+				.replace(/;/g, "\\;")
+				.replace(/,/g, "\\,")
+				.replace(/\r?\n/g, "\\n");
+		}
+
+		function buildIcsHref() {
+			var parts = state.date.split("-").map(Number);
+			var y = parts[0], mo = parts[1], d = parts[2];
+			var tparts = state.time.split(":").map(Number);
+			var h24 = tparts[0], m = tparts[1];
+			var start = y + pad2(mo) + pad2(d) + "T" + pad2(h24) + pad2(m) + "00";
+			var endM = m + state.slotMinutes, endH = h24;
+			while (endM >= 60) { endM -= 60; endH += 1; }
+			var end = y + pad2(mo) + pad2(d) + "T" + pad2(endH) + pad2(endM) + "00";
+			// Floating local time, no TZID -- a convenience download for the customer's own
+			// calendar app. The authoritative event (with correct America/Chicago offset)
+			// already exists on the provider's Google Calendar via the API.
+			var summary = serviceLabel() + " Consultation";
+			var ics = [
+				"BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT",
+				"DTSTART:" + start, "DTEND:" + end,
+				"SUMMARY:" + icsText(summary),
+				"DESCRIPTION:" + icsText("Consultation booked for " + state.form.name),
+				"END:VEVENT", "END:VCALENDAR",
+			].join("\r\n");
+			return "data:text/calendar;charset=utf8," + encodeURIComponent(ics);
+		}
+
+		function confirmed() {
+			var b = state.result;
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				event: "booking_confirmed",
+				transaction_id: b.transaction_id, // Google Calendar event ID -- dedup key
+				provider: b.provider,
+				service: b.service,
+				appointment_date: b.date,
+				booking_source: "website",
+				gclid: clickId("gclid"),
+				fbclid: clickId("fbclid"),
+				user_data: { sha256_email_address: b.em, sha256_phone_number: b.ph },
+			});
+			state.step = 4;
+			renderStep4();
+		}
+
+		function renderStep4() {
+			var b = state.result;
+			var body = [];
+			var card = h("div", { class: "max-w-md" });
+			card.appendChild(h("div", { class: "flex size-11 items-center justify-center rounded-full bg-secondary-500 text-white text-lg font-bold mb-4", text: "✓" }));
+			card.appendChild(h("h3", { class: "text-xl font-bold text-primary-900 mb-1", text: "You're booked" }));
+			card.appendChild(h("p", { class: "text-sm text-grey-600 mb-5", text: "A calendar invitation has been sent to " + state.form.email + "." }));
+
+			var summary = h("div", { class: "rounded-md border border-grey-200 p-5 mb-6 flex flex-col gap-2.5" });
+			[["Service", b.service || serviceLabel()], ["Date", b.date], ["Time", formatTime12h(b.time)], ["Name", state.form.name]].forEach(function (row) {
+				summary.appendChild(
+					h("div", { class: "flex justify-between text-sm" }, [
+						h("span", { class: "text-grey-500", text: row[0] }),
+						h("span", { class: "font-semibold text-primary-900", text: row[1] }),
+					]),
+				);
+			});
+			card.appendChild(summary);
+
+			var actions = h("div", { class: "flex flex-wrap gap-3" }, [
+				h("a", { class: SECONDARY_BTN, href: buildIcsHref(), download: "consultation.ics", text: "Add to Calendar" }),
+				h("button", { class: PRIMARY_BTN, text: "Book Another", onclick: resetAll }),
+			]);
+			card.appendChild(actions);
+
+			body.push(card);
+			renderShell(body);
+		}
+
+		function resetAll() {
+			state.step = 1;
+			state.services = [];
+			state.otherChecked = false;
+			state.otherText = "";
+			state.date = null;
+			state.time = null;
+			state.form = { name: "", email: "", phone: "", company: "", budget: "" };
+			state.submitError = "";
+			state.result = null;
+			var n = new Date();
+			state.month = { y: n.getFullYear(), m: n.getMonth() + 1 };
+			renderStep1();
+		}
+
+		loadProviders();
+	})();
+</script>

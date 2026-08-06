@@ -1,0 +1,34 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+const { title, description, canonicalURL, schema, faqSchema, showPopup = true } = Astro.props; // image
+import JsonLd from '../components/JsonLd.astro';
+import Popup from "../components/Popup.astro"
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+    <BaseHead title={title} description={description} canonicalURL={canonicalURL}/>
+	{schema && <JsonLd data={schema} />}
+	{faqSchema && <JsonLd data={faqSchema} />}
+	<link rel="preconnect" href="https://images.leadconnectorhq.com" crossorigin>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.min.js"></script>
+<link
+  rel="preload"
+  as="image"
+  href="https://images.leadconnectorhq.com/image/f_webp/q_85/r_1000/u_https://storage.googleapis.com/highlevel-backend.appspot.com/location/pNy8KMWRuGF2sGihGTMo/form/8As7Tl468YopNi5PJw9G/a606dafa-ec2c-444c-92db-b8ba03511e24.png"
+  crossorigin
+>
+  </head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWQVSPJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->	
+		<slot />
+		{showPopup && <Popup />}
+	</body>
+</html>
+
+

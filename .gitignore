@@ -17,6 +17,14 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Creekside Booking local dev DB (customer PII + encrypted tokens — never commit)
+data/
+
+# local Claude Code tooling (agent skills, not part of the deliverable)
+.claude/
+.agents/
+skills-lock.json
+
 # macOS-specific files
 .DS_Store
 

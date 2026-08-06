@@ -14,6 +14,11 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
   site: 'https://creeksidemarketingpros.com/',
+  // Fully static, no adapter -- Jonathan's deploy pipeline builds this locally and serves
+  // the committed dist/ as plain files via Apache, with no Node process running at all.
+  // The booking widget/admin/API routes that used to need on-demand rendering here have
+  // moved to booking-app/ (its own project, deployed separately to Vercel) precisely so
+  // this site can stay 100% static -- see booking-app/README or ../HANDOVER.md.
   vite: {
     plugins: [tailwindcss()],
   },
