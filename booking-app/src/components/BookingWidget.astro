@@ -580,6 +580,20 @@ const fallbackPhone = await store.getSetting("fallback_phone", "");
 		}
 
 		/* ---- step 4: confirmation + conversion (FR-25) + ICS download ---- */
+
+		// RFC 5545 TEXT escaping: backslash, semicolon, comma and newlines are all structural
+		// in ICS and must be escaped inside a value. This isn't a rare edge case here --
+		// serviceLabel() joins multiple selections with ", ", so ANY booking that picks two
+		// services emits a raw comma, which strict parsers read as a value-list separator.
+		// Customer names ("Smith, Jr.") and free-text "Other" input hit it too.
+		function icsText(s) {
+			return String(s)
+				.replace(/\\/g, "\\\\")
+				.replace(/;/g, "\\;")
+				.replace(/,/g, "\\,")
+				.replace(/\r?\n/g, "\\n");
+		}
+
 		function buildIcsHref() {
 			var parts = state.date.split("-").map(Number);
 			var y = parts[0], mo = parts[1], d = parts[2];
@@ -596,8 +610,8 @@ const fallbackPhone = await store.getSetting("fallback_phone", "");
 			var ics = [
 				"BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT",
 				"DTSTART:" + start, "DTEND:" + end,
-				"SUMMARY:" + summary,
-				"DESCRIPTION:Consultation booked for " + state.form.name,
+				"SUMMARY:" + icsText(summary),
+				"DESCRIPTION:" + icsText("Consultation booked for " + state.form.name),
 				"END:VEVENT", "END:VCALENDAR",
 			].join("\r\n");
 			return "data:text/calendar;charset=utf8," + encodeURIComponent(ics);

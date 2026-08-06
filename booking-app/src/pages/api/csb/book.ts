@@ -84,6 +84,14 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 
 	const start = wallClockToInstant(date, time);
+	// DATE_RE/TIME_RE only check shape, not that the date exists -- "2026-02-30" and
+	// "2026-09-20 25:99" both match and both yield an Invalid Date. That can't be caught by
+	// the past-check below either, since every comparison against NaN is false. Left
+	// unguarded it survives all the way to toRfc3339()'s toISOString(), which throws inside
+	// the slotIsFree try/catch and surfaces as a misleading 503 "Calendar unavailable".
+	if (Number.isNaN(start.getTime())) {
+		return errorResponse("csb_bad_request", "Invalid date or time", 400);
+	}
 	const end = new Date(start.getTime() + Math.max(5, account.slotMinutes) * 60_000);
 	if (start < new Date()) {
 		return errorResponse("csb_bad_request", "Slot is in the past", 400);

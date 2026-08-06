@@ -320,6 +320,22 @@ All four fixes verified with a real build (`npm run build` + `npm run start`, no
 dev`) — providers, admin auth gating, a real form-based "Test connection" submission, a real
 booking, and a booking with formula-shaped input all confirmed working correctly afterward.
 
+**Second review pass (2026-08-06), focused on the Google API contract and slot logic.** Three
+more real bugs, the first of which is the most serious one found in the project so far:
+
+| Bug | Fix |
+| :-- | :-- |
+| **`freebusy` failed OPEN on an unreadable calendar — a hole straight through invariant #6.** Google returns **HTTP 200** when it can't read a requested calendar; the failure appears only as a per-calendar `errors` array alongside an empty `busy` list. Both `slotIsFree()` and `slotsForMonth()` only looked at `busy`, so an unreadable calendar was indistinguishable from a completely open one. If the booking calendar ever became unreadable (deleted in Google Calendar, permissions changed, stale id after a reconnect), **every existing appointment on it would go invisible and the app would book straight over the top of them** — silently, with no error anywhere. Verified against the live API, not assumed: an unreadable calendar returns `{errors:[{domain:"global",reason:"notFound"}], busy:[]}` with status 200. | Added `freebusyErrors()` in `availability.ts`. Both call sites now throw when any calendar reports an error, so the customer gets the "call us" fallback rather than availability computed from an incomplete busy picture. `slotIsFree()` deliberately throws rather than returning `false` — `false` would tell the customer "that time was just taken, pick another" and loop them through slots that all fail identically. |
+| **ICS export produced malformed calendar files.** RFC 5545 requires escaping `\`, `;`, `,` and newlines inside TEXT values. `serviceLabel()` joins multiple selections with `", "`, so **any booking selecting two services** emitted a raw comma into `SUMMARY` — which strict parsers read as a value-list separator. Customer names ("Smith, Jr.") and free-text "Other" input hit it too. | Added an `icsText()` escaper applied to `SUMMARY` and `DESCRIPTION`. |
+| **Malformed-but-well-shaped dates surfaced as a misleading 503.** `DATE_RE`/`TIME_RE` only check shape, so `2026-02-30` (a nonexistent date that matches the regex perfectly) and `25:99` both produced an `Invalid Date`. The past-check couldn't catch it either, since every comparison against `NaN` is false. It survived to `toRfc3339()`'s `toISOString()`, which threw inside the `slotIsFree` try/catch and surfaced as "Calendar unavailable" — pointing at Google for what was really a bad request. | Explicit `Number.isNaN(start.getTime())` guard returning a 400 before any of that. |
+
+The fail-open fix was verified by **actually inducing the failure**, not just reading code:
+temporarily repointed the connected account at an unreadable calendar id, restarted (to clear
+the 60s in-memory cache), and confirmed `/availability` and `/book` both return 503 where they
+previously would have advertised a full month of bogus slots and accepted a booking against
+them. Real calendar id restored and normal operation re-verified afterward (September
+correctly shows 12 bookable days, 09-01 → 09-16, matching the 42-day booking window).
+
 ---
 
 ## 8. Before this goes live
