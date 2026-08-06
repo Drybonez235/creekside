@@ -7,8 +7,15 @@ const TTL_MS = 10 * 60 * 1000;
 const pending = new Map<string, number>(); // state -> expiry ms
 
 export function createState(): string {
+	const now = Date.now();
+	// Sweep expired nonces. Abandoned flows (admin clicks "Connect Google Account", then
+	// closes the tab) otherwise leave their entry behind forever -- this is a long-lived
+	// process, so nothing reclaims them on its own.
+	for (const [k, expiry] of pending) {
+		if (expiry <= now) pending.delete(k);
+	}
 	const state = crypto.randomBytes(24).toString("hex");
-	pending.set(state, Date.now() + TTL_MS);
+	pending.set(state, now + TTL_MS);
 	return state;
 }
 

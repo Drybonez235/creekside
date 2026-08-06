@@ -6,6 +6,7 @@
 // in-memory (~55 min; Google issues 60-min tokens) — mirrors the in-memory rate-limit
 // pattern already used elsewhere in this repo (src/lib/antibot.ts).
 
+import crypto from "node:crypto";
 import { store, type CsbAccount } from "./store";
 import { baseUrl, CSB_TZ, googleClientId, googleClientSecret } from "./constants";
 import { decrypt } from "./accounts";
@@ -50,6 +51,8 @@ export class CsbApiError extends Error {
 	constructor(
 		message: string,
 		public response?: unknown,
+		/** HTTP status, when the failure came from an API response rather than a throw. */
+		public status?: number,
 	) {
 		super(message);
 		this.name = "CsbApiError";
@@ -102,9 +105,25 @@ export async function accessToken(account: CsbAccount): Promise<string> {
 	});
 	const body = safeJson(await res.text());
 	if (!body?.access_token) {
-		// Likely a revoked refresh token — surface for admin attention (NFR-3).
-		await store.saveAccount({ ...account, authErrorAt: new Date().toISOString() });
-		throw new CsbApiError(`Access token refresh failed for ${account.key}`);
+		// Only flag the account as needing a reconnect when Google actually says the grant is
+		// dead. `invalid_grant` is the specific signal for a revoked/expired refresh token
+		// (NFR-3); a 5xx or a network blip from the token endpoint is transient and must NOT
+		// raise the same alarm, or one bad minute leaves a permanent "Reconnect needed" badge
+		// on a perfectly healthy account and sends someone re-doing OAuth for nothing.
+		if (body?.error === "invalid_grant") {
+			await store.saveAccount({ ...account, authErrorAt: new Date().toISOString() });
+		}
+		throw new CsbApiError(
+			`Access token refresh failed for ${account.key}${body?.error ? ` (${body.error})` : ""}`,
+		);
+	}
+	// Recovery clears the flag. Nothing else does -- previously authErrorAt was only ever
+	// reset by a full reconnect through the OAuth callback, so a single transient failure
+	// left the admin page claiming a reconnect was needed indefinitely, even once the account
+	// was demonstrably working again.
+	if (account.authErrorAt) {
+		account.authErrorAt = null;
+		await store.saveAccount(account);
 	}
 	tokenCache.set(account.key, {
 		token: body.access_token,
@@ -148,7 +167,7 @@ export async function apiRequest(
 	const text = await res.text();
 	const data = safeJson(text);
 	if (res.status >= 400) {
-		throw new CsbApiError(`Calendar API ${res.status} on ${path}`, data ?? text);
+		throw new CsbApiError(`Calendar API ${res.status} on ${path}`, data ?? text, res.status);
 	}
 	return data;
 }
@@ -211,7 +230,20 @@ export async function createEvent(
 	if (args.company) descriptionLines.push(`Company: ${args.company}`);
 	if (args.budget) descriptionLines.push(`Monthly ad spend: ${args.budget}`);
 
+	// Client-generated id, which is what makes this insert idempotent and therefore safe to
+	// retry. apiRequest() retries 5xx/429, and events.insert is NOT naturally idempotent: if
+	// the first attempt actually created the event but its response was lost (the classic
+	// "succeeded but you didn't hear about it" case), a blind retry creates a SECOND calendar
+	// event -- a real duplicate booking on both the provider's and the customer's calendar,
+	// with only one of them recorded in the reconciliation log. Sending an explicit id means
+	// the retry collides with the first write and Google rejects it as a duplicate instead.
+	//
+	// Google requires ids in the base32hex alphabet (lowercase a-v plus 0-9), 5-1024 chars;
+	// a hex string is a strict subset of that, and "csb" is likewise all within a-v.
+	const eventId = `csb${crypto.randomBytes(16).toString("hex")}`;
+
 	const event = {
+		id: eventId,
 		summary: `Booking: ${args.customerName}${args.service ? " — " + args.service : ""}`,
 		description: descriptionLines.join("\n"),
 		start: { dateTime: args.startRfc3339, timeZone: CSB_TZ },
@@ -226,12 +258,20 @@ export async function createEvent(
 			},
 		},
 	};
-	return apiRequest(
-		account,
-		"POST",
-		`/calendars/${encodeURIComponent(calendarId)}/events?sendUpdates=all`,
-		event,
-	);
+
+	const eventsPath = `/calendars/${encodeURIComponent(calendarId)}/events`;
+	try {
+		return await apiRequest(account, "POST", `${eventsPath}?sendUpdates=all`, event);
+	} catch (err) {
+		// 409 here means this exact id already exists — i.e. an earlier attempt in this same
+		// call DID succeed and we're seeing the retry collide with it. That's success, not
+		// failure: read the event back so the caller still gets its id/iCalUID for the
+		// reconciliation row and the conversion event.
+		if (err instanceof CsbApiError && err.status === 409) {
+			return await apiRequest(account, "GET", `${eventsPath}/${encodeURIComponent(eventId)}`);
+		}
+		throw err;
+	}
 }
 
 function safeJson(text: string): any {

@@ -25,15 +25,19 @@ if (Astro.request.method === "POST") {
 	const intent = form.get("intent");
 
 	if (intent === "save_settings") {
+		// Math.max(0, NaN) is NaN, so a non-numeric value here used to persist the literal
+		// string "NaN" -- which reads back as NaN and, because every comparison against NaN
+		// is false, silently switched OFF the lead time and booking window rather than
+		// erroring. The number inputs make this hard to hit from the rendered form, but not
+		// from a hand-built POST. Fall back to the documented default instead.
+		const numSetting = (raw: FormDataEntryValue | null, min: number, fallback: number) => {
+			const n = Number(raw ?? fallback);
+			return String(Math.max(min, Number.isFinite(n) ? n : fallback));
+		};
+
 		await store.setSetting("fallback_phone", String(form.get("fallback_phone") ?? ""));
-		await store.setSetting(
-			"lead_minutes",
-			String(Math.max(0, Number(form.get("lead_minutes") ?? 60))),
-		);
-		await store.setSetting(
-			"window_days",
-			String(Math.max(1, Number(form.get("window_days") ?? 42))),
-		);
+		await store.setSetting("lead_minutes", numSetting(form.get("lead_minutes"), 0, 60));
+		await store.setSetting("window_days", numSetting(form.get("window_days"), 1, 42));
 
 		for (const a of await store.getAccounts()) {
 			const label = form.get(`label__${a.key}`);

@@ -336,6 +336,21 @@ previously would have advertised a full month of bogus slots and accepted a book
 them. Real calendar id restored and normal operation re-verified afterward (September
 correctly shows 12 bookable days, 09-01 → 09-16, matching the 42-day booking window).
 
+**Third review pass (2026-08-06), focused on error paths and the retry logic** — the parts
+that only misbehave once something *else* is already broken, which is why earlier happy-path
+testing never touched them. Five more real bugs:
+
+| Bug | Fix |
+| :-- | :-- |
+| **`/availability` was an unauthenticated amplifier for Google API quota.** It's public, has no rate limit (only `/book` does), and the route only validated `year >= 2026` — so every distinct future year/month, *including year 3000*, cost a live `freeBusy` call plus a permanent `monthCache` entry. Measured before the fix: ~0.5-1.0s per far-future request (a real API round trip) vs ~0.1s for a past month's early return. Anyone could burn the Calendar API's per-minute quota from a shell loop, and because quota exhaustion now (correctly) fails closed after the fix above, that would take booking **offline for real customers**. | Bail out for months entirely beyond the booking window *before* touching Google. Verified after: far-future requests drop to ~0.11s with zero network I/O. |
+| **The first version of that fix was insufficient** — the early exit sat after two `getSetting()` calls, so it just moved the amplifier from the Calendar API onto Postgres (~0.3-0.4s of DB round trips per request, on every attempt, forever). Caught by measuring rather than assuming the fix worked. | Booking rules are now cached in-process for the same 60s as the month cache, so the early exit costs no I/O at all. |
+| **`events.insert` was retried non-idempotently — a duplicate-booking hole.** `apiRequest()` retries 5xx/429, and events.insert is not naturally idempotent: if the first attempt created the event but its response was lost, the retry created a **second** calendar event on both the provider's and the customer's calendar, with only one recorded in the reconciliation log. | Send a client-generated event id, which makes the insert idempotent, and treat the resulting 409 as success by reading the event back. Proven against the live API: 1st insert → 200 created, identical retry → **409 "The requested identifier already exists"**, GET by id → same event recovered. |
+| **A transient token blip left a permanent false "Reconnect needed".** Any failed token refresh set `authErrorAt`, including a 5xx or network blip — and nothing ever cleared it except a full OAuth reconnect. One bad minute meant the admin page demanded a reconnect on a perfectly healthy account, indefinitely. | Only flag on Google's actual `invalid_grant` (the real revoked/expired signal), and clear the flag on a successful refresh. |
+| **Malformed booking rules silently disabled the lead time and booking window.** `Math.max(0, NaN)` is `NaN`, so a non-numeric value persisted the literal string `"NaN"`, which read back as `NaN` — and since every comparison against `NaN` is false, *both* guards quietly switched off rather than erroring. | Sanitized on write and on read, falling back to the documented defaults. Verified: a hand-built POST with `lead_minutes=abc&window_days=xyz` now persists `60`/`42`. |
+
+Also swept expired entries from the OAuth-state and month caches — this runs as a long-lived
+process rather than a serverless function, so nothing reclaims abandoned entries for free.
+
 ---
 
 ## 8. Before this goes live

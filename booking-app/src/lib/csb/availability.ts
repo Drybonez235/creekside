@@ -64,6 +64,44 @@ type MonthSlots = Record<string, string[]>;
 const monthCache = new Map<string, { data: MonthSlots; expiresAt: number }>();
 const CACHE_TTL_MS = 60_000;
 
+/** Drop expired entries. This runs as a long-lived process (not a serverless function that
+ * resets between requests), so nothing here gets cleaned up for free — without a sweep the
+ * cache only ever grows. Cheap: it's bounded by (connected accounts x months in the booking
+ * window) once the out-of-window early exit above is in place. */
+function sweepMonthCache(now: number): void {
+	for (const [k, v] of monthCache) {
+		if (v.expiresAt <= now) monthCache.delete(k);
+	}
+}
+
+/**
+ * Booking rules, cached for the same 60s as the month cache. Two reasons this isn't read
+ * straight from the store each time:
+ *
+ * 1. They're needed *before* the out-of-window early exit, so an uncached read would leave
+ *    public /availability costing two DB round trips per request — still an amplifier for
+ *    load, just pointed at Postgres instead of the Calendar API. Measured at ~0.3-0.4s per
+ *    far-future request before this cache; ~0 after.
+ * 2. `Number()` on a malformed setting yields NaN, and every comparison against NaN is
+ *    false — so a bad value silently disables the lead time and the booking window entirely
+ *    rather than failing loudly. Fall back to the documented defaults instead.
+ */
+let rulesCache: { leadMinutes: number; windowDays: number; expiresAt: number } | null = null;
+
+function finiteOr(raw: string, fallback: number): number {
+	const n = Number(raw);
+	return Number.isFinite(n) ? n : fallback;
+}
+
+async function bookingRules(): Promise<{ leadMinutes: number; windowDays: number }> {
+	const now = Date.now();
+	if (rulesCache && rulesCache.expiresAt > now) return rulesCache;
+	const leadMinutes = Math.max(0, finiteOr(await store.getSetting("lead_minutes", "60"), 60));
+	const windowDays = Math.max(1, finiteOr(await store.getSetting("window_days", "42"), 42));
+	rulesCache = { leadMinutes, windowDays, expiresAt: now + CACHE_TTL_MS };
+	return rulesCache;
+}
+
 export async function slotsForMonth(
 	account: CsbAccount,
 	year: number,
@@ -78,6 +116,21 @@ export async function slotsForMonth(
 	const firstInstant = wallClockToInstant(dateStr(year, month, 1), "00:00");
 	const lastInstant = wallClockToInstant(dateStr(year, month, numDays), "23:59");
 	if (lastInstant < now) return {};
+
+	// Bail out for months entirely beyond the booking window BEFORE touching Google.
+	//
+	// /availability is public, unauthenticated and (unlike /book) not rate-limited, and the
+	// route only validates `year >= 2026`. Without this check every distinct future
+	// year/month -- including year 3000 -- costs one live freeBusy call and one permanent
+	// monthCache entry. Measured: a far-future month took ~0.5-1.0s (a real API round trip)
+	// versus ~0.1s for a past month's early return. That's a free amplifier for burning the
+	// Calendar API's per-minute quota, and since an exhausted quota now (correctly) fails
+	// closed, it would take booking offline for real customers. Reading the settings up here
+	// rather than after the fetch is what makes the early exit possible.
+	const { leadMinutes, windowDays } = await bookingRules();
+	const earliestInstant = new Date(now.getTime() + leadMinutes * 60_000);
+	const horizonInstant = new Date(now.getTime() + windowDays * 86_400_000);
+	if (firstInstant > horizonInstant) return {};
 
 	// Busy blocks across the account's primary + booking calendar.
 	const calIds = calendarIdsFor(account);
@@ -98,11 +151,9 @@ export async function slotsForMonth(
 		}
 	}
 
+	// leadMinutes/windowDays and their derived instants are computed above, before the
+	// freeBusy call, so the out-of-window early exit can happen without one.
 	const slotMin = Math.max(5, account.slotMinutes);
-	const leadMinutes = Number(await store.getSetting("lead_minutes", "60"));
-	const windowDays = Number(await store.getSetting("window_days", "42"));
-	const earliestInstant = new Date(now.getTime() + leadMinutes * 60_000);
-	const horizonInstant = new Date(now.getTime() + windowDays * 86_400_000);
 
 	const out: MonthSlots = {};
 
@@ -130,7 +181,9 @@ export async function slotsForMonth(
 		if (slots.length) out[dStr] = slots;
 	}
 
-	monthCache.set(cacheKey, { data: out, expiresAt: Date.now() + CACHE_TTL_MS });
+	const nowMs = Date.now();
+	sweepMonthCache(nowMs);
+	monthCache.set(cacheKey, { data: out, expiresAt: nowMs + CACHE_TTL_MS });
 	return out;
 }
 
