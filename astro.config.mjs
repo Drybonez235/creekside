@@ -9,6 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
   redirects: {
     '/case-study-digital-marketing/medical-ai-saas/': '/case-study-digital-marketing/b2b-saas-meta-ads-case-study/',
+    '/dental/': '/dental/start/',
   },
   build: {
     format: 'directory', // Ensures pages are built as /page/index.html
