@@ -89,10 +89,10 @@ export const siteSchema = {
         },
         {
           "@type": "Person",
-          "name": "Baran Eris",
+          "name": "Keith McGonigle",
           "jobTitle": "Lead Small Business Consultant",
-          "description": "Baran helps businesses generate and convert traffic with scalable ad campaigns. He focuses on building high-converting funnels and making sure every step of the customer journey supports profitable growth.",
-          "image": "https://creeksidemarketingpros.com/baran-eris.avif"
+          "description": "Keith is a performance marketing consultant with 15+ years of experience managing paid media across Google, Meta, TikTok, and LinkedIn. He has overseen $120M+ in ad spend across 150+ clients and specializes in helping businesses grow through full-funnel digital marketing strategy.",
+          "image": "https://creeksidemarketingpros.com/keith-mcgonigle.avif"
         },
         {
           "@type": "Person",
