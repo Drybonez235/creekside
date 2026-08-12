@@ -724,10 +724,10 @@
       sendToBackend(payload);
 
       // Redirect to booking
-      // Qualified -> Creekside booking widget (Peterson's calendar)
-      // Under-threshold -> Keith's external calendar (partner, not in booking system)
+      // Qualified -> Cade's calendar
+      // Under-threshold -> Scott's calendar (until Keith is connected)
       var bookingUrl = route === 'keith'
-        ? 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1rM42oKd0V45PouVuipnzu1DvAy-uNRHnTgnnVaasVqfpOk1ekphBNJ0qYAvm-XgeH41ztaTFu'
+        ? '/book/dental/?provider=scott_creeksidemarketingpros_com'
         : '/book/dental/?provider=cade_creeksidemarketingpros_com';
       setTimeout(function(){
         window.location.href = bookingUrl;
