@@ -34,7 +34,7 @@ const teamMembers = [
     lastName: "Caldwell",
     image: "/scott-caldwell-headshot.avif",
     role: "Small Business Marketing Consultant",
-    bio: "Digital Strategist at Creekside Marketing with 5 years of agency and in-house experience, Scott manages multi-channel campaigns and advanced analytics. His background in scaling diverse brands through technical tracking and paid media optimization ensures high-impact results across various industries." 
+    bio: "Scott is a digital strategist with agency and in-house experience managing multi-channel campaigns and advanced analytics. He's scaled brands across multiple industries through technical tracking and paid media optimization."
   },
   {
     firstName: "Ahmed",
@@ -65,7 +65,7 @@ const teamMembers = [
     bio: "" 
   },
   {
-    firstName: "david",
+    firstName: "David",
     lastName: "",
     image: "/david-caicedo-headshot.avif",
     role: "Meta Ads Specialist",
@@ -94,6 +94,15 @@ const teamMembers = [
   },
 ];
 
+// Role-based fallback bios for team members without a personal bio
+const roleBios: Record<string, string> = {
+  "Google Ads Specialist": "Manages Google Ads accounts end to end: search strategy, bidding, negative keyword pruning, and weekly optimization. A senior specialist working with a maximum of 10 clients.",
+  "Meta Ads Specialist": "Runs Meta campaigns from creative testing to scaling: audience strategy, budget pacing, and conversion tracking. A senior specialist capped at 10 clients.",
+  "Creatives Director": "Leads ad creative across every client account: hooks, visuals, and copy built to convert. Every ad Creekside ships passes through her review.",
+  "Executive Assistant": "Keeps client operations running smoothly behind the scenes: scheduling, onboarding, and making sure nothing slips between meetings.",
+};
+const getBio = (member: { bio: string; role: string }) => member.bio || roleBios[member.role] || "";
+
 // Grouping Logic
 const leadership = teamMembers.slice(0, 4);
 const googleTeam = teamMembers.filter(m => m.role.includes("Google Ads"));
@@ -105,7 +114,7 @@ const supportTeam = teamMembers.filter(m =>
 );
 
 // Helper to center the 3rd item in a 2-column grid if the total is odd
-const getGridItemClass = (index, length) => {
+const getGridItemClass = (index: number, length: number) => {
   const isLast = index === length - 1;
   const isOddTotal = length % 2 !== 0;
   return isLast && isOddTotal ? "md:col-span-2" : "";
@@ -114,7 +123,7 @@ const getGridItemClass = (index, length) => {
 
 <Layout
   title="Meet The Team - Creekside Marketing" 
-  description="Get to know the experts behind your growth. Meet the Creekside Marketing team—a collective of specialized Google Ads, Meta Ads, and digital strategy pros dedicated to scaling your business."
+  description="Get to know the experts behind your growth. Meet the Creekside Marketing team, a collective of specialized Google Ads, Meta Ads, and digital strategy pros dedicated to scaling your business."
   canonicalURL="https://creeksidemarketingpros.com/meet-the-team/"
   schema={siteSchema.meetTheTeam}
 >
@@ -128,6 +137,22 @@ const getGridItemClass = (index, length) => {
           Meet Our Team
         </h1>
         <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-700 mx-auto mt-6 max-w-2xl text-lg/8">
+          Creekside is boutique by design. Every specialist works with a maximum
+          of 10 clients, only senior specialists touch your account, and you get
+          one direct channel with the entire team working on it.
+        </p>
+        <div class="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+            <p class="text-primary-900 font-bold">Max 10 clients per specialist</p>
+          </div>
+          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+            <p class="text-primary-900 font-bold">Senior specialists only</p>
+          </div>
+          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+            <p class="text-primary-900 font-bold">One direct channel with your whole team</p>
+          </div>
+        </div>
       </header>
 
       <div class="grid grid-cols-1 gap-x-12 gap-y-20 md:grid-cols-2">
@@ -168,13 +193,18 @@ const getGridItemClass = (index, length) => {
         {googleTeam.map((member, index) => (
           <div class={`flex flex-col items-center text-center ${getGridItemClass(index, googleTeam.length)}`}>
             <h3 class="text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName}</h3>
-             <img 
-                src={member.image} 
+             <img
+                src={member.image}
                 alt={member.firstName}
                 class="size-48 mb-6 rounded-full object-cover shadow-sm"
                 loading="lazy"
               />
             <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+            {getBio(member) && (
+              <p class="text-grey-700 mt-3 max-w-md text-base/7">
+                {getBio(member)}
+              </p>
+            )}
           </div>
         ))}
       </div>
@@ -189,13 +219,18 @@ const getGridItemClass = (index, length) => {
         {metaTeam.map((member, index) => (
           <div class={`flex flex-col items-center text-center ${getGridItemClass(index, metaTeam.length)}`}>
             <h3 class="text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName}</h3>
-             <img 
-                src={member.image} 
+             <img
+                src={member.image}
                 alt={member.firstName}
                 class="size-48 mb-6 rounded-full object-cover shadow-sm"
                 loading="lazy"
               />
             <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+            {getBio(member) && (
+              <p class="text-grey-700 mt-3 max-w-md text-base/7">
+                {getBio(member)}
+              </p>
+            )}
           </div>
         ))}
       </div>
@@ -210,13 +245,18 @@ const getGridItemClass = (index, length) => {
         {supportTeam.map((member, index) => (
           <div class={`flex flex-col items-center text-center ${getGridItemClass(index, supportTeam.length)}`}>
             <h3 class=" text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName} {member.lastName}</h3>
-             <img 
-                src={member.image} 
+             <img
+                src={member.image}
                 alt={member.firstName}
                 class="size-48 mb-6 rounded-full object-cover shadow-sm"
+                loading="lazy"
               />
-            
             <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+            {getBio(member) && (
+              <p class="text-grey-700 mt-3 max-w-md text-base/7">
+                {getBio(member)}
+              </p>
+            )}
           </div>
         ))}
       </div>

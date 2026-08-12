@@ -2,6 +2,7 @@
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro'
 import Layout from '../../layouts/Layout.astro';
+import ServiceCommitments from '../../components/ServiceCommitments.astro';
 import { siteSchema, faqSchemas } from '../../data/structuredData';
 
 import '../../styles/global.css';
@@ -28,15 +29,17 @@ import '../../styles/global.css';
           <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
         </header>
 
-        <div class="text-grey-700 text-lg/8">
+        <div class="text-grey-700 flex flex-col gap-4 text-lg/8">
           <p>
-            At Creekside Marketing, we've successfully managed over <strong>$20 million in ad spend</strong>, 
-            helping businesses of all sizes harness the power of Facebook & Instagram Ads to achieve 
-            measurable growth. Our expertise with tools like Meta Pixel enables precise tracking and 
-            data-driven optimization, ensuring your ads reach the right audience at the right time. 
-            By crafting compelling ad content and employing advanced targeting strategies, we drive 
-            engagement, increase website traffic, and boost conversions. Partner with us to transform 
-            your social media advertising into a powerful engine for business growth.
+            At Creekside Marketing, we've successfully managed over <strong>$20 million in ad spend</strong>,
+            helping businesses of all sizes harness the power of Facebook & Instagram Ads to achieve
+            measurable growth.
+          </p>
+          <p>
+            Our expertise with Meta Pixel and the Conversions API enables precise tracking and
+            data-driven optimization, ensuring your ads reach the right audience at the right time.
+            By crafting compelling ad content and employing advanced targeting strategies, we drive
+            engagement, increase website traffic, and boost conversions.
           </p>
         </div>
       </div>
@@ -98,7 +101,7 @@ import '../../styles/global.css';
         </h3>
         <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
         <p class="text-base/6 font-medium text-grey-900">
-        Utilizing tools like Meta Pixel, we meticulously track user interactions stemming from your ads.
+        We implement Meta Pixel, Conversions API, and server-side tracking to measure every interaction stemming from your ads.
         </p>
       </div>
 
@@ -110,20 +113,23 @@ import '../../styles/global.css';
     <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
       
       <header>
-        <h2 class="text-primary-900 text-4xl font-extrabold uppercase tracking-tight sm:text-5xl/tight lg:text-6xl/tight">
+        <h2 class="text-primary-900 text-4xl/tight font-extrabold tracking-tight md:text-5xl/tight">
           Unlock the <span class="text-secondary-500">Full Potential</span> of Digital Marketing for Your Business
         </h2>
       </header>
 
-      <div class="text-grey-700 text-lg/8">
+      <div class="text-grey-700 flex flex-col gap-4 text-lg/8">
         <p>
-          Meta Ads offer a wide range of opportunities to connect with your audience and 
-          achieve your business goals. From brand awareness to lead generation, we provide expert 
-          solutions to engage with potential customers. At Creekside Marketing, we know the ins 
-          and outs of Meta's ad ecosystem. Our experts will help you develop targeted ad campaigns, 
-          optimize your ad spend, and leverage advanced audience targeting features to ensure 
-          maximum ROI. Discover the power of advertising on Meta Sites and witness the impact 
-          we can have on your business's growth.
+          Meta Ads offer a wide range of opportunities to connect with your audience and
+          achieve your business goals. From brand awareness to lead generation, we know the
+          ins and outs of Meta's ad ecosystem. Our experts develop targeted ad campaigns,
+          optimize your ad spend, and leverage advanced audience targeting to ensure maximum ROI.
+        </p>
+        <p>
+          We implement Meta Pixel, Conversions API, and server-side first-party tracking on
+          every account, then feed offline conversion data from your CRM back to Meta. Even
+          with iOS privacy changes, Meta's algorithm learns from your real revenue, so it
+          finds more of the customers who actually buy.
         </p>
       </div>
     </div>
@@ -153,5 +159,6 @@ import '../../styles/global.css';
     </div>
   </div>
 </section>
+    <ServiceCommitments platform="Meta Ads" />
     <Footer />
 </Layout>

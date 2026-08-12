@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Form from '../components/Form.astro';
+import GuaranteeBadges from '../components/GuaranteeBadges.astro';
 import { siteSchema } from '../data/structuredData';
+import { CALENDAR_URL } from '../data/site';
 import '../styles/global.css';
 ---
 
@@ -24,7 +26,50 @@ import '../styles/global.css';
             CONTACT US
           </h1>
           <p class="mt-6 text-lg/8 text-grey-600">
-            Have any questions or need to get in touch? Fill out the form, email, or call and we will reach out as soon as possible.
+            Message us and you'll hear back the same day. Fill out the form, email, or call, and a member of the team will reach out directly.
+          </p>
+
+          <div class="mt-10">
+            <h2 class="text-primary-900 text-lg font-bold uppercase tracking-wide">What Happens Next</h2>
+            <ol class="mt-5 flex flex-col gap-4">
+              <li class="flex items-start gap-4">
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-sm font-bold text-secondary-500">1</span>
+                <p class="text-base/7 text-grey-600">
+                  <span class="font-bold text-primary-900">Same-day reply.</span>
+                  A real person from the team gets back to you, not an autoresponder.
+                </p>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-sm font-bold text-secondary-500">2</span>
+                <p class="text-base/7 text-grey-600">
+                  <span class="font-bold text-primary-900">Free live audit call.</span>
+                  We dig into your accounts together and figure out whether we're the right fit.
+                </p>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary-500/10 text-sm font-bold text-secondary-500">3</span>
+                <p class="text-base/7 text-grey-600">
+                  <span class="font-bold text-primary-900">Risk-free start.</span>
+                  If we work together, your first 7 days are covered by a full money-back guarantee.
+                </p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="mt-8">
+            <GuaranteeBadges />
+          </div>
+
+          <p class="mt-8 text-base/7 text-grey-600">
+            Prefer to skip the form?
+            <a
+              href={CALENDAR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-secondary-500 transition-colors hover:text-secondary-600"
+            >
+              Book your free audit call directly.
+            </a>
           </p>
 
           <dl class="mt-10 space-y-6 text-base/7 text-grey-600">

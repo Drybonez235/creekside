@@ -330,42 +330,66 @@ export const faqSchemas = {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is Creekside Marketing?",
+        "name": "What's your pricing structure?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Creekside Marketing is a Nashville-based digital advertising agency specializing in Google Ads and Meta (Facebook/Instagram) Ads management. Founded by Peterson Rainey, a mechanical engineer, and Cade Maclean, an accountant with an MBA, we bring a data-first, numbers-driven approach that sets us apart from typical marketing agencies."
+          "text": "Our pricing is built so we only win when you win. The fee is a percentage of your ad spend, and the rate drops as you scale: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform and total fees are capped at $15,000 per month. No long-term contracts."
         }
       },
       {
         "@type": "Question",
-        "name": "What types of businesses does Creekside Marketing work with?",
+        "name": "How is this different from other agencies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We partner with businesses spending $10K to $100K per month on Google and Meta Ads. Our clients span industries including dental practices, law firms, med spas, home services, ecommerce, real estate, and more. If your business has a proven offer and is serious about growth, we can help."
+          "text": "Three key differences: (1) We optimize for new customer growth and revenue, not just low CPA. (2) You get direct access to your dedicated ad manager. No middlemen, no black-box management. Peterson and Cade personally oversee strategy and are always a call away. (3) We prove our expertise with a live audit on the first call before you pay anything."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the $10K Profit Recovery Audit?",
+        "name": "What industries do you work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The $10K Profit Recovery Audit is our comprehensive 247-point checklist that identifies 5-7 hidden leaks draining thousands from your Google and Meta ad accounts. We typically charge $800 for this audit, but it is free when you book a consultation call. Most fixes take less than 20 minutes to implement."
+          "text": "We've worked with 200+ businesses across healthcare, legal, finance, SaaS, e-commerce, home services, and more. Our data-driven approach works across industries because we focus on fundamentals: targeting, messaging, conversion tracking, and optimization."
         }
       },
       {
         "@type": "Question",
-        "name": "What makes Creekside Marketing different from other agencies?",
+        "name": "How long does it take to see results?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our founders come from engineering and accounting backgrounds, not traditional marketing. We have audited over $20M in ad spend across 200+ accounts, and we focus on revenue generated for your business rather than just leads. We also guarantee a 37% ROAS improvement within 90 days or we work for free."
+          "text": "Most clients see improvements within 30-60 days, but we recommend a 90-day commitment to see the full impact. Advertising is about continuous testing and optimization - quick wins are great, but sustainable growth takes time."
         }
       },
       {
         "@type": "Question",
-        "name": "What services does Creekside Marketing offer?",
+        "name": "What's included in the free audit?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer two core services: Google Ads (PPC) management and Meta Ads (Facebook and Instagram) management. All services include conversion tracking setup with GA4, Meta Pixel, CAPI, Google Tag Manager, and CRM integrations."
+          "text": "On your first call, we'll do a live audit of your current ad accounts using our $10K Profit Recovery framework - a 247-point checklist that identifies the 5-7 hidden leaks draining your budget. You'll walk away with actionable insights whether you work with us or not."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What guarantees do you offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Two. First, a 7-day money-back guarantee: meet the team, see how we work, and if we're not the right fit within your first 7 days, you get a full refund. Second, a 90-day performance promise: if we don't improve your ROAS within 90 days, we work for free until we do."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast do you respond when I have a question?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Same day. You get a direct channel with your whole account team, not an account manager relaying messages. Ask a question in the morning and you'll have an answer before the end of the day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does reporting work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every two weeks you get a report that answers four questions: what worked, what didn't, what's next, and what we need from you. You also get a live custom dashboard connected to your real data that you can check any time. No vanity metrics, ever."
         }
       }
     ]
@@ -379,7 +403,7 @@ export const faqSchemas = {
         "name": "What is included in Creekside Marketing's Google Ads management?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Google Ads management includes keyword research and negative keyword pruning, ad copy A/B testing, manual or smart bidding strategy selection based on your data, weekly optimizations, strategic scaling, and biweekly performance reviews. We also handle full conversion tracking setup with GA4 and Google Tag Manager."
+          "text": "Our Google Ads management includes keyword research and negative keyword pruning, ad copy A/B testing, manual or smart bidding strategy selection based on your data, weekly optimizations, strategic scaling, and bi-weekly performance reviews. We also handle full conversion tracking setup with GA4 and Google Tag Manager."
         }
       },
       {
@@ -387,7 +411,7 @@ export const faqSchemas = {
         "name": "How much does Google Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap."
+          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap. No long-term contracts."
         }
       },
       {
@@ -395,7 +419,7 @@ export const faqSchemas = {
         "name": "Who manages my Google Ads campaigns at Creekside?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Peterson Rainey, co-founder and mechanical engineer, leads Google Ads strategy. Your campaigns are managed by dedicated Google Ads specialists on our team. You work directly with the person optimizing your account — there are no layers of account managers between you and the expert."
+          "text": "Peterson Rainey, co-founder and mechanical engineer, leads Google Ads strategy. Your campaigns are managed by dedicated Google Ads specialists on our team. You work directly with the person optimizing your account. There are no layers of account managers between you and the expert."
         }
       },
       {
@@ -419,7 +443,7 @@ export const faqSchemas = {
         "name": "How quickly will I see results from Google Ads?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most clients see measurable improvements within the first 30-60 days as we optimize targeting, bidding, and ad copy. We guarantee a 37% ROAS improvement within 90 days or we work for free."
+          "text": "Most clients see measurable improvements within the first 30-60 days as we optimize targeting, bidding, and ad copy. If we do not improve your ROAS within 90 days, we work for free until we do."
         }
       }
     ]
@@ -449,7 +473,7 @@ export const faqSchemas = {
         "name": "Who manages my Meta Ads campaigns at Creekside?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Cade Maclean, co-founder with an accounting background and MBA, leads Meta Ads strategy. Your campaigns are handled by dedicated Meta Ads specialists. You communicate directly with the person managing your ads — no account managers or middlemen."
+          "text": "Cade Maclean, co-founder with an accounting background and MBA, leads Meta Ads strategy. Your campaigns are handled by dedicated Meta Ads specialists. You communicate directly with the person managing your ads. No account managers or middlemen."
         }
       },
       {

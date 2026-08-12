@@ -4,16 +4,73 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro'
 import TestimonialScreenshots from '../components/TestimonialScreenshots.astro';
 import VideoTestimonials from '../components/VideoTestimonials.astro';
+import GuaranteeBadges from '../components/GuaranteeBadges.astro';
 import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
+
+const featuredDifferentiators = [
+  {
+    title: "Pricing That Pays Us to Perform",
+    body: "Our fee is a percentage of your ad spend, and the rate drops as you scale. We make more as you make more, so our incentives never drift from yours. No long-term contracts.",
+    iconPath: "M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z",
+  },
+  {
+    title: "Direct Access, Same-Day Answers",
+    body: "No account managers relaying messages. You get a direct channel with your whole account team and questions get answered the same day, every time.",
+    iconPath: "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
+  },
+  {
+    title: "Paid Media Is All We Do",
+    body: "Google Ads and Meta Ads. No SEO packages, no web design, no social media retainers. Two platforms mastered, backed by $20M+ in managed ad spend and 200+ businesses served.",
+    iconPath: "m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z",
+  },
+];
+
+const differentiatorThemes = [
+  {
+    title: "Specialized to the Core",
+    items: [
+      "Google and Meta ads only. Nothing else.",
+      "A dedicated specialist for every piece: ad creatives, conversion tracking, landing pages, CRM, and email flows",
+      "Our platform expertise combined with your industry knowledge",
+    ],
+  },
+  {
+    title: "A Team You Can Actually Reach",
+    items: [
+      "One direct channel with your whole account team",
+      "Same-day responses to any question or issue",
+      "Boutique by design: every specialist works with a maximum of 10 clients",
+      "Senior specialists only. No juniors, no trainees.",
+    ],
+  },
+  {
+    title: "Incentives That Stay Aligned",
+    items: [
+      "Performance pricing: we make more as you make more",
+      "7-day money-back guarantee",
+      "We interview our leads, not the other way around",
+      "No long-term contracts",
+    ],
+  },
+  {
+    title: "Systems That Never Drop the Ball",
+    items: [
+      "Live custom reporting connected to your real data. Check it any time. No vanity metrics.",
+      "The Creekside Brain: every detail of your account, strategy, and history in one system, so nothing gets lost in translation",
+      "Bi-weekly reports that answer four questions: what worked, what didn't, what's next, and what we need from you",
+      "Server-side, first-party conversion tracking plus offline CRM data fed back to the ad platforms",
+    ],
+  },
+];
 ---
 
 <Layout
   title="Google Ads & Meta Ads Management | Creekside Marketing"
   description="Stop wasting ad spend and grow your revenue. Creekside Marketing Pros helps businesses improve ROAS with expert Google and Meta Ads management. Claim your free $10K Profit Recovery Audit today."
   canonicalURL="https://creeksidemarketingpros.com/"
-  schema="{siteSchema.home}"
-  faqSchema="{faqSchemas.home}"
+  schema={siteSchema.home}
+  faqSchema={faqSchemas.home}
 >
   <Nav /> 
 
@@ -54,12 +111,13 @@ import '../styles/global.css';
           <p
             class="mt-8 max-w-2xl text-lg/8 text-grey-200 md:text-xl/9 lg:text-lg/8"
           >
-            We partner with businesses spending $10k - $100k/month on Meta and
-            Google Ads to
+            We work with businesses spending $10k - $100k/month on Google and
+            Meta ads.
             <strong class="text-white"
-              >improve your ROAS within 90 days, or we work for free.</strong
+              >Improve your ROAS within 90 days or we work for free until we
+              do.</strong
             >
-            Launch in 7 days.
+            Not the right fit in your first 7 days? You get every dollar back.
           </p>
 
           <div class="mt-10 flex flex-wrap gap-8 md:gap-16">
@@ -80,9 +138,13 @@ import '../styles/global.css';
               <div
                 class="mt-2 text-sm/6 font-medium text-grey-400 uppercase tracking-wide"
               >
-                Accounts Managed
+                Businesses Served
               </div>
             </div>
+          </div>
+
+          <div class="mt-8">
+            <GuaranteeBadges dark />
           </div>
 
           <div class="mt-10">
@@ -143,7 +205,7 @@ import '../styles/global.css';
         <h2
           class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
         >
-          Why Marketing Professionals
+          Why Fast-Growing Companies
           <span class="text-secondary-500">Choose Creekside</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
@@ -152,195 +214,52 @@ import '../styles/global.css';
         </p>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M18 20V10m-6 10V4M6 20v-6"
-              />
-            </svg>
+      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {featuredDifferentiators.map((card) => (
+          <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
+            <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10">
+              <svg
+                class="size-6 text-secondary-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d={card.iconPath} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary-900">{card.title}</h3>
+            <p class="mt-3 text-base/7 text-grey-600">{card.body}</p>
           </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            New Customer Growth, Not Just Low CPA
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            Most agencies optimize for cost per action, but Google and Meta
-            don't know if that's a new customer or a repeat buyer. We optimize
-            for what actually matters: new customer acquisition and revenue
-            growth.
-          </p>
-        </div>
+        ))}
+      </div>
 
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {differentiatorThemes.map((theme) => (
+          <div class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md">
+            <h3 class="text-lg font-bold uppercase tracking-wide text-primary-900">
+              {theme.title}
+            </h3>
+            <ul class="mt-5 flex flex-col gap-3">
+              {theme.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="mt-1 size-5 shrink-0 text-accent-success"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="text-base/7 text-grey-600">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            Direct Access to Your Ad Manager
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            No account managers. No support tickets. You work directly with your
-            dedicated strategist who knows your business inside and out.
-          </p>
-        </div>
-
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            Month-to-Month, No Contracts
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            We earn your business every single month. If we're not delivering
-            results, you can walk away anytime. No long-term commitments
-            required.
-          </p>
-        </div>
-
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 3v18h18"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M7 16V10m4 6V6m4 10V8m4 8V4"
-              />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            Live Audits on First Call
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            We prove our expertise before you pay us anything. Get a real audit
-            of your account on the first call - not a sales pitch.
-          </p>
-        </div>
-
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-              />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            Data-Driven Optimization
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            With backgrounds in accounting (MBA) and mechanical engineering, we
-            bring analytical rigor that most marketers lack. Every decision is
-            backed by data.
-          </p>
-        </div>
-
-        <div
-          class="rounded-lg border border-grey-200 bg-grey-50 p-8 shadow-sm transition-shadow hover:shadow-md"
-        >
-          <div
-            class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/10"
-          >
-            <svg
-              class="size-6 text-secondary-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5 3l3.057-1.528A1 1 0 018.943 1.5L12 5l3.057-3.5a1 1 0 01.886-.028L19 3l-2 4h-2l-1 10H10L9 7H7L5 3z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10 17l-2 4h8l-2-4"
-              />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900">
-            $20M+ in Ad Spend Managed
-          </h3>
-          <p class="mt-3 text-base/7 text-grey-600">
-            We've audited 200+ ad accounts and managed over $20 million in ad
-            spend across every major industry. We've seen it all and know what
-            works.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -355,7 +274,7 @@ import '../styles/global.css';
         <p class="mt-4 text-lg/8 text-white/90">
           Discover the 5-7 hidden leaks draining thousands from your Google and
           Meta ad accounts. Our 247-point checklist identifies exactly where
-          your money is going — most fixes take less than 20 minutes.
+          your money is going. Most fixes take less than 20 minutes.
         </p>
         <div class="mt-8">
           <a
@@ -395,8 +314,9 @@ import '../styles/global.css';
               <h3 class="text-xl font-bold text-primary-900">Consultation</h3>
               <p class="mt-3 text-base/7 text-grey-600">
                 Book a free call where we'll audit your current ad accounts
-                live. No sales pitch - just real analysis and actionable
-                insights you can use immediately.
+                live. Our first call is us determining whether your business is
+                ready to scale, not a sales pitch. We interview our leads, not
+                the other way around.
               </p>
             </div>
           </div>
@@ -466,9 +386,9 @@ import '../styles/global.css';
             <div>
               <h3 class="text-xl font-bold text-primary-900">Support</h3>
               <p class="mt-3 text-base/7 text-grey-600">
-                You get direct access to your ad manager (no middlemen), weekly
-                updates, and ongoing optimization. We're with you every step of
-                the way.
+                You get a direct channel with your whole account team, same-day
+                responses, and a bi-weekly report covering what worked, what
+                didn't, what's next, and what we need from you.
               </p>
             </div>
           </div>
@@ -490,10 +410,9 @@ import '../styles/global.css';
           Our <span class="text-secondary-500 uppercase">Services</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
-          Elevate your digital marketing with Creekside Marketing's
-          precision-driven strategies. With a deep focus on data, performance,
-          and ROI, we help businesses cut through the noise, maximize ad spend,
-          and connect with the right audience.
+          Google Ads and Meta Ads are the only two things we do. That focus is
+          why we're good at them. We help businesses cut through the noise,
+          maximize ad spend, and connect with the right audience.
         </p>
       </div>
 
@@ -680,8 +599,9 @@ import '../styles/global.css';
             <p>
               At Creekside Marketing, we combine analytical expertise with
               data-driven marketing to help businesses grow. Founded by longtime
-              friends Cade and Peterson, our agency has been delivering results
-              for over five years.
+              friends Cade and Peterson in 2021, we've helped businesses across
+              dozens of industries turn paid advertising into their most
+              reliable growth channel.
             </p>
             <p>
               With a background in accounting and an MBA, Cade leads Meta Ads
@@ -822,7 +742,7 @@ import '../styles/global.css';
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                Want direct access to your ad manager
+                Want senior specialists, not juniors learning on your budget
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -838,7 +758,7 @@ import '../styles/global.css';
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                Value data-driven decision making
+                Value a boutique team capped at 10 clients per specialist
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -954,6 +874,68 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- ========== GUARANTEES ========== -->
+  <section class="bg-primary-900 py-20 lg:py-28">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-4xl/tight font-extrabold tracking-tight text-white md:text-5xl/tight">
+          Two Guarantees. <span class="text-secondary-300">Zero Risk to Try Us.</span>
+        </h2>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="rounded-lg bg-white/5 p-8 ring-1 ring-white/10">
+          <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/20">
+            <svg
+              class="size-6 text-secondary-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">7-Day Money-Back Guarantee</h3>
+          <p class="mt-3 text-base/7 text-grey-300">
+            Meet the team and see exactly how we work. If you decide we're not
+            the right fit within your first 7 days, you get a full refund with
+            no questions asked.
+          </p>
+        </div>
+
+        <div class="rounded-lg bg-white/5 p-8 ring-1 ring-white/10">
+          <div class="mb-5 flex size-12 items-center justify-center rounded-full bg-secondary-500/20">
+            <svg
+              class="size-6 text-secondary-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">90-Day ROAS Improvement, or We Work Free</h3>
+          <p class="mt-3 text-base/7 text-grey-300">
+            If we don't improve your ROAS within 90 days, we work for free
+            until we do.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== 10. FAQ ========== -->
   <section class="bg-grey-50 py-20 lg:py-28">
     <div class="container mx-auto px-4 lg:px-8">
@@ -993,11 +975,11 @@ import '../styles/global.css';
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            We charge a percentage of your monthly ad spend with tiered rates
-            that decrease as your budget grows: 20% up to $30k, 15% from $30k to
-            $60k, and 10% above $60k per platform. There's a $1,500/month
-            minimum per platform and fees are capped at $15,000/month. We're
-            month-to-month with no long-term contracts.
+            Our pricing is built so we only win when you win. The fee is a
+            percentage of your ad spend, and the rate drops as you scale: 20%
+            up to $30k, 15% from $30k to $60k, and 10% above $60k per platform.
+            There's a $1,500 monthly minimum per platform and total fees are
+            capped at $15,000 per month. No long-term contracts.
           </div>
         </details>
 
@@ -1030,7 +1012,7 @@ import '../styles/global.css';
           <div class="px-6 pb-6 text-base/7 text-grey-600">
             Three key differences: (1) We optimize for new customer growth and
             revenue, not just low CPA. (2) You get direct access to your
-            dedicated ad manager — no middlemen, no black-box management.
+            dedicated ad manager. No middlemen, no black-box management.
             Peterson and Cade personally oversee strategy and are always a call
             away. (3) We prove our expertise with a live audit on the first call
             before you pay anything.
@@ -1133,10 +1115,112 @@ import '../styles/global.css';
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
             On your first call, we'll do a live audit of your current ad
-            accounts using our $10K Profit Recovery framework - a 247+ point
+            accounts using our $10K Profit Recovery framework - a 247-point
             checklist that identifies the 5-7 hidden leaks draining your budget.
             You'll walk away with actionable insights whether you work with us
             or not.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>What guarantees do you offer?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            Two. First, a 7-day money-back guarantee: meet the team, see how we
+            work, and if we're not the right fit within your first 7 days, you
+            get a full refund. Second, a 90-day performance promise: if we
+            don't improve your ROAS within 90 days, we work for free until we
+            do.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>How fast do you respond when I have a question?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            Same day. You get a direct channel with your whole account team,
+            not an account manager relaying messages. Ask a question in the
+            morning and you'll have an answer before the end of the day.
+          </div>
+        </details>
+
+        <details
+          name="faq-accordion"
+          class="group rounded-lg bg-white shadow-sm"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none"
+          >
+            <span>How does reporting work?</span>
+            <span
+              class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-base/7 text-grey-600">
+            Every two weeks you get a report that answers four questions: what
+            worked, what didn't, what's next, and what we need from you. You
+            also get a live custom dashboard connected to your real data that
+            you can check any time. No vanity metrics, ever.
           </div>
         </details>
       </div>
@@ -1164,7 +1248,7 @@ import '../styles/global.css';
           </a>
         </div>
         <p class="mt-6 text-sm text-grey-400">
-          No long-term contracts &bull; Month-to-month &bull; Cancel anytime
+          7-day money-back guarantee &bull; No long-term contracts
         </p>
       </div>
     </div>
