@@ -2,7 +2,7 @@
 title: "From Contract Signed to Ads Live: The Exact Client Onboarding Checklist at a Paid Ads Agency"
 description: "What actually happens your first two weeks with a paid ads agency. The exact emails, forms, calls, and access steps Creekside sends every new client."
 date: "2026-07-27"
-image: "article-images/paid-ads-agency-client-onboarding-checklist.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising", "Client Checklist"]
 ---
