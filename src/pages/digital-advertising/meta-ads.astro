@@ -6,158 +6,363 @@ import ServiceCommitments from '../../components/ServiceCommitments.astro';
 import { siteSchema, faqSchemas } from '../../data/structuredData';
 
 import '../../styles/global.css';
+
+const trustStats = [
+  { value: "$20M+", label: "Ad spend managed" },
+  { value: "200+", label: "Accounts audited" },
+  { value: "100%", label: "Senior specialists" },
+  { value: "10 max", label: "Clients per specialist" },
+];
+
+const failures = [
+  {
+    title: "Tracking broke and nobody noticed",
+    body: "iOS privacy changes gutted browser-based tracking. Most accounts are feeding Meta bad data, so the algorithm optimizes toward the wrong people.",
+  },
+  {
+    title: "One or two creatives run until they die",
+    body: "Creative is the biggest lever on Meta. Without a structured testing engine, ads fatigue, costs climb, and nobody knows what to launch next.",
+  },
+  {
+    title: "Boosted posts instead of real structure",
+    body: "Boosting posts and guessing at interests is not a strategy. Winning accounts are built on deliberate campaign structure and audience architecture.",
+  },
+  {
+    title: "Reports full of vanity metrics",
+    body: "Reach and engagement look nice in a PDF. If reporting is not tied to leads and revenue, you cannot tell whether the ads are actually working.",
+  },
+];
+
+const deliverables = [
+  {
+    title: "Strategy & Funnel Mapping",
+    body: "We map your full customer journey before spending a dollar, so every campaign has a specific job: cold traffic, retargeting, or conversion.",
+  },
+  {
+    title: "Creative Production & Testing",
+    body: "Our in-house designers produce ad creatives built to convert, then we test them head to head so winners scale and losers get cut fast.",
+  },
+  {
+    title: "Audience Architecture",
+    body: "Layered audiences built from your customer data, lookalikes, and Meta's broad targeting, structured so the algorithm can find real buyers.",
+  },
+  {
+    title: "Pixel, CAPI & Server-Side Tracking",
+    body: "Meta Pixel plus the Conversions API with server-side, first-party tracking, so Meta learns from accurate data even after iOS changes.",
+  },
+  {
+    title: "Offline Conversions From Your CRM",
+    body: "We feed closed deals and real revenue from your CRM back into Meta, so bidding optimizes toward customers, not just form fills.",
+  },
+  {
+    title: "Weekly Optimization & Scaling",
+    body: "Budgets, bids, audiences, and creative rotations reviewed every week by the specialist who runs your account, not a dashboard on autopilot.",
+  },
+];
+
+const timeline = [
+  {
+    phase: "Week 1",
+    title: "Foundation",
+    body: "Tracking rebuilt and verified, account restructured, first round of creatives produced, and campaigns launched.",
+  },
+  {
+    phase: "Weeks 2-4",
+    title: "Testing",
+    body: "Structured creative and audience tests to find what converts for your business. Losers cut fast, winners identified.",
+  },
+  {
+    phase: "Month 2",
+    title: "Optimization",
+    body: "Budget concentrates behind proven winners. Cost per lead and cost per purchase trend down as the account learns.",
+  },
+  {
+    phase: "Month 3+",
+    title: "Scaling",
+    body: "Spend scales on what works while fresh creative keeps fatigue away. Growth compounds from a stable foundation.",
+  },
+];
+
+const creatives = [
+  { src: "/ad-creatives/pdc-1.webp", industry: "Meal Prep Delivery", note: "Local launch campaign" },
+  { src: "/ad-creatives/mosquito-2.webp", industry: "Mosquito Control", note: "Lead generation" },
+  { src: "/ad-creatives/skydive-1.webp", industry: "Skydiving Experiences", note: "Seasonal promotion" },
+  { src: "/ad-creatives/pdc-2.webp", industry: "Meal Prep Delivery", note: "Product showcase" },
+  { src: "/ad-creatives/mosquito-1.webp", industry: "Mosquito Control", note: "Brand awareness" },
+  { src: "/ad-creatives/skydive-2.webp", industry: "Skydiving Experiences", note: "Booking campaign" },
+];
+
+const faqs = faqSchemas.metaAds.mainEntity.map((q) => ({
+  question: q.name,
+  answer: q.acceptedAnswer.text,
+}));
 ---
 
 <Layout
-	title="Meta Ads - Creekside Marketing" 
+	title="Meta Ads - Creekside Marketing"
   description="Scale your business with expert Meta Ads management. With $20M+ in ad spend managed, we combine high-quality creative with advanced Meta Pixel tracking to turn Facebook and Instagram into a growth engine."
   canonicalURL="https://creeksidemarketingpros.com/digital-advertising/meta-ads/"
   schema={siteSchema.metaAds}
   faqSchema={faqSchemas.metaAds}
 >
 	<Nav />
-    <section class="bg-grey-50 py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-      
-      <div class="flex flex-col gap-6">
-        <header class="flex flex-col gap-4">
-          <h1 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
-            Reach and engage your target audience with 
-            <span class="text-secondary-500 block">Meta Ads</span>
-          </h1>
-          <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+
+  <!-- Hero -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <div class="flex flex-col gap-6">
+          <header class="flex flex-col gap-4">
+            <h1 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
+              Turn Facebook & Instagram Into a
+              <span class="text-secondary-500 block">Growth Engine</span>
+            </h1>
+            <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+          </header>
+
+          <div class="text-grey-700 flex flex-col gap-4 text-lg/8">
+            <p>
+              We've managed over <strong>$20 million in ad spend</strong> for businesses
+              of all sizes. Meta Ads is one of only two things we do, and every account
+              gets the same system: real tracking, a structured creative testing engine,
+              and optimization toward revenue instead of vanity metrics.
+            </p>
+            <p>
+              Every campaign is run by a senior Meta specialist with an in-house creative
+              team behind them. No juniors, no templates, no autopilot.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div class="relative flex justify-center">
+            <img
+              src="/ad-creatives/pdc-1.webp"
+              alt="Meal prep delivery ad creative produced by Creekside Marketing"
+              width="800"
+              height="800"
+              loading="eager"
+              class="w-3/4 rounded-2xl shadow-lg ring-1 ring-grey-200"
+            />
+            <img
+              src="/ad-creatives/mosquito-2.webp"
+              alt="Mosquito control ad creative produced by Creekside Marketing"
+              width="800"
+              height="800"
+              loading="lazy"
+              class="absolute -bottom-8 -right-2 w-2/5 rotate-3 rounded-xl shadow-xl ring-1 ring-grey-200 sm:-right-4"
+            />
+            <div class="absolute -left-2 top-6 rounded-full bg-primary-900 px-4 py-2 text-sm font-bold text-white shadow-lg sm:-left-4">
+              Real client ads<span class="text-secondary-300">, not stock photos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust strip -->
+      <div class="mt-20 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+        {trustStats.map((stat) => (
+          <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-6 text-center shadow-md ring-1 ring-grey-200">
+            <p class="text-primary-900 text-3xl font-extrabold lg:text-4xl">{stat.value}</p>
+            <p class="text-grey-600 mt-1 text-sm font-semibold uppercase tracking-wide">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why most Meta ads underperform -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-12 lg:grid-cols-5 lg:gap-16">
+        <header class="lg:col-span-2">
+          <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">
+            Why Most Meta Ads <span class="text-accent-alert">Underperform</span>
+          </h2>
+          <div class="bg-secondary-500 mt-4 h-1.5 w-20 rounded-full"></div>
+          <p class="text-grey-700 mt-6 text-lg/8">
+            We've audited over 200 ad accounts. The same problems show up again
+            and again, and they all drain budget quietly. Our system is built to
+            fix every one of them in the first weeks of an engagement.
+          </p>
         </header>
 
-        <div class="text-grey-700 flex flex-col gap-4 text-lg/8">
-          <p>
-            At Creekside Marketing, we've successfully managed over <strong>$20 million in ad spend</strong>,
-            helping businesses of all sizes harness the power of Facebook & Instagram Ads to achieve
-            measurable growth.
-          </p>
-          <p>
-            Our expertise with Meta Pixel and the Conversions API enables precise tracking and
-            data-driven optimization, ensuring your ads reach the right audience at the right time.
-            By crafting compelling ad content and employing advanced targeting strategies, we drive
-            engagement, increase website traffic, and boost conversions.
-          </p>
+        <div class="grid gap-6 sm:grid-cols-2 lg:col-span-3">
+          {failures.map((item) => (
+            <div class="rounded-lg border border-grey-200 bg-grey-50 p-6">
+              <div class="mb-3 flex size-9 items-center justify-center rounded-full bg-accent-alert/10">
+                <svg class="size-5 text-accent-alert" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <h3 class="text-primary-900 mb-2 font-bold">{item.title}</h3>
+              <p class="text-grey-600 text-sm/6">{item.body}</p>
+            </div>
+          ))}
         </div>
       </div>
-
-      <div class="relative">
-        <div class="overflow-hidden rounded-2xl shadow-sm">
-          <img 
-            src="/facebook-ads.avif" 
-            alt="Team engaging with Facebook Ads on mobile devices" 
-            width="1642" 
-            height="1100"
-            loading="lazy"
-            class="h-auto w-full object-cover"
-          />
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="bg-white py-16 md:py-24" >
-  <div class="container mx-auto max-w-7xl px-4 lg:px-8">
-
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-      
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-			<img src="/date-range-svgrepo-com.svg" alt="A calendar icon">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          COMPREHENSIVE META ADS PERFORMANCE ANALYSIS
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-        Our insights will guide strategic adjustments to enhance ad performance continually.
-      </p>
-      </div>
-
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="/bar-chart-02-svgrepo-com.svg" alt="A bar chart with ascending lines">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          END-TO-END META ADS CAMPAIGN MANAGEMENT
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-        We focus on creating high-quality visuals and compelling ad copy that resonate with your target audience
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
-        <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
-          <img src="/spreadsheet-chart-svgrepo-com.svg" alt="Spreadsheet with line graph">
-        </div>
-        <h3 class="text-lg/none font-bold tracking-wider uppercase text-black">
-          ADVANCED CONVERSION TRACKING AND OPTIMIZATION
-        </h3>
-        <div class="my-6 h-0.5 w-48 bg-secondary-500"></div>
-        <p class="text-base/6 font-medium text-grey-900">
-        We implement Meta Pixel, Conversions API, and server-side tracking to measure every interaction stemming from your ads.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="bg-white py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-      
-      <header>
-        <h2 class="text-primary-900 text-4xl/tight font-extrabold tracking-tight md:text-5xl/tight">
-          Unlock the <span class="text-secondary-500">Full Potential</span> of Digital Marketing for Your Business
+  <!-- What's included -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+          Everything Your Meta Account <span class="text-secondary-500">Actually Needs</span>
         </h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-600 mx-auto mt-6 max-w-2xl text-lg/8">
+          Full-service management. One team handles strategy, creative, tracking, and optimization end to end.
+        </p>
       </header>
 
-      <div class="text-grey-700 flex flex-col gap-4 text-lg/8">
-        <p>
-          From brand awareness to lead generation, we know the ins and outs of Meta's ad
-          ecosystem: targeted campaigns, advanced audiences, and ad spend optimized for
-          maximum ROI.
-        </p>
-        <p>
-          We implement Meta Pixel, Conversions API, and server-side first-party tracking on
-          every account, then feed offline conversion data from your CRM back to Meta. Even
-          with iOS privacy changes, Meta's algorithm learns from your real revenue, so it
-          finds more of the customers who actually buy.
-        </p>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {deliverables.map((item, index) => (
+          <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-8 shadow-md ring-1 ring-grey-200">
+            <span class="text-secondary-500/40 text-4xl font-black">{String(index + 1).padStart(2, "0")}</span>
+            <h3 class="text-primary-900 mb-3 mt-2 text-lg font-bold">{item.title}</h3>
+            <p class="text-grey-600 text-base/7">{item.body}</p>
+          </div>
+        ))}
       </div>
     </div>
+  </section>
 
-    <div class="mt-16 grid items-center gap-12 md:grid-cols-2">
-      <div class="flex justify-center p-4">
-        <img 
-          src="/meta-ads-sales-target.avif" 
-          alt="Illustration of digital marketing targeting" 
-          width="1800" 
-          height="1200"
-          class="h-auto max-w-full"
+  <!-- Timeline -->
+  <section class="stripes-dark bg-primary-900 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 text-center">
+        <h2 class="text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
+          What the First 90 Days <span class="text-secondary-300">Look Like</span>
+        </h2>
+        <div class="bg-secondary-300 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+        <p class="mx-auto mt-6 max-w-2xl text-lg/8 text-primary-100">
+          No mystery, no black box. Here is exactly how a new Meta Ads engagement unfolds.
+        </p>
+      </header>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {timeline.map((step) => (
+          <div class="rounded-lg bg-white/5 p-6 ring-1 ring-white/10">
+            <p class="text-secondary-300 text-sm font-bold uppercase tracking-widest">{step.phase}</p>
+            <h3 class="mt-2 text-xl font-bold text-white">{step.title}</h3>
+            <p class="mt-3 text-sm/6 text-primary-100">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative portfolio -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+          Ads We've Built for <span class="text-secondary-500">Real Clients</span>
+        </h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-600 mx-auto mt-6 max-w-2xl text-lg/8">
+          Creative straight from live client accounts. Designed in-house, tested against
+          each other, and kept only when the numbers say so.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {creatives.map((creative) => (
+          <figure class="group overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-grey-200 transition-shadow hover:shadow-lg">
+            <div class="overflow-hidden">
+              <img
+                src={creative.src}
+                alt={`${creative.industry} ad creative by Creekside Marketing`}
+                width="800"
+                height="800"
+                loading="lazy"
+                class="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <figcaption class="flex items-center justify-between border-t border-grey-100 px-5 py-4">
+              <span class="text-primary-900 font-bold">{creative.industry}</span>
+              <span class="rounded-full bg-secondary-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-700">{creative.note}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance proof -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+          Results Straight From <span class="text-secondary-500">Ads Manager</span>
+        </h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-600 mx-auto mt-6 max-w-2xl text-lg/8">
+          Not a polished slide deck. This is a live client account inside Meta Ads
+          Manager, with sensitive details redacted.
+        </p>
+      </header>
+
+      <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-grey-200">
+        <img
+          src="/case-study-screenshots/meta-saas-campaign-overview.webp"
+          alt="Meta Ads Manager screenshot showing $145,509 in managed spend and 3.5 million impressions for a healthcare software client"
+          width="1600"
+          height="685"
           loading="lazy"
+          class="w-full"
         />
       </div>
 
-      <div class="flex justify-center">
-        <img 
-          src="/meta-ads-tablet.avif" 
-          alt="Analytics dashboard on a digital tablet" 
-          width="1800" 
-          height="1200"
-          class="h-auto max-w-full rounded-sm shadow-sm"
-          loading="lazy"
-        />
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-6">
+        <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-6 text-center shadow-md ring-1 ring-grey-200">
+          <p class="text-primary-900 text-3xl font-extrabold">$145K+</p>
+          <p class="text-grey-600 mt-1 text-sm font-semibold uppercase tracking-wide">Deployed on this account</p>
+        </div>
+        <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-6 text-center shadow-md ring-1 ring-grey-200">
+          <p class="text-primary-900 text-3xl font-extrabold">3.5M+</p>
+          <p class="text-grey-600 mt-1 text-sm font-semibold uppercase tracking-wide">Impressions delivered</p>
+        </div>
+        <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-6 text-center shadow-md ring-1 ring-grey-200">
+          <p class="text-primary-900 text-3xl font-extrabold">15</p>
+          <p class="text-grey-600 mt-1 text-sm font-semibold uppercase tracking-wide">Campaigns tested & scaled</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-    <ServiceCommitments platform="Meta Ads" />
-    <Footer />
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+          Meta Ads <span class="text-secondary-500">Questions</span>
+        </h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+      </div>
+
+      <div class="mx-auto mt-12 flex max-w-3xl flex-col gap-4">
+        {faqs.map((faq) => (
+          <details name="meta-faq-accordion" class="group rounded-lg bg-grey-50 shadow-sm ring-1 ring-grey-200">
+            <summary class="flex cursor-pointer list-none items-center justify-between p-6 text-lg font-bold text-primary-900 select-none">
+              <span>{faq.question}</span>
+              <span class="ml-4 shrink-0 text-secondary-500 transition-transform duration-300 group-open:rotate-45">
+                <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m6-6H6" />
+                </svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-base/7 text-grey-600">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ServiceCommitments platform="Meta Ads" />
+  <Footer />
 </Layout>

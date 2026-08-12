@@ -66,10 +66,10 @@ const teamMembers = [
   },
   {
     firstName: "David",
-    lastName: "",
+    lastName: "Caicedo",
     image: "/david-caicedo-headshot.avif",
     role: "Meta Ads Specialist",
-    bio: ""
+    bio: "David is drawn to the psychology behind why people buy, which is exactly how he ended up in marketing. He runs Meta campaigns built to actually deliver, and he loves seeing how the results show up in a client's business."
   },
     {
     firstName: "Sophia",
@@ -90,7 +90,21 @@ const teamMembers = [
     lastName: "",
     image: "/melvin-headshot.avif",
     role: "Executive Assistant",
-    bio: "" 
+    bio: ""
+  },
+  {
+    firstName: "Aamir",
+    lastName: "Khan",
+    image: "/aamir-khan-headshot.webp",
+    role: "Advertising Designer",
+    bio: "Aamir designs the ad creatives behind our Meta and Google campaigns. His focus is high-quality, performance-driven creative that is clear, on-brand, and built to convert."
+  },
+  {
+    firstName: "Aldo",
+    lastName: "Fonseca Vargas",
+    image: "/aldo-fonseca-headshot.webp",
+    role: "Digital Marketing Intern",
+    bio: "Aldo supports the paid media team while finishing his Marketing and International Business degree at the University of Tennessee, Knoxville. He is building hands-on experience across Meta Ads and email strategy."
   },
 ];
 
@@ -143,13 +157,13 @@ const getGridItemClass = (index: number, length: number) => {
           one direct channel with the entire team working on it.
         </p>
         <div class="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
-          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+          <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white px-4 py-5 shadow-md ring-1 ring-grey-200">
             <p class="text-primary-900 font-bold">Max 10 clients per specialist</p>
           </div>
-          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+          <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white px-4 py-5 shadow-md ring-1 ring-grey-200">
             <p class="text-primary-900 font-bold">Senior specialists only</p>
           </div>
-          <div class="rounded-lg border border-grey-200 bg-grey-50 px-4 py-5">
+          <div class="rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white px-4 py-5 shadow-md ring-1 ring-grey-200">
             <p class="text-primary-900 font-bold">One direct channel with your whole team</p>
           </div>
         </div>
@@ -183,79 +197,79 @@ const getGridItemClass = (index: number, length: number) => {
         ))}
       </div>
 
-      <hr class="border-grey-200 my-24" />
+    </div>
+  </section>
 
-      <div class="mb-16 text-center">
-        <h2 class="text-primary-900 mb-4 text-5xl font-extrabold uppercase tracking-tight">Our <span class="text-secondary-500">Google Ads</span> Team</h2>
-        <div class="bg-secondary-500 mx-auto h-1 w-12 rounded-full"></div>
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">Our <span class="text-secondary-500">Google Ads</span> Team</h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
       </div>
-      <div class="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2">
-        {googleTeam.map((member, index) => (
-          <div class={`flex flex-col items-center text-center ${getGridItemClass(index, googleTeam.length)}`}>
-            <h3 class="text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName}</h3>
-             <img
-                src={member.image}
-                alt={member.firstName}
-                class="size-48 mb-6 rounded-full object-cover shadow-sm"
-                loading="lazy"
-              />
-            <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        {googleTeam.map((member) => (
+          <div class="w-full max-w-sm rounded-lg border-t-4 border-secondary-500 bg-white p-8 text-center shadow-md ring-1 ring-grey-200">
+            <img
+              src={member.image}
+              alt={`${member.firstName} ${member.lastName}`.trim()}
+              class="mx-auto size-36 rounded-full object-cover shadow-sm"
+              loading="lazy"
+            />
+            <h3 class="text-primary-900 mt-5 text-xl font-bold">{member.firstName} {member.lastName}</h3>
+            <span class="mt-2 inline-flex items-center rounded-full bg-secondary-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-700 ring-1 ring-secondary-500/30">{member.role}</span>
             {getBio(member) && (
-              <p class="text-grey-700 mt-3 max-w-md text-base/7">
-                {getBio(member)}
-              </p>
+              <p class="text-grey-600 mt-4 text-base/7">{getBio(member)}</p>
             )}
           </div>
         ))}
       </div>
 
-      <hr class="border-grey-200 my-24" />
-
-      <div class="mb-16 text-center">
-        <h2 class="text-primary-900 mb-4 text-5xl font-extrabold uppercase tracking-tight">Our <span class="text-secondary-500">Meta Ads</span> Team</h2>
-        <div class="bg-secondary-500 mx-auto h-1 w-12 rounded-full"></div>
+      <div class="mt-20 mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">Our <span class="text-secondary-500">Meta Ads</span> Team</h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
       </div>
-      <div class="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2">
-        {metaTeam.map((member, index) => (
-          <div class={`flex flex-col items-center text-center ${getGridItemClass(index, metaTeam.length)}`}>
-            <h3 class="text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName}</h3>
-             <img
-                src={member.image}
-                alt={member.firstName}
-                class="size-48 mb-6 rounded-full object-cover shadow-sm"
-                loading="lazy"
-              />
-            <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        {metaTeam.map((member) => (
+          <div class="w-full max-w-sm rounded-lg border-t-4 border-secondary-500 bg-white p-8 text-center shadow-md ring-1 ring-grey-200">
+            <img
+              src={member.image}
+              alt={`${member.firstName} ${member.lastName}`.trim()}
+              class="mx-auto size-36 rounded-full object-cover shadow-sm"
+              loading="lazy"
+            />
+            <h3 class="text-primary-900 mt-5 text-xl font-bold">{member.firstName} {member.lastName}</h3>
+            <span class="mt-2 inline-flex items-center rounded-full bg-secondary-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-700 ring-1 ring-secondary-500/30">{member.role}</span>
             {getBio(member) && (
-              <p class="text-grey-700 mt-3 max-w-md text-base/7">
-                {getBio(member)}
-              </p>
+              <p class="text-grey-600 mt-4 text-base/7">{getBio(member)}</p>
             )}
           </div>
         ))}
       </div>
 
-      <hr class="border-grey-200 my-24" />
+    </div>
+  </section>
 
-      <div class="mb-16 text-center">
-        <h2 class="text-primary-900 mb-4 text-5xl font-extrabold uppercase tracking-tight">Supporting Your <span class="text-secondary-500">Success</span></h2>
-        <div class="bg-secondary-500 mx-auto h-1 w-12 rounded-full"></div>
+  <section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">Supporting Your <span class="text-secondary-500">Success</span></h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
       </div>
-      <div class="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2">
-        {supportTeam.map((member, index) => (
-          <div class={`flex flex-col items-center text-center ${getGridItemClass(index, supportTeam.length)}`}>
-            <h3 class=" text-secondary-500 text-xl font-bold uppercase mb-2">{member.firstName} {member.lastName}</h3>
-             <img
-                src={member.image}
-                alt={member.firstName}
-                class="size-48 mb-6 rounded-full object-cover shadow-sm"
-                loading="lazy"
-              />
-            <p class="text-primary-900 font-semibold uppercase tracking-wider">{member.role}</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        {supportTeam.map((member) => (
+          <div class="w-full max-w-sm rounded-lg border-t-4 border-secondary-500 bg-white p-8 text-center shadow-md ring-1 ring-grey-200">
+            <img
+              src={member.image}
+              alt={`${member.firstName} ${member.lastName}`.trim()}
+              class="mx-auto size-36 rounded-full object-cover shadow-sm"
+              loading="lazy"
+            />
+            <h3 class="text-primary-900 mt-5 text-xl font-bold">{member.firstName} {member.lastName}</h3>
+            <span class="mt-2 inline-flex items-center rounded-full bg-secondary-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary-700 ring-1 ring-secondary-500/30">{member.role}</span>
             {getBio(member) && (
-              <p class="text-grey-700 mt-3 max-w-md text-base/7">
-                {getBio(member)}
-              </p>
+              <p class="text-grey-600 mt-4 text-base/7">{getBio(member)}</p>
             )}
           </div>
         ))}

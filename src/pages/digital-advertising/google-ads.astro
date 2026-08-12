@@ -6,6 +6,51 @@ import ServiceCommitments from '../../components/ServiceCommitments.astro';
 import { siteSchema, faqSchemas } from '../../data/structuredData';
 
 import '../../styles/global.css';
+
+const results = [
+  {
+    src: "/case-study-screenshots/luggage-drop-google-ads.webp",
+    industry: "Travel Services (Ecommerce)",
+    metric: "1,050 purchases at $2.44 each",
+    note: "Purchases up 804 vs the prior period",
+    alt: "Google Ads screenshot showing 1,050 purchases at $2.44 cost per conversion for a travel services client",
+  },
+  {
+    src: "/case-study-screenshots/root-hair-google-ads.webp",
+    industry: "Hair Restoration",
+    metric: "690 conversions, cost down $44 each",
+    note: "205 more conversions than the prior period",
+    alt: "Google Ads screenshot showing 690 conversions with cost per conversion down $44 for a hair restoration client",
+  },
+  {
+    src: "/case-study-screenshots/nyc-notary-google-ads.webp",
+    industry: "Professional Services",
+    metric: "440 conversions at $27.92 each",
+    note: "Cost per conversion down $16 vs the prior period",
+    alt: "Google Ads screenshot showing 440 conversions at $27.92 cost per conversion for a notary services client",
+  },
+  {
+    src: "/case-study-screenshots/winterbotham-google-ads.webp",
+    industry: "Bankruptcy Law",
+    metric: "229 conversions, cost down $35.80 each",
+    note: "Conversions nearly doubled vs the prior period",
+    alt: "Google Ads screenshot showing 229 conversions with cost per conversion down $35.80 for a bankruptcy law firm",
+  },
+  {
+    src: "/case-study-screenshots/green-shield-pest-google-ads.webp",
+    industry: "Pest Control",
+    metric: "79 conversions, up 20 period over period",
+    note: "Cost per conversion down $21.53",
+    alt: "Google Ads screenshot showing 79 conversions with cost per conversion down $21.53 for a pest control client",
+  },
+  {
+    src: "/case-study-screenshots/lewis-llewellyn-google-ads.webp",
+    industry: "Law Firm",
+    metric: "39 conversions, cost down $201 each",
+    note: "Conversions up 25 vs the prior period",
+    alt: "Google Ads screenshot showing 39 conversions with cost per conversion down $201 for a law firm client",
+  },
+];
 ---
 
 <Layout
@@ -73,7 +118,7 @@ import '../../styles/global.css';
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
+      <div class="flex flex-col items-center rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-10 text-center shadow-md ring-1 ring-grey-200 transition-shadow hover:shadow-lg">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
 			<img src="/date-range-svgrepo-com.svg" alt="A calendar icon">
         </div>
@@ -86,7 +131,7 @@ import '../../styles/global.css';
         </p>
       </div>
 
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
+      <div class="flex flex-col items-center rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-10 text-center shadow-md ring-1 ring-grey-200 transition-shadow hover:shadow-lg">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
           <img src="/bar-chart-02-svgrepo-com.svg" alt="A bar chart with ascending lines">
         </div>
@@ -99,7 +144,7 @@ import '../../styles/global.css';
         </p>
       </div>
 
-      <div class="flex flex-col items-center rounded-sm border-2 border-secondary-500 bg-white p-10 text-center shadow-sm transition-shadow hover:shadow-md">
+      <div class="flex flex-col items-center rounded-lg border-t-4 border-secondary-500 bg-gradient-to-b from-secondary-50 to-white p-10 text-center shadow-md ring-1 ring-grey-200 transition-shadow hover:shadow-lg">
         <div class="mb-6 flex size-12 items-center justify-center text-primary-900">
           <img src="/spreadsheet-chart-svgrepo-com.svg" alt="Spreadsheet with line graph">
         </div>
@@ -183,6 +228,42 @@ import '../../styles/global.css';
           loading="lazy"
         />
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Performance proof gallery -->
+<section class="bg-grey-50 py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="mb-12 text-center">
+      <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+        Results Straight From <span class="text-secondary-500">Google Ads</span>
+      </h2>
+      <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+      <p class="text-grey-600 mx-auto mt-6 max-w-2xl text-lg/8">
+        No polished slide decks. These are live client accounts inside the Google Ads
+        platform, each compared against the period before we made changes.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {results.map((result) => (
+        <figure class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-grey-200 transition-shadow hover:shadow-lg">
+          <img
+            src={result.src}
+            alt={result.alt}
+            width="1600"
+            height="700"
+            loading="lazy"
+            class="w-full border-b border-grey-100"
+          />
+          <figcaption class="flex flex-col gap-1 px-6 py-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-secondary-700">{result.industry}</span>
+            <span class="text-primary-900 text-lg font-extrabold">{result.metric}</span>
+            <span class="text-grey-600 text-sm">{result.note}</span>
+          </figcaption>
+        </figure>
+      ))}
     </div>
   </div>
 </section>
