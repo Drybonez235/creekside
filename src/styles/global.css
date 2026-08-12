@@ -51,6 +51,16 @@ body {
   color: var(--color-grey-900);
 }
 
+/* Subtle light-section treatments. Keep these faint: if the texture itself
+   is noticeable, it is too strong. */
+.wash-sky {
+  background-image: radial-gradient(ellipse 85% 55% at 50% -10%, rgba(2, 132, 199, 0.08), transparent 65%);
+}
+.dot-grid {
+  background-image: radial-gradient(rgba(16, 42, 67, 0.08) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
 /* Soft sky-blue glow treatment for dark (bg-primary-900) sections */
 .stripes-dark {
   background-image:

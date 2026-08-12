@@ -1,7 +1,8 @@
 ---
 // Auto-scrolling client logo marquee. Logos shared with Clienttrust.astro (case-studies page).
+// `dark: true` = white/light artwork that needs a navy chip to stay legible.
 const logos = [
-  { name: "Host Switch", logo: "/logos/host-switch.avif" },
+  { name: "Host Switch", logo: "/logos/host-switch.avif", dark: true },
   { name: "Duct Tape Marketing", logo: "/logos/duct-tape-marketing.avif" },
   { name: "Chattanooga Skydiving Company", logo: "/logos/chattanooga-skydiving-company.avif" },
   { name: "Central Florida Awnings", logo: "/logos/central-florida-awnnings.avif" },
@@ -10,11 +11,11 @@ const logos = [
   { name: "Refer Pro", logo: "/logos/refer-pro.avif" },
   { name: "Rhodes Fabrication", logo: "/logos/Rhodes-Fabrication.avif" },
   { name: "Lawn Value", logo: "/logos/LawnValue-Logo.avif" },
-  { name: "Smart Payroll Solutions", logo: "/logos/smart-payroll-solutions.avif" },
+  { name: "Smart Payroll Solutions", logo: "/logos/smart-payroll-solutions.avif", dark: true },
   { name: "Sunshine Lawn & Pest", logo: "/logos/Sunshine-Lawn-Pest.avif" },
-  { name: "Midwest Green Lawn", logo: "/logos/midwest-greenlawn.avif" },
+  { name: "Midwest Green Lawn", logo: "/logos/midwest-greenlawn.avif", dark: true },
   { name: "Tilly Mill Goodyear", logo: "/logos/tilly-mill-good-year.avif" },
-  { name: "Midwest Landscape", logo: "/logos/midwest-landscape.avif" },
+  { name: "Midwest Landscape", logo: "/logos/midwest-landscape.avif", dark: true },
   { name: "Tuxedo Mosquito Control", logo: "/logos/tuxedo-masquito-control.avif" },
   { name: "Polaris Dentistry", logo: "/logos/Polaris-Dentistry.avif" },
 ];
@@ -29,7 +30,7 @@ const logos = [
       {[0, 1].map((copy) => (
         <div class="flex shrink-0 items-center gap-6 pr-6 md:gap-10 md:pr-10" aria-hidden={copy === 1 ? "true" : undefined}>
           {logos.map((client) => (
-            <div class="flex h-20 w-40 shrink-0 items-center justify-center rounded-md bg-white p-4 shadow-sm">
+            <div class={`flex h-20 w-40 shrink-0 items-center justify-center rounded-md p-4 shadow-sm ${client.dark ? "bg-primary-800 ring-1 ring-white/15" : "bg-white"}`}>
               <img
                 src={client.logo}
                 alt={copy === 0 ? `${client.name} logo` : ""}
