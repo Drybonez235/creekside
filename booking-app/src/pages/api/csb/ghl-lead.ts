@@ -117,7 +117,7 @@ export const POST: APIRoute = async ({ request }) => {
 	if (isQualified) {
 		tags.push("dental-qualified", "cade-direct");
 	} else {
-		tags.push("dental-under-threshold", "keith-referral");
+		tags.push("dental-under-threshold", "scott-referral");
 	}
 
 	const customFields: { id: string; value: string }[] = [];
@@ -132,7 +132,7 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.websiteUrl, website);
 	addField(FIELD.industry, "Dental");
 	addField(FIELD.contactSource, contactSource);
-	addField(FIELD.referredTo, isQualified ? "Cade" : "Keith");
+	addField(FIELD.referredTo, isQualified ? "Cade" : "Scott");
 	addField(FIELD.qualificationStatus, qualStatus);
 	addField(FIELD.utmSource, utmSource);
 	addField(FIELD.utmMedium, utmMedium);
