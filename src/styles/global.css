@@ -51,6 +51,15 @@ body {
   color: var(--color-grey-900);
 }
 
+/* Diagonal sky-blue stripe texture for dark (bg-primary-900) sections */
+.stripes-dark {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.08) 0 8px,
+    rgba(56, 189, 248, 0.03) 8px 16px
+  );
+}
+
 @theme {
   /* Ensure our primary navy is available for prose headers */
   --color-primary-900: #102a43;

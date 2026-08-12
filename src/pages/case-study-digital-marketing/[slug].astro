@@ -46,17 +46,17 @@ const d = study.data;
 // Determine if this study uses the rich format or legacy markdown
 const hasRichFormat = d.sections && d.sections.length > 0;
 
-// Build hero title — use heroTitle if provided, otherwise generate from title
+// Build hero title -- use heroTitle if provided, otherwise generate from title
 const heroTitle = d.heroTitle || `How {CLIENT} ${d.title}`;
 const heroSubtitle = d.heroSubtitle || d.summary;
 
-// Build client info — use clientInfo if provided, otherwise generate from available data
+// Build client info -- use clientInfo if provided, otherwise generate from available data
 const clientInfo = d.clientInfo || [
   { label: "Client", value: d.client },
   { label: "Category", value: d.category },
 ];
 
-// Build metric strip — use metricStrip if provided, otherwise generate from metrics
+// Build metric strip -- use metricStrip if provided, otherwise generate from metrics
 const metricStrip = d.metricStrip || [
   { value: d.metrics.roas, label: "Primary Result" },
   { value: d.metrics.scale, label: "Scale Achieved" },

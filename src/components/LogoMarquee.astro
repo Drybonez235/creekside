@@ -1,0 +1,67 @@
+---
+// Auto-scrolling client logo marquee. Logos shared with Clienttrust.astro (case-studies page).
+const logos = [
+  { name: "Host Switch", logo: "/logos/host-switch.avif" },
+  { name: "Duct Tape Marketing", logo: "/logos/duct-tape-marketing.avif" },
+  { name: "Chattanooga Skydiving Company", logo: "/logos/chattanooga-skydiving-company.avif" },
+  { name: "Central Florida Awnings", logo: "/logos/central-florida-awnnings.avif" },
+  { name: "Adibe Law Group", logo: "/logos/adibe-law-group.avif" },
+  { name: "Axle Solutions Inc", logo: "/logos/axlesolutionsinc.avif" },
+  { name: "Refer Pro", logo: "/logos/refer-pro.avif" },
+  { name: "Rhodes Fabrication", logo: "/logos/Rhodes-Fabrication.avif" },
+  { name: "Lawn Value", logo: "/logos/LawnValue-Logo.avif" },
+  { name: "Smart Payroll Solutions", logo: "/logos/smart-payroll-solutions.avif" },
+  { name: "Sunshine Lawn & Pest", logo: "/logos/Sunshine-Lawn-Pest.avif" },
+  { name: "Midwest Green Lawn", logo: "/logos/midwest-greenlawn.avif" },
+  { name: "Tilly Mill Goodyear", logo: "/logos/tilly-mill-good-year.avif" },
+  { name: "Midwest Landscape", logo: "/logos/midwest-landscape.avif" },
+  { name: "Tuxedo Mosquito Control", logo: "/logos/tuxedo-masquito-control.avif" },
+  { name: "Polaris Dentistry", logo: "/logos/Polaris-Dentistry.avif" },
+];
+---
+
+<section class="stripes-dark bg-primary-900 py-10" aria-label="Clients we work with">
+  <p class="mb-6 text-center text-sm font-bold uppercase tracking-widest text-grey-400">
+    Trusted by 200+ businesses
+  </p>
+  <div class="logo-marquee overflow-hidden">
+    <div class="logo-marquee-track flex w-max items-center">
+      {[0, 1].map((copy) => (
+        <div class="flex shrink-0 items-center gap-6 pr-6 md:gap-10 md:pr-10" aria-hidden={copy === 1 ? "true" : undefined}>
+          {logos.map((client) => (
+            <div class="flex h-20 w-40 shrink-0 items-center justify-center rounded-sm bg-white/5 p-4">
+              <img
+                src={client.logo}
+                alt={copy === 0 ? `${client.name} logo` : ""}
+                class="max-h-10 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes logo-marquee-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .logo-marquee-track {
+    animation: logo-marquee-scroll 45s linear infinite;
+  }
+  .logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation: none;
+    }
+    .logo-marquee {
+      overflow-x: auto;
+    }
+  }
+</style>

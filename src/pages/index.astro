@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro'
 import TestimonialScreenshots from '../components/TestimonialScreenshots.astro';
 import VideoTestimonials from '../components/VideoTestimonials.astro';
 import GuaranteeBadges from '../components/GuaranteeBadges.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
 import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
 
@@ -197,6 +198,9 @@ const differentiatorThemes = [
       </div>
     </div>
   </section>
+
+  <!-- ========== 1B. CLIENT LOGO MARQUEE ========== -->
+  <LogoMarquee />
 
   <!-- ========== 2. WHY CHOOSE CREEKSIDE ========== -->
   <section class="bg-white py-20 lg:py-28">
@@ -411,8 +415,7 @@ const differentiatorThemes = [
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
           Google Ads and Meta Ads are the only two things we do. That focus is
-          why we're good at them. We help businesses cut through the noise,
-          maximize ad spend, and connect with the right audience.
+          why we're good at them.
         </p>
       </div>
 
@@ -429,12 +432,9 @@ const differentiatorThemes = [
             <div class="h-0.5 w-24 bg-secondary-500"></div>
           </div>
           <p class="grow text-base/7 text-grey-600">
-            We specialize in using Google Ads to drive targeted traffic and
-            maximize ROI for businesses of all sizes. By analyzing key metrics,
-            we optimize campaigns to ensure cost-effective ad spend while
-            aligning with specific business goals. Whether it's increasing brand
-            awareness, generating leads, or driving sales, we create customized
-            strategies that improve ad performance.
+            Search, YouTube, Shopping, Display, and Gmail. We build campaigns
+            around your revenue goals, then optimize weekly so every dollar of
+            spend has a job.
           </p>
           <div class="mt-8">
             <a
@@ -471,13 +471,9 @@ const differentiatorThemes = [
             <div class="h-0.5 w-24 bg-secondary-500"></div>
           </div>
           <p class="grow text-base/7 text-grey-600">
-            We specialize in using Meta Ads to drive targeted traffic and
-            maximize ROI for businesses of all sizes. By harnessing audience
-            insights and precise targeting capabilities, we develop tailored
-            campaigns that align with specific business goals, whether it's
-            boosting brand awareness, generating leads, or driving conversions.
-            Our strategy focuses on optimizing ad creatives, placements, and
-            budgets.
+            Facebook, Instagram, WhatsApp, and Advantage+. Creative testing,
+            precise audiences, and budget pacing built to turn cold traffic
+            into customers.
           </p>
           <div class="mt-8">
             <a
@@ -597,34 +593,20 @@ const differentiatorThemes = [
             class="mt-8 flex flex-col gap-6 text-base/7 text-grey-700 md:text-lg/8"
           >
             <p>
-              At Creekside Marketing, we combine analytical expertise with
-              data-driven marketing to help businesses grow. Founded by longtime
-              friends Cade and Peterson in 2021, we've helped businesses across
-              dozens of industries turn paid advertising into their most
-              reliable growth channel.
+              Founded by longtime friends Cade and Peterson in 2021, Creekside
+              has helped businesses across dozens of industries turn paid
+              advertising into their most reliable growth channel.
             </p>
             <p>
-              With a background in accounting and an MBA, Cade leads Meta Ads
-              strategy, while Peterson, a mechanical engineer, leads Google Ads
-              strategy. Together with a team of dedicated specialists, they
-              deliver consistent, measurable growth for every client. Baran
-              helps businesses generate and convert traffic with scalable ad
-              campaigns. He focuses on building high-converting funnels and
-              making sure every step of the customer journey supports profitable
-              growth. Despite earning degrees in highly technical fields, we
-              recognized the need for marketers with a deep understanding of
-              numbers and data.
-            </p>
-            <p>
-              That expertise has made us the people other marketing
-              professionals turn to when they don't know what to do, and we
-              bring that same level of strategy and precision to every client we
-              work with.
+              Cade, with a background in accounting and an MBA, leads Meta Ads.
+              Peterson, a mechanical engineer, leads Google Ads. That
+              numbers-first DNA is why other marketing professionals call us
+              when they're stuck, and it shapes how we run every account.
             </p>
             <p class="font-medium text-primary-900">
-              Our approach is simple: strategic decision-making, continuous
-              optimization, and custom solutions tailored to your business
-              goals. Let's grow your business together.
+              Strategic decisions, continuous optimization, and custom
+              strategies built around your goals. Let's grow your business
+              together.
             </p>
           </div>
 
@@ -874,8 +856,49 @@ const differentiatorThemes = [
     </div>
   </section>
 
+  <!-- ========== RESULTS STAT BAND ========== -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
+          Numbers From <span class="text-secondary-500">Real Accounts</span>
+        </h2>
+        <p class="mt-4 text-lg/8 text-grey-600">
+          Every stat below comes straight from a published case study.
+        </p>
+      </div>
+      <div class="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-6 lg:grid-cols-4">
+        <div class="rounded-lg border border-grey-200 bg-grey-50 p-6 text-center">
+          <div class="text-4xl font-extrabold text-secondary-500 md:text-5xl">20x</div>
+          <p class="mt-3 text-sm/6 font-medium text-grey-600">ROAS for a Texas food brand on Meta</p>
+        </div>
+        <div class="rounded-lg border border-grey-200 bg-grey-50 p-6 text-center">
+          <div class="text-4xl font-extrabold text-secondary-500 md:text-5xl">$456K</div>
+          <p class="mt-3 text-sm/6 font-medium text-grey-600">Revenue on $46.8K ad spend in 30 days</p>
+        </div>
+        <div class="rounded-lg border border-grey-200 bg-grey-50 p-6 text-center">
+          <div class="text-4xl font-extrabold text-secondary-500 md:text-5xl">464%</div>
+          <p class="mt-3 text-sm/6 font-medium text-grey-600">Year-over-year growth for a B2B SaaS</p>
+        </div>
+        <div class="rounded-lg border border-grey-200 bg-grey-50 p-6 text-center">
+          <div class="text-4xl font-extrabold text-secondary-500 md:text-5xl">1,200+</div>
+          <p class="mt-3 text-sm/6 font-medium text-grey-600">Google Ads leads for one lawn care brand</p>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a
+          href="/case-study-digital-marketing/"
+          class="inline-flex items-center gap-2 font-bold text-secondary-500 transition-colors hover:text-secondary-600"
+        >
+          Read the case studies
+          <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== GUARANTEES ========== -->
-  <section class="bg-primary-900 py-20 lg:py-28">
+  <section class="stripes-dark bg-primary-900 py-20 lg:py-28">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-4xl/tight font-extrabold tracking-tight text-white md:text-5xl/tight">
@@ -1228,7 +1251,7 @@ const differentiatorThemes = [
   </section>
 
   <!-- ========== 11. FINAL CTA BANNER ========== -->
-  <section class="bg-primary-900 py-20 lg:py-28">
+  <section class="stripes-dark bg-primary-900 py-20 lg:py-28">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-4xl/tight font-extrabold text-white md:text-5xl/tight">

@@ -511,7 +511,15 @@ export const faqSchemas = {
         "name": "How much does Creekside Marketing charge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. The $1,500 minimum per platform covers your first $7,500 in spend, and fees are capped at $15,000/month."
+          "text": "Our management fee is a percentage of your ad spend: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform, and total fees are capped at $15,000 per month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in the management fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Everything required to make your ads succeed: campaign management, landing pages, ad creatives, copywriting, conversion tracking setup including server-side tracking and CRM integration, conversion rate optimization, live reporting, bi-weekly reports, and monthly strategy calls. There are no separate line items."
         }
       },
       {
@@ -519,7 +527,23 @@ export const faqSchemas = {
         "name": "Are there any long-term contracts?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. All plans are month-to-month with no long-term commitment required."
+          "text": "No. There are no long-term contracts, and your first 7 days are covered by a full money-back guarantee."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you charge per platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The fee is calculated per platform. If we manage both Google Ads and Meta Ads, each platform has its own tiered rate and $1,500 minimum, and your combined total is still capped at $15,000 per month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What guarantees do you offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Two. First, a 7-day money-back guarantee: meet the team, see how we work, and if we're not the right fit within your first 7 days, you get a full refund. Second, a 90-day performance promise: if we don't improve your ROAS within 90 days, we work for free until we do."
         }
       },
       {
@@ -527,23 +551,7 @@ export const faqSchemas = {
         "name": "Which plan should I choose?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our single pricing structure works for all budget levels. The percentage rate decreases as your spend grows (20% to $30k, 15% to $60k, 10% above), so the more you invest, the lower your effective rate. Fees are capped at $15,000/month."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is included in the onboarding fee?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The $1,500 per platform onboarding fee covers a full account audit, conversion tracking setup (GA4, Meta Pixel, CAPI, GTM), campaign strategy development, and initial campaign buildout."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I switch between plans?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our pricing automatically scales with your ad spend. As your budget grows, the percentage rate decreases at $30k and $60k per platform. No plan switching needed."
+          "text": "There's only one pricing structure, and it works at every budget level. The percentage rate decreases as your spend grows (20% to $30k, 15% to $60k, 10% above), so the more you invest, the lower your effective rate."
         }
       }
     ]

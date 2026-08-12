@@ -80,23 +80,57 @@ const screenshots = [
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.getElementById("screenshot-slider");
+    const sliderEl = document.getElementById("screenshot-slider");
     const nextBtn = document.getElementById("screenshot-next");
     const prevBtn = document.getElementById("screenshot-prev");
 
-    if (!slider || !nextBtn || !prevBtn) return;
+    if (!sliderEl || !nextBtn || !prevBtn) return;
+    const slider = sliderEl;
 
     function getSlideWidth() {
       const slide = slider.querySelector("div");
       return slide ? slide.offsetWidth + 24 : 0;
     }
 
+    function goNext() {
+      const atEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 50;
+      if (atEnd) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        slider.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+      }
+    }
+
+    // Autoplay: advance every 5s, pause on hover/touch
+    let autoplayId = 0;
+    function startAutoplay() {
+      if (autoplayId) return;
+      autoplayId = window.setInterval(goNext, 5000);
+    }
+    function stopAutoplay() {
+      window.clearInterval(autoplayId);
+      autoplayId = 0;
+    }
+
     nextBtn.addEventListener("click", () => {
-      slider.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+      stopAutoplay();
+      goNext();
+      startAutoplay();
     });
 
     prevBtn.addEventListener("click", () => {
+      stopAutoplay();
       slider.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+      startAutoplay();
     });
+
+    slider.addEventListener("mouseenter", stopAutoplay);
+    slider.addEventListener("mouseleave", startAutoplay);
+    slider.addEventListener("touchstart", stopAutoplay, { passive: true });
+    slider.addEventListener("touchend", () => setTimeout(startAutoplay, 8000), { passive: true });
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      startAutoplay();
+    }
   });
 </script>
