@@ -8,7 +8,7 @@ export const siteSchema = {
   "url": "https://creeksidemarketingpros.com/",
   "logo": "https://creeksidemarketingpros.com/creekside-marketing-pros-logo.avif",
   "image": "https://creeksidemarketingpros.com/creekside-marketing-logo-sqaure.avif",
-  "description": "Expert Google and Meta Ads management for outdoor service companies. We help businesses spending $10k-$100k/month recover wasted ad spend and improve ROAS.",
+  "description": "Expert Google and Meta Ads management for businesses doing $500K to $10M in revenue. We recover wasted ad spend and improve ROAS.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Nashville",
