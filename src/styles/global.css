@@ -61,6 +61,11 @@ body {
   background-size: 22px 22px;
 }
 
+/* Voice kit: handwriting accents (HandNote, HonestAside labels). Font loaded in Layout head. */
+.hand-script {
+  font-family: "Caveat", cursive;
+}
+
 /* Soft sky-blue glow treatment for dark (bg-primary-900) sections */
 .stripes-dark {
   background-image:
