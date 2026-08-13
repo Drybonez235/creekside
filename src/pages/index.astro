@@ -6,8 +6,6 @@ import TestimonialScreenshots from '../components/TestimonialScreenshots.astro';
 import VideoTestimonials from '../components/VideoTestimonials.astro';
 import GuaranteeBadges from '../components/GuaranteeBadges.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
-import MarkerHighlight from '../components/voice/MarkerHighlight.astro';
-import HonestAside from '../components/voice/HonestAside.astro';
 import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
 
@@ -107,7 +105,7 @@ const differentiatorThemes = [
           <h1
             class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-5xl/tight xl:text-6xl/tight"
           >
-            <span>Stop <MarkerHighlight variant="circle">Wasting</MarkerHighlight> Ad Spend.</span>
+            <span>Stop Wasting Ad Spend.</span>
             <span class="text-secondary-400">Start Growing Revenue.</span>
           </h1>
 
@@ -841,18 +839,21 @@ const differentiatorThemes = [
       </div>
 
       <div class="mt-10">
-        <HonestAside>
-          If you're under $10k/month in ad spend, we're probably not your best
-          option yet. A good freelancer or smaller agency will give you more
-          attention for less money at that stage. Come back when you're ready
-          to scale. We'll still be here.
-        </HonestAside>
+        <aside class="mx-auto max-w-2xl rounded-sm border-l-4 border-secondary-500 bg-secondary-50 px-6 py-5">
+          <p class="text-sm font-bold tracking-wide text-secondary-700 uppercase">Honest answer</p>
+          <p class="mt-2 text-grey-700">
+            If you're under $10k/month in ad spend, we're probably not your best
+            option yet. A good freelancer or smaller agency will give you more
+            attention for less money at that stage. Come back when you're ready
+            to scale. We'll still be here.
+          </p>
+        </aside>
       </div>
     </div>
   </section>
 
   <!-- ========== RESULTS STAT BAND ========== -->
-  <section class="dot-grid bg-white py-16 lg:py-20">
+  <section class="dot-grid bg-grey-50 py-16 lg:py-20">
     <div class="container mx-auto px-4 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight">
