@@ -333,7 +333,7 @@ export const faqSchemas = {
         "name": "What's your pricing structure?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our pricing is built so we only win when you win. The fee is a percentage of your ad spend, and the rate drops as you scale: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform and total fees are capped at $15,000 per month. No long-term contracts."
+          "text": "The fee is a percentage of your ad spend, and the rate drops as you scale: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform and total fees are capped at $15,000 per month. The cap is there on purpose: once your spend gets big enough, we don't need to keep taking a bigger cut. No long-term contracts."
         }
       },
       {
@@ -341,7 +341,7 @@ export const faqSchemas = {
         "name": "How is this different from other agencies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Three key differences: (1) We optimize for new customer growth and revenue, not just low CPA. (2) You get direct access to your dedicated ad manager. No middlemen, no black-box management. Peterson and Cade personally oversee strategy and are always a call away. (3) We prove our expertise with a live audit on the first call before you pay anything."
+          "text": "A few things, honestly. We optimize for actual revenue and new customer growth, not just a low cost-per-click number that looks good on a report. The person managing your account is the person you talk to, not an account manager relaying your question to someone else. And we do a live audit on the first call, so you see how we think before you spend anything."
         }
       },
       {
@@ -349,7 +349,7 @@ export const faqSchemas = {
         "name": "What industries do you work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We've worked with 200+ businesses across healthcare, legal, finance, SaaS, e-commerce, home services, and more. Our data-driven approach works across industries because we focus on fundamentals: targeting, messaging, conversion tracking, and optimization."
+          "text": "Healthcare, legal, finance, SaaS, e-commerce, home services, and a bunch of others. 200+ businesses total. The platforms are the same regardless of industry. What changes is how we use them, and that's based on your data, not a template we pull from a drawer."
         }
       },
       {
@@ -357,7 +357,7 @@ export const faqSchemas = {
         "name": "How long does it take to see results?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most clients see improvements within 30-60 days, but we recommend a 90-day commitment to see the full impact. Advertising is about continuous testing and optimization - quick wins are great, but sustainable growth takes time."
+          "text": "Honestly, most people see movement in the first 30-60 days. But we'll tell you the same thing we tell everyone on a call: nobody can promise results in a week, and we're not going to pretend otherwise. The 90 days is about having enough data to know what's actually working, not just getting lucky on a few early ads."
         }
       },
       {
@@ -365,7 +365,7 @@ export const faqSchemas = {
         "name": "What's included in the free audit?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "On your first call, we'll do a live audit of your current ad accounts using our $10K Profit Recovery framework - a 247-point checklist that identifies the 5-7 hidden leaks draining your budget. You'll walk away with actionable insights whether you work with us or not."
+          "text": "On the first call we pull up your accounts live and walk through them with you, using our $10K Profit Recovery checklist: 247 points across your Google and Meta setup. We're looking for the 5-7 spots where money is quietly leaking out. You keep the findings either way."
         }
       },
       {
@@ -373,7 +373,7 @@ export const faqSchemas = {
         "name": "What guarantees do you offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Two. First, a 7-day money-back guarantee: meet the team, see how we work, and if we're not the right fit within your first 7 days, you get a full refund. Second, a 90-day performance promise: if we don't improve your ROAS within 90 days, we work for free until we do."
+          "text": "Two. The 7-day money-back guarantee is a fit check: spend the first week getting to know us, and if you decide it's not right, you get everything back. The 90-day ROAS guarantee is the performance side: if we haven't improved your return on ad spend in 90 days, we keep working for free until we do. Both are in writing."
         }
       },
       {
@@ -381,7 +381,7 @@ export const faqSchemas = {
         "name": "How fast do you respond when I have a question?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Same day. You get a direct channel with your whole account team, not an account manager relaying messages. Ask a question in the morning and you'll have an answer before the end of the day."
+          "text": "Same day. You've got a direct line to the people actually working on your account. Ask something in the morning and you'll have an answer by end of day, not a promise to pass it along."
         }
       },
       {
@@ -389,7 +389,7 @@ export const faqSchemas = {
         "name": "How does reporting work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every two weeks you get a report that answers four questions: what worked, what didn't, what's next, and what we need from you. You also get a live custom dashboard connected to your real data that you can check any time. No vanity metrics, ever."
+          "text": "Every two weeks you get a report that covers what worked, what didn't, what we're doing next, and what we need from you to keep moving. You also get a live dashboard connected to your real account data that you can check any time. We don't report on impressions to make the numbers look bigger."
         }
       }
     ]

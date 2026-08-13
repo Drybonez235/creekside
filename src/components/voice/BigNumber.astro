@@ -1,0 +1,13 @@
+---
+// Voice kit: oversized stat treatment. Numbers are the point, so let them be big.
+interface Props {
+  value: string;
+  label: string;
+}
+const { value, label } = Astro.props;
+---
+
+<div class="text-center">
+  <p class="text-5xl font-extrabold tracking-tight text-primary-900 sm:text-6xl">{value}</p>
+  <p class="mt-2 text-sm font-medium tracking-wide text-grey-500 uppercase">{label}</p>
+</div>
