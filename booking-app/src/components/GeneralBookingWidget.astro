@@ -1,0 +1,683 @@
+---
+// Streamlined booking widget for the general /start/ qualification funnel.
+// Skips service selection and contact info collection (both already handled by
+// the /start/ form). Shows only: calendar → time → one-click confirm.
+// Contact info is pulled from sessionStorage (site_lead) set by the form.
+// Uses the same /api/csb/* backend as BookingWidget.
+import { store } from "../lib/csb/store";
+
+interface Props {
+	providerKey: string;
+}
+
+const { providerKey } = Astro.props;
+const fallbackPhone = await store.getSetting("fallback_phone", "");
+---
+
+<div id="general-booking-root"></div>
+
+<script define:vars={{ apiBase: "/api/csb", fallbackPhone, providerKey }}>
+	(function () {
+		"use strict";
+		var root = document.getElementById("general-booking-root");
+		if (!root) return;
+
+		// Read lead data from sessionStorage
+		var lead = null;
+		try {
+			var raw = sessionStorage.getItem("site_lead");
+			if (raw) lead = JSON.parse(raw);
+		} catch (e) {}
+
+		var MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var WEEKDAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+		var state = {
+			provider: null,
+			month: null,
+			slots: {},
+			slotMinutes: 30,
+			date: null,
+			time: null,
+			submitting: false,
+			error: "",
+			result: null,
+		};
+		var now = new Date();
+		state.month = { y: now.getFullYear(), m: now.getMonth() + 1 };
+
+		function api(path, opts) {
+			return fetch(apiBase + path, opts).then(function (r) {
+				return r.json().then(function (j) { return { status: r.status, body: j }; });
+			});
+		}
+
+		function h(tag, attrs, children) {
+			var el = document.createElement(tag);
+			Object.keys(attrs || {}).forEach(function (k) {
+				if (k === "onclick") el.addEventListener("click", attrs[k]);
+				else if (k === "text") el.textContent = attrs[k];
+				else if (k === "html") el.innerHTML = attrs[k];
+				else el.setAttribute(k, attrs[k]);
+			});
+			(children || []).forEach(function (c) { if (c) el.appendChild(c); });
+			return el;
+		}
+
+		function pad2(n) { return String(n).padStart(2, "0"); }
+		function daysInMonth(y, m) { return new Date(y, m, 0).getDate(); }
+
+		function formatTime12h(hhmm) {
+			var parts = hhmm.split(":").map(Number);
+			var hh = parts[0], mm = parts[1];
+			var ampm = hh >= 12 ? "PM" : "AM";
+			var h12 = hh % 12;
+			if (h12 === 0) h12 = 12;
+			return h12 + ":" + pad2(mm) + " " + ampm;
+		}
+
+		function formatDateNice(dStr) {
+			var parts = dStr.split("-").map(Number);
+			var d = new Date(parts[0], parts[1] - 1, parts[2]);
+			var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+			return days[d.getDay()] + ", " + MONTH_NAMES[parts[1] - 1] + " " + parts[2];
+		}
+
+		function showFallback(msg) {
+			root.innerHTML = "";
+			var wrap = h("div", { class: "gen-bw-fallback" });
+			wrap.appendChild(h("p", { text: msg || "Online booking is temporarily unavailable." }));
+			if (fallbackPhone) {
+				wrap.appendChild(h("p", { text: "Please call us at " + fallbackPhone + " to book your appointment.", style: "font-weight:600; margin-top:8px;" }));
+			}
+			root.appendChild(wrap);
+		}
+
+		// Load provider, then jump to calendar
+		function init() {
+			api("/providers/").then(function (r) {
+				if (r.status !== 200 || !Array.isArray(r.body) || !r.body.length) return showFallback();
+				var match = r.body.filter(function (p) { return p.key === providerKey; })[0];
+				if (!match) return showFallback();
+				state.provider = match;
+				state.slotMinutes = match.slot_minutes || 30;
+				loadFirstAvailable(state.month.y, state.month.m, 0);
+			}).catch(function () { showFallback(); });
+		}
+
+		var MAX_LOOKAHEAD = 6;
+		function loadFirstAvailable(y, m, checked) {
+			root.innerHTML = "";
+			root.appendChild(h("p", { class: "gen-bw-loading", text: "Loading available times..." }));
+			api("/availability/?provider=" + encodeURIComponent(providerKey) + "&year=" + y + "&month=" + m)
+				.then(function (r) {
+					if (r.status !== 200) {
+						// Calendar unavailable (e.g. no Google account connected yet) --
+						// show the empty calendar UI instead of a generic error
+						state.month = { y: y, m: m };
+						state.slots = {};
+						renderCalendar();
+						return;
+					}
+					var slots = r.body.slots || {};
+					state.slotMinutes = r.body.slot_minutes || state.slotMinutes;
+					var days = Object.keys(slots).sort();
+					if (!days.length && checked < MAX_LOOKAHEAD) {
+						var nm = m + 1, ny = y;
+						if (nm > 12) { nm = 1; ny++; }
+						return loadFirstAvailable(ny, nm, checked + 1);
+					}
+					state.month = { y: y, m: m };
+					state.slots = slots;
+					if (days.length) { state.date = days[0]; }
+					renderCalendar();
+				})
+				.catch(function () { showFallback(); });
+		}
+
+		function loadMonth() {
+			api("/availability/?provider=" + encodeURIComponent(providerKey) + "&year=" + state.month.y + "&month=" + state.month.m)
+				.then(function (r) {
+					state.slots = (r.status === 200 && r.body.slots) ? r.body.slots : {};
+					if (r.status === 200) state.slotMinutes = r.body.slot_minutes || state.slotMinutes;
+					renderCalendar();
+				})
+				.catch(function () { showFallback(); });
+		}
+
+		function shiftMonth(delta) {
+			var m = state.month.m + delta, y = state.month.y;
+			if (m < 1) { m = 12; y--; }
+			if (m > 12) { m = 1; y++; }
+			var today = new Date();
+			if (y < today.getFullYear() || (y === today.getFullYear() && m < today.getMonth() + 1)) return;
+			state.month = { y: y, m: m };
+			state.date = null;
+			state.time = null;
+			loadMonth();
+		}
+
+		function renderCalendar() {
+			root.innerHTML = "";
+			var wrap = h("div", { class: "gen-bw-wrap" });
+
+			// Layout: calendar left, times right
+			var row = h("div", { class: "gen-bw-row" });
+
+			// Calendar column
+			var calCol = h("div", { class: "gen-bw-cal" });
+
+			// Month nav
+			var today = new Date();
+			var canBack = !(state.month.y === today.getFullYear() && state.month.m === today.getMonth() + 1);
+			var navRow = h("div", { class: "gen-bw-month-nav" });
+			var prevBtn = h("button", {
+				class: "gen-bw-nav-btn" + (canBack ? "" : " disabled"),
+				html: "&#8249;",
+				onclick: function () { if (canBack) shiftMonth(-1); },
+			});
+			if (!canBack) prevBtn.setAttribute("disabled", "disabled");
+			navRow.appendChild(prevBtn);
+			navRow.appendChild(h("span", { class: "gen-bw-month-label", text: MONTH_NAMES[state.month.m - 1] + " " + state.month.y }));
+			navRow.appendChild(h("button", { class: "gen-bw-nav-btn", html: "&#8250;", onclick: function () { shiftMonth(1); } }));
+			calCol.appendChild(navRow);
+
+			// Weekday headers
+			var wRow = h("div", { class: "gen-bw-weekdays" });
+			WEEKDAY_LABELS.forEach(function (w) {
+				wRow.appendChild(h("div", { text: w }));
+			});
+			calCol.appendChild(wRow);
+
+			// Day grid
+			var numDays = daysInMonth(state.month.y, state.month.m);
+			var firstDow = new Date(state.month.y, state.month.m - 1, 1).getDay();
+			var isCurrentMonth = state.month.y === today.getFullYear() && state.month.m === today.getMonth() + 1;
+			var todayDate = today.getDate();
+			var grid = h("div", { class: "gen-bw-days" });
+			var hasAnySlots = false;
+
+			for (var i = 0; i < firstDow; i++) grid.appendChild(h("div", { class: "gen-bw-day empty" }));
+			for (var day = 1; day <= numDays; day++) {
+				var dStr = state.month.y + "-" + pad2(state.month.m) + "-" + pad2(day);
+				var hasSlots = !!(state.slots[dStr] && state.slots[dStr].length);
+				var isToday = isCurrentMonth && day === todayDate;
+				var cls = "gen-bw-day";
+				if (hasSlots) {
+					hasAnySlots = true;
+					cls += " available";
+					if (state.date === dStr) cls += " selected";
+					if (isToday) cls += " today";
+					var btn = h("button", {
+						class: cls,
+						text: String(day),
+						onclick: (function (d) { return function () { state.date = d; state.time = null; renderCalendar(); }; })(dStr),
+					});
+					grid.appendChild(btn);
+				} else {
+					cls += " muted";
+					if (isToday) cls += " today";
+					grid.appendChild(h("div", { class: cls, text: String(day) }));
+				}
+			}
+			calCol.appendChild(grid);
+			if (!hasAnySlots) {
+				calCol.appendChild(h("p", { class: "gen-bw-no-slots", text: "No availability this month. Try the next month." }));
+			}
+			row.appendChild(calCol);
+
+			// Time slots column
+			var timeCol = h("div", { class: "gen-bw-times" });
+			if (state.date) {
+				timeCol.appendChild(h("div", { class: "gen-bw-times-label", text: formatDateNice(state.date) }));
+				var slots = state.slots[state.date] || [];
+				if (slots.length) {
+					var list = h("div", { class: "gen-bw-time-list" });
+					slots.forEach(function (t) {
+						var cls = "gen-bw-time-btn" + (state.time === t ? " selected" : "");
+						list.appendChild(h("button", {
+							class: cls,
+							text: formatTime12h(t),
+							onclick: function () { state.time = t; renderCalendar(); },
+						}));
+					});
+					timeCol.appendChild(list);
+				} else {
+					timeCol.appendChild(h("p", { class: "gen-bw-no-slots", text: "No times available for this date." }));
+				}
+			} else {
+				timeCol.appendChild(h("div", { class: "gen-bw-times-placeholder", text: "Select a date to see available times." }));
+			}
+			row.appendChild(timeCol);
+			wrap.appendChild(row);
+
+			// Confirm bar (appears when date + time selected)
+			if (state.date && state.time) {
+				var confirmBar = h("div", { class: "gen-bw-confirm" });
+				var summary = h("div", { class: "gen-bw-confirm-summary" });
+				summary.appendChild(h("span", { class: "gen-bw-confirm-date", text: formatDateNice(state.date) + " at " + formatTime12h(state.time) }));
+				if (lead && lead.name) {
+					summary.appendChild(h("span", { class: "gen-bw-confirm-name", text: "for " + lead.name.split(" ")[0] }));
+				}
+				confirmBar.appendChild(summary);
+
+				if (state.error) {
+					confirmBar.appendChild(h("p", { class: "gen-bw-error", text: state.error }));
+				}
+
+				var bookBtn = h("button", {
+					class: "gen-bw-book-btn" + (state.submitting ? " submitting" : ""),
+					text: state.submitting ? "Booking..." : "Book My Strategy Call",
+					onclick: function () { if (!state.submitting) submitBooking(); },
+				});
+				if (state.submitting) bookBtn.setAttribute("disabled", "disabled");
+				confirmBar.appendChild(bookBtn);
+				wrap.appendChild(confirmBar);
+			}
+
+			root.appendChild(wrap);
+		}
+
+		function submitBooking() {
+			if (!lead || !lead.name || !lead.email || !lead.phone) {
+				state.error = "Contact information is missing. Please go back and fill out the form.";
+				renderCalendar();
+				return;
+			}
+			state.submitting = true;
+			state.error = "";
+			renderCalendar();
+
+			api("/book/", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					provider: providerKey,
+					date: state.date,
+					time: state.time,
+					name: lead.name,
+					phone: lead.phone,
+					email: lead.email,
+					service: "Marketing Strategy Call",
+					company: lead.website || "",
+					budget: "",
+					website: "", // honeypot -- must be empty
+					gclid: lead.gclid || "",
+					fbclid: lead.fbclid || "",
+				}),
+			}).then(function (r) {
+				state.submitting = false;
+				if (r.status === 200 && r.body.ok && r.body.transaction_id) {
+					state.result = r.body;
+					onConfirmed();
+					return;
+				}
+				if (r.status === 409 && r.body.code === "csb_slot_taken") {
+					state.error = "That time was just taken. Please pick another.";
+					state.date = null;
+					state.time = null;
+					renderCalendar();
+					setTimeout(loadMonth, 800);
+				} else if (r.status === 409) {
+					state.error = "It looks like you already booked this time.";
+					renderCalendar();
+				} else if (r.status === 429) {
+					state.error = "Too many attempts. Please wait a few minutes.";
+					renderCalendar();
+				} else if (r.status === 503) {
+					showFallback();
+				} else {
+					state.error = "Something went wrong. Please try again.";
+					renderCalendar();
+				}
+			}).catch(function () {
+				state.submitting = false;
+				showFallback();
+			});
+		}
+
+		function onConfirmed() {
+			var b = state.result;
+			// Push to dataLayer for general.astro to catch and fire conversion events
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				event: "booking_confirmed",
+				transaction_id: b.transaction_id,
+				provider: b.provider,
+				service: b.service,
+				appointment_date: b.date,
+				booking_source: "site_funnel",
+				gclid: lead ? (lead.gclid || "") : "",
+				fbclid: lead ? (lead.fbclid || "") : "",
+				user_data: { sha256_email_address: b.em, sha256_phone_number: b.ph },
+			});
+			renderConfirmed();
+		}
+
+		function renderConfirmed() {
+			root.innerHTML = "";
+			var wrap = h("div", { class: "gen-bw-confirmed" });
+			wrap.appendChild(h("div", { class: "gen-bw-check", html: "&#10003;" }));
+			wrap.appendChild(h("h3", { text: "You're Booked!" }));
+			wrap.appendChild(h("p", { text: "A calendar invite has been sent to " + (lead ? lead.email : "your email") + "." }));
+			var details = h("div", { class: "gen-bw-confirmed-details" });
+			details.appendChild(h("div", { text: formatDateNice(state.date) + " at " + formatTime12h(state.time) }));
+			wrap.appendChild(details);
+			wrap.appendChild(h("p", { class: "gen-bw-confirmed-note", text: "Redirecting you shortly..." }));
+			root.appendChild(wrap);
+		}
+
+		init();
+	})();
+</script>
+
+<style is:global>
+	/* General booking widget -- dark theme (navy + sky blue) */
+	#general-booking-root {
+		min-height: 20rem;
+	}
+
+	.gen-bw-loading {
+		text-align: center;
+		color: #94a3b8;
+		font-size: 15px;
+		padding: 48px 0;
+	}
+
+	.gen-bw-fallback {
+		background: rgba(255,255,255,0.04);
+		border: 1px solid rgba(255,255,255,0.08);
+		border-radius: 12px;
+		padding: 32px;
+		text-align: center;
+		color: #94a3b8;
+		font-size: 15px;
+	}
+
+	.gen-bw-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.gen-bw-row {
+		display: flex;
+		gap: 32px;
+		flex-wrap: wrap;
+	}
+
+	/* Calendar column */
+	.gen-bw-cal {
+		flex: 1;
+		min-width: 280px;
+	}
+
+	.gen-bw-month-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 16px;
+	}
+
+	.gen-bw-nav-btn {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		border: 1px solid rgba(255,255,255,0.15);
+		background: transparent;
+		color: #fff;
+		font-size: 20px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.2s;
+		font-family: inherit;
+	}
+	.gen-bw-nav-btn:hover { border-color: #38bdf8; color: #38bdf8; }
+	.gen-bw-nav-btn.disabled,
+	.gen-bw-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+	.gen-bw-nav-btn.disabled:hover { border-color: rgba(255,255,255,0.15); color: #fff; }
+
+	.gen-bw-month-label {
+		font-size: 15px;
+		font-weight: 700;
+		color: #fff;
+	}
+
+	.gen-bw-weekdays {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 4px;
+		margin-bottom: 4px;
+	}
+	.gen-bw-weekdays > div {
+		text-align: center;
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: #64748b;
+		padding: 4px 0;
+	}
+
+	.gen-bw-days {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 4px;
+	}
+
+	.gen-bw-day {
+		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 8px;
+		font-size: 14px;
+		font-weight: 600;
+		border: none;
+		background: none;
+		font-family: inherit;
+	}
+	.gen-bw-day.empty { visibility: hidden; }
+	.gen-bw-day.muted { color: #334155; }
+	.gen-bw-day.available {
+		color: #fff;
+		background: rgba(255,255,255,0.06);
+		border: 1px solid rgba(255,255,255,0.1);
+		cursor: pointer;
+		transition: all 0.15s;
+	}
+	.gen-bw-day.available:hover {
+		border-color: #38bdf8;
+		background: rgba(56,189,248,0.12);
+	}
+	.gen-bw-day.available.selected {
+		background: #0284c7;
+		border-color: #0284c7;
+		color: #fff;
+	}
+	.gen-bw-day.today {
+		box-shadow: inset 0 0 0 2px rgba(56,189,248,0.4);
+	}
+
+	.gen-bw-no-slots {
+		margin-top: 16px;
+		font-size: 14px;
+		color: #64748b;
+		text-align: center;
+	}
+
+	/* Time slots column */
+	.gen-bw-times {
+		flex: 1;
+		min-width: 200px;
+	}
+
+	.gen-bw-times-label {
+		font-size: 13px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #38bdf8;
+		margin-bottom: 12px;
+	}
+
+	.gen-bw-times-placeholder {
+		padding: 24px 16px;
+		border: 1px dashed rgba(255,255,255,0.12);
+		border-radius: 10px;
+		text-align: center;
+		font-size: 14px;
+		color: #64748b;
+	}
+
+	.gen-bw-time-list {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		max-height: 320px;
+		overflow-y: auto;
+		padding-right: 4px;
+	}
+	.gen-bw-time-list::-webkit-scrollbar { width: 4px; }
+	.gen-bw-time-list::-webkit-scrollbar-track { background: transparent; }
+	.gen-bw-time-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+	.gen-bw-time-btn {
+		width: 100%;
+		padding: 12px 16px;
+		border: 1px solid rgba(255,255,255,0.1);
+		border-radius: 8px;
+		background: rgba(255,255,255,0.03);
+		color: #fff;
+		font-family: inherit;
+		font-size: 14px;
+		font-weight: 600;
+		text-align: left;
+		cursor: pointer;
+		transition: all 0.15s;
+	}
+	.gen-bw-time-btn:hover {
+		border-color: #38bdf8;
+		background: rgba(56,189,248,0.08);
+	}
+	.gen-bw-time-btn.selected {
+		border-color: #0284c7;
+		background: #0284c7;
+		color: #fff;
+	}
+
+	/* Confirm bar */
+	.gen-bw-confirm {
+		background: rgba(56,189,248,0.06);
+		border: 1px solid rgba(56,189,248,0.2);
+		border-radius: 12px;
+		padding: 20px 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.gen-bw-confirm-summary {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	.gen-bw-confirm-date {
+		font-size: 15px;
+		font-weight: 700;
+		color: #fff;
+	}
+
+	.gen-bw-confirm-name {
+		font-size: 14px;
+		color: #94a3b8;
+	}
+
+	.gen-bw-error {
+		font-size: 13px;
+		color: #EF4444;
+		margin: 0;
+	}
+
+	.gen-bw-book-btn {
+		width: 100%;
+		padding: 16px 24px;
+		background: #0284c7;
+		color: #fff;
+		font-family: inherit;
+		font-size: 16px;
+		font-weight: 700;
+		border: none;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: background 0.2s;
+	}
+	.gen-bw-book-btn:hover { background: #0369a1; }
+	.gen-bw-book-btn.submitting,
+	.gen-bw-book-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+	/* Confirmed state */
+	.gen-bw-confirmed {
+		text-align: center;
+		padding: 32px 0;
+	}
+
+	.gen-bw-check {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+		background: rgba(16,185,129,0.15);
+		color: #10B981;
+		font-size: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 20px;
+	}
+
+	.gen-bw-confirmed h3 {
+		font-size: 26px;
+		font-weight: 800;
+		color: #fff;
+		margin: 0 0 8px;
+		letter-spacing: -0.01em;
+	}
+
+	.gen-bw-confirmed > p {
+		font-size: 15px;
+		color: #94a3b8;
+		margin: 0;
+	}
+
+	.gen-bw-confirmed-details {
+		margin: 20px 0;
+		padding: 16px;
+		background: rgba(255,255,255,0.04);
+		border: 1px solid rgba(255,255,255,0.08);
+		border-radius: 10px;
+		font-size: 15px;
+		font-weight: 600;
+		color: #fff;
+		display: inline-block;
+	}
+
+	.gen-bw-confirmed-note {
+		margin-top: 16px;
+		font-size: 13px;
+		color: #64748b;
+	}
+
+	@media (max-width: 580px) {
+		.gen-bw-row {
+			flex-direction: column;
+			gap: 24px;
+		}
+		.gen-bw-cal,
+		.gen-bw-times {
+			min-width: 0;
+		}
+	}
+</style>

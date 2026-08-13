@@ -1,0 +1,322 @@
+---
+// General site funnel booking page: dark-themed, streamlined.
+// Uses GeneralBookingWidget (calendar + time only, no service picker or contact form).
+// Contact info is pulled from sessionStorage (site_lead) by the widget.
+// Redirects to /start/confirmed/ after successful booking.
+export const prerender = false;
+
+import GeneralBookingWidget from '../../components/GeneralBookingWidget.astro';
+
+const url = new URL(Astro.request.url);
+const providerKey = url.searchParams.get('provider') || '';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KFQDMCH5');</script>
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-REHLM40KCD"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REHLM40KCD');
+  </script>
+  <!-- Meta Pixel -->
+  <script is:inline>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2083657478846396');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2083657478846396&ev=PageView&noscript=1"/></noscript>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+  <title>Book Your Strategy Call - Creekside Marketing</title>
+  <meta name="description" content="Pick a time for your free marketing strategy call with Creekside Marketing."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="icon" type="image/avif" href="/creekside-marketing-logo-icon-32x32.avif" sizes="32x32"/>
+  <link rel="icon" type="image/avif" href="/creekside-marketing-icon-180x180.avif" sizes="180x180"/>
+  <link rel="icon" type="image/avif" href="/creekside-marketing-icon-192x192.avif" sizes="192x192"/>
+  <link rel="apple-touch-icon" href="/creekside-marketing-icon-180x180.avif"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #102a43;
+      background-image: repeating-linear-gradient(135deg, rgba(56,189,248,0.08) 0 8px, rgba(56,189,248,0.03) 8px 16px);
+      background-attachment: fixed;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px 20px 0;
+    }
+    .logo-bar img { height: 36px; }
+    .logo-bar span {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .gen-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 48px;
+    }
+
+    /* Hero section */
+    .gen-hero {
+      text-align: center;
+      padding: 48px 20px 40px;
+    }
+
+    .gen-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.3);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      margin-bottom: 24px;
+    }
+    .gen-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .gen-hero-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: #0284c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .gen-hero-icon svg { width: 36px; height: 36px; color: #fff; }
+
+    .gen-heading {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .gen-heading h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .gen-heading h1 .sky { color: #38bdf8; }
+
+    .gen-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .gen-subtitle strong { color: #fff; font-weight: 600; }
+
+    .gen-trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      padding: 16px 0 0;
+    }
+    .gen-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .gen-trust-item svg { width: 16px; height: 16px; color: #38bdf8; flex-shrink: 0; }
+
+    .gen-lead-banner {
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.2);
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin: 0 0 24px;
+      font-size: 14px;
+      color: #cbd5e1;
+      text-align: center;
+    }
+    .gen-lead-banner strong { font-weight: 600; color: #fff; }
+
+    .gen-card {
+      background: #0f2638;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .gen-footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+      color: #475569;
+    }
+
+    @media (max-width: 480px) {
+      .gen-card { padding: 20px; }
+      .gen-heading h1 { font-size: 28px; }
+      .gen-hero { padding: 32px 16px 28px; }
+      .gen-trust-row { gap: 12px; }
+      .gen-trust-item { font-size: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFQDMCH5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Logo bar -->
+  <div class="logo-bar">
+    <img src="/creekside-marketing-logo-icon-270x270.avif" alt="Creekside Marketing"/>
+    <span>Creekside Marketing</span>
+  </div>
+
+  <div class="gen-hero">
+    <div class="gen-badge">
+      <span class="gen-badge-dot"></span>
+      Spots Open This Week
+    </div>
+
+    <div class="gen-hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    </div>
+
+    <div class="gen-heading">
+      <h1>Pick a Time. <span class="sky">Let's Talk Numbers.</span></h1>
+    </div>
+
+    <p class="gen-subtitle">30 minutes. One growth plan. Built around <strong>your</strong> business.</p>
+
+    <div class="gen-trust-row">
+      <span class="gen-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2 1.5 6H21l-5 4 2 7-6-4.5L6 19l2-7-5-4h6.5L11 2"/></svg>
+        No pitch. No fluff.
+      </span>
+      <span class="gen-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Real numbers. Real plan.
+      </span>
+      <span class="gen-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        30 min flat.
+      </span>
+    </div>
+  </div>
+
+  <div class="gen-page">
+    <div id="gen-lead-banner" class="gen-lead-banner" style="display:none;"></div>
+
+    <div class="gen-card">
+      <GeneralBookingWidget providerKey={providerKey} />
+    </div>
+  </div>
+
+  <footer class="gen-footer">
+    Creekside Marketing &middot; Google Ads + Meta Ads. That's it.
+  </footer>
+
+  <script is:inline>
+    (function(){
+      // Read lead data from sessionStorage (set by /start/ form)
+      var lead = null;
+      try {
+        var raw = sessionStorage.getItem('site_lead');
+        if (raw) lead = JSON.parse(raw);
+      } catch(e) {}
+
+      // Show lead banner if we have their name
+      if (lead && lead.name) {
+        var banner = document.getElementById('gen-lead-banner');
+        if (banner) {
+          banner.style.display = 'block';
+          var firstName = document.createElement('strong');
+          firstName.textContent = lead.name.split(' ')[0];
+          banner.textContent = '';
+          banner.appendChild(firstName);
+          banner.appendChild(document.createTextNode(', pick a time below and we\'ll handle the rest.'));
+        }
+      }
+
+      // Watch dataLayer for booking_confirmed, then fire site events and redirect
+      var origPush = window.dataLayer.push;
+      window.dataLayer.push = function() {
+        var result = origPush.apply(this, arguments);
+        for (var i = 0; i < arguments.length; i++) {
+          var entry = arguments[i];
+          if (entry && entry.event === 'booking_confirmed' && entry.transaction_id) {
+            // Fire site-funnel conversion events
+            if (typeof fbq === 'function') {
+              fbq('trackCustom', 'Site_Start_BookingConfirmed', {
+                transaction_id: entry.transaction_id,
+                provider: entry.provider
+              });
+            }
+            if (typeof gtag === 'function') {
+              gtag('event', 'Site_Start_BookingConfirmed', {
+                event_category: 'site_funnel',
+                transaction_id: entry.transaction_id
+              });
+            }
+
+            // Redirect to confirmed page after a brief delay
+            setTimeout(function() {
+              window.location.href = '/start/confirmed/';
+            }, 1500);
+          }
+        }
+        return result;
+      };
+    })();
+  </script>
+</body>
+</html>

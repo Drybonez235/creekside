@@ -1,7 +1,7 @@
 ---
 // Shared commitments + CTA section for the service pages.
 import GuaranteeBadges from './GuaranteeBadges.astro';
-import { CALENDAR_URL } from '../data/site';
+import { START_URL } from '../data/site';
 
 interface Props {
   platform: string;
@@ -63,9 +63,7 @@ const commitments = [
       </h3>
       <div class="mt-8 flex justify-center">
         <a
-          href={CALENDAR_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={START_URL}
           class="inline-block rounded-sm bg-secondary-500 px-8 py-4 font-bold text-white transition-colors hover:bg-secondary-600"
         >
           {platform === "Google Ads" ? "See How Much More Money You Could Be Making" : "Check Out How We'd Grow Your Business"}

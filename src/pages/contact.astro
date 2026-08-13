@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import Form from '../components/Form.astro';
 import GuaranteeBadges from '../components/GuaranteeBadges.astro';
 import { siteSchema } from '../data/structuredData';
-import { CALENDAR_URL } from '../data/site';
+import { START_URL } from '../data/site';
 import '../styles/global.css';
 ---
 
@@ -63,9 +63,7 @@ import '../styles/global.css';
           <p class="mt-8 text-base/7 text-grey-600">
             Prefer to skip the form?
             <a
-              href={CALENDAR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={START_URL}
               class="font-bold text-secondary-500 transition-colors hover:text-secondary-600"
             >
               Book your free audit call directly.

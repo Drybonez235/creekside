@@ -40,11 +40,30 @@ const FIELD = {
 } as const;
 
 const REVENUE_MAP: Record<string, string> = {
+	// Dental funnel tiers
 	"under50k": "Under $50K",
 	"50k-100k": "$50K - $100K",
 	"100k-250k": "$100K - $250K",
 	"250k-500k": "$250K - $500K",
 	"500k+": "$500K+",
+	// Site funnel tiers
+	"pre-revenue": "Pre-Revenue",
+	"under-40k": "Under $40K",
+	"40k-100k": "$40K - $100K",
+	"100k-500k": "$100K - $500K",
+};
+
+const AD_SPEND_MAP: Record<string, string> = {
+	"under-3k": "Under $3K/mo",
+	"3k-5k": "$3K - $5K/mo",
+	"5k-15k": "$5K - $15K/mo",
+	"15k+": "$15K+/mo",
+};
+
+const BUSINESS_TYPE_MAP: Record<string, string> = {
+	"ecommerce": "E-commerce",
+	"local-service": "Local / Service Business",
+	"b2b": "B2B / Lead Gen",
 };
 
 const AD_MGMT_MAP: Record<string, string> = {
@@ -89,8 +108,12 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const { firstName, lastName } = splitName(name);
 
+	// funnel: "site" for the general /start/ funnel; absent/anything else = dental (original behavior)
+	const isSite = p.funnel === "site";
 	const route = typeof p.route === "string" ? p.route : "";
 	const revenue = typeof p.monthly_revenue === "string" ? p.monthly_revenue : "";
+	const businessType = typeof p.business_type === "string" ? p.business_type : "";
+	const adSpend = typeof p.ad_spend === "string" ? p.ad_spend : "";
 	const adMgmt = typeof p.running_ads === "string" ? p.running_ads : "";
 	const website = typeof p.website === "string" ? p.website.trim() : "";
 	const practiceType = typeof p.practice_type === "string" ? p.practice_type : "";
@@ -113,11 +136,12 @@ export const POST: APIRoute = async ({ request }) => {
 	const isQualified = route !== "keith";
 	const qualStatus = isQualified ? "Qualified" : "Under Threshold";
 
-	const tags = ["dental-funnel"];
+	const funnelTag = isSite ? "site" : "dental";
+	const tags = [`${funnelTag}-funnel`];
 	if (isQualified) {
-		tags.push("dental-qualified", "cade-direct");
+		tags.push(`${funnelTag}-qualified`, "cade-direct");
 	} else {
-		tags.push("dental-under-threshold", "keith-referral");
+		tags.push(`${funnelTag}-under-threshold`, "keith-referral");
 	}
 
 	const customFields: { id: string; value: string }[] = [];
@@ -130,7 +154,7 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.revenueTier, REVENUE_MAP[revenue] || revenue);
 	addField(FIELD.adManagement, AD_MGMT_MAP[adMgmt] || adMgmt);
 	addField(FIELD.websiteUrl, website);
-	addField(FIELD.industry, "Dental");
+	addField(FIELD.industry, isSite ? (BUSINESS_TYPE_MAP[businessType] || businessType || "General") : "Dental");
 	addField(FIELD.contactSource, contactSource);
 	addField(FIELD.referredTo, isQualified ? "Cade" : "Keith");
 	addField(FIELD.qualificationStatus, qualStatus);
@@ -142,11 +166,18 @@ export const POST: APIRoute = async ({ request }) => {
 
 	// Qualification answers that don't have dedicated custom fields go into notes
 	const noteLines: string[] = [];
-	if (practiceType) noteLines.push(`Practice Type: ${practiceType}`);
-	if (services) noteLines.push(`Services: ${services}`);
-	if (challenge) noteLines.push(`Challenge: ${challenge}`);
-	if (decisionMaker) noteLines.push(`Decision Maker: ${decisionMaker}`);
-	const notes = noteLines.length ? `[Dental Funnel]\n${noteLines.join("\n")}` : "";
+	if (isSite) {
+		if (businessType) noteLines.push(`Business Type: ${BUSINESS_TYPE_MAP[businessType] || businessType}`);
+		if (adSpend) noteLines.push(`Ad Budget: ${AD_SPEND_MAP[adSpend] || adSpend}`);
+		if (challenge) noteLines.push(`Challenge: ${challenge}`);
+		if (decisionMaker) noteLines.push(`Decision Maker: ${decisionMaker}`);
+	} else {
+		if (practiceType) noteLines.push(`Practice Type: ${practiceType}`);
+		if (services) noteLines.push(`Services: ${services}`);
+		if (challenge) noteLines.push(`Challenge: ${challenge}`);
+		if (decisionMaker) noteLines.push(`Decision Maker: ${decisionMaker}`);
+	}
+	const notes = noteLines.length ? `[${isSite ? "Website Funnel" : "Dental Funnel"}]\n${noteLines.join("\n")}` : "";
 
 	const body: Record<string, unknown> = { locationId, firstName, lastName, email, phone, tags, customFields };
 	if (notes) body.notes = notes;
