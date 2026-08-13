@@ -79,13 +79,6 @@ const teamMembers = [
     bio: "" 
   },
   {
-    firstName: "Trent",
-    lastName: "",
-    image: "/trent-headshot.avif",
-    role: "Meta Ads Specialist",
-    bio: "" 
-  },
-  {
     firstName: "Melvin",
     lastName: "",
     image: "/melvin-headshot.avif",
@@ -118,12 +111,14 @@ const roleBios: Record<string, string> = {
 const getBio = (member: { bio: string; role: string }) => member.bio || roleBios[member.role] || "";
 
 // Grouping Logic
-const leadership = teamMembers.slice(0, 4);
+const leadership = teamMembers.filter(m => ["Peterson", "Cade"].includes(m.firstName));
+const smallBizLeads = teamMembers.filter(m => ["Keith", "Scott"].includes(m.firstName));
 const googleTeam = teamMembers.filter(m => m.role.includes("Google Ads"));
 const metaTeam = teamMembers.filter(m => m.role.includes("Meta Ads"));
-const supportTeam = teamMembers.filter(m => 
-  !leadership.includes(m) && 
-  !googleTeam.includes(m) && 
+const supportTeam = teamMembers.filter(m =>
+  !leadership.includes(m) &&
+  !smallBizLeads.includes(m) &&
+  !googleTeam.includes(m) &&
   !metaTeam.includes(m)
 );
 
@@ -200,7 +195,45 @@ const getGridItemClass = (index: number, length: number) => {
     </div>
   </section>
 
-  <section class="bg-grey-50 py-16 lg:py-24">
+  <section class="wash-sky bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-12 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">Small Business <span class="text-secondary-500">Leads</span></h2>
+        <div class="bg-secondary-500 mx-auto mt-4 h-1.5 w-20 rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 gap-x-12 gap-y-20 md:grid-cols-2">
+        {smallBizLeads.map((member, index) => (
+          <div class={`flex flex-col items-center text-center ${getGridItemClass(index, smallBizLeads.length)}`}>
+            <h3 class="text-primary-900 text-2xl font-black uppercase tracking-tighter lg:text-3xl">
+              {member.firstName} <span class="text-secondary-500">{member.lastName}</span>
+            </h3>
+            <div class="my-6 shrink-0">
+              <img
+                src={member.image}
+                alt={`${member.firstName} ${member.lastName}`}
+                class="size-64 rounded-full object-cover shadow-sm"
+                loading="lazy"
+              />
+            </div>
+            <div class="flex flex-col gap-3 max-w-md">
+              <h4 class="text-primary-800 text-lg font-bold uppercase tracking-wide">
+                {member.role}
+              </h4>
+              {getBio(member) && (
+                <p class="text-grey-700 text-base/7">
+                  {getBio(member)}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-white py-16 lg:py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
       <div class="mb-12 text-center">
@@ -250,7 +283,7 @@ const getGridItemClass = (index: number, length: number) => {
     </div>
   </section>
 
-  <section class="bg-white py-16 lg:py-24">
+  <section class="bg-grey-50 py-16 lg:py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
       <div class="mb-12 text-center">
