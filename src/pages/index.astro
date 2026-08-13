@@ -6,32 +6,30 @@ import TestimonialScreenshots from '../components/TestimonialScreenshots.astro';
 import VideoTestimonials from '../components/VideoTestimonials.astro';
 import GuaranteeBadges from '../components/GuaranteeBadges.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
-import MarkerHighlight from '../components/voice/MarkerHighlight.astro';
-import HonestAside from '../components/voice/HonestAside.astro';
 import { siteSchema, faqSchemas } from '../data/structuredData';
 import '../styles/global.css';
 
 const featuredDifferentiators = [
   {
-    title: "Our Incentives Are Aligned With Yours",
-    body: "Our fee is a percentage of your ad spend, and the rate drops as you scale. We don't benefit from inflating your budget. You control the spend, and we only make more money if you're actually making more money. No long-term contracts.",
+    title: "Pricing That Pays Us to Perform",
+    body: "Our fee is a percentage of your ad spend, and the rate drops as you scale. We make more as you make more, so our incentives never drift from yours. No long-term contracts.",
     iconPath: "M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z",
   },
   {
-    title: "You Talk to the Person Running Your Ads",
-    body: "No account manager relaying your questions to someone you never meet. You've got a direct line to the person actually running your ads, and questions get answered the same day.",
+    title: "Direct Access, Same-Day Answers",
+    body: "No account managers relaying messages. You get a direct channel with your whole account team and questions get answered the same day, every time.",
     iconPath: "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
   },
   {
-    title: "Two Platforms. Nothing Else.",
-    body: "Google Ads and Meta Ads. That's it. No SEO, no web design, no social media retainers. We've managed $20M+ in ad spend across 200+ businesses, and we're not trying to be everything to everyone.",
+    title: "Paid Media Is All We Do",
+    body: "Google Ads and Meta Ads. No SEO packages, no web design, no social media retainers. Two platforms mastered, backed by $20M+ in managed ad spend and 200+ businesses served.",
     iconPath: "m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z",
   },
 ];
 
 const differentiatorThemes = [
   {
-    title: "Only Two Platforms, Mastered",
+    title: "Specialized to the Core",
     items: [
       "Google and Meta ads only. Nothing else.",
       "A dedicated specialist for every piece: ad creatives, conversion tracking, landing pages, CRM, and email flows",
@@ -39,16 +37,16 @@ const differentiatorThemes = [
     ],
   },
   {
-    title: "You Can Actually Reach Us",
+    title: "A Team You Can Actually Reach",
     items: [
       "One direct channel with your whole account team",
       "Same-day responses to any question or issue",
       "Boutique by design: every specialist works with a maximum of 10 clients",
-      "Senior specialists only. No juniors learning on your budget.",
+      "Senior specialists only. No juniors, no trainees.",
     ],
   },
   {
-    title: "Pricing Built Around Your Results",
+    title: "Incentives That Stay Aligned",
     items: [
       "Performance pricing: we make more as you make more",
       "7-day money-back guarantee",
@@ -57,10 +55,10 @@ const differentiatorThemes = [
     ],
   },
   {
-    title: "Nothing Gets Lost",
+    title: "Systems That Never Drop the Ball",
     items: [
       "Live custom reporting connected to your real data. Check it any time. No vanity metrics.",
-      "The Creekside Brain: every detail of your account, strategy, and history in one system, so when you ask a question three months in, we actually know the answer",
+      "The Creekside Brain: every detail of your account, strategy, and history in one system, so nothing gets lost in translation",
       "Bi-weekly reports that answer four questions: what worked, what didn't, what's next, and what we need from you",
       "Server-side, first-party conversion tracking plus offline CRM data fed back to the ad platforms",
     ],
@@ -107,7 +105,7 @@ const differentiatorThemes = [
           <h1
             class="flex flex-col gap-2 text-4xl/tight font-extrabold text-white md:text-6xl/tight lg:text-5xl/tight xl:text-6xl/tight"
           >
-            <span>Stop <MarkerHighlight variant="circle">Wasting</MarkerHighlight> Ad Spend.</span>
+            <span>Stop Wasting Ad Spend.</span>
             <span class="text-secondary-400">Start Growing Revenue.</span>
           </h1>
 
@@ -117,11 +115,10 @@ const differentiatorThemes = [
             We work with businesses spending $10k - $100k/month on Google and
             Meta ads.
             <strong class="text-white"
-              >If we don't improve your ROAS within 90 days, we work for free
-              until we do.</strong
+              >Improve your ROAS within 90 days or we work for free until we
+              do.</strong
             >
-            And if you decide in the first 7 days it's not a good fit, you get
-            every dollar back. Honestly, we'd rather know that up front.
+            Not the right fit in your first 7 days? You get every dollar back.
           </p>
 
           <div class="mt-10 flex flex-wrap gap-8 md:gap-16">
@@ -216,7 +213,8 @@ const differentiatorThemes = [
           <span class="text-secondary-500">Choose Creekside</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
-          Other marketing agencies call us when they're stuck. Here's why.
+          We're the team other marketers call when they're stuck. Here's what
+          makes us different.
         </p>
       </div>
 
@@ -304,8 +302,7 @@ const differentiatorThemes = [
           How We <span class="text-secondary-500">Work Together</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
-          We'll be upfront: this is the part of the page where every agency
-          shows you their process graphic. Here's the honest version of ours.
+          A simple, transparent process designed to get you results fast.
         </p>
       </div>
 
@@ -337,12 +334,11 @@ const differentiatorThemes = [
               02
             </div>
             <div>
-              <h3 class="text-xl font-bold text-primary-900">90-Day Strategy</h3>
+              <h3 class="text-xl font-bold text-primary-900">Customization</h3>
               <p class="mt-3 text-base/7 text-grey-600">
-                We build a custom 90-day plan around your actual business: your
-                goals, your budget, your industry. Nothing templated. If your
-                situation looks like someone we've already helped, we'll tell
-                you that, but the plan still gets built for you.
+                We build a custom 90-day strategy tailored to your business
+                goals, budget, and industry. Every plan is unique because every
+                business is different.
               </p>
             </div>
           </div>
@@ -356,11 +352,11 @@ const differentiatorThemes = [
               03
             </div>
             <div>
-              <h3 class="text-xl font-bold text-primary-900">Here's What We Found</h3>
+              <h3 class="text-xl font-bold text-primary-900">Strategy</h3>
               <p class="mt-3 text-base/7 text-grey-600">
-                Before you spend a dollar with us, we show you exactly what we
-                found in your accounts, what we'd do about it, and why. No
-                vague promises. Just the plan, in writing.
+                We present our findings and recommended approach. You'll see
+                exactly what we'll do, why we'll do it, and what results to
+                expect.
               </p>
             </div>
           </div>
@@ -374,11 +370,11 @@ const differentiatorThemes = [
               04
             </div>
             <div>
-              <h3 class="text-xl font-bold text-primary-900">We Build and Launch</h3>
+              <h3 class="text-xl font-bold text-primary-900">Implementation</h3>
               <p class="mt-3 text-base/7 text-grey-600">
-                Once you're ready, we build out the campaigns and start
-                running. Weekly optimization from day one. We're not waiting 30
-                days to figure out what's working.
+                Once you're ready to move forward, we implement the strategy and
+                start optimizing your campaigns for new customer growth and
+                revenue.
               </p>
             </div>
           </div>
@@ -392,12 +388,11 @@ const differentiatorThemes = [
               05
             </div>
             <div>
-              <h3 class="text-xl font-bold text-primary-900">Ongoing, For Real</h3>
+              <h3 class="text-xl font-bold text-primary-900">Support</h3>
               <p class="mt-3 text-base/7 text-grey-600">
-                You've got a direct line to your account team, not a support
-                ticket queue. Same-day answers. Every two weeks you get a
-                report that covers what worked, what didn't, what's next, and
-                what we need from you. No fluff.
+                You get a direct channel with your whole account team, same-day
+                responses, and a bi-weekly report covering what worked, what
+                didn't, what's next, and what we need from you.
               </p>
             </div>
           </div>
@@ -419,9 +414,8 @@ const differentiatorThemes = [
           Our <span class="text-secondary-500 uppercase">Services</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
-          Google Ads and Meta Ads. That's the whole list. We've said no to a
-          lot of other work over the years, and honestly that's kind of the
-          point.
+          Google Ads and Meta Ads are the only two things we do. That focus is
+          why we're good at them.
         </p>
       </div>
 
@@ -612,12 +606,10 @@ const differentiatorThemes = [
         <h2
           class="text-4xl/tight font-extrabold tracking-tight text-primary-900 md:text-5xl/tight"
         >
-          Is This <span class="text-secondary-500">a Good Fit?</span>
+          Is Creekside <span class="text-secondary-500">Right for You?</span>
         </h2>
         <p class="mt-6 text-lg/8 text-grey-700">
-          Most of the time we can tell pretty quickly on a call. But here's the
-          honest version of who this tends to work well for, and who it
-          doesn't.
+          We work best with businesses that meet these criteria:
         </p>
       </div>
 
@@ -642,7 +634,7 @@ const differentiatorThemes = [
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              Probably a Good Fit
+              Perfect Fit
             </h3>
             <ul class="flex flex-col gap-4">
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
@@ -659,7 +651,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You're spending $10,000+ per month on ads
+                Spending $10,000+ per month on ads
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -675,7 +667,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You've got a proven offer that people are already buying
+                Have a proven offer that converts
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -691,7 +683,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You're trying to grow, not just maintain
+                Ready to scale and grow revenue
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -707,7 +699,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You want senior specialists, not juniors learning on your budget
+                Want senior specialists, not juniors learning on your budget
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -723,7 +715,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You value a boutique team capped at 10 clients per specialist
+                Value a boutique team capped at 10 clients per specialist
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-700">
                 <svg
@@ -739,8 +731,7 @@ const differentiatorThemes = [
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                You want someone who'll tell you when something isn't working,
-                not just keep cashing the check
+                Looking for long-term strategic partnership
               </li>
             </ul>
           </div>
@@ -758,7 +749,7 @@ const differentiatorThemes = [
               >
                 <circle cx="12" cy="12" r="9" />
               </svg>
-              Probably Not a Good Fit
+              Not a Good Fit
             </h3>
             <ul class="flex flex-col gap-4">
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
@@ -771,7 +762,7 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                You're spending under $10,000/month on ads
+                Budget under $10,000/month in ad spend
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
                 <svg
@@ -783,7 +774,7 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                You're just starting out, with no proven offer yet
+                Just starting out, no proven offer yet
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
                 <svg
@@ -795,7 +786,7 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                Price is the main thing you're shopping on
+                Looking for the cheapest option
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
                 <svg
@@ -807,8 +798,7 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                You want someone to run ads and stay out of your way, with no
-                reporting and no strategy calls
+                Want set-it-and-forget-it management
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
                 <svg
@@ -820,8 +810,7 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                You need results in the next 30 days or the business doesn't
-                survive
+                Need immediate results in 30 days
               </li>
               <li class="flex items-start gap-3 text-base/7 text-grey-500">
                 <svg
@@ -833,20 +822,11 @@ const differentiatorThemes = [
                 >
                   <circle cx="12" cy="12" r="9" />
                 </svg>
-                You'd rather work with a big-name agency
+                Prefer working with large agencies
               </li>
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="mt-10">
-        <HonestAside>
-          If you're under $10k/month in ad spend, we're probably not your best
-          option yet. A good freelancer or smaller agency will give you more
-          attention for less money at that stage. Come back when you're ready
-          to scale. We'll still be here.
-        </HonestAside>
       </div>
     </div>
   </section>
@@ -897,7 +877,7 @@ const differentiatorThemes = [
     <div class="container mx-auto px-4 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-4xl/tight font-extrabold tracking-tight text-white md:text-5xl/tight">
-          Two Guarantees. <span class="text-secondary-300">Here's What They Actually Mean.</span>
+          Two Guarantees. <span class="text-secondary-300">Zero Risk to Try Us.</span>
         </h2>
       </div>
 
@@ -921,9 +901,9 @@ const differentiatorThemes = [
           </div>
           <h3 class="text-xl font-bold text-white">7-Day Money-Back Guarantee</h3>
           <p class="mt-3 text-base/7 text-grey-300">
-            Spend the first 7 days getting to know how we work. If you decide
-            it's not a good fit, you get every dollar back. No awkward
-            conversation, no runaround.
+            Meet the team and see exactly how we work. If you decide we're not
+            the right fit within your first 7 days, you get a full refund with
+            no questions asked.
           </p>
         </div>
 
@@ -946,10 +926,8 @@ const differentiatorThemes = [
           </div>
           <h3 class="text-xl font-bold text-white">90-Day ROAS Improvement, or We Work Free</h3>
           <p class="mt-3 text-base/7 text-grey-300">
-            If your ROAS hasn't improved within 90 days, we keep working for
-            free until it does. We're not going to sit here and tell you we
-            have a 100% success rate, but we're confident enough to put this in
-            writing.
+            If we don't improve your ROAS within 90 days, we work for free
+            until we do.
           </p>
         </div>
       </div>
@@ -995,12 +973,11 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            The fee is a percentage of your ad spend, and the rate drops as
-            you scale: 20% up to $30k, 15% from $30k to $60k, and 10% above
-            $60k per platform. There's a $1,500 monthly minimum per platform
-            and total fees are capped at $15,000 per month. The cap is there on
-            purpose: once your spend gets big enough, we don't need to keep
-            taking a bigger cut. No long-term contracts.
+            Our pricing is built so we only win when you win. The fee is a
+            percentage of your ad spend, and the rate drops as you scale: 20%
+            up to $30k, 15% from $30k to $60k, and 10% above $60k per platform.
+            There's a $1,500 monthly minimum per platform and total fees are
+            capped at $15,000 per month. No long-term contracts.
           </div>
         </details>
 
@@ -1031,12 +1008,12 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            A few things, honestly. We optimize for actual revenue and new
-            customer growth, not just a low cost-per-click number that looks
-            good on a report. The person managing your account is the person
-            you talk to, not an account manager relaying your question to
-            someone else. And we do a live audit on the first call, so you see
-            how we think before you spend anything.
+            Three key differences: (1) We optimize for new customer growth and
+            revenue, not just low CPA. (2) You get direct access to your
+            dedicated ad manager. No middlemen, no black-box management.
+            Peterson and Cade personally oversee strategy and are always a call
+            away. (3) We prove our expertise with a live audit on the first call
+            before you pay anything.
           </div>
         </details>
 
@@ -1067,10 +1044,10 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            Healthcare, legal, finance, SaaS, e-commerce, home services, and a
-            bunch of others. 200+ businesses total. The platforms are the same
-            regardless of industry. What changes is how we use them, and that's
-            based on your data, not a template we pull from a drawer.
+            We've worked with 200+ businesses across healthcare, legal, finance,
+            SaaS, e-commerce, home services, and more. Our data-driven approach
+            works across industries because we focus on fundamentals: targeting,
+            messaging, conversion tracking, and optimization.
           </div>
         </details>
 
@@ -1101,11 +1078,10 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            Honestly, most people see movement in the first 30-60 days. But
-            we'll tell you the same thing we tell everyone on a call: nobody
-            can promise results in a week, and we're not going to pretend
-            otherwise. The 90 days is about having enough data to know what's
-            actually working, not just getting lucky on a few early ads.
+            Most clients see improvements within 30-60 days, but we recommend a
+            90-day commitment to see the full impact. Advertising is about
+            continuous testing and optimization - quick wins are great, but
+            sustainable growth takes time.
           </div>
         </details>
 
@@ -1136,11 +1112,11 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            On the first call we pull up your accounts live and walk through
-            them with you, using our $10K Profit Recovery checklist: 247 points
-            across your Google and Meta setup. We're looking for the 5-7 spots
-            where money is quietly leaking out. You keep the findings either
-            way.
+            On your first call, we'll do a live audit of your current ad
+            accounts using our $10K Profit Recovery framework - a 247-point
+            checklist that identifies the 5-7 hidden leaks draining your budget.
+            You'll walk away with actionable insights whether you work with us
+            or not.
           </div>
         </details>
 
@@ -1171,11 +1147,11 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            Two. The 7-day money-back guarantee is a fit check: spend the first
-            week getting to know us, and if you decide it's not right, you get
-            everything back. The 90-day ROAS guarantee is the performance side:
-            if we haven't improved your return on ad spend in 90 days, we keep
-            working for free until we do. Both are in writing.
+            Two. First, a 7-day money-back guarantee: meet the team, see how we
+            work, and if we're not the right fit within your first 7 days, you
+            get a full refund. Second, a 90-day performance promise: if we
+            don't improve your ROAS within 90 days, we work for free until we
+            do.
           </div>
         </details>
 
@@ -1206,9 +1182,9 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            Same day. You've got a direct line to the people actually working
-            on your account. Ask something in the morning and you'll have an
-            answer by end of day, not a promise to pass it along.
+            Same day. You get a direct channel with your whole account team,
+            not an account manager relaying messages. Ask a question in the
+            morning and you'll have an answer before the end of the day.
           </div>
         </details>
 
@@ -1239,11 +1215,10 @@ const differentiatorThemes = [
             </span>
           </summary>
           <div class="px-6 pb-6 text-base/7 text-grey-600">
-            Every two weeks you get a report that covers what worked, what
-            didn't, what we're doing next, and what we need from you to keep
-            moving. You also get a live dashboard connected to your real
-            account data that you can check any time. We don't report on
-            impressions to make the numbers look bigger.
+            Every two weeks you get a report that answers four questions: what
+            worked, what didn't, what's next, and what we need from you. You
+            also get a live custom dashboard connected to your real data that
+            you can check any time. No vanity metrics, ever.
           </div>
         </details>
       </div>
@@ -1255,13 +1230,12 @@ const differentiatorThemes = [
     <div class="container mx-auto px-4 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-4xl/tight font-extrabold text-white md:text-5xl/tight">
-          Find Out What's Actually Happening in Your Accounts.
+          Ready to Stop Wasting Ad Spend?
         </h2>
         <p class="mt-6 text-lg/8 text-grey-300">
-          We'll pull up your Google and Meta accounts live on the first call
-          and walk through them with you. Worst case, you get a free second
-          opinion on where your budget is going. Best case, we figure out that
-          working together makes sense.
+          Get your free $10K Profit Recovery Audit and discover exactly where
+          your money is leaking. No sales pitch - just real insights you can use
+          immediately.
         </p>
         <div class="mt-10">
           <a
@@ -1272,7 +1246,7 @@ const differentiatorThemes = [
           </a>
         </div>
         <p class="mt-6 text-sm text-grey-400">
-          7-day money-back guarantee &bull; Month-to-month after that
+          7-day money-back guarantee &bull; No long-term contracts
         </p>
       </div>
     </div>
