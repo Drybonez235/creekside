@@ -678,6 +678,49 @@ const fallbackPhone = await store.getSetting("fallback_phone", "");
 		.dental-bw-cal,
 		.dental-bw-times {
 			min-width: 0;
+			width: 100%;
+		}
+		.dental-bw-days {
+			gap: 2px;
+		}
+		.dental-bw-day {
+			font-size: 13px;
+			border-radius: 6px;
+		}
+		.dental-bw-weekdays {
+			gap: 2px;
+		}
+		.dental-bw-weekdays > div {
+			font-size: 10px;
+		}
+		.dental-bw-time-list {
+			max-height: none;
+		}
+		.dental-bw-time-btn {
+			padding: 14px 16px;
+			font-size: 15px;
+		}
+		.dental-bw-confirm {
+			padding: 16px;
+		}
+		.dental-bw-book-btn {
+			padding: 14px 20px;
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.dental-bw-day {
+			font-size: 12px;
+			border-radius: 4px;
+		}
+		.dental-bw-nav-btn {
+			width: 32px;
+			height: 32px;
+			font-size: 18px;
+		}
+		.dental-bw-month-label {
+			font-size: 14px;
 		}
 	}
 </style>

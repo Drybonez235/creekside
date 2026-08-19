@@ -5,6 +5,13 @@ export const prerender = false;
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
 
+// Dental Pipeline in GHL
+const DENTAL_PIPELINE_ID = "cUkfvJHXo34WTtAPMWIP";
+const DENTAL_STAGES = {
+	newLead: "4f189c75-99a3-4c83-81df-399c0631b92c",
+	referred: "211e19ab-0615-40ff-a04a-d966250831c5",
+} as const;
+
 // Rate limit: 10 attempts / 10 min / IP
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 10;
@@ -32,6 +39,10 @@ const FIELD = {
 	contactSource: "hGxdzIMVBBWzzu4YXmiV",
 	referredTo: "BMj2Ojl2VqWNfQbZHfTa",
 	qualificationStatus: "xhUUMIBvVwCxsa1QLJl9",
+	practiceType: "smPYLLroB0Jc93cQhN0W",
+	servicesInterestedIn: "z3nl3LICChritVPVmvdE",
+	biggestChallenge: "K3yzGXYS4prEDYQeCJwj",
+	decisionMaker: "YVOE5D7V6RpjK1FCRlsu",
 	utmSource: "arHD6CEDVUcc49EH2G3s",
 	utmMedium: "uZ25qk7BzAjHMKagWM1V",
 	utmCampaign: "zh3UaWthUTi60O2Ri7Kb",
@@ -72,6 +83,35 @@ const AD_MGMT_MAP: Record<string, string> = {
 	"freelancer": "Freelancer",
 	"want-to-start": "Want to Start",
 	"not-sure": "Not Sure",
+};
+
+const PRACTICE_TYPE_MAP: Record<string, string> = {
+	"yes-both": "Cosmetic + General Dentistry",
+	"yes-cosmetic": "Cosmetic Only",
+	"general": "Primarily General Dentistry",
+};
+
+const SERVICES_MAP: Record<string, string> = {
+	"veneers": "Veneers & Smile Makeovers",
+	"implants": "Dental Implants & All-on-4",
+	"invisalign": "Invisalign / Clear Aligners",
+	"whitening": "Teeth Whitening",
+	"multiple": "Multiple / All of the Above",
+};
+
+const CHALLENGE_MAP: Record<string, string> = {
+	"not-enough-patients": "Not Enough New Patients",
+	"high-cpl": "Ad Costs Too High",
+	"low-conversion": "Leads Don't Convert to Appointments",
+	"no-visibility": "No Online Visibility",
+	"wrong-patients": "Attracting Wrong Type of Patients",
+	"scale": "Ready to Scale",
+};
+
+const DECISION_MAKER_MAP: Record<string, string> = {
+	"owner": "Practice Owner",
+	"marketing-director": "Marketing Director",
+	"no": "Someone Else",
 };
 
 function splitName(full: string): { firstName: string; lastName: string } {
@@ -158,55 +198,139 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.contactSource, contactSource);
 	addField(FIELD.referredTo, isQualified ? "Cade" : "Keith");
 	addField(FIELD.qualificationStatus, qualStatus);
+	addField(FIELD.practiceType, PRACTICE_TYPE_MAP[practiceType] || practiceType);
+	addField(FIELD.servicesInterestedIn, SERVICES_MAP[services] || services);
+	addField(FIELD.biggestChallenge, CHALLENGE_MAP[challenge] || challenge);
+	addField(FIELD.decisionMaker, DECISION_MAKER_MAP[decisionMaker] || decisionMaker);
 	addField(FIELD.utmSource, utmSource);
 	addField(FIELD.utmMedium, utmMedium);
 	addField(FIELD.utmCampaign, utmCampaign);
 	addField(FIELD.utmContent, utmContent);
 	addField(FIELD.utmTerm, utmTerm);
 
-	// Qualification answers that don't have dedicated custom fields go into notes
+	// Site funnel fields that don't have dedicated custom fields go into notes
 	const noteLines: string[] = [];
 	if (isSite) {
 		if (businessType) noteLines.push(`Business Type: ${BUSINESS_TYPE_MAP[businessType] || businessType}`);
 		if (adSpend) noteLines.push(`Ad Budget: ${AD_SPEND_MAP[adSpend] || adSpend}`);
-		if (challenge) noteLines.push(`Challenge: ${challenge}`);
-		if (decisionMaker) noteLines.push(`Decision Maker: ${decisionMaker}`);
-	} else {
-		if (practiceType) noteLines.push(`Practice Type: ${practiceType}`);
-		if (services) noteLines.push(`Services: ${services}`);
-		if (challenge) noteLines.push(`Challenge: ${challenge}`);
-		if (decisionMaker) noteLines.push(`Decision Maker: ${decisionMaker}`);
 	}
-	const notes = noteLines.length ? `[${isSite ? "Website Funnel" : "Dental Funnel"}]\n${noteLines.join("\n")}` : "";
+	const notes = noteLines.length ? `[Website Funnel]\n${noteLines.join("\n")}` : "";
 
-	const body: Record<string, unknown> = { locationId, firstName, lastName, email, phone, tags, customFields };
-	if (notes) body.notes = notes;
+	// GHL contacts API does NOT accept "notes" on the create payload (returns 422).
+	// Notes must be added via a separate POST /contacts/{id}/notes call after creation.
+	const contactBody: Record<string, unknown> = { locationId, firstName, lastName, email, phone, tags, customFields };
+
+	const ghlHeaders = {
+		"Authorization": `Bearer ${apiKey}`,
+		"Version": "2021-07-28",
+		"Content-Type": "application/json",
+	};
 
 	try {
+		// 1. Create or merge contact
 		const res = await fetch(`${GHL_BASE}/contacts/`, {
 			method: "POST",
-			headers: {
-				"Authorization": `Bearer ${apiKey}`,
-				"Version": "2021-07-28",
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(body),
+			headers: ghlHeaders,
+			body: JSON.stringify(contactBody),
 		});
+
+		let contactId: string | null = null;
 
 		if (res.ok) {
 			const data = await res.json();
-			return jsonResponse({ ok: true, contactId: data.contact?.id });
-		}
-
-		// GHL returns 400 for duplicate email+phone -- treat as success (contact merged)
-		if (res.status === 400) {
+			contactId = data.contact?.id || null;
+		} else if (res.status === 400) {
+			// GHL returns 400 for duplicate email+phone -- look up existing contact
 			await res.json().catch(() => ({}));
-			return jsonResponse({ ok: true, merged: true });
+			try {
+				const lookupRes = await fetch(
+					`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
+					{ method: "GET", headers: ghlHeaders },
+				);
+				if (lookupRes.ok) {
+					const lookupData = await lookupRes.json();
+					contactId = lookupData.contact?.id || null;
+				}
+			} catch {
+				// Lookup failed -- continue without contactId
+			}
+		} else {
+			const errText = await res.text().catch(() => "");
+			console.error(`[ghl-lead] GHL API error ${res.status}:`, errText);
+			return errorResponse("ghl_api_error", "CRM sync failed", 500);
 		}
 
-		const errText = await res.text().catch(() => "");
-		console.error(`[ghl-lead] GHL API error ${res.status}:`, errText);
-		return errorResponse("ghl_api_error", "CRM sync failed", 500);
+		// 1b. Add notes to contact via separate endpoint (if any)
+		if (contactId && notes) {
+			try {
+				await fetch(`${GHL_BASE}/contacts/${contactId}/notes`, {
+					method: "POST",
+					headers: ghlHeaders,
+					body: JSON.stringify({ body: notes }),
+				});
+			} catch (noteErr) {
+				console.error("[ghl-lead] Contact notes call failed:", noteErr);
+			}
+		}
+
+		// 2. Create opportunity in Dental Pipeline (only for dental funnel)
+		//    Always starts as "New Lead" -- gets updated to "Call Booked" by book.ts if they book
+		//    Skip if this contact already has an opportunity in the pipeline (prevents duplicates)
+		if (contactId && !isSite) {
+			try {
+				// Check for existing opportunity
+				const existingRes = await fetch(
+					`${GHL_BASE}/opportunities/search?location_id=${locationId}&pipeline_id=${DENTAL_PIPELINE_ID}&contact_id=${contactId}`,
+					{ method: "GET", headers: ghlHeaders },
+				);
+				const existingData = existingRes.ok ? await existingRes.json() : { opportunities: [] };
+				const hasExisting = existingData.opportunities?.length > 0;
+
+				if (!hasExisting) {
+					// Build comprehensive opportunity notes with all questionnaire answers
+					const oppNoteLines: string[] = [
+						`[Dental Funnel Submission]`,
+						`Name: ${name}`,
+						`Email: ${email}`,
+						`Phone: ${phone}`,
+					];
+					if (website) oppNoteLines.push(`Website: ${website}`);
+					if (practiceType) oppNoteLines.push(`Practice Type: ${PRACTICE_TYPE_MAP[practiceType] || practiceType}`);
+					if (services) oppNoteLines.push(`Services: ${SERVICES_MAP[services] || services}`);
+					if (revenue) oppNoteLines.push(`Monthly Revenue: ${REVENUE_MAP[revenue] || revenue}`);
+					if (challenge) oppNoteLines.push(`Challenge: ${CHALLENGE_MAP[challenge] || challenge}`);
+					if (decisionMaker) oppNoteLines.push(`Decision Maker: ${DECISION_MAKER_MAP[decisionMaker] || decisionMaker}`);
+					if (adMgmt) oppNoteLines.push(`Ad Management: ${AD_MGMT_MAP[adMgmt] || adMgmt}`);
+					oppNoteLines.push(`Qualification: ${qualStatus}`);
+					oppNoteLines.push(`Source: ${contactSource}`);
+					if (isQualified) {
+						oppNoteLines.push(`Routed to: Cade (direct)`);
+					} else {
+						oppNoteLines.push(`Routed to: Keith (partner referral)`);
+					}
+
+					await fetch(`${GHL_BASE}/opportunities/`, {
+						method: "POST",
+						headers: ghlHeaders,
+						body: JSON.stringify({
+							pipelineId: DENTAL_PIPELINE_ID,
+							locationId,
+							name: `${name} - Dental Lead`,
+							stageId: DENTAL_STAGES.newLead,
+							contactId,
+							status: "open",
+							source: contactSource,
+							notes: [oppNoteLines.join("\n")],
+						}),
+					});
+				}
+			} catch (oppErr) {
+				// Log but don't fail the whole request -- contact was already created
+				console.error("[ghl-lead] Opportunity creation failed:", oppErr);
+			}
+		}
+
+		return jsonResponse({ ok: true, contactId });
 	} catch (err) {
 		console.error("[ghl-lead] Network error:", err);
 		return errorResponse("ghl_network_error", "CRM sync failed", 500);

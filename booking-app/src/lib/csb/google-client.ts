@@ -16,16 +16,17 @@ const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const API_BASE = "https://www.googleapis.com/calendar/v3";
 
 /**
- * Granular, non-sensitive scopes only (avoids Google's sensitive-scope verification when
- * the OAuth app is published). Do NOT add `calendar`, `calendar.events`, or
- * `calendar.readonly` — see CLAUDE.md invariant #2.
- *  - calendar.app.created : create the "Creekside Bookings" secondary calendar and manage
- *    events on calendars this app created
- *  - calendar.freebusy    : read free/busy of the account's calendars (primary included)
- *    for availability
+ * Scopes:
+ *  - calendar.events      : create/manage events + conferenceData (Google Meet links)
+ *  - calendar.app.created : manage the "Creekside Bookings" secondary calendar
+ *  - calendar.freebusy    : read free/busy for availability checks
+ *
+ * calendar.events is a sensitive scope -- requires Google's verification if the OAuth app
+ * is published. Needed for conferenceData (Meet link generation).
+ * After changing scopes, connected accounts must re-authorize via the admin page.
  */
 const SCOPES =
-	"openid email https://www.googleapis.com/auth/calendar.app.created https://www.googleapis.com/auth/calendar.freebusy";
+	"openid email https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.app.created https://www.googleapis.com/auth/calendar.freebusy";
 
 export function redirectUri(): string {
 	// Trailing slash required — this site's astro.config.mjs sets trailingSlash: 'always',
@@ -218,7 +219,9 @@ export async function createEvent(
 		gclid: string;
 	},
 ) {
-	const calendarId = await ensureBookingCalendar(account);
+	// Write to the primary calendar so Google Meet links work (conferenceData
+	// is silently ignored on secondary calendars) and events show up naturally.
+	const calendarId = "primary";
 
 	const descriptionLines = [
 		"Booked online via creekside website",
@@ -249,6 +252,12 @@ export async function createEvent(
 		start: { dateTime: args.startRfc3339, timeZone: CSB_TZ },
 		end: { dateTime: args.endRfc3339, timeZone: CSB_TZ },
 		attendees: [{ email: args.email, responseStatus: "accepted" }],
+		conferenceData: {
+			createRequest: {
+				requestId: eventId,
+				conferenceSolutionKey: { type: "hangoutsMeet" },
+			},
+		},
 		extendedProperties: {
 			private: {
 				csb: "1",
@@ -261,7 +270,7 @@ export async function createEvent(
 
 	const eventsPath = `/calendars/${encodeURIComponent(calendarId)}/events`;
 	try {
-		return await apiRequest(account, "POST", `${eventsPath}?sendUpdates=all`, event);
+		return await apiRequest(account, "POST", `${eventsPath}?sendUpdates=all&conferenceDataVersion=1`, event);
 	} catch (err) {
 		// 409 here means this exact id already exists — i.e. an earlier attempt in this same
 		// call DID succeed and we're seeing the retry collide with it. That's success, not
