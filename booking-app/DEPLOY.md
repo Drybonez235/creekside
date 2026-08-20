@@ -77,8 +77,8 @@ Then in `.env`:
 
 ```
 GOOGLE_APPLICATION_CREDENTIALS=/etc/creekside/wif-credentials.json
-CSB_SA_EMAIL=creekside-booking@<project-id>.iam.gserviceaccount.com
-CSB_SA_CLIENT_ID=<numeric unique id>
+CSB_SA_EMAIL=creekside-booking@driven-crane-504021-p3.iam.gserviceaccount.com
+CSB_SA_CLIENT_ID=108922819435399341151
 CSB_WORKSPACE_DOMAIN=creeksidemarketingpros.com
 ```
 
@@ -181,8 +181,9 @@ access, so it needs Peterson or whoever holds that role:
 
 1. Admin console -> Security -> Access and data control -> API controls
 2. "Manage Domain Wide Delegation" -> Add new
-3. Client ID: the service account's numeric Unique ID (shown on `/admin/booking` once
-   `CSB_SA_CLIENT_ID` is set, or on the service account's details page in Google Cloud)
+3. Client ID: `108922819435399341151`
+   (the service account's numeric Unique ID — note the Admin console labels this field
+   "Client ID", but it is the Unique ID, not the account's email address)
 4. OAuth scopes, comma-separated, exactly these two:
    `https://www.googleapis.com/auth/calendar.events,https://www.googleapis.com/auth/calendar.freebusy`
 5. Authorize

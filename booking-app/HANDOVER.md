@@ -197,8 +197,8 @@ session.
 
 | Variable | Purpose |
 | :-- | :-- |
-| `CSB_SA_EMAIL` | The service account to impersonate providers as. |
-| `CSB_SA_CLIENT_ID` | The service account's numeric Unique ID. Display-only — the admin page shows it to whoever creates the Workspace delegation entry. |
+| `CSB_SA_EMAIL` | The service account to impersonate providers as: `creekside-booking@driven-crane-504021-p3.iam.gserviceaccount.com` |
+| `CSB_SA_CLIENT_ID` | The service account's numeric Unique ID (`108922819435399341151`). Display-only — the admin page shows it to whoever creates the Workspace delegation entry. |
 | `GOOGLE_APPLICATION_CREDENTIALS` | Standard ADC path, pointing at the Workload Identity Federation credential config. Not a secret: no key material, only pool/provider pointers. |
 | `CSB_WORKSPACE_DOMAIN` | Workspace domain every provider address must belong to. Defaults to `creeksidemarketingpros.com`. |
 | `CSB_ADMIN_USER` / `CSB_ADMIN_PASS` | Basic Auth for `/admin/booking` and `/api/csb/admin/*` |
