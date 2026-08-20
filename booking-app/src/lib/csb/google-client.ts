@@ -21,9 +21,19 @@ const API_BASE = "https://www.googleapis.com/calendar/v3";
  *  - calendar.app.created : manage the "Creekside Bookings" secondary calendar
  *  - calendar.freebusy    : read free/busy for availability checks
  *
- * calendar.events is a sensitive scope -- requires Google's verification if the OAuth app
- * is published. Needed for conferenceData (Meet link generation).
- * After changing scopes, connected accounts must re-authorize via the admin page.
+ * calendar.events is a sensitive scope, and is used deliberately -- conferenceData (Meet
+ * link generation) is impossible without a scope that can write to a real user calendar.
+ * It carries no verification review here because the consent screen user type is
+ * **Internal**: the GCP project sits inside the creeksidemarketingpros.com Workspace org,
+ * and Internal apps are exempt from both verification and the 7-day refresh-token expiry
+ * that applies to External apps in Testing. Do not switch the consent screen back to
+ * External without understanding that both consequences return.
+ *
+ * After changing scopes, connected accounts must re-authorize via the admin page -- an
+ * existing refresh token keeps whatever scopes it was minted with. Skipping that step is
+ * what caused the 2026-08-19 outage: tokens holding only calendar.app.created got a 404
+ * (not a 403) on /calendars/primary, because that scope cannot address a calendar it did
+ * not create.
  */
 const SCOPES =
 	"openid email https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.app.created https://www.googleapis.com/auth/calendar.freebusy";
