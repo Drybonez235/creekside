@@ -41,6 +41,8 @@ const GHL_BASE = "https://services.leadconnectorhq.com";
 const DENTAL_PIPELINE_ID = "cUkfvJHXo34WTtAPMWIP";
 const CALL_BOOKED_STAGE_ID = "8ad8a351-f55b-4fdc-b79d-41e2ba86e092";
 
+const GHL_BOOKED_CALL_DATE_FIELD = "G5MN7xDI3JDv9QW8KMDf";
+
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const TIME_RE = /^\d{2}:\d{2}$/;
 const isEmail = (s: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s);
@@ -171,9 +173,14 @@ export const POST: APIRoute = async ({ request }) => {
 			calendarId: "primary",
 		});
 
-		// 7. Update GHL opportunity to "Call Booked" (fire-and-forget, don't block response)
+		// 7. Update GHL opportunity to "Call Booked" and set booked call date
+		//    (fire-and-forget, don't block response)
 		updateGhlOpportunityStage(email).catch((err) => {
 			console.error("[book] GHL opportunity update failed:", err);
+		});
+
+		updateGhlBookedCallDate(email, start).catch((err) => {
+			console.error("[book] GHL booked call date update failed:", err);
 		});
 
 		// FR-25: hashed identifiers for enhanced conversions; event id is the dedup key.
@@ -228,4 +235,41 @@ async function updateGhlOpportunityStage(email: string): Promise<void> {
 		headers: ghlHeaders,
 		body: JSON.stringify({ stageId: CALL_BOOKED_STAGE_ID }),
 	});
+}
+
+/** Set the "Booked Call Date" custom field on the GHL contact so workflows can trigger based on it. */
+async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<void> {
+	const apiKey = import.meta.env.GHL_API_KEY;
+	const locationId = import.meta.env.GHL_LOCATION_ID;
+	if (!apiKey || !locationId) return;
+
+	const ghlHeaders = {
+		"Authorization": `Bearer ${apiKey}`,
+		"Version": "2021-07-28",
+		"Content-Type": "application/json",
+	};
+
+	// Look up contact by email
+	const lookupRes = await fetch(
+		`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
+		{ method: "GET", headers: ghlHeaders },
+	);
+	if (!lookupRes.ok) return;
+	const lookupData = await lookupRes.json();
+	const contactId = lookupData.contact?.id;
+	if (!contactId) return;
+
+	// Update contact with booked call date
+	const updateRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+		method: "PUT",
+		headers: ghlHeaders,
+		body: JSON.stringify({
+			customFields: [{ id: GHL_BOOKED_CALL_DATE_FIELD, value: callStart.toISOString() }],
+		}),
+	});
+
+	if (!updateRes.ok) {
+		const errBody = await updateRes.text().catch(() => "");
+		console.error(`[book] GHL booked call date error ${updateRes.status}:`, errBody);
+	}
 }
