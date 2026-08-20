@@ -1,5 +1,5 @@
 ---
-// Booking admin: connect Google accounts, per-provider config, bookings list, CSV export.
+// Booking admin: add providers, per-provider config, bookings list, CSV export.
 // Gated by HTTP Basic Auth in src/middleware.ts. Ported from class-csb-admin.php, adapted
 // to Astro's request/response model — settings-save and test-connection are handled
 // directly here (POST-then-render) instead of PHP's redirect+transient dance, since Astro
@@ -12,13 +12,15 @@ export const prerender = false;
 import Layout from "../../layouts/Layout.astro";
 import { store } from "../../lib/csb/store";
 import type { WeeklyHours } from "../../lib/csb/store";
-import { redirectUri } from "../../lib/csb/google-client";
-import { googleConfigured } from "../../lib/csb/constants";
+import { googleConfigured, workspaceDomain } from "../../lib/csb/constants";
+import { keyForEmail, defaultHours } from "../../lib/csb/accounts";
+import { delegationClientId, serviceAccountEmail } from "../../lib/csb/service-account";
 import { testConnection, type DiagnosticResult } from "../../lib/csb/diagnostics";
 import "../../styles/global.css";
 
 let testResults: DiagnosticResult[] | null = null;
 let savedMessage = "";
+let addError = "";
 
 if (Astro.request.method === "POST") {
 	const form = await Astro.request.formData();
@@ -76,6 +78,40 @@ if (Astro.request.method === "POST") {
 		const accounts = await store.getAccounts();
 		testResults = await Promise.all(accounts.map(testConnection));
 	}
+
+	// Adding a provider is now just recording an email address: there is no consent round
+	// trip, because authority comes from the domain-wide delegation grant rather than from
+	// this person clicking "Allow". Whether the delegation actually covers them is proven
+	// by "Test connection", not by this form.
+	if (intent === "add_provider") {
+		const email = String(form.get("email") ?? "").trim().toLowerCase();
+		const label = String(form.get("label") ?? "").trim();
+		const domain = workspaceDomain();
+
+		if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+			addError = "Enter a valid email address.";
+		} else if (!email.endsWith(`@${domain}`)) {
+			// A service account can only impersonate users inside the delegated Workspace
+			// domain. Catching it here gives a straight answer instead of an opaque
+			// invalid_grant at the first booking attempt.
+			addError = `Must be an @${domain} address — a service account cannot impersonate accounts outside the Workspace domain.`;
+		} else if (await store.getAccount(keyForEmail(email))) {
+			addError = "That provider is already added.";
+		} else {
+			await store.saveAccount({
+				key: keyForEmail(email),
+				email,
+				label: label || email.split("@")[0],
+				calendarId: "",
+				slotMinutes: 30,
+				hours: defaultHours(),
+				enabled: true,
+				authErrorAt: null,
+				refreshTokenEncrypted: "",
+			});
+			savedMessage = `Added ${email}. Run "Test connection" to confirm delegation covers them.`;
+		}
+	}
 }
 
 const accounts = await store.getAccounts();
@@ -83,8 +119,18 @@ const fallbackPhone = await store.getSetting("fallback_phone", "");
 const leadMinutes = await store.getSetting("lead_minutes", "60");
 const windowDays = await store.getSetting("window_days", "42");
 const bookings = await store.listBookings(50);
-const connected = Astro.url.searchParams.get("connected");
 const configured = googleConfigured();
+// A present-but-malformed key file must not take down the admin page -- this is the one
+// screen someone opens to find out WHY things are broken.
+let saEmail = "";
+let saClientId = "";
+let saKeyError = "";
+try {
+	saEmail = serviceAccountEmail();
+	saClientId = delegationClientId();
+} catch (err) {
+	saKeyError = err instanceof Error ? err.message : String(err);
+}
 
 const STATUS_BADGE: Record<string, string> = {
 	created: "bg-accent-success/10 text-accent-success",
@@ -98,40 +144,64 @@ const STATUS_BADGE: Record<string, string> = {
 		<div class="flex flex-wrap items-center justify-between gap-4">
 			<h1 class="text-3xl font-bold text-primary-900">Creekside Booking</h1>
 			<span class={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${configured ? "bg-accent-success/10 text-accent-success" : "bg-accent-alert/10 text-accent-alert"}`}>
-				{configured ? "Google client configured" : "Google client not configured"}
+				{configured ? "Service account configured" : "Service account not configured"}
 			</span>
 		</div>
 
-		{connected && (
-			<p class="mt-4 rounded-xl border border-accent-success/20 bg-accent-success/10 px-4 py-3 font-medium text-accent-success">
-				Connected: {connected}
-			</p>
-		)}
 		{savedMessage && (
 			<p class="mt-4 rounded-xl border border-accent-success/20 bg-accent-success/10 px-4 py-3 font-medium text-accent-success">{savedMessage}</p>
+		)}
+		{addError && (
+			<p class="mt-4 rounded-xl border border-accent-alert/20 bg-accent-alert/10 px-4 py-3 font-medium text-accent-alert">{addError}</p>
+		)}
+		{saKeyError && (
+			<p class="mt-4 rounded-xl border border-accent-alert/20 bg-accent-alert/10 px-4 py-3 font-medium text-accent-alert">Service-account key problem: {saKeyError}</p>
 		)}
 
 		{!configured ? (
 			<p class="mt-4 rounded-xl border border-accent-alert/20 bg-accent-alert/10 px-4 py-3 text-accent-alert">
-				Set <code>CSB_GOOGLE_CLIENT_ID</code> and <code>CSB_GOOGLE_CLIENT_SECRET</code> in
-				<code>.env</code>. OAuth redirect URI: <code>{redirectUri()}</code>
+				Set <code>CSB_SA_KEY_FILE</code> (path to the service-account JSON key) or
+				<code>CSB_SA_KEY_JSON</code> in <code>.env</code>, then restart the service.
 			</p>
 		) : (
-			<div class="mt-6 flex flex-wrap items-center gap-3 rounded-2xl border border-grey-200 bg-white p-4 shadow-xs">
-				<a href="/api/csb/admin/connect/" class="rounded-sm bg-secondary-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-secondary-600">
-					Connect Google Account
-				</a>
-				{accounts.length > 0 && (
-					<form method="POST">
-						<input type="hidden" name="intent" value="test_connection" />
-						<button type="submit" class="rounded-sm border border-grey-300 px-4 py-2 font-semibold text-primary-900 transition-colors hover:bg-grey-100">
+			<div class="mt-6 rounded-2xl border border-grey-200 bg-white p-4 shadow-xs">
+				<form method="POST" class="flex flex-wrap items-end gap-3">
+					<input type="hidden" name="intent" value="add_provider" />
+					<label class="flex flex-col gap-1 text-sm font-semibold text-primary-900">
+						Provider email
+						<input
+							type="email"
+							name="email"
+							required
+							placeholder={`name@${workspaceDomain()}`}
+							class="w-72 rounded-sm border border-grey-300 px-3 py-2 font-normal"
+						/>
+					</label>
+					<label class="flex flex-col gap-1 text-sm font-semibold text-primary-900">
+						Display label
+						<input
+							type="text"
+							name="label"
+							placeholder="Shown to customers"
+							class="w-56 rounded-sm border border-grey-300 px-3 py-2 font-normal"
+						/>
+					</label>
+					<button type="submit" class="rounded-sm bg-secondary-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-secondary-600">
+						Add provider
+					</button>
+					{accounts.length > 0 && (
+						<button type="submit" name="intent" value="test_connection" formnovalidate class="rounded-sm border border-grey-300 px-4 py-2 font-semibold text-primary-900 transition-colors hover:bg-grey-100">
 							Test connection
 						</button>
-					</form>
-				)}
-				<span class="text-sm text-grey-600">
-					Redirect URI: <code class="rounded bg-grey-100 px-1.5 py-0.5 text-xs">{redirectUri()}</code>
-				</span>
+					)}
+				</form>
+				<p class="mt-3 border-t border-grey-200 pt-3 text-sm text-grey-600">
+					Providers are authorized by domain-wide delegation, so there is no sign-in step: adding an
+					address is enough, provided the Workspace admin has delegated this service account.
+					<br />
+					Service account: <code class="rounded bg-grey-100 px-1.5 py-0.5 text-xs">{saEmail}</code>
+					&nbsp;·&nbsp; Delegation client ID: <code class="rounded bg-grey-100 px-1.5 py-0.5 text-xs">{saClientId}</code>
+				</p>
 			</div>
 		)}
 
@@ -173,7 +243,7 @@ const STATUS_BADGE: Record<string, string> = {
 			<input type="hidden" name="intent" value="save_settings" />
 
 			<h2 class="text-xl font-bold text-primary-900">Agents</h2>
-			<p class="mt-1 text-sm text-grey-600">Each connected Google account is one bookable agent. Customers see the label, never the email.</p>
+			<p class="mt-1 text-sm text-grey-600">Each provider is one bookable agent. Customers see the label, never the email.</p>
 
 			<div class="mt-4 grid gap-4 md:grid-cols-2">
 				{accounts.map((a) => (
@@ -219,7 +289,7 @@ const STATUS_BADGE: Record<string, string> = {
 					</div>
 				))}
 				{accounts.length === 0 && (
-					<p class="text-sm text-grey-500">No accounts connected yet — click "Connect Google Account" above.</p>
+					<p class="text-sm text-grey-500">No providers yet — add one by email above.</p>
 				)}
 			</div>
 

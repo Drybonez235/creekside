@@ -47,9 +47,28 @@ yourself, specific to this deployment:
 CSB_BASE_URL=https://creeksidemarketingpros.com
 ```
 
-That's the real public domain, not `localhost` — the app uses this to build the Google OAuth
-redirect URI, and it has to match what's registered in Google Cloud exactly (Apache proxies
-transparently, so the app never sees its own internal port from the outside).
+That's the real public domain, not `localhost`. Apache proxies transparently, so the app
+never sees its own internal port from the outside.
+
+You also need the service-account key on the box. Jordan will send the JSON key file
+separately; put it somewhere outside the repo and lock it down:
+
+```bash
+sudo mkdir -p /etc/creekside
+sudo mv booking-sa.json /etc/creekside/booking-sa.json
+sudo chown creekside:creekside /etc/creekside/booking-sa.json
+sudo chmod 600 /etc/creekside/booking-sa.json
+```
+
+Then point `.env` at it:
+
+```
+CSB_SA_KEY_FILE=/etc/creekside/booking-sa.json
+```
+
+That key is the whole credential — anyone who can read it can act as any provider in the
+Workspace domain for calendar scopes. It must never land in the repo or in a backup that
+leaves the box.
 
 ## 4. Build and run it
 
@@ -140,9 +159,25 @@ code.
 
 ## 7. One more thing before this is really "done"
 
-Google Cloud needs the production redirect URI registered on the OAuth client (alongside the
-existing dev one) — Jordan will handle that on the Google Cloud side once you confirm the
-domain/path above, since it doesn't require anything from you.
+The service account has to be authorized in the Google Workspace Admin console before any
+booking can work. This is the one step Jordan cannot do without Workspace super-admin
+access, so it needs Peterson or whoever holds that role:
+
+1. Admin console -> Security -> Access and data control -> API controls
+2. "Manage Domain Wide Delegation" -> Add new
+3. Client ID: the numeric `client_id` from the service-account key (shown on
+   `/admin/booking` once the key is in place)
+4. OAuth scopes, comma-separated, exactly these two:
+   `https://www.googleapis.com/auth/calendar.events,https://www.googleapis.com/auth/calendar.freebusy`
+5. Authorize
+
+The scope list must match the app's `SA_SCOPES` exactly. Any mismatch fails every token
+request with `unauthorized_client`, which names nothing useful on its own — the admin page's
+"Test connection" translates it.
+
+Note what this step is NOT: there is no OAuth consent screen, no app publication, and no
+Google verification review. Authority comes from the domain admin, not from each provider
+clicking "Allow", which is why the old seven-day token expiry is gone too.
 
 ---
 

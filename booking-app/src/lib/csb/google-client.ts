@@ -1,137 +1,26 @@
-// Thin Google Calendar API v3 client, ported from class-csb-google-client.php.
+// Thin Google Calendar API v3 client.
 //
-// Credentials come from CSB_GOOGLE_CLIENT_ID / CSB_GOOGLE_CLIENT_SECRET (.env — never the
-// DB, never the browser). OAuth: authorization-code flow with offline access. One refresh
-// token per connected account, stored encrypted (lib/csb/accounts.ts). Access tokens cached
-// in-memory (~55 min; Google issues 60-min tokens) — mirrors the in-memory rate-limit
-// pattern already used elsewhere in this repo (src/lib/antibot.ts).
+// Auth is a Google service account with Workspace domain-wide delegation: there is no
+// consent screen, no per-account refresh token, and no stored credential to encrypt or
+// expire. Every request acts as a real Workspace user via impersonation -- see
+// lib/csb/service-account.ts for the mechanism and the Admin console setup it requires.
+//
+// This replaced a per-provider OAuth authorization-code flow. That flow forced a Google
+// app-verification review to use the scopes needed for Meet links, and force-expired every
+// provider's refresh token weekly while the app sat in Testing. Both problems are
+// structural to end-user consent and neither exists under delegation.
 
 import crypto from "node:crypto";
-import { store, type CsbAccount } from "./store";
-import { baseUrl, CSB_TZ, googleClientId, googleClientSecret } from "./constants";
-import { decrypt } from "./accounts";
+import { type CsbAccount } from "./store";
+import { CSB_TZ } from "./constants";
+import { accessTokenFor, invalidateToken } from "./service-account";
+import { CsbApiError } from "./http";
 
-const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
-const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const API_BASE = "https://www.googleapis.com/calendar/v3";
 
-/**
- * Scopes:
- *  - calendar.events      : create/manage events + conferenceData (Google Meet links)
- *  - calendar.app.created : manage the "Creekside Bookings" secondary calendar
- *  - calendar.freebusy    : read free/busy for availability checks
- *
- * calendar.events is a sensitive scope -- requires Google's verification if the OAuth app
- * is published. Needed for conferenceData (Meet link generation).
- * After changing scopes, connected accounts must re-authorize via the admin page.
- */
-const SCOPES =
-	"openid email https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar.app.created https://www.googleapis.com/auth/calendar.freebusy";
-
-export function redirectUri(): string {
-	// Trailing slash required — this site's astro.config.mjs sets trailingSlash: 'always',
-	// and (unlike the .csv export route) this extensionless path 404s without it.
-	return `${baseUrl()}/api/csb/oauth/callback/`;
-}
-
-export function authUrl(state: string): string {
-	const params = new URLSearchParams({
-		client_id: googleClientId() || "",
-		redirect_uri: redirectUri(),
-		response_type: "code",
-		scope: SCOPES,
-		access_type: "offline",
-		prompt: "consent", // guarantees a refresh token on reconnect
-		state,
-		include_granted_scopes: "true",
-	});
-	return `${AUTH_URL}?${params.toString()}`;
-}
-
-export class CsbApiError extends Error {
-	constructor(
-		message: string,
-		public response?: unknown,
-		/** HTTP status, when the failure came from an API response rather than a throw. */
-		public status?: number,
-	) {
-		super(message);
-		this.name = "CsbApiError";
-	}
-}
-
-/** Exchange auth code; returns { email, refreshToken } or throws CsbApiError. */
-export async function exchangeCode(
-	code: string,
-): Promise<{ email: string; refreshToken: string }> {
-	const res = await fetch(TOKEN_URL, {
-		method: "POST",
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: new URLSearchParams({
-			code,
-			client_id: googleClientId() || "",
-			client_secret: googleClientSecret() || "",
-			redirect_uri: redirectUri(),
-			grant_type: "authorization_code",
-		}),
-	});
-	const bodyText = await res.text();
-	const body = safeJson(bodyText);
-	if (!body?.refresh_token || !body?.id_token) {
-		throw new CsbApiError(`Token exchange failed: ${bodyText}`);
-	}
-	// Email from the id_token payload (no extra API call).
-	const parts = String(body.id_token).split(".");
-	const claims = safeJson(base64UrlDecode(parts[1] || ""));
-	if (!claims?.email) throw new CsbApiError("No email in id_token");
-	return { email: claims.email, refreshToken: body.refresh_token };
-}
-
-/* ---- access token cache (in-memory, ~55 min TTL) ---- */
-const tokenCache = new Map<string, { token: string; expiresAt: number }>();
-
-export async function accessToken(account: CsbAccount): Promise<string> {
-	const cached = tokenCache.get(account.key);
-	if (cached && cached.expiresAt > Date.now()) return cached.token;
-
-	const res = await fetch(TOKEN_URL, {
-		method: "POST",
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: new URLSearchParams({
-			client_id: googleClientId() || "",
-			client_secret: googleClientSecret() || "",
-			refresh_token: decrypt(account.refreshTokenEncrypted),
-			grant_type: "refresh_token",
-		}),
-	});
-	const body = safeJson(await res.text());
-	if (!body?.access_token) {
-		// Only flag the account as needing a reconnect when Google actually says the grant is
-		// dead. `invalid_grant` is the specific signal for a revoked/expired refresh token
-		// (NFR-3); a 5xx or a network blip from the token endpoint is transient and must NOT
-		// raise the same alarm, or one bad minute leaves a permanent "Reconnect needed" badge
-		// on a perfectly healthy account and sends someone re-doing OAuth for nothing.
-		if (body?.error === "invalid_grant") {
-			await store.saveAccount({ ...account, authErrorAt: new Date().toISOString() });
-		}
-		throw new CsbApiError(
-			`Access token refresh failed for ${account.key}${body?.error ? ` (${body.error})` : ""}`,
-		);
-	}
-	// Recovery clears the flag. Nothing else does -- previously authErrorAt was only ever
-	// reset by a full reconnect through the OAuth callback, so a single transient failure
-	// left the admin page claiming a reconnect was needed indefinitely, even once the account
-	// was demonstrably working again.
-	if (account.authErrorAt) {
-		account.authErrorAt = null;
-		await store.saveAccount(account);
-	}
-	tokenCache.set(account.key, {
-		token: body.access_token,
-		expiresAt: Date.now() + 55 * 60 * 1000,
-	});
-	return body.access_token;
-}
+// Re-exported so existing importers (book.ts, diagnostics.ts) keep their import path.
+// The class itself lives in ./http to keep the auth layer free of a circular dependency.
+export { CsbApiError };
 
 function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -145,7 +34,7 @@ export async function apiRequest(
 	body: unknown = null,
 	retrying = false,
 ): Promise<any> {
-	const token = await accessToken(account);
+	const token = await accessTokenFor(account.email);
 
 	const res = await fetch(`${API_BASE}${path}`, {
 		method,
@@ -157,7 +46,7 @@ export async function apiRequest(
 	});
 
 	if (res.status === 401 && !retrying) {
-		tokenCache.delete(account.key);
+		invalidateToken(account.email);
 		return apiRequest(account, method, path, body, true);
 	}
 	if ([403, 429, 500, 503].includes(res.status) && !retrying) {
@@ -190,20 +79,13 @@ export async function freebusy(
 	});
 }
 
-/** Create the dedicated booking calendar if this account doesn't have one yet. */
-export async function ensureBookingCalendar(account: CsbAccount): Promise<string> {
-	if (account.calendarId) return account.calendarId;
-	const cal = await apiRequest(account, "POST", "/calendars", {
-		summary: "Creekside Bookings",
-		timeZone: CSB_TZ,
-	});
-	if (!cal?.id) throw new CsbApiError("calendars.insert returned no id");
-	account.calendarId = cal.id;
-	await store.saveAccount(account);
-	return cal.id;
-}
+// ensureBookingCalendar() lived here. It created a secondary "Creekside Bookings" calendar,
+// which only existed because the old non-sensitive scope set (calendar.app.created) could
+// not write to a provider's real calendar. Under delegation the app writes to the provider's
+// primary calendar directly, so the secondary calendar has no reason to exist. Existing rows
+// still carry a stale calendar_id; it is ignored, and availability no longer queries it.
 
-/** events.insert on the booking calendar; customer as attendee, native invite email (FR-30). */
+/** events.insert on the provider's primary calendar; customer as attendee, native invite email (FR-30). */
 export async function createEvent(
 	account: CsbAccount,
 	args: {
@@ -219,8 +101,10 @@ export async function createEvent(
 		gclid: string;
 	},
 ) {
-	// Write to the primary calendar so Google Meet links work (conferenceData
-	// is silently ignored on secondary calendars) and events show up naturally.
+	// The provider's own calendar. Delegation impersonates a real Workspace user, so
+	// "primary" resolves to that person's calendar and conferenceData yields a Meet link
+	// tied to their identity. (Under the previous OAuth scope set this same line 404'd,
+	// because a calendar.app.created token cannot address a calendar it did not create.)
 	const calendarId = "primary";
 
 	const descriptionLines = [
@@ -291,7 +175,3 @@ function safeJson(text: string): any {
 	}
 }
 
-function base64UrlDecode(input: string): string {
-	const padded = input.replace(/-/g, "+").replace(/_/g, "/");
-	return Buffer.from(padded, "base64").toString("utf8");
-}

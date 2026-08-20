@@ -24,25 +24,24 @@ booking-app/
   src/
     components/BookingWidget.astro   4-step widget (service -> date/time -> details -> confirm)
     pages/book.astro                 hosts the widget
-    pages/admin/booking.astro        admin UI: connect accounts, configure hours, CSV export
+    pages/admin/booking.astro        admin UI: add providers, configure hours, CSV export
     pages/api/csb/
-      providers.ts                   GET  list of connected/enabled providers (display-safe)
+      providers.ts                   GET  list of enabled providers (display-safe)
       availability.ts                GET  month of open slots for a provider
       book.ts                        POST rate-limit -> honeypot -> validate -> duplicate
                                       guard -> freebusy re-check -> events.insert -> log
-      oauth/callback.ts              GET  OAuth redirect target
-      admin/connect.ts               GET  starts the OAuth flow
+      ghl-lead.ts                    POST funnel lead -> GoHighLevel contact + opportunity
       admin/export.csv.ts            GET  reconciliation log as CSV
     lib/csb/
-      google-client.ts               OAuth, token cache, freebusy/calendars/events calls,
-                                      backoff/retry, idempotent event creation
+      service-account.ts             delegated JWT auth, per-user token cache, SA_SCOPES
+      google-client.ts               freebusy/events calls, backoff/retry, idempotent
+                                      event creation
       availability.ts                slot computation, 60s slot + booking-rule caches,
                                       pre-create re-check, freeBusy error detection
-      accounts.ts                    refresh-token encryption (AES-256-CBC), account keys
+      accounts.ts                    account keys, default hours, public provider list
       datetime.ts                    wall-clock <-> RFC3339 <-> America/Chicago instant math
       slot-lock.ts                   per-(provider, slot) lock so concurrent bookings can't
                                       both pass the freebusy re-check before either inserts
-      oauth-state.ts                 CSRF nonce for the OAuth round trip
       diagnostics.ts                 the admin page's "Test connection" checks
       store/                         CsbStore interface; sqlite-store.ts (local dev) and
                                       postgres-store.ts (Supabase, production)
@@ -88,9 +87,9 @@ admin page from silently becoming an unauthenticated static file. Redundant, not
    written) → validation → duplicate guard (same email+slot, DB only) → **fresh** freebusy
    re-check against Google (never cached — this is the actual double-booking defense, since
    Google's API happily accepts overlapping events) → reconciliation row inserted →
-   `events.insert` on the account's dedicated "Creekside Bookings" calendar, customer added
-   as attendee with `sendUpdates=all` (Google's native invite email is the confirmation) →
-   row updated with the event ID → response.
+   `events.insert` on the provider's own primary calendar with a Google Meet link attached,
+   customer added as attendee with `sendUpdates=all` (Google's native invite email is the
+   confirmation) → row updated with the event ID → response.
 4. Widget pushes `booking_confirmed` to `dataLayer`: `transaction_id` is the Google Calendar
    event ID (the dedup key), plus SHA-256 hashed email/phone, GCLID/FBCLID, no raw PII.
 
@@ -120,14 +119,46 @@ customer as the "call us" fallback rather than a broken or dishonest UI:
 5. GTM (`GTM-MWQVSPJ`, already on the site) needs a GA4 event tag and a Google Ads
    conversion tag listening for this trigger — **not built yet**, see open items below.
 
-### Why non-sensitive OAuth scopes only
+### Auth: service account with domain-wide delegation
 
-Scopes are exactly `openid email calendar.app.created calendar.freebusy`. Do **not** add
-`calendar`, `calendar.events`, or `calendar.readonly` — those are sensitive scopes that
-trigger Google's app-verification review and would block go-live. This is why bookings land
-on an app-created secondary "Creekside Bookings" calendar rather than the provider's primary
-calendar (which `calendar.app.created` doesn't allow writing to), and why the primary
-calendar is only ever read as free/busy.
+Auth is a Google service account authorized once by a Workspace super admin, not a
+per-provider OAuth grant. Scopes are exactly `calendar.events` and `calendar.freebusy`,
+declared in `SA_SCOPES` (`lib/csb/service-account.ts`) and mirrored in the Admin console
+delegation entry. **The two lists must match exactly** — Google rejects the whole assertion
+on any extra scope, with an `unauthorized_client` error that names nothing useful.
+
+Each request mints a short-lived token that acts as a real Workspace user via the JWT `sub`
+claim, so `primary` resolves to that provider's own calendar and `conferenceData` yields a
+Meet link tied to their identity.
+
+**Why this replaced OAuth.** The original design used only non-sensitive scopes
+(`calendar.app.created` + `calendar.freebusy`) specifically to avoid Google's
+app-verification review, and wrote bookings to an app-created secondary "Creekside Bookings"
+calendar because `calendar.app.created` cannot write anywhere else. That worked, but boxed
+the project in three ways:
+
+- **Meet links were unreachable.** Generating one needs a scope that can write to a real user
+  calendar, and every such scope is sensitive — as is the Meet REST API's
+  `meetings.space.created`. There was no non-sensitive path to per-booking Meet links.
+- **Publication required a review.** Moving the OAuth app out of Testing with any sensitive
+  scope means a verification review measured in weeks.
+- **Tokens died weekly.** While the app sat in Testing, every refresh token force-expired
+  after 7 days, silently disconnecting providers.
+
+Delegation removes all three at once: the domain admin grants authority, so there is no
+consent screen to publish, no review to pass, and no refresh token to expire. Sensitive
+scopes carry no verification requirement under delegation, because no end user is consenting.
+
+**What it costs.** The service-account key is now the entire credential. Anyone who can read
+it can act as any user in the domain for the delegated scopes, so it lives outside the repo
+at `CSB_SA_KEY_FILE`, `chmod 600`, owned by the service user, and never in a backup that
+leaves the box. The blast radius is narrower than it first sounds — delegation is limited to
+two calendar scopes — but it is one high-value secret where there used to be several
+lower-value ones.
+
+**Hard constraint.** A service account cannot impersonate a consumer Gmail account. Every
+provider must be a real user in the Workspace domain (`CSB_WORKSPACE_DOMAIN`); the admin page
+rejects outside addresses rather than letting them fail later as an opaque `invalid_grant`.
 
 ---
 
@@ -146,17 +177,19 @@ session.
 
 | Variable | Purpose |
 | :-- | :-- |
-| `CSB_GOOGLE_CLIENT_ID` / `CSB_GOOGLE_CLIENT_SECRET` | OAuth web client, from Google Cloud |
-| `CSB_ENCRYPTION_KEY` | Derives the AES-256-CBC key that encrypts stored refresh tokens |
+| `CSB_SA_KEY_FILE` | Absolute path to the service-account JSON key. Keep it outside the repo, `chmod 600`, owned by the service user. |
+| `CSB_SA_KEY_JSON` | Alternative to the above: the key JSON inline. Only for hosts with no usable filesystem — the `\n` escaping in `private_key` is easy to get wrong. |
+| `CSB_WORKSPACE_DOMAIN` | Workspace domain every provider address must belong to. Defaults to `creeksidemarketingpros.com`. |
 | `CSB_ADMIN_USER` / `CSB_ADMIN_PASS` | Basic Auth for `/admin/booking` and `/api/csb/admin/*` |
 | `CSB_ADMIN_ENABLED` | Kill switch — see §4 |
 | `CSB_DB_DRIVER` | `sqlite` (default, local dev) or `postgres` (Supabase — the production driver) |
-| `CSB_BASE_URL` | Origin used to build the OAuth redirect URI; must match Google Cloud exactly |
+| `CSB_BASE_URL` | Origin the app is served from; the real domain in production |
+| `GHL_API_KEY` / `GHL_LOCATION_ID` | GoHighLevel CRM sync. When unset, CRM calls no-op rather than failing bookings. |
 | `SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY` / `SUPABASE_SECRET_KEY` / `SUPABASE_JWKS_URL` | Only needed when `CSB_DB_DRIVER=postgres`. Project `ssizilzugycbhryqsmlr` — a dedicated Supabase project for this client, separate from JT's own warehouse project (moved here 2026-08-05 from an earlier dedicated project, `gibbweiprixkeaxzkeuf` — if you see that ref anywhere, it's stale). `postgres-store.ts` uses the **secret** key directly via `@supabase/supabase-js` (bypasses RLS, same as a service-role key) — not `@supabase/server`'s request-auth wrapper, since this is trusted server-side code talking to its own tables, not a public API authenticating callers. |
 
-Register `http://localhost:3000/api/csb/oauth/callback/` (trailing slash matters — this
-project's `trailingSlash: 'always'` config makes the extensionless route 404 without it) as
-an authorized redirect URI in Google Cloud, alongside the production URI.
+There is no redirect URI to register and no consent screen to configure. The only external
+setup is the Admin console delegation entry (DEPLOY.md §7), done once for the domain rather
+than per provider or per environment — so local dev uses the same grant as production.
 
 Before first use of the Postgres driver, run `supabase-schema.sql` (this directory) once
 against the Supabase project's SQL Editor — creates `csb_accounts`, `csb_bookings`, and
@@ -220,11 +253,14 @@ actually up for review.
 
 `/admin/booking` (Basic Auth via `CSB_ADMIN_USER`/`CSB_ADMIN_PASS`):
 
-- **Connect Google Account** — starts the OAuth flow for a provider's Google account.
-  Creates the "Creekside Bookings" secondary calendar on first connect. Repeat per provider
-  (Peterson, Cade, etc.) — each connected account becomes a selectable agent in the widget.
-- **Test connection** — runs token refresh → calendar read → freebusy → slot computation,
-  PASS/FAIL per step. Use this first when something's not working.
+- **Add provider** — records a provider by email address. There is no sign-in step: authority
+  comes from the Admin console delegation grant, not from that person clicking "Allow". The
+  address must be inside `CSB_WORKSPACE_DOMAIN`; outside addresses are rejected at the form
+  rather than failing later as an opaque `invalid_grant`. Each provider becomes a selectable
+  agent in the widget.
+- **Test connection** — runs delegated token → freebusy → slot computation, PASS/FAIL per
+  step. Use this first when something's not working, and immediately after adding a provider:
+  it is the only thing that proves the delegation actually covers them.
 - **Per-provider settings** — label, slot minutes, weekly hours (JSON), lead time, booking
   window. Fixed 2026-08-05: the settings-save handler used to resave every visible account's
   `enabled` state based on which checkboxes were present in the submitted form, so a
@@ -237,23 +273,28 @@ actually up for review.
 
 **Kill switch:** set `CSB_ADMIN_ENABLED=false` (and restart) once setup is finished, to take
 the whole admin surface out of service. It responds `404`, not `401` — deliberate, so an
-unauthenticated prober can't even tell an admin page exists. Flip back to `true` to
-reconnect an account after a refresh-token revocation, or to pull a CSV export.
+unauthenticated prober can't even tell an admin page exists. Flip back to `true` to add a
+provider or pull a CSV export.
 
 ---
 
 ## 5. Credential rotation
 
-- **`CSB_GOOGLE_CLIENT_SECRET`:** safe to rotate in Google Cloud, then update the env var and
-  restart. Existing refresh tokens keep working — they're tied to the OAuth client ID, not
-  the secret's value, as long as the new secret is used for the next token exchange.
-- **`CSB_ENCRYPTION_KEY`:** rotating this **orphans every connected account** — all stored
-  refresh tokens become undecryptable. Every provider needs to reconnect via **Connect
-  Google Account** afterward. Don't rotate this casually.
-- **Revoked/expired refresh token:** "Test connection" will fail at the token-refresh step.
-  Reconnect the affected account. (Note: while the Google OAuth app is in Testing mode
-  rather than Published, Google expires refresh tokens after 7 days regardless — publishing
-  the app removes this — see "Before this goes live.")
+The service-account key is the only Google credential now, which makes rotation simpler than
+the OAuth setup it replaced but concentrates the risk in one file.
+
+- **Rotating the key:** create a new key on the same service account in Google Cloud, drop it
+  in at `CSB_SA_KEY_FILE`, restart, confirm with **Test connection**, then delete the old key
+  in Google Cloud. **The delegation grant is unaffected** — it binds to the service account's
+  numeric client ID, which does not change when a key is rotated. No provider has to do
+  anything and there is no reconnect step.
+- **If the key leaks:** delete it in Google Cloud immediately, which invalidates it
+  everywhere at once. Anyone holding it can act as any user in the domain for the delegated
+  scopes, so this is urgent rather than housekeeping.
+- **Removing one provider:** disable them on the admin page. Note this is an app-level
+  change: their calendar remains technically reachable by the service account, because
+  delegation is domain-wide by design. Putting a calendar genuinely out of reach means
+  narrowing the delegation in the Admin console.
 
 ---
 
@@ -261,15 +302,15 @@ reconnect an account after a refresh-token revocation, or to pull a CSV export.
 
 | Symptom | Cause / fix |
 | :-- | :-- |
-| `redirect_uri_mismatch` | Registered URI doesn't match byte-for-byte — check trailing slash and `http` vs `https` against what `CSB_BASE_URL` produces |
-| "Access blocked: app not verified" with no Advanced link | The connecting Google account isn't in the OAuth consent screen's Test users list |
-| `invalid_scope` | Consent screen scopes don't include `calendar.app.created` and `calendar.freebusy` |
-| Test connection fails at "Token refresh" | Refresh token revoked/expired — reconnect the account |
-| Test connection fails at "Booking calendar" (403) | `calendar.app.created` scope missing — fix consent screen, reconnect |
+| `unauthorized_client` for every provider | Delegation entry missing, wrong client ID, or its scope list doesn't match `SA_SCOPES` exactly. Re-enter the scopes in the Admin console — this is the most common failure by far. |
+| `invalid_grant` for one provider only | That address isn't a real user in the Workspace domain — typo, deleted account, or a consumer Gmail. |
+| `invalid_grant` for everyone, suddenly | Host clock drift. The assertion backdates `iat` 30s to absorb minor skew, but that's no substitute for working NTP — this deployment already saw a "JWT issued at future" incident (2026-08-13). Check `timedatectl`. |
+| "Service-account key problem" on the admin page | Key file missing, unreadable by the service user, or malformed JSON. With `CSB_SA_KEY_JSON`, suspect `\n` escaping in `private_key` first. |
+| Test connection fails at "Delegated token" | Any of the above; the error text names the likely cause. |
 | Widget shows the fallback message immediately | Check `CSB_GOOGLE_CLIENT_ID`/`SECRET` are set and correct; verified behavior — see §7 |
-| Widget shows the fallback, and everything *looks* configured correctly | Most likely the booking calendar became unreadable — deleted from Google Calendar, permissions changed, or a stale `calendar_id` after a reconnect. This is deliberate fail-closed behavior, not a crash: the app refuses to compute availability it can't verify. Run **Test connection** — it fails at "Booking calendar" or "Free/busy read" and names the calendar. Reconnecting the account recreates it. |
+| Widget shows the fallback, and everything *looks* configured correctly | The provider's calendar became unreadable, or the delegation no longer covers them. This is deliberate fail-closed behavior, not a crash: the app refuses to compute availability it can't verify. Run **Test connection** — it fails at "Delegated token" or "Free/busy read" and names the cause. |
 | Booking works but the customer never gets an invite | Confirmation delivery is Google's native invite (customer added as an attendee with `sendUpdates=all`), not an email this app sends. Check the event exists on the "Creekside Bookings" calendar and that the attendee is on it. |
-| Admin page shows "Reconnect needed" but the account works fine | Should no longer happen — the flag is now only set on Google's actual `invalid_grant` and is cleared on the next successful token refresh. If it persists, the refresh genuinely is failing: check **Test connection**'s "Token refresh" step. |
+| Admin page shows a stale "Reconnect needed" badge | Vestigial. `auth_error_at` is no longer written by anything and there is no reconnect flow; the 2026-08-20 migration blanks existing values. |
 | `/admin/booking` returns 404 even with correct creds | `CSB_ADMIN_ENABLED=false` — this is the kill switch, not a bug |
 | Slots don't reflect a just-made calendar change | 60s availability cache (per provider/month) — wait it out |
 | A connected account "disappears" from the widget | Check `enabled` on that account row — the settings-save partial-submission bug that used to cause this is fixed (§4), but it's still possible to uncheck a box by hand in the real form |
@@ -396,18 +437,15 @@ process rather than a serverless function, so nothing reclaims abandoned entries
 - **Real secret values need to reach Jonathan through a secure channel** — not committed to
   git, not pasted in plain email. `DEPLOY.md` deliberately doesn't contain real values, only
   a pointer to `.env.example`.
-- **Register the production OAuth redirect URI** in Google Cloud
-  (`https://creeksidemarketingpros.com/api/csb/oauth/callback/`) once the domain/path is
-  confirmed with Jonathan — this is on Jordan's side, not Jonathan's.
-- **Publish the OAuth consent screen.** The Google Cloud OAuth client is still in **Testing**
-  status, which means Google force-expires every connected account's refresh token after 7
-  days — whoever connected their calendar has to reconnect weekly, indefinitely, until this
-  is done. Flip the consent screen to **In production** in Google Cloud Console. Because this
-  app deliberately uses only non-sensitive scopes, publishing does **not** trigger Google's
-  app-verification review; it's a self-service toggle. Hard blocker for a real launch.
-- **Real provider accounts.** Only test Google accounts are connected. Peterson's and Cade's
-  real accounts need to be connected via the admin page once it's deployed, and someone
-  needs to confirm which calendar/agent maps to which part of the site.
+- **Authorize the service account in the Admin console.** Hard blocker: nothing works until a
+  Workspace super admin adds the delegation entry (client ID + the two scopes — DEPLOY.md §7).
+  This needs Peterson or whoever holds super-admin on creeksidemarketingpros.com; Jordan
+  cannot do it. Once done it covers every provider at once and never needs repeating.
+- **Get the service-account key onto the box** at `CSB_SA_KEY_FILE`, `chmod 600`, owned by
+  the service user, delivered through a secure channel.
+- **Real provider accounts.** Providers are added by email on the admin page and must be real
+  users in the Workspace domain. Someone needs to confirm which agent maps to which funnel
+  (dental and general both currently route to Cade or Keith).
 - **Real provider hours.** Currently placeholder defaults (9–5 Mon–Fri, 30 min slots, 60 min
   lead time, 42 day booking window) — needs the client's actual values.
 - **GTM tags.** The `booking_confirmed` trigger fires correctly; the GA4 event tag and

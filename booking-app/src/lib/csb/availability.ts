@@ -29,8 +29,10 @@ function overlaps(s: Date, e: Date, busy: BusyRange[]): boolean {
 	return busy.some(([bs, be]) => s < be && e > bs);
 }
 
-function calendarIdsFor(account: CsbAccount): string[] {
-	return ["primary", account.calendarId].filter((id): id is string => !!id);
+function calendarIdsFor(): string[] {
+	// Only the provider's own calendar now. The secondary "Creekside Bookings" calendar
+	// that used to be queried alongside it is an artifact of the retired OAuth scope set.
+	return ["primary"];
 }
 
 /**
@@ -133,7 +135,7 @@ export async function slotsForMonth(
 	if (firstInstant > horizonInstant) return {};
 
 	// Busy blocks across the account's primary + booking calendar.
-	const calIds = calendarIdsFor(account);
+	const calIds = calendarIdsFor();
 	const fb = await freebusy(account, toRfc3339(firstInstant), toRfc3339(lastInstant), calIds);
 
 	// Refuse to compute availability from an incomplete busy picture -- throwing here surfaces
@@ -194,7 +196,7 @@ export async function slotIsFree(
 	start: Date,
 	end: Date,
 ): Promise<boolean> {
-	const calIds = calendarIdsFor(account);
+	const calIds = calendarIdsFor();
 	const fb = await freebusy(account, toRfc3339(start), toRfc3339(end), calIds);
 
 	// Throw rather than return false when we couldn't actually read a calendar: false would

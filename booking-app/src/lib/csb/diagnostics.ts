@@ -1,8 +1,11 @@
-// Live diagnostic ported from CSB_Admin::test_connection(): refresh the token, hit
-// freebusy, confirm the booking calendar exists, compute this month's slots.
+// Live diagnostic for the admin page: mint a delegated token, read free/busy, and compute
+// this month's slots. Under service-account auth the first step is the one that matters --
+// it proves the Admin console delegation actually covers this user and these scopes, which
+// is where every realistic misconfiguration shows up.
 
 import type { CsbAccount } from "./store";
-import { accessToken, ensureBookingCalendar, freebusy, CsbApiError } from "./google-client";
+import { freebusy, CsbApiError } from "./google-client";
+import { accessTokenFor } from "./service-account";
 import { slotsForMonth } from "./availability";
 import { toRfc3339, currentYearMonthInTz } from "./datetime";
 
@@ -20,29 +23,19 @@ export async function testConnection(account: CsbAccount): Promise<DiagnosticRes
 	const steps: DiagnosticStep[] = [];
 
 	try {
-		await accessToken(account);
-		steps.push(["Token refresh", true, "ok"]);
+		await accessTokenFor(account.email);
+		steps.push(["Delegated token", true, `impersonating ${account.email}`]);
 	} catch (err) {
-		steps.push(["Token refresh", false, msg(err)]);
-		return { email: account.email, steps };
-	}
-
-	let calendarId: string;
-	try {
-		calendarId = await ensureBookingCalendar(account);
-		steps.push(["Booking calendar", true, calendarId]);
-	} catch (err) {
-		steps.push(["Booking calendar", false, msg(err)]);
+		// No point continuing: every later step needs this token, and the error text from
+		// service-account.ts already names the likely fix.
+		steps.push(["Delegated token", false, msg(err)]);
 		return { email: account.email, steps };
 	}
 
 	const now = new Date();
 	const weekOut = new Date(now.getTime() + 7 * 86_400_000);
 	try {
-		const fb = await freebusy(account, toRfc3339(now), toRfc3339(weekOut), [
-			"primary",
-			calendarId,
-		]);
+		const fb = await freebusy(account, toRfc3339(now), toRfc3339(weekOut), ["primary"]);
 		let count = 0;
 		for (const cal of Object.values(fb?.calendars ?? {}) as any[]) {
 			count += cal?.busy?.length ?? 0;

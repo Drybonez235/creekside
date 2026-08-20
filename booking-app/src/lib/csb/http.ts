@@ -18,3 +18,20 @@ export function jsonResponse(data: unknown, status = 200): Response {
 export function errorResponse(code: string, message: string, status: number): Response {
 	return jsonResponse({ code, message }, status);
 }
+
+/**
+ * Error type for Google API failures. Defined here rather than in google-client.ts so the
+ * auth layer (service-account.ts) can throw it without importing the client that consumes
+ * it, which would be circular. google-client.ts re-exports it for existing importers.
+ */
+export class CsbApiError extends Error {
+	constructor(
+		message: string,
+		public response?: unknown,
+		/** HTTP status, when the failure came from an API response rather than a throw. */
+		public status?: number,
+	) {
+		super(message);
+		this.name = "CsbApiError";
+	}
+}
