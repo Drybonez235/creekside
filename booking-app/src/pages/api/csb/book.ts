@@ -264,7 +264,7 @@ async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<
 		method: "PUT",
 		headers: ghlHeaders,
 		body: JSON.stringify({
-			customFields: [{ id: GHL_BOOKED_CALL_DATE_FIELD, value: callStart.toISOString() }],
+			customFields: [{ id: GHL_BOOKED_CALL_DATE_FIELD, value: callStart.toISOString().slice(0, 10) }],
 		}),
 	});
 
