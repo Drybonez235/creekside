@@ -11,7 +11,10 @@ interface Props {
 }
 
 const { providerKey } = Astro.props;
-const fallbackPhone = await store.getSetting("fallback_phone", "");
+// A store hiccup (e.g. transient Supabase error) must not take down the whole booking
+// page render -- this crashed mid-stream in prod on 2026-08-13 ("JWT issued at future").
+// The phone number is a nice-to-have fallback display, not load-bearing.
+const fallbackPhone = await store.getSetting("fallback_phone", "").catch(() => "");
 ---
 
 <div id="general-booking-root"></div>

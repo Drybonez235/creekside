@@ -742,7 +742,7 @@
     }
 
     function sendToBackend(payload) {
-      fetch('/api/csb/ghl-lead', {
+      fetch('/api/csb/ghl-lead/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
