@@ -309,7 +309,9 @@ export const POST: APIRoute = async ({ request }) => {
 						oppNoteLines.push(`Routed to: Keith (partner referral)`);
 					}
 
-					await fetch(`${GHL_BASE}/opportunities/`, {
+					// GHL opportunities API rejects "notes" in the create payload (same as contacts).
+					// Create the opportunity first, then add notes separately.
+					const oppRes = await fetch(`${GHL_BASE}/opportunities/`, {
 						method: "POST",
 						headers: ghlHeaders,
 						body: JSON.stringify({
@@ -320,9 +322,26 @@ export const POST: APIRoute = async ({ request }) => {
 							contactId,
 							status: "open",
 							source: contactSource,
-							notes: [oppNoteLines.join("\n")],
 						}),
 					});
+
+					if (!oppRes.ok) {
+						const errBody = await oppRes.text().catch(() => "");
+						console.error(`[ghl-lead] Opportunity creation error ${oppRes.status}:`, errBody);
+					}
+
+					// Add questionnaire answers as a note on the contact (GHL has no opportunity notes endpoint)
+					if (oppNoteLines.length) {
+						try {
+							await fetch(`${GHL_BASE}/contacts/${contactId}/notes`, {
+								method: "POST",
+								headers: ghlHeaders,
+								body: JSON.stringify({ body: oppNoteLines.join("\n") }),
+							});
+						} catch (noteErr) {
+							console.error("[ghl-lead] Opportunity notes failed:", noteErr);
+						}
+					}
 				}
 			} catch (oppErr) {
 				// Log but don't fail the whole request -- contact was already created
