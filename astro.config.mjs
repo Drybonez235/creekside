@@ -6,7 +6,7 @@ import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   redirects: {
     '/case-study-digital-marketing/medical-ai-saas/': '/case-study-digital-marketing/b2b-saas-meta-ads-case-study/',
     '/dental/': '/dental/start/',
