@@ -1,31 +1,35 @@
 /**
- * Google service-account auth with Workspace domain-wide delegation (DWD).
+ * Google service-account auth with Workspace domain-wide delegation (DWD), keyless.
  *
- * Replaces the per-provider OAuth refresh-token flow. Instead of each team member
- * granting consent through a consent screen, a single service account is authorized
- * once by a Workspace super admin (Admin console → Security → Access and data control →
- * API controls → Domain-wide delegation) against this app's numeric client ID and an
- * explicit scope list. The app then mints short-lived access tokens that act *as* a
- * given user via the `sub` claim.
+ * No private key exists anywhere in this deployment. The app authenticates as the service
+ * account through Application Default Credentials -- in production, Workload Identity
+ * Federation from the EC2 instance's IAM role -- and then asks Google's IAM Credentials API
+ * to sign the delegation assertion with the service account's *Google-managed* private key,
+ * which never leaves Google.
  *
- * Why this exists (see HANDOVER.md §1):
- *  - No OAuth consent screen, so no app publication and no verification review. DWD
- *    scopes are authorized by the domain admin, not by end-user consent, so sensitive
- *    scopes like calendar.events carry no review requirement here.
- *  - No refresh tokens, so nothing to encrypt at rest and nothing to expire. The old
- *    flow's tokens force-expired every 7 days while the OAuth app sat in Testing.
- *  - Impersonation is a real Workspace identity, so conferenceData/Meet-link creation
- *    and the provider's own primary calendar are both reachable.
+ * Why keyless rather than a downloaded JSON key: the org enforces
+ * `iam.disableServiceAccountKeyCreation`, so key creation is blocked outright. That
+ * constraint points at the better design anyway -- Google's own guidance is that DWD does
+ * not require a key and that signJwt should be used instead. A key on Jonathan's box would
+ * be a long-lived credential capable of impersonating any user in the domain; this way the
+ * only thing on disk is a non-secret federation config, and every credential in play is
+ * short-lived.
  *
- * Hard requirement: every impersonated address must be a real user in the Workspace
- * domain. A service account cannot impersonate a consumer Gmail account.
+ * The flow, per delegated request:
+ *   1. ADC -> access token for the service account (or for a principal allowed to sign as it)
+ *   2. iamcredentials signJwt -> assertion with `sub` set to the provider being impersonated
+ *   3. oauth2 token endpoint (jwt-bearer grant) -> short-lived access token acting as them
+ * Step 3's result is cached per user for its lifetime; steps 1-2 repeat only on a cache miss.
+ *
+ * Hard requirement: every impersonated address must be a real user in the Workspace domain.
+ * A service account cannot impersonate a consumer Gmail account.
  */
 
-import crypto from "node:crypto";
+import { GoogleAuth } from "google-auth-library";
 import { CsbApiError } from "./http";
 
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
-const JWT_AUD = "https://oauth2.googleapis.com/token";
+const IAM_CREDENTIALS_BASE = "https://iamcredentials.googleapis.com/v1";
 
 /**
  * Scopes authorized for the service account in the Admin console. This string must match
@@ -42,119 +46,125 @@ export const SA_SCOPES = [
 	"https://www.googleapis.com/auth/calendar.freebusy",
 ].join(" ");
 
-interface ServiceAccountKey {
-	client_email: string;
-	private_key: string;
-	client_id?: string;
+function env(name: string): string | undefined {
+	return (import.meta.env as any)?.[name] ?? process.env[name];
 }
 
-let cachedKey: ServiceAccountKey | null = null;
-
-/**
- * Loads the service-account key from either an inline JSON env var or a file path.
- * The file form is preferred in production: a multi-line PEM private key inside a
- * dotenv value has to be \n-escaped, and a single missed escape yields an opaque
- * "error:1E08010C:DECODER routines::unsupported" at signing time.
- */
-function serviceAccountKey(): ServiceAccountKey {
-	if (cachedKey) return cachedKey;
-
-	const env = (k: string) => (import.meta.env as any)[k] || process.env[k];
-	const inline = env("CSB_SA_KEY_JSON");
-	const path = env("CSB_SA_KEY_FILE");
-
-	let raw: string;
-	if (inline) {
-		raw = inline;
-	} else if (path) {
-		// Imported lazily so the module still loads in environments without fs access.
-		raw = require("node:fs").readFileSync(path, "utf8");
-	} else {
+/** The service account being impersonated as, e.g. creekside-booking@<project>.iam.gserviceaccount.com */
+export function serviceAccountEmail(): string {
+	const email = env("CSB_SA_EMAIL");
+	if (!email) {
 		throw new CsbApiError(
-			"No service-account key configured — set CSB_SA_KEY_FILE (path to the JSON key) or CSB_SA_KEY_JSON.",
+			"CSB_SA_EMAIL is not set — the app needs to know which service account to sign as.",
 		);
 	}
-
-	let parsed: ServiceAccountKey;
-	try {
-		parsed = JSON.parse(raw);
-	} catch {
-		throw new CsbApiError("Service-account key is not valid JSON.");
-	}
-	if (!parsed.client_email || !parsed.private_key) {
-		throw new CsbApiError("Service-account key is missing client_email or private_key.");
-	}
-	// Tolerate keys pasted into an env var with literal \n sequences.
-	parsed.private_key = parsed.private_key.replace(/\\n/g, "\n");
-
-	cachedKey = parsed;
-	return parsed;
+	return email;
 }
 
-/** The service account's numeric client ID -- the value the admin enters when delegating. */
+/**
+ * The service account's numeric unique ID, which is the value a Workspace super admin
+ * enters when creating the domain-wide delegation entry. Display-only, so a missing value
+ * is reported rather than thrown -- the admin page shows it to whoever is doing that setup.
+ */
 export function delegationClientId(): string {
-	return serviceAccountKey().client_id || "(client_id not present in key file)";
+	return env("CSB_SA_CLIENT_ID") || "(set CSB_SA_CLIENT_ID to display — see the service account's Unique ID in Google Cloud)";
 }
 
-export function serviceAccountEmail(): string {
-	return serviceAccountKey().client_email;
+/**
+ * ADC client, scoped for the IAM Credentials API (not for Calendar -- this token's only job
+ * is to authorize the signJwt call). Created once: the library caches and refreshes the
+ * underlying federated credential itself.
+ */
+let authClient: GoogleAuth | null = null;
+function auth(): GoogleAuth {
+	if (!authClient) {
+		authClient = new GoogleAuth({
+			scopes: ["https://www.googleapis.com/auth/cloud-platform"],
+		});
+	}
+	return authClient;
 }
 
-function base64Url(input: Buffer | string): string {
-	return Buffer.from(input)
-		.toString("base64")
-		.replace(/\+/g, "-")
-		.replace(/\//g, "_")
-		.replace(/=+$/, "");
-}
-
-/** Builds and signs the RS256 assertion that requests an access token as `subject`. */
-function signedAssertion(subject: string): string {
-	const key = serviceAccountKey();
+/**
+ * Asks IAM to sign a DWD assertion with the service account's Google-managed key.
+ *
+ * Requires the ADC principal to hold `roles/iam.serviceAccountTokenCreator` on the service
+ * account. In production that principal is the federated AWS role; locally it's whoever ran
+ * `gcloud auth application-default login`.
+ */
+async function signedAssertion(subject: string): Promise<string> {
+	const saEmail = serviceAccountEmail();
 	const now = Math.floor(Date.now() / 1000);
 
 	// iat is backdated 30s deliberately. Google rejects an assertion whose iat is in the
-	// future ("JWT issued at future"), which this deployment has already hit once from
-	// clock drift on the host (2026-08-13). Backdating absorbs modest skew; it does not
-	// substitute for NTP being correct on the box.
+	// future ("JWT issued at future"), which this deployment has already hit once from clock
+	// drift on the host (2026-08-13). Backdating absorbs modest skew; it is not a substitute
+	// for NTP being correct on the box.
 	const claims = {
-		iss: key.client_email,
+		iss: saEmail,
 		sub: subject,
 		scope: SA_SCOPES,
-		aud: JWT_AUD,
+		aud: TOKEN_URL,
 		iat: now - 30,
 		exp: now + 3600,
 	};
 
-	const signingInput =
-		base64Url(JSON.stringify({ alg: "RS256", typ: "JWT" })) +
-		"." +
-		base64Url(JSON.stringify(claims));
+	let client;
+	try {
+		client = await auth().getClient();
+	} catch (err) {
+		throw new CsbApiError(
+			`Could not obtain Application Default Credentials — check GOOGLE_APPLICATION_CREDENTIALS points at the Workload Identity Federation config (${err instanceof Error ? err.message : String(err)})`,
+		);
+	}
 
-	const signature = crypto.createSign("RSA-SHA256").update(signingInput).sign(key.private_key);
-	return `${signingInput}.${base64Url(signature)}`;
+	const url = `${IAM_CREDENTIALS_BASE}/projects/-/serviceAccounts/${encodeURIComponent(saEmail)}:signJwt`;
+	let res: any;
+	try {
+		res = await client.request({
+			url,
+			method: "POST",
+			// signJwt takes the payload as a JSON *string*, not an object.
+			data: { payload: JSON.stringify(claims) },
+		});
+	} catch (err: any) {
+		const status = err?.response?.status;
+		const detail = err?.response?.data?.error?.message || err?.message || String(err);
+		const hint =
+			status === 403
+				? ` — the ADC principal needs roles/iam.serviceAccountTokenCreator on ${saEmail}`
+				: status === 404
+					? ` — service account ${saEmail} not found, check CSB_SA_EMAIL`
+					: "";
+		throw new CsbApiError(`signJwt failed${status ? ` (HTTP ${status})` : ""}: ${detail}${hint}`);
+	}
+
+	const signed = res?.data?.signedJwt;
+	if (!signed) throw new CsbApiError("signJwt returned no signedJwt");
+	return signed;
 }
 
-/** Access tokens are cached per impersonated user; Google issues them with a 1h life. */
+/** Delegated access tokens are cached per impersonated user; Google issues them with a 1h life. */
 const tokenCache = new Map<string, { token: string; expiresAt: number }>();
 
 /**
  * Returns an access token that acts as `userEmail`.
  *
- * Unlike the OAuth flow this replaces, there is no per-account stored credential and so
- * no "reconnect needed" state to track: a failure here is a configuration or directory
- * problem affecting every provider at once, not one account going stale.
+ * There is no per-account stored credential and so no "reconnect needed" state to track: a
+ * failure here is a configuration or directory problem, not one account going stale.
  */
 export async function accessTokenFor(userEmail: string): Promise<string> {
 	const cached = tokenCache.get(userEmail);
 	if (cached && cached.expiresAt > Date.now()) return cached.token;
+
+	const assertion = await signedAssertion(userEmail);
 
 	const res = await fetch(TOKEN_URL, {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
 		body: new URLSearchParams({
 			grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-			assertion: signedAssertion(userEmail),
+			assertion,
 		}),
 	});
 
@@ -167,8 +177,8 @@ export async function accessTokenFor(userEmail: string): Promise<string> {
 	}
 
 	if (!body?.access_token) {
-		// These three errors cover essentially every real misconfiguration, and Google's
-		// own descriptions are too terse to act on, so name the fix in the message.
+		// These two errors cover essentially every real misconfiguration, and Google's own
+		// descriptions are too terse to act on, so name the fix in the message.
 		const err = body?.error || `HTTP ${res.status}`;
 		const hint =
 			err === "unauthorized_client"
@@ -178,7 +188,7 @@ export async function accessTokenFor(userEmail: string): Promise<string> {
 					: body?.error_description
 						? ` — ${body.error_description}`
 						: "";
-		throw new CsbApiError(`Service-account token request failed (${err})${hint}`);
+		throw new CsbApiError(`Delegated token request failed (${err})${hint}`);
 	}
 
 	const lifetimeMs = Math.max(60, Number(body.expires_in) || 3600) * 1000;

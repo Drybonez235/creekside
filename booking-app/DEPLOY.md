@@ -50,25 +50,41 @@ CSB_BASE_URL=https://creeksidemarketingpros.com
 That's the real public domain, not `localhost`. Apache proxies transparently, so the app
 never sees its own internal port from the outside.
 
-You also need the service-account key on the box. Jordan will send the JSON key file
-separately; put it somewhere outside the repo and lock it down:
+### Google credentials (keyless — nothing secret goes on the box)
+
+There is **no service-account key file**. Google's org policy blocks creating them, and the
+keyless setup is the better design anyway: nothing long-lived sits on this machine, so
+nothing can leak from it. Instead the box proves its identity using its own AWS IAM role,
+and Google signs everything server-side.
+
+This needs one thing from you on the AWS side, and one file.
+
+**1. The EC2 instance needs an IAM role attached.** If it already has an instance profile,
+tell Jordan its full role ARN. If it has none, create an empty role (no AWS permissions
+required — it is used purely as an identity) and attach it. Nothing about this role grants
+access to anything in AWS.
+
+**2. Jordan sends you a credential config file.** Put it on the box:
 
 ```bash
 sudo mkdir -p /etc/creekside
-sudo mv booking-sa.json /etc/creekside/booking-sa.json
-sudo chown creekside:creekside /etc/creekside/booking-sa.json
-sudo chmod 600 /etc/creekside/booking-sa.json
+sudo mv wif-credentials.json /etc/creekside/wif-credentials.json
+sudo chown creekside:creekside /etc/creekside/wif-credentials.json
+sudo chmod 644 /etc/creekside/wif-credentials.json
 ```
 
-Then point `.env` at it:
+Then in `.env`:
 
 ```
-CSB_SA_KEY_FILE=/etc/creekside/booking-sa.json
+GOOGLE_APPLICATION_CREDENTIALS=/etc/creekside/wif-credentials.json
+CSB_SA_EMAIL=creekside-booking@<project-id>.iam.gserviceaccount.com
+CSB_SA_CLIENT_ID=<numeric unique id>
+CSB_WORKSPACE_DOMAIN=creeksidemarketingpros.com
 ```
 
-That key is the whole credential — anyone who can read it can act as any provider in the
-Workspace domain for calendar scopes. It must never land in the repo or in a backup that
-leaves the box.
+Unlike the old setup, `wif-credentials.json` is **not a secret**. It holds no key material,
+only pointers to the identity pool and the AWS metadata endpoint — useless to anyone who is
+not running on this instance. It can be sent over normal channels and does not need `600`.
 
 ## 4. Build and run it
 
@@ -165,8 +181,8 @@ access, so it needs Peterson or whoever holds that role:
 
 1. Admin console -> Security -> Access and data control -> API controls
 2. "Manage Domain Wide Delegation" -> Add new
-3. Client ID: the numeric `client_id` from the service-account key (shown on
-   `/admin/booking` once the key is in place)
+3. Client ID: the service account's numeric Unique ID (shown on `/admin/booking` once
+   `CSB_SA_CLIENT_ID` is set, or on the service account's details page in Google Cloud)
 4. OAuth scopes, comma-separated, exactly these two:
    `https://www.googleapis.com/auth/calendar.events,https://www.googleapis.com/auth/calendar.freebusy`
 5. Authorize

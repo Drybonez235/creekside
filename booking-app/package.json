@@ -17,6 +17,7 @@
     "astro": "^5.17.1",
     "better-sqlite3": "^13.0.2",
     "date-fns-tz": "^3.2.0",
+    "google-auth-library": "^11.0.2",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

@@ -10,13 +10,13 @@ export function baseUrl(): string {
 }
 
 /**
- * True once a service-account key is present. This is the only Google credential the app
- * needs now; there is no client ID/secret pair and no redirect URI, because there is no
- * consent screen. Whether the Admin console delegation is correct can't be known from
- * config alone -- that's what the admin page's "Test connection" exercises.
+ * True once the app knows which service account to sign as. Auth itself comes from
+ * Application Default Credentials (Workload Identity Federation in production), and neither
+ * that nor the Admin console delegation can be verified from config alone — both are
+ * exercised by the admin page's "Test connection".
  */
 export function googleConfigured(): boolean {
-	return !!env("CSB_SA_KEY_FILE") || !!env("CSB_SA_KEY_JSON");
+	return !!env("CSB_SA_EMAIL");
 }
 
 /** Workspace domain every impersonated provider must belong to. */

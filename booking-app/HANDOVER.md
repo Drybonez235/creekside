@@ -131,6 +131,26 @@ Each request mints a short-lived token that acts as a real Workspace user via th
 claim, so `primary` resolves to that provider's own calendar and `conferenceData` yields a
 Meet link tied to their identity.
 
+**It is keyless — there is no private key anywhere in this deployment.** The org enforces
+`iam.disableServiceAccountKeyCreation`, so downloading a key is blocked outright, and
+Google's own guidance is that DWD does not need one. The app authenticates as the service
+account through Application Default Credentials (Workload Identity Federation from the EC2
+instance's IAM role in production, `gcloud auth application-default login` in dev), then
+calls IAM Credentials `signJwt` to have Google sign the delegation assertion with the
+service account's Google-managed key. Per delegated request:
+
+1. ADC → access token for a principal allowed to sign as the service account
+2. `iamcredentials.signJwt` → assertion with `sub` set to the provider being impersonated
+3. oauth2 token endpoint (jwt-bearer grant) → short-lived token acting as that provider
+
+Step 3's result is cached per user for its lifetime; steps 1–2 run only on a cache miss.
+The ADC principal needs `roles/iam.serviceAccountTokenCreator` on the service account —
+a 403 from `signJwt` almost always means that binding is missing.
+
+The only Google-related file on the box is the WIF credential config, and it is **not a
+secret**: no key material, just pointers to the identity pool and the AWS metadata endpoint,
+useless anywhere but on that instance.
+
 **Why this replaced OAuth.** The original design used only non-sensitive scopes
 (`calendar.app.created` + `calendar.freebusy`) specifically to avoid Google's
 app-verification review, and wrote bookings to an app-created secondary "Creekside Bookings"
@@ -149,12 +169,12 @@ Delegation removes all three at once: the domain admin grants authority, so ther
 consent screen to publish, no review to pass, and no refresh token to expire. Sensitive
 scopes carry no verification requirement under delegation, because no end user is consenting.
 
-**What it costs.** The service-account key is now the entire credential. Anyone who can read
-it can act as any user in the domain for the delegated scopes, so it lives outside the repo
-at `CSB_SA_KEY_FILE`, `chmod 600`, owned by the service user, and never in a backup that
-leaves the box. The blast radius is narrower than it first sounds — delegation is limited to
-two calendar scopes — but it is one high-value secret where there used to be several
-lower-value ones.
+**What it costs.** More setup, in exchange for no standing secret. The federation chain has
+more moving parts than a key file (identity pool, AWS provider, IAM binding), and they are
+all one-time config rather than anything that expires. The remaining exposure is the EC2
+instance itself: anything able to run code on that box can obtain delegated tokens for any
+provider. That is a strictly smaller blast radius than a key file, which is portable and
+works from anywhere once copied.
 
 **Hard constraint.** A service account cannot impersonate a consumer Gmail account. Every
 provider must be a real user in the Workspace domain (`CSB_WORKSPACE_DOMAIN`); the admin page
@@ -177,8 +197,9 @@ session.
 
 | Variable | Purpose |
 | :-- | :-- |
-| `CSB_SA_KEY_FILE` | Absolute path to the service-account JSON key. Keep it outside the repo, `chmod 600`, owned by the service user. |
-| `CSB_SA_KEY_JSON` | Alternative to the above: the key JSON inline. Only for hosts with no usable filesystem — the `\n` escaping in `private_key` is easy to get wrong. |
+| `CSB_SA_EMAIL` | The service account to impersonate providers as. |
+| `CSB_SA_CLIENT_ID` | The service account's numeric Unique ID. Display-only — the admin page shows it to whoever creates the Workspace delegation entry. |
+| `GOOGLE_APPLICATION_CREDENTIALS` | Standard ADC path, pointing at the Workload Identity Federation credential config. Not a secret: no key material, only pool/provider pointers. |
 | `CSB_WORKSPACE_DOMAIN` | Workspace domain every provider address must belong to. Defaults to `creeksidemarketingpros.com`. |
 | `CSB_ADMIN_USER` / `CSB_ADMIN_PASS` | Basic Auth for `/admin/booking` and `/api/csb/admin/*` |
 | `CSB_ADMIN_ENABLED` | Kill switch — see §4 |
@@ -280,17 +301,16 @@ provider or pull a CSV export.
 
 ## 5. Credential rotation
 
-The service-account key is the only Google credential now, which makes rotation simpler than
-the OAuth setup it replaced but concentrates the risk in one file.
+**There is nothing to rotate.** No key, no client secret, no encryption key — every
+credential in the request path is short-lived and minted on demand. This is the main
+operational payoff of the keyless design, and it is why the section is now this short.
 
-- **Rotating the key:** create a new key on the same service account in Google Cloud, drop it
-  in at `CSB_SA_KEY_FILE`, restart, confirm with **Test connection**, then delete the old key
-  in Google Cloud. **The delegation grant is unaffected** — it binds to the service account's
-  numeric client ID, which does not change when a key is rotated. No provider has to do
-  anything and there is no reconnect step.
-- **If the key leaks:** delete it in Google Cloud immediately, which invalidates it
-  everywhere at once. Anyone holding it can act as any user in the domain for the delegated
-  scopes, so this is urgent rather than housekeeping.
+- **Revoking access entirely:** remove the AWS role's `roles/iam.serviceAccountTokenCreator`
+  binding on the service account, or delete the Workload Identity Pool provider. Either kills
+  every delegated token immediately, with nothing to hunt down and no copies in the wild.
+- **If the box is compromised:** the exposure is the instance's ability to mint tokens, not a
+  portable secret. Detach the EC2 instance role, then rebuild. Nothing needs re-issuing to
+  providers afterward.
 - **Removing one provider:** disable them on the admin page. Note this is an app-level
   change: their calendar remains technically reachable by the service account, because
   delegation is domain-wide by design. Putting a calendar genuinely out of reach means
@@ -305,7 +325,9 @@ the OAuth setup it replaced but concentrates the risk in one file.
 | `unauthorized_client` for every provider | Delegation entry missing, wrong client ID, or its scope list doesn't match `SA_SCOPES` exactly. Re-enter the scopes in the Admin console — this is the most common failure by far. |
 | `invalid_grant` for one provider only | That address isn't a real user in the Workspace domain — typo, deleted account, or a consumer Gmail. |
 | `invalid_grant` for everyone, suddenly | Host clock drift. The assertion backdates `iat` 30s to absorb minor skew, but that's no substitute for working NTP — this deployment already saw a "JWT issued at future" incident (2026-08-13). Check `timedatectl`. |
-| "Service-account key problem" on the admin page | Key file missing, unreadable by the service user, or malformed JSON. With `CSB_SA_KEY_JSON`, suspect `\n` escaping in `private_key` first. |
+| `signJwt failed (HTTP 403)` | The ADC principal lacks `roles/iam.serviceAccountTokenCreator` on the service account. Most likely cause after initial setup. |
+| `signJwt failed (HTTP 404)` | `CSB_SA_EMAIL` is wrong, or the service account was deleted. |
+| "Could not obtain Application Default Credentials" | `GOOGLE_APPLICATION_CREDENTIALS` is unset or points at a missing file, or the EC2 instance lost its IAM role. |
 | Test connection fails at "Delegated token" | Any of the above; the error text names the likely cause. |
 | Widget shows the fallback message immediately | Check `CSB_GOOGLE_CLIENT_ID`/`SECRET` are set and correct; verified behavior — see §7 |
 | Widget shows the fallback, and everything *looks* configured correctly | The provider's calendar became unreadable, or the delegation no longer covers them. This is deliberate fail-closed behavior, not a crash: the app refuses to compute availability it can't verify. Run **Test connection** — it fails at "Delegated token" or "Free/busy read" and names the cause. |
@@ -441,8 +463,11 @@ process rather than a serverless function, so nothing reclaims abandoned entries
   Workspace super admin adds the delegation entry (client ID + the two scopes — DEPLOY.md §7).
   This needs Peterson or whoever holds super-admin on creeksidemarketingpros.com; Jordan
   cannot do it. Once done it covers every provider at once and never needs repeating.
-- **Get the service-account key onto the box** at `CSB_SA_KEY_FILE`, `chmod 600`, owned by
-  the service user, delivered through a secure channel.
+- **Set up Workload Identity Federation.** Needs an IAM role on Jonathan's EC2 instance, a
+  Workload Identity Pool + AWS provider in Google Cloud, and a
+  `roles/iam.serviceAccountTokenCreator` binding for that role on the service account. The
+  resulting credential config goes on the box at `GOOGLE_APPLICATION_CREDENTIALS`; it is not
+  a secret. See DEPLOY.md §3.
 - **Real provider accounts.** Providers are added by email on the admin page and must be real
   users in the Workspace domain. Someone needs to confirm which agent maps to which funnel
   (dental and general both currently route to Cade or Keith).
