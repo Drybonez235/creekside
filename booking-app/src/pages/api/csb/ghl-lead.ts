@@ -65,10 +65,11 @@ const REVENUE_MAP: Record<string, string> = {
 };
 
 const AD_SPEND_MAP: Record<string, string> = {
-	"under-3k": "Under $3K/mo",
-	"3k-5k": "$3K - $5K/mo",
+	"under-5k": "Below $5K/mo",
 	"5k-15k": "$5K - $15K/mo",
-	"15k+": "$15K+/mo",
+	"15k-50k": "$15K - $50K/mo",
+	"50k-100k": "$50K - $100K/mo",
+	"100k+": "$100K+/mo",
 };
 
 const BUSINESS_TYPE_MAP: Record<string, string> = {
@@ -309,7 +310,7 @@ export const POST: APIRoute = async ({ request }) => {
 						oppNoteLines.push(`Routed to: Keith (partner referral)`);
 					}
 
-					await fetch(`${GHL_BASE}/opportunities/`, {
+					const oppRes = await fetch(`${GHL_BASE}/opportunities/`, {
 						method: "POST",
 						headers: ghlHeaders,
 						body: JSON.stringify({
@@ -323,6 +324,12 @@ export const POST: APIRoute = async ({ request }) => {
 							notes: [oppNoteLines.join("\n")],
 						}),
 					});
+					if (!oppRes.ok) {
+						// Surface the failure -- an unlogged non-2xx here means opportunities
+						// silently never exist and book.ts's "Call Booked" update no-ops.
+						const oppErrText = await oppRes.text().catch(() => "");
+						console.error(`[ghl-lead] Opportunity create error ${oppRes.status}:`, oppErrText);
+					}
 				}
 			} catch (oppErr) {
 				// Log but don't fail the whole request -- contact was already created
