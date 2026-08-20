@@ -55,7 +55,16 @@ if (Astro.request.method === "POST") {
 			let hours: WeeklyHours = a.hours;
 			if (typeof hoursRaw === "string") {
 				try {
-					hours = JSON.parse(hoursRaw);
+					const parsed = JSON.parse(hoursRaw);
+					// Shape check, not just parseability. `null`, `[1,2]` and `"x"` are all valid
+					// JSON, and any of them used to be saved straight through -- after which
+					// slotsForMonth's `account.hours[dow]` throws on null and yields nothing for
+					// the others, taking that provider's availability offline with no error
+					// anywhere in the admin UI. Keep the previous hours rather than persisting
+					// something the slot computation cannot use.
+					if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+						hours = parsed as WeeklyHours;
+					}
 				} catch {
 					/* keep existing hours on invalid JSON */
 				}

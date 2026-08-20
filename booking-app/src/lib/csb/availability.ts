@@ -160,7 +160,11 @@ export async function slotsForMonth(
 	for (let day = 1; day <= numDays; day++) {
 		const dStr = dateStr(year, month, day);
 		const dow = weekdayKey(year, month, day);
-		const [open, close] = account.hours[dow] ?? [];
+		// Defensive: a malformed hours_json (hand-edited row, or an older build that saved a
+		// non-object) would otherwise throw here and take availability down for this provider
+		// rather than simply showing no slots. The admin form validates the shape on save, but
+		// this is the read path and it should not trust the column.
+		const [open, close] = account.hours?.[dow] ?? [];
 		if (!open || !close) continue;
 
 		const dayStartInstant = wallClockToInstant(dStr, "00:00");

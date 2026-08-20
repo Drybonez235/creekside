@@ -96,8 +96,35 @@ const fallbackPhone = await store.getSetting("fallback_phone", "").catch(() => "
 			root.appendChild(wrap);
 		}
 
+		function hasLead() {
+			return !!(lead && lead.name && lead.email && lead.phone);
+		}
+
+		// Shown immediately when the sessionStorage handoff from /dental/start/ is missing.
+		// Reaching the booking page without it is normal, not exotic: opening the link in a new
+		// tab, restoring a session, or any privacy mode that clears storage all land here. The
+		// booking cannot succeed without contact details, so say so up front with a way back --
+		// previously the check only ran on the final confirm click, so someone could pick a date
+		// and a time and only then be told to start over, with no link to do it.
+		function showLeadMissing() {
+			root.innerHTML = "";
+			var wrap = h("div", { class: "dental-bw-fallback" });
+			wrap.appendChild(h("p", { text: "We need a few details before you can pick a time." }));
+			var a = h("a", {
+				text: "Answer a few quick questions to book →",
+				style: "display:inline-block; margin-top:10px; font-weight:600; text-decoration:underline;",
+			});
+			a.setAttribute("href", "/dental/start/");
+			wrap.appendChild(a);
+			if (fallbackPhone) {
+				wrap.appendChild(h("p", { text: "Or call us at " + fallbackPhone + ".", style: "margin-top:10px;" }));
+			}
+			root.appendChild(wrap);
+		}
+
 		// Load provider, then jump to calendar
 		function init() {
+			if (!hasLead()) return showLeadMissing();
 			api("/providers/").then(function (r) {
 				if (r.status !== 200 || !Array.isArray(r.body) || !r.body.length) return showFallback();
 				var match = r.body.filter(function (p) { return p.key === providerKey; })[0];
