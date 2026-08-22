@@ -38,9 +38,6 @@ function rateLimited(ip: string | null): boolean {
 }
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
-const DENTAL_PIPELINE_ID = "cUkfvJHXo34WTtAPMWIP";
-const CALL_BOOKED_STAGE_ID = "8ad8a351-f55b-4fdc-b79d-41e2ba86e092";
-
 const GHL_BOOKED_CALL_DATE_FIELD = "G5MN7xDI3JDv9QW8KMDf";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -173,12 +170,8 @@ export const POST: APIRoute = async ({ request }) => {
 			calendarId: "primary",
 		});
 
-		// 7. Update GHL opportunity to "Call Booked" and set booked call date
-		//    (fire-and-forget, don't block response)
-		updateGhlOpportunityStage(email).catch((err) => {
-			console.error("[book] GHL opportunity update failed:", err);
-		});
-
+		// 7. Set booked call date on GHL contact (fire-and-forget, don't block response)
+		//    Opportunity stage management is handled by GHL workflows
 		updateGhlBookedCallDate(email, start).catch((err) => {
 			console.error("[book] GHL booked call date update failed:", err);
 		});
@@ -196,46 +189,6 @@ export const POST: APIRoute = async ({ request }) => {
 		});
 	});
 };
-
-/** Look up a GHL contact by email, find their Dental Pipeline opportunity, and move it to "Call Booked". */
-async function updateGhlOpportunityStage(email: string): Promise<void> {
-	const apiKey = import.meta.env.GHL_API_KEY;
-	const locationId = import.meta.env.GHL_LOCATION_ID;
-	if (!apiKey || !locationId) return;
-
-	const ghlHeaders = {
-		"Authorization": `Bearer ${apiKey}`,
-		"Version": "2021-07-28",
-		"Content-Type": "application/json",
-	};
-
-	// 1. Look up contact by email
-	const lookupRes = await fetch(
-		`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
-		{ method: "GET", headers: ghlHeaders },
-	);
-	if (!lookupRes.ok) return;
-	const lookupData = await lookupRes.json();
-	const contactId = lookupData.contact?.id;
-	if (!contactId) return;
-
-	// 2. Search for their opportunity in the Dental Pipeline
-	const oppRes = await fetch(
-		`${GHL_BASE}/opportunities/search?location_id=${locationId}&pipeline_id=${DENTAL_PIPELINE_ID}&contact_id=${contactId}`,
-		{ method: "GET", headers: ghlHeaders },
-	);
-	if (!oppRes.ok) return;
-	const oppData = await oppRes.json();
-	const opp = oppData.opportunities?.[0];
-	if (!opp?.id) return;
-
-	// 3. Update to "Call Booked" stage
-	await fetch(`${GHL_BASE}/opportunities/${opp.id}`, {
-		method: "PUT",
-		headers: ghlHeaders,
-		body: JSON.stringify({ stageId: CALL_BOOKED_STAGE_ID }),
-	});
-}
 
 /** Set the "Booked Call Date" custom field on the GHL contact so workflows can trigger based on it. */
 async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<void> {

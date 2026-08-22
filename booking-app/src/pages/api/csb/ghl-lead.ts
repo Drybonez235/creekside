@@ -5,13 +5,6 @@ export const prerender = false;
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
 
-// Dental Pipeline in GHL
-const DENTAL_PIPELINE_ID = "cUkfvJHXo34WTtAPMWIP";
-const DENTAL_STAGES = {
-	newLead: "4f189c75-99a3-4c83-81df-399c0631b92c",
-	referred: "211e19ab-0615-40ff-a04a-d966250831c5",
-} as const;
-
 // Rate limit: 10 attempts / 10 min / IP
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 10;
@@ -273,66 +266,7 @@ export const POST: APIRoute = async ({ request }) => {
 			}
 		}
 
-		// 2. Create opportunity in Dental Pipeline (only for dental funnel)
-		//    Always starts as "New Lead" -- gets updated to "Call Booked" by book.ts if they book
-		//    Skip if this contact already has an opportunity in the pipeline (prevents duplicates)
-		if (contactId && !isSite) {
-			try {
-				// Check for existing opportunity
-				const existingRes = await fetch(
-					`${GHL_BASE}/opportunities/search?location_id=${locationId}&pipeline_id=${DENTAL_PIPELINE_ID}&contact_id=${contactId}`,
-					{ method: "GET", headers: ghlHeaders },
-				);
-				const existingData = existingRes.ok ? await existingRes.json() : { opportunities: [] };
-				const hasExisting = existingData.opportunities?.length > 0;
-
-				if (!hasExisting) {
-					// Build comprehensive opportunity notes with all questionnaire answers
-					const oppNoteLines: string[] = [
-						`[Dental Funnel Submission]`,
-						`Name: ${name}`,
-						`Email: ${email}`,
-						`Phone: ${phone}`,
-					];
-					if (website) oppNoteLines.push(`Website: ${website}`);
-					if (practiceType) oppNoteLines.push(`Practice Type: ${PRACTICE_TYPE_MAP[practiceType] || practiceType}`);
-					if (services) oppNoteLines.push(`Services: ${SERVICES_MAP[services] || services}`);
-					if (revenue) oppNoteLines.push(`Monthly Revenue: ${REVENUE_MAP[revenue] || revenue}`);
-					if (challenge) oppNoteLines.push(`Challenge: ${CHALLENGE_MAP[challenge] || challenge}`);
-					if (decisionMaker) oppNoteLines.push(`Decision Maker: ${DECISION_MAKER_MAP[decisionMaker] || decisionMaker}`);
-					if (adMgmt) oppNoteLines.push(`Ad Management: ${AD_MGMT_MAP[adMgmt] || adMgmt}`);
-					oppNoteLines.push(`Qualification: ${qualStatus}`);
-					oppNoteLines.push(`Source: ${contactSource}`);
-					if (isQualified) {
-						oppNoteLines.push(`Routed to: Cade (direct)`);
-					} else {
-						oppNoteLines.push(`Routed to: Keith (partner referral)`);
-					}
-
-					const oppRes = await fetch(`${GHL_BASE}/opportunities/`, {
-						method: "POST",
-						headers: ghlHeaders,
-						body: JSON.stringify({
-							pipelineId: DENTAL_PIPELINE_ID,
-							locationId,
-							name: `${name} - Dental Lead`,
-							stageId: DENTAL_STAGES.newLead,
-							contactId,
-							status: "open",
-							source: contactSource,
-						}),
-					});
-
-					if (!oppRes.ok) {
-						const errBody = await oppRes.text().catch(() => "");
-						console.error(`[ghl-lead] Opportunity creation error ${oppRes.status}:`, errBody);
-					}
-				}
-			} catch (oppErr) {
-				// Log but don't fail the whole request -- contact was already created
-				console.error("[ghl-lead] Opportunity creation failed:", oppErr);
-			}
-		}
+		// Opportunity creation is handled by GHL workflow (triggers on dental-funnel tag)
 
 		return jsonResponse({ ok: true, contactId });
 	} catch (err) {
