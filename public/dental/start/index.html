@@ -724,11 +724,9 @@
       sendToBackend(payload);
 
       // Redirect to booking
-      // Qualified -> Cade's calendar
-      // Under-threshold -> Keith's calendar (partner)
-      var bookingUrl = route === 'keith'
-        ? '/book/dental/?provider=keith_creeksidemarketingpros_com'
-        : '/book/dental/?provider=cade_creeksidemarketingpros_com';
+      // All leads -> Cade's calendar (Keith partner routing removed 2026-08-27;
+      // route var is kept for tier tagging/tracking only)
+      var bookingUrl = '/book/dental/?provider=cade_creeksidemarketingpros_com';
       setTimeout(function(){
         window.location.href = bookingUrl;
       }, 300);

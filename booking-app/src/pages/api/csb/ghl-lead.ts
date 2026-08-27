@@ -174,7 +174,9 @@ export const POST: APIRoute = async ({ request }) => {
 	if (isQualified) {
 		tags.push(`${funnelTag}-qualified`, "cade-direct");
 	} else {
-		tags.push(`${funnelTag}-under-threshold`, "keith-referral");
+		// Keith partner routing removed 2026-08-27 -- under-threshold leads
+		// keep the tier tag for context but book with Cade like everyone else.
+		tags.push(`${funnelTag}-under-threshold`, "cade-direct");
 	}
 
 	const customFields: { id: string; value: string }[] = [];
