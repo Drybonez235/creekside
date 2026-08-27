@@ -2,7 +2,7 @@
 title: "Not Getting Enough Google Ads Conversions? Here Are the 5 Moves We Make First"
 description: "Not getting enough Google Ads conversions? Here are the five strategies we apply when a campaign is live, tracking properly, and still not converting."
 date: "2026-08-10"
-image: "article-images/google-ads-not-enough-conversions-what-to-do.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Google Ads", "Conversion Optimization", "Lead Generation", "Performance Max", "Broad Match"]
 ---
