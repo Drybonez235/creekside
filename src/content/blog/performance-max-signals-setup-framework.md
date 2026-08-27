@@ -2,7 +2,7 @@
 title: "Stop Guessing With Performance Max: The Signal Setup Framework That Feeds Google the Right Data"
 description: "How to set up Performance Max campaign signals correctly: 20+ search themes, audience signals, and the demographic rules we use on $20M+ in managed ad spend."
 date: "2026-08-09"
-image: "article-images/performance-max-signals-setup-framework.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Performance Max", "Google Ads", "Campaign Setup", "Audience Signals", "Google Ads Strategy"]
 ---

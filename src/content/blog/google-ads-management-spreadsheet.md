@@ -2,7 +2,7 @@
 title: "The 5-Color Testing System Inside Our Google Ads Management Spreadsheet (And Why White Is the Most Important Color)"
 description: "Inside the Google Ads management spreadsheet Creekside Marketing uses: 5-color test tracking, budget pacing rules, and the freelancer note protocol."
 date: "2026-08-06"
-image: "article-images/google-ads-management-spreadsheet.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Google Ads Management", "Google Ads Testing", "Paid Ads Operations", "Campaign Optimization"]
 ---

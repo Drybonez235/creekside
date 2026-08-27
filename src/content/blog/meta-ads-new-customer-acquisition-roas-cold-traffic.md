@@ -2,7 +2,7 @@
 title: "14.06 ROAS, Cold Traffic Only: What a True New Customer Acquisition Campaign Actually Looks Like on Meta"
 description: "Blended Meta ROAS mixes warm and cold traffic and overstates ad performance. Here is what a real cold-only NCA campaign looks like and what 14.06 ROAS actually means."
 date: "2026-08-11"
-image: "article-images/meta-ads-new-customer-acquisition-roas-cold-traffic-campaign-results.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Facebook Ads"
 tags: ["Meta Ads", "New Customer Acquisition", "ROAS", "Facebook Ads", "Ecommerce"]
 ---

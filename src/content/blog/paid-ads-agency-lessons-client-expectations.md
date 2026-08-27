@@ -2,7 +2,7 @@
 title: "Three Things Nobody Warned Me About Before Starting a Paid Ads Agency"
 description: "Running a paid ads agency is genuinely great, but these three realities blindside most people who start one. Here's what to expect."
 date: "2026-08-19"
-image: "article-images/paid-ads-agency-lessons-client-expectations.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Agency Ownership", "Client Management", "Paid Ads", "Google Ads"]
 ---

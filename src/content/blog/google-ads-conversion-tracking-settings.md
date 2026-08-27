@@ -2,7 +2,7 @@
 title: "Fix These Four Google Ads Conversion Tracking Settings Before Smart Bidding Makes Everything Worse"
 description: "Four conversion tracking settings quietly corrupt your Google Ads data. Fix them before smart bidding optimizes toward the wrong signals."
 date: "2026-08-04"
-image: "article-images/google-ads-conversion-tracking-settings.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["GoogleAds", "ConversionTracking", "PPC", "AccountSetup"]
 ---

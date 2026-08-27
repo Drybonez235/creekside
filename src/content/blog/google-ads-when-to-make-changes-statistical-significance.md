@@ -2,7 +2,7 @@
 title: "When to Make Changes in Google Ads: Why 27 Clicks Is the Wrong Sample Size (And What Is Right)"
 description: "Most managers cut time slots and locations on thin data. Here is the 2x-3x click rule we use to know when a segment has had enough chances to convert."
 date: "2026-08-08"
-image: "article-images/google-ads-statistical-significance-optimization.avif"
+image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
 category: "Google Ads"
 tags: ["Google Ads", "Campaign Optimization", "Statistical Significance", "Ad Schedule", "Google Ads Management"]
 ---
