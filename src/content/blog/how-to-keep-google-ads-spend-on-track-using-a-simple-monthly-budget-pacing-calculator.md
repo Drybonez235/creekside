@@ -2,7 +2,7 @@
 title: "How to Keep Google Ads Spend on Track Using a Simple Monthly Budget Pacing Calculator"
 description: "Stop guessing your Google Ads spend. Learn how to use a budget pacing calculator to make data-driven daily adjustments, maintain campaign ratios, and avoid end-of-month panic."
 date: "2026-01-10"
-image: ""
+image: "article-images/blog-card-trend.svg"
 category: "Performance Management & SOPs"
 tags: ["GoogleAds", "Tutorial", "Scalability"]
 ---

@@ -17,7 +17,6 @@ tags: ["Google Ads", "Conversion Tracking", "Campaign Settings", "Performance Ma
 | Performance Max data | Offline CRM conversions and appointments | Website form submissions only |
 | Ad group structure | Intent-aggregated keywords | One keyword per ad group (SKAG) |
 
-# Bad Data, Bad Results: 5 Google Ads Mistakes That Make Google Optimize for the Wrong Thing
 
 The five Google Ads mistakes in this post are not theoretical. They are patterns from the first two weeks of 2026 audits. Some are beginner traps. Some are outdated strategies that experienced advertisers held onto for too long. All of them have the same consequence: Google receives bad data and finds the wrong audiences.
 
@@ -238,9 +237,9 @@ Run broad match alongside exact match within the same ad group, use a conversion
 
 These five mistakes are not just about wasted budget. They are about teaching Google to optimize for the wrong outcomes. Once the algorithm learns from bad conversion signals it compounds that direction. The longer these settings run, the further an account drifts from the results that actually matter.
 
-If you want to know whether any of these issues are active in your Google Ads account right now, we offer a free audit that goes through your setup and identifies exactly what is costing you money.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Request your free $10K Profit Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

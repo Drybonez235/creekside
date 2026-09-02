@@ -2,7 +2,7 @@
 title: "Fix These Four Google Ads Conversion Tracking Settings Before Smart Bidding Makes Everything Worse"
 description: "Four conversion tracking settings quietly corrupt your Google Ads data. Fix them before smart bidding optimizes toward the wrong signals."
 date: "2026-08-04"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Google Ads"
 tags: ["GoogleAds", "ConversionTracking", "PPC", "AccountSetup"]
 ---
@@ -17,7 +17,6 @@ tags: ["GoogleAds", "ConversionTracking", "PPC", "AccountSetup"]
 | Primary conversion tracking | Same action tracked twice | One tracking source per conversion type |
 | Tracking method | Via Google Analytics relay | Directly via Google Tag Manager |
 
-# Fix These Four Google Ads Conversion Tracking Settings Before Smart Bidding Makes Everything Worse
 
 Google Ads conversion tracking sounds like a one-time setup task. Configure the actions, connect the tags, move on. But the conversion tracking section is one of the most consistently misconfigured parts of any account we audit across $20M+ in managed ad spend. And unlike a bad keyword or a weak ad, bad conversion tracking does not just waste budget. It teaches the algorithm to optimize toward the wrong signals. Every downstream decision, from bid strategy to audience targeting, rests on conversion data quality.
 
@@ -83,7 +82,7 @@ These four settings are not advanced optimization. They are foundational. And be
 
 The fastest check: open your conversion actions in Google Ads. Verify your call duration threshold against actual call data from clients who converted. Confirm Count is set to One for lead actions and Every only for purchase tracking. Match your conversion window to your real sales cycle. Confirm no action is tracked twice as primary. Then verify your tags are firing directly through Google Tag Manager, not through a Google Analytics relay.
 
-For accounts where conversion tracking issues go deeper, including tags that are misconfigured or not firing at all, see our post on [auditing Google Ads conversion tracking and catching broken tags](/blog/the-fastest-way-to-audit-google-ads-conversion-tracking-and-catch-broken-tags/). If you want a direct review of your account's conversion tracking setup, the [Creekside 10K Profit Audit](/10k-profit-audit/) covers tracking quality as a core part of every account analysis.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ## Frequently Asked Questions About Google Ads Conversion Tracking Settings
 
@@ -107,4 +106,4 @@ Every conversion fires twice in your data. Conversion volume doubles. Cost-per-c
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He works directly in client accounts and runs conversion tracking audits as part of every new account onboarding. [Request a free Google Ads audit](/10k-profit-audit/) to get a direct read on whether your conversion tracking is giving smart bidding the signals it needs.
+Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He works directly in client accounts and runs conversion tracking audits as part of every new account onboarding. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

@@ -2,7 +2,7 @@
 title: "How We Actually Use Claude Code at a Google Ads Agency: Settings, Prompting, and the One Tip That Changes Everything"
 description: "Learn how a Google Ads agency uses Claude Code daily: the right settings, why the microphone beats typing, and why separate sessions protect output quality."
 date: "2026-07-20"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Google Ads"
 tags: ["Claude Code", "AI Tools", "Google Ads", "Agency Workflow", "Productivity"]
 ---
@@ -17,7 +17,6 @@ tags: ["Claude Code", "AI Tools", "Google Ads", "Agency Workflow", "Productivity
 | Sessions per task | One new session per task |
 | Parallel sessions supported | Yes |
 
-# How We Actually Use Claude Code at a Google Ads Agency: Settings, Prompting, and the One Tip That Changes Everything
 
 Most tutorials about Claude Code focus on installation. This one is about what comes after: the daily operating decisions that determine whether you get generic AI output or output that actually holds up in a real client environment.
 
@@ -226,7 +225,7 @@ Claude Code uses a color-coded status system: a blue dot indicates the session i
 
 The settings and workflow described here are part of how Creekside manages Google Ads for clients across multiple industries. Bypass Permissions, voice prompting, and parallel session management are not productivity tips -- they are the operational decisions that determine how much actual work gets done per hour.
 
-Based on Creekside Marketing's analysis across $20M in managed ad spend, agencies that scale consistently invest in systematic infrastructure rather than relying on individual skill to fill the gaps. If you want to understand what a properly structured Google Ads operation could do for your campaigns, the [free 10K Profit Audit](/10k-profit-audit/) identifies the specific gaps in your current setup and shows exactly what it would take to fix them.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

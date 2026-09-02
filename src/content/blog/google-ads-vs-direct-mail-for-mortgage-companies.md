@@ -2,7 +2,7 @@
 title: "Google Ads vs Direct Mail for Mortgage Companies: Which Drives Better Results?"
 description: "Google Ads vs direct mail for mortgage companies compared with real CPL data. See cost per lead, conversion rates, and which channel wins in each scenario."
 date: "2026-05-12"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "DirectMail", "MortgageMarketing", "Comparison"]
 ---
@@ -119,9 +119,9 @@ According to Creekside Marketing, the minimum effective budget for a mortgage Go
 
 **Not sure which channel is right for your mortgage business?**
 
-We run Google Ads for mortgage lenders every day and have the data to benchmark your current cost-per-funded-loan against what is achievable with a well-structured digital campaign. A free audit shows you exactly where the opportunities are.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

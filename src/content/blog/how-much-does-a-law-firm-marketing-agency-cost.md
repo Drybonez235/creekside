@@ -2,7 +2,7 @@
 title: "How Much Does a Law Firm Marketing Agency Cost? [2026 Real Data]"
 description: "Law firm marketing agencies charge $1,500–$5,000/month in fees plus $5,000–$50,000 in ad spend. Real data from Creekside Marketing's legal campaigns."
 date: "2026-05-17"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-target.svg"
 category: "Legal Marketing"
 tags: ["GoogleAds", "LegalMarketing", "CostBreakdown", "PPC"]
 ---
@@ -19,7 +19,6 @@ tags: ["GoogleAds", "LegalMarketing", "CostBreakdown", "PPC"]
 | Cost Per Signed Case (PI) | $621 – $1,169 (Creekside campaign data) |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Does a Law Firm Marketing Agency Cost? [2026 Real Data]
 
 Across Creekside Marketing's legal campaigns, law firms pay $20–$150 per click on Google Ads and spend $5,000–$50,000/month in total ad spend. That is before agency fees. If you are budgeting for a law firm marketing agency, you need both numbers. The real cost of a law firm marketing agency is ad spend plus management fees, and most attorneys only have half the picture when they start the conversation.
 
@@ -141,9 +140,9 @@ For most law firms, an agency with verified legal PPC experience outperforms a g
 
 **Ready to see exactly what your law firm's marketing budget should look like?**
 
-We audit Google Ads accounts for law firms at no cost and with no obligation. We show you exactly where your budget is going, which campaigns are generating qualified leads, and where money is being wasted. Real numbers from real legal campaigns, not generic agency estimates.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Law Firm Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

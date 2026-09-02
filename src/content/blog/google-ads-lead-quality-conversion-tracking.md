@@ -2,7 +2,7 @@
 title: "The Two Conversion Tracking Fixes That Eliminate 80% of Google Ads Lead Spam"
 description: "Bad Google Ads lead quality usually traces to two conversion tracking mistakes. Here is how we fix them across $20M+ in managed ad spend."
 date: "2026-08-01"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Google Ads"
 tags: ["GoogleAds", "LeadQuality", "ConversionTracking", "OfflineConversions"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "LeadQuality", "ConversionTracking", "OfflineConversions"]
 | Required follow-up window | Same business day or within 24 hours |
 | Advanced optimization target | Revenue events (booked appointments, closed deals) |
 
-# The Two Conversion Tracking Fixes That Eliminate 80% of Google Ads Lead Spam
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [How To Improve Google Ad Lead Quality](https://www.youtube.com/watch?v=VD99zN_z0RM).
 
@@ -244,7 +243,7 @@ According to Creekside Marketing's analysis across $20M+ in managed ad spend: fi
 
 This is not a shortcut. Setting up offline conversions properly requires a CRM, a consistent follow-up process, and some technical configuration. But it is the kind of infrastructure that compounds over time. Every day you run the account with cleaner signals, Google gets better at finding the right people. The gap between where you start and where you end up after 90 days of clean data is where the real return on ad spend lives.
 
-If you want an honest assessment of your conversion tracking setup and a clear picture of what it would take to move from noise optimization toward revenue optimization, the [10K Profit Audit](/10k-profit-audit/) is where we start with every new client. We look at exactly what conversion actions are running, what they are actually measuring, and what the path to better data looks like for your specific account.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 For more on how we build and manage Google Ads accounts around this approach, see our [Google Ads management service page](/digital-advertising/google-ads/).
 
@@ -252,4 +251,4 @@ For more on how we build and manage Google Ads accounts around this approach, se
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He writes about what actually works in performance advertising, built on real client campaigns across dozens of industries. [Request a free Google Ads audit](/10k-profit-audit/) to find out where your conversion tracking stands and what it is costing you in lead quality.
+Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He writes about what actually works in performance advertising, built on real client campaigns across dozens of industries. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

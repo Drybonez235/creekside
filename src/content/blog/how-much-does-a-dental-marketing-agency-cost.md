@@ -2,7 +2,7 @@
 title: "How Much Does a Dental Marketing Agency Cost in 2026?"
 description: "Real costs from $20M+ in managed dental ad spend. Agency fees, ad budgets, and ROI data from actual campaigns - no guesswork."
 date: "2026-05-09"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Dental Marketing"
 tags: ["DentalMarketing", "GoogleAds", "AgencyCosts", "PPC"]
 ---
@@ -19,7 +19,6 @@ tags: ["DentalMarketing", "GoogleAds", "AgencyCosts", "PPC"]
 | Cost Per Lead | $4 - $131 (varies by procedure) |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Does a Dental Marketing Agency Cost in 2026?
 
 Most dental practice owners asking how much a dental marketing agency costs get the same frustrating non-answer from every agency they call: "it depends on your goals." That is technically true. It is also useless. You need real numbers to plan a real budget.
 
@@ -154,9 +153,9 @@ The metrics that matter: cost per lead, lead-to-booked-patient conversion rate, 
 
 **Ready to see what your dental marketing budget should actually be producing?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, no guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

@@ -18,7 +18,6 @@ tags: ["Google Ads", "Performance Max", "Display Ads", "Ad Placements", "Spam Le
 | Setting location | Google Ads: Tools > Content Suitability |
 | Recommended sequence | Specific exclusions first, Limited Inventory last |
 
-# Why Your Google Ads Are Showing Up on Mobile Games (And How to Block 99% of Spam Placements)
 
 If you are running Performance Max, Demand Gen, or Display campaigns and wondering why your cost per lead keeps climbing while conversion quality drops, Google Ads spam placements are likely a major factor. A portion of your budget is going to mobile game apps, clickbait websites, and ad positions where accidental clicks are the norm rather than the exception.
 
@@ -256,7 +255,7 @@ Google Ads spam placements are a structural feature of Display, Demand Gen, and 
 
 The sequence: exclude the specific placement categories first, then exclude all 140 app categories, apply content theme exclusions if needed, and enable Limited Inventory only if spam persists after all targeted exclusions are in place. Five minutes of setup. Measurable improvement in how your budget is allocated toward placements that generate actual buyer intent.
 
-If you want Creekside Marketing to audit your Google Ads account for spam placements and other budget leaks, [book your free audit here](/10k-profit-audit/).
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

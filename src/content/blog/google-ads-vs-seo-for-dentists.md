@@ -135,9 +135,9 @@ Most dental practices we work with spend 12 to 18 months building their paid adv
 
 **Not sure which channel is right for your dental practice?**
 
-We run Google Ads and Meta Ads for dental practices every day. A free audit will show you exactly where your best opportunities are and what it would realistically cost to hit your new patient goals.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

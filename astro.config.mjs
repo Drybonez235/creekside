@@ -36,7 +36,8 @@ export default defineConfig({
           if (/\/blog\//.test(item.url)) {
             item.changefreq = ChangeFreqEnum.WEEKLY;
             item.priority = 0.8;
-            item.lastmod = new Date().toISOString();
+            // No lastmod: stamping build time on every URL every build makes
+            // Google distrust the sitemap. Real dates live in the page schema.
             return item;
           }
           return undefined; // Exclude from this chunk
@@ -45,7 +46,6 @@ export default defineConfig({
           if (/\/case-study-digital-marketing\//.test(item.url)) {
             item.changefreq = ChangeFreqEnum.WEEKLY;
             item.priority = 0.8;
-            item.lastmod = new Date().toISOString();
             return item;
           }
           return undefined; // Exclude from this chunk

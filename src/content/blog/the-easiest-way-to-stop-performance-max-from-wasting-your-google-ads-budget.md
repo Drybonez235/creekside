@@ -2,7 +2,7 @@
 title: "The Easiest Way to Stop Performance Max From Wasting Your Google Ads Budget"
 description: "Performance Max can be a black box of wasted spend. Learn how to identify bad placements and exclude brand terms to ensure your budget drives actual incremental growth."
 date: "2026-01-13"
-image: "" #"performance-max-stop-wasting-google-ads-budget"
+image: "article-images/blog-card-dots.svg" #"performance-max-stop-wasting-google-ads-budget"
 category: "Performance Management & SOPs"
 tags: ["GoogleAds", "PerformanceMax", "Audit", "Troubleshooting"]
 ---

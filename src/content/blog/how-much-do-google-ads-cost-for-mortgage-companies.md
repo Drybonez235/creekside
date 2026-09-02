@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Mortgage Companies? [2026 Real Data]"
 description: "Google Ads for mortgage companies cost $8–$50 per click. Real budget ranges, CPL benchmarks, and ROI analysis from Creekside's mortgage campaigns."
 date: "2026-05-07"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-target.svg"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "MortgageMarketing", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "MortgageMarketing", "CostBreakdown", "PPC"]
 | Expected ROI | 3x – 8x |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Do Google Ads Cost for Mortgage Companies? [2026 Real Data]
 
 Across Creekside Marketing's mortgage lending campaigns, we see an average cost per click of $8–$50. That range is intentional. A generic "mortgage rates" search runs cheap, while "reverse mortgage lender near me" in a competitive metro can push $45+ per click. But CPCs alone tell only half the story.
 
@@ -164,9 +163,9 @@ Reverse mortgage advertising targets a narrower demographic — homeowners 62+ w
 
 **Ready to see how your mortgage Google Ads stack up?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit →](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

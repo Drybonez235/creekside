@@ -22,7 +22,6 @@ tags: ["Google Ads", "Dental Marketing", "Veneers", "Performance Max", "Case Stu
 > | Demand Gen CPM advantage | ~13x cheaper than other campaigns |
 > | Campaign types in use | Performance Max, Search, Demand Gen (YouTube) |
 
-# The Google Ads Full-Funnel Playbook for Dental Veneers: $140K in Revenue, 11x ROAS, and a Surprise Broad Match Win
 
 *This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Google Ads For Dental Veneers](https://www.youtube.com/watch?v=7BexhesbrPc). Watch the full account walkthrough there for the visual breakdown.*
 
@@ -278,7 +277,7 @@ If you are running Performance Max and want to understand how to prevent wasted 
 
 ---
 
-**Want us to review your dental Google Ads account?** We look at accounts at no cost and show you exactly where spend is going to waste and where the growth opportunity is. Based on $20M+ in managed ad spend, we can usually find the gap within the first hour. [Request your free $10K Profit Audit here](/10k-profit-audit/).
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

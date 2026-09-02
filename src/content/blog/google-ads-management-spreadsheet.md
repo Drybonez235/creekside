@@ -2,7 +2,7 @@
 title: "The 5-Color Testing System Inside Our Google Ads Management Spreadsheet (And Why White Is the Most Important Color)"
 description: "Inside the Google Ads management spreadsheet Creekside Marketing uses: 5-color test tracking, budget pacing rules, and the freelancer note protocol."
 date: "2026-08-06"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Google Ads"
 tags: ["Google Ads Management", "Google Ads Testing", "Paid Ads Operations", "Campaign Optimization"]
 ---
@@ -17,7 +17,6 @@ tags: ["Google Ads Management", "Google Ads Testing", "Paid Ads Operations", "Ca
 | Spreadsheet sections | 4 (tests, action items, notes, budget/CPA tracker) |
 | Review cadence | Weekly (duplicate and rename sheet) |
 
-# The 5-Color Testing System Inside Our Google Ads Management Spreadsheet (And Why White Is the Most Important Color)
 
 Most Google Ads managers track tests the same way they track everything else: a note in a doc, a comment in the campaign, or memory. After managing $20M+ in ad spend, we have found that approach breaks down fast, especially with freelancers or multiple specialists in an account. The Google Ads management spreadsheet Creekside Marketing uses across every client account keeps tests, tasks, notes, and budget tracking in one structured place. This post walks through each section, based on a walkthrough Peterson published on the [Creekside Marketing YouTube channel](https://www.youtube.com/watch?v=kFKInO0a7MY) in August 2025.
 
@@ -119,7 +118,7 @@ ClickUp. The spreadsheet notes section is for self-reference only and is not con
 
 If you are running Google Ads without a structured system for testing, budget pacing, and team communication, the mechanics are likely costing you performance on every campaign. Creekside Marketing manages Google Ads and Meta Ads for businesses that want documented, trackable results.
 
-Take our free [10K Profit Audit](/10k-profit-audit/) to see where your current setup is leaving results on the table and what a structured paid advertising approach would change.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

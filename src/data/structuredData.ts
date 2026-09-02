@@ -15,6 +15,32 @@ export const siteSchema = {
     "addressRegion": "TN",
     "addressCountry": "US"
   },
+  "sameAs": [
+    "https://www.linkedin.com/company/creekside-marketing/",
+    "https://www.youtube.com/@creeksidemarketingpros",
+    "https://www.linkedin.com/in/petersonrainey/",
+    "https://www.upwork.com/freelancers/petersonrainey",
+    "https://www.facebook.com/creeksidemarketing1/",
+    "https://www.instagram.com/creeksidemarketingpros/",
+    "https://x.com/Peterson_biz",
+    "https://www.alignable.com/nashville-tn/creekside-marketing",
+    "https://www.reddit.com/user/peterson_rainey/",
+    "https://www.quora.com/profile/Peterson-Rainey-2",
+    "https://medium.com/@ads_46129",
+    "https://www.threads.com/@petersonrainey"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-931-342-4114",
+    "contactType": "sales",
+    "email": "info@creeksidemarketingpros.com",
+    "availableLanguage": "English"
+  },
+  "knowsAbout": ["Google Ads", "Meta Ads", "PPC Management", "Facebook Advertising", "Instagram Advertising", "Conversion Tracking", "ROAS Optimization"],
   "author": {
         "@type": "Person",
         "name": "Peterson Rainey",
@@ -23,12 +49,24 @@ export const siteSchema = {
     {
       "@type": "Person",
       "name": "Peterson Rainey",
-      "jobTitle": "Co-Founder & Google Ads Expert"
+      "jobTitle": "Co-Founder & Google Ads Expert",
+      "sameAs": [
+        "https://www.linkedin.com/in/petersonrainey/",
+        "https://www.upwork.com/freelancers/petersonrainey",
+        "https://x.com/Peterson_biz",
+        "https://www.quora.com/profile/Peterson-Rainey-2",
+        "https://medium.com/@ads_46129",
+        "https://www.threads.com/@petersonrainey",
+        "https://www.reddit.com/user/peterson_rainey/"
+      ],
+      "knowsAbout": ["Google Ads", "PPC Management", "Digital Marketing", "Conversion Tracking"]
     },
     {
       "@type": "Person",
       "name": "Cade Maclean",
-      "jobTitle": "Co-Founder & Meta Ads Expert"
+      "jobTitle": "Co-Founder & Meta Ads Expert",
+      "sameAs": "https://www.linkedin.com/in/cademaclean/",
+      "knowsAbout": ["Meta Ads", "Facebook Advertising", "Instagram Advertising", "Data-Driven Marketing"]
     },
     {
       "@type": "Person",
@@ -72,20 +110,40 @@ export const siteSchema = {
     "mainEntity": {
       "@type": "Organization",
       "name": "Creekside Marketing",
+      "url": "https://creeksidemarketingpros.com/",
+      "sameAs": [
+        "https://www.linkedin.com/company/creekside-marketing/",
+        "https://www.youtube.com/@creeksidemarketingpros",
+        "https://www.facebook.com/creeksidemarketing1/",
+        "https://www.instagram.com/creeksidemarketingpros/"
+      ],
       "employee": [
         {
           "@type": "Person",
           "name": "Peterson Rainey",
           "jobTitle": "Co-founder & Google Ads Expert",
           "description": "A mechanical engineer by training, Peterson focuses on technical Google Ads strategy and performance data.",
-          "image": "https://creeksidemarketingpros.com/peterson-rainey-headshot.avif"
+          "image": "https://creeksidemarketingpros.com/peterson-rainey-headshot.avif",
+          "url": "https://creeksidemarketingpros.com/meet-the-team/",
+          "sameAs": [
+            "https://www.linkedin.com/in/petersonrainey/",
+            "https://www.upwork.com/freelancers/petersonrainey",
+            "https://x.com/Peterson_biz",
+            "https://www.quora.com/profile/Peterson-Rainey-2",
+            "https://medium.com/@ads_46129",
+            "https://www.threads.com/@petersonrainey"
+          ],
+          "knowsAbout": ["Google Ads", "PPC Management", "Digital Marketing", "Conversion Tracking"]
         },
         {
           "@type": "Person",
           "name": "Cade Maclean",
           "jobTitle": "Co-founder & Meta Ads Expert",
           "description": "With a background in accounting and an MBA, Cade specializes in data-driven Facebook and Instagram advertising.",
-          "image": "https://creeksidemarketingpros.com/cade-maclean-headshot.avif"
+          "image": "https://creeksidemarketingpros.com/cade-maclean-headshot.avif",
+          "url": "https://creeksidemarketingpros.com/meet-the-team/",
+          "sameAs": "https://www.linkedin.com/in/cademaclean/",
+          "knowsAbout": ["Meta Ads", "Facebook Advertising", "Instagram Advertising", "Data-Driven Marketing"]
         },
         {
           "@type": "Person",

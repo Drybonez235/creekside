@@ -3,7 +3,7 @@ title: "15 Google Ads Case Studies With Real Numbers: $2.44 CPAs, 9.74x ROAS, an
 description: "15 real Google Ads case studies with verified numbers: 26 to 413 conversions, $456K revenue on $46.8K spend, 1,050 purchases at $2.44 CPA. Full data from Creekside Marketing."
 date: "2026-08-05"
 lastModified: "2026-08-05"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "Google Ads"
 tags: ["CaseStudy", "GoogleAds", "Results", "PPC"]
 ---
@@ -24,7 +24,6 @@ tags: ["CaseStudy", "GoogleAds", "Results", "PPC"]
 > | Bankruptcy Law Firm | 2x conversions, 42% lower CPA |
 > | Source | Creekside Marketing case studies |
 
-# 15 Google Ads Case Studies With Real Numbers: $2.44 CPAs, 9.74x ROAS, and 500%+ ROI
 
 Most Google Ads case studies you find online are vague. "We increased traffic significantly" tells you nothing about what a well-managed account actually produces.
 

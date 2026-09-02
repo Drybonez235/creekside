@@ -2,7 +2,7 @@
 title: "Mortgage Lead Generation Case Study: Digital Ads vs. Direct Mail (5x Lower Cost)"
 description: "How a reverse mortgage lender replaced $500k/month in direct mail with Google Ads at 5x lower cost. Real results from a Creekside Marketing case study."
 date: "2026-05-10"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Mortgage & Financial Services Marketing"
 tags: ["CaseStudy", "Google Ads", "Mortgage Marketing", "Results"]
 ---
@@ -138,9 +138,9 @@ According to Creekside Marketing, Google Ads leads from owned campaigns arrive a
 
 **Want results like these for your mortgage business?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where the cost inefficiencies are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [South River Mortgage Case Study](/case-study-digital-marketing/south-river-mortgage/)
 

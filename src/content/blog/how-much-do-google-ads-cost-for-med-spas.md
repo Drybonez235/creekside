@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Med Spas? [2026 Real Data]"
 description: "Med spa Google Ads cost $5-$30 per click. Most owners spend $2,000-$8,000/month. Real CPC data, budget tiers, and ROI from Creekside campaigns."
 date: "2026-05-19"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["GoogleAds", "MedSpa", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "MedSpa", "CostBreakdown", "PPC"]
 | Expected ROI | 3x - 7x on ad spend |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Do Google Ads Cost for Med Spas? [2026 Real Data]
 
 Across Creekside Marketing's medical spa campaigns, Google Ads cost between $5 and $30 per click. That range is wide for a real reason: a "lip fillers near me" keyword in a mid-size Midwest market performs nothing like "botox injections" in Atlanta or Dallas. What you pay per click depends on your services, your market, and how your campaigns are structured.
 
@@ -151,15 +150,15 @@ Yes, for meaningful scale. Running all services in one campaign forces Google to
 
 ### What if I tried Google Ads before and it did not work?
 
-Most med spa Google Ads failures trace to three fixable problems: broad match keywords consuming budget on irrelevant searches, sending traffic to the homepage instead of a service-specific landing page, and tracking form fills instead of actual booked consultations. A proper audit identifies exactly where the budget went and what broke down. [Get your free Google Ads audit here](/10k-profit-audit/) and we will show you the specific breakdown for your account.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 
 **Ready to see how your med spa Google Ads stack up?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

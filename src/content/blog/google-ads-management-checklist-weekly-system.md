@@ -18,7 +18,6 @@ tags: ["Google Ads", "Account Management", "Checklist", "Campaign Optimization"]
 | Test status colors | Blue (active), Green (working), Red (failed), White (inconclusive) |
 | North star metric | Target CPA |
 
-# Stop Managing Google Ads From Memory: The Weekly Checklist System That Keeps Any Account on Track
 
 If you are managing Google Ads across more than a handful of accounts -- or if you have a freelancer sharing management duties with you -- you have probably hit the same problem. The account looks fine. But when something shifts, nobody can tell you what specifically changed, when it changed, or whether there was a test running at the time.
 
@@ -255,7 +254,7 @@ The test log means nobody has to remember what changed in a previous month and w
 
 This is how [systematic paid ads account management](/paid-ads-agency-client-onboarding-checklist/) avoids the slow performance decay that happens when decisions are made by memory -- and when the person who remembers the reasoning is no longer managing the account.
 
-Want to see how your current Google Ads account measures up against this kind of process? The [Creekside 10K Profit Audit](/10k-profit-audit/) goes through your account in detail and shows you exactly where the gaps are.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 
@@ -297,4 +296,4 @@ The test tracking section is what separates managed accounts from monitored ones
 
 ---
 
-*Peterson Rainey is the founder of Creekside Marketing, a Google Ads and Meta Ads agency managing $20M+ in annual ad spend. Creekside specializes in paid advertising for high-ticket service businesses, with a focus on accountable results, transparent reporting, and systems-driven account management. See how your account compares: [take the free 10K Profit Audit.](/10k-profit-audit/)*
+*Peterson Rainey is the founder of Creekside Marketing, a Google Ads and Meta Ads agency managing $20M+ in annual ad spend. Creekside specializes in paid advertising for high-ticket service businesses, with a focus on accountable results, transparent reporting, and systems-driven account management. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

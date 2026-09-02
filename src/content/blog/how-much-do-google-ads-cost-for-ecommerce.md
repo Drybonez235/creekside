@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for E-Commerce? [2026 Real Data]"
 description: "Google Ads for e-commerce cost $0.50-$5.00 per click. Most store owners spend $2,000-$30,000/month. Real campaign data from Creekside Marketing."
 date: "2026-06-03"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-donut.svg"
 category: "E-Commerce Marketing"
 tags: ["GoogleAds", "ECommerce", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "ECommerce", "CostBreakdown", "PPC"]
 | Expected ROAS | 3x - 10x (optimized accounts) |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Do Google Ads Cost for E-Commerce? [2026 Real Data]
 
 If you're researching how much Google Ads cost for e-commerce, here's the direct answer: across our e-commerce accounts, we see an average cost per click of $0.50 to $5.00. That range is wide because it covers everything from Shopping feed placements to high-competition branded Search keywords.
 
@@ -137,9 +136,9 @@ According to Creekside Marketing's e-commerce benchmarks, a profitable ROAS targ
 
 **Ready to see how your e-commerce Google Ads stack up?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

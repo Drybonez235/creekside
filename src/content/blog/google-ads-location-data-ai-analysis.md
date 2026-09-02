@@ -18,7 +18,6 @@ tags: ["Google Ads", "AI Workflow", "Location Targeting", "Data Analysis", "Camp
 | ROAS goal (example account) | 8x (conversion value over cost) |
 | Minimum spend before cutting a location | $80 (for a $40 average purchase price) |
 
-# The AI Method That Finds Underperforming Google Ads Locations Without Scripts or Spreadsheets
 
 Managing Google Ads location data across multiple campaigns is one of the most time-consuming parts of account management. The platform only shows location performance by campaign, which means comparing how a city or country performs across branded, unbranded, and shopping campaigns simultaneously requires pulling each view separately and reconciling them manually. We use an AI location analysis workflow in Google Ads that collapses that process from hours to minutes.
 
@@ -118,7 +117,7 @@ No. This is a diagnostic tool, not an automated exclusion system. It surfaces lo
 
 **Want to know exactly which locations are eating your Google Ads budget without delivering results?**
 
-Our free 10K Profit Audit reviews your account structure, location setup, and spend patterns. We tell you what we find. [Get your free audit at /10k-profit-audit/.](/10k-profit-audit/)
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

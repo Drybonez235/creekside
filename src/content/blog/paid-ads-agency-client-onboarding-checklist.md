@@ -2,7 +2,7 @@
 title: "From Contract Signed to Ads Live: The Exact Client Onboarding Checklist at a Paid Ads Agency"
 description: "What actually happens your first two weeks with a paid ads agency. The exact emails, forms, calls, and access steps Creekside sends every new client."
 date: "2026-07-27"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Google Ads"
 tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising", "Client Checklist"]
 ---
@@ -20,7 +20,6 @@ tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising", "Clien
 | First performance reports | After a few weeks of live data |
 | Ongoing check-in rhythm | Every 2 weeks |
 
-# From Contract Signed to Ads Live: The Exact Client Onboarding Checklist at a Paid Ads Agency
 
 Most people who hire a paid ads agency for [Google Ads](/digital-advertising/google-ads/) or [Meta Ads](/digital-advertising/meta-ads/) expect campaigns to go live within days. What actually happens is a structured two-week window of forms, calls, platform access steps, and agreements that have to complete before a single ad gets built. Skipping or rushing any part of it pushes the launch date out by the same amount.
 
@@ -294,7 +293,7 @@ Billing starts the month you sign and runs on the specific date you signed each 
 
 ---
 
-If you want to see what a structured audit of your current Google or Meta Ads account looks like before committing to anything, the [Creekside 10K Profit Audit](/10k-profit-audit/) runs through the same kind of diagnostic the team uses at the start of every new client engagement. No cost, no obligation.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

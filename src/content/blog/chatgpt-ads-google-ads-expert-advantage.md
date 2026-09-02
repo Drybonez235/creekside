@@ -2,7 +2,7 @@
 title: "ChatGPT Ads Are Coming. Here Is Why Google Ads Managers Are Already Best Positioned to Run Them."
 description: "ChatGPT is launching ads in its free tier. Google already runs them next to AI overviews. Here is why your Google Ads manager is the right person for the job."
 date: "2026-07-31"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "Google Ads"
 tags: ["ChatGPT Ads", "Google Ads", "AI Advertising", "Paid Search"]
 ---
@@ -17,7 +17,6 @@ tags: ["ChatGPT Ads", "Google Ads", "AI Advertising", "Paid Search"]
 | Expected ChatGPT CPCs vs. established platforms | Significantly lower at launch (new platform discount) |
 | Best qualified to run ChatGPT ads | Google Ads managers with existing AI-adjacent ad experience |
 
-# ChatGPT Ads Are Coming. Here Is Why Google Ads Managers Are Already Best Positioned to Run Them.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [ChatGPT Ads Explained](https://www.youtube.com/watch?v=i4LC2rxQBRw).
 
@@ -131,11 +130,11 @@ Google uses Gemini conversation data to influence who sees ads and who is most l
 
 ## Ready to Build the Google Ads Foundation That Sets You Up for What Is Coming?
 
-The businesses that will win on ChatGPT ads are the ones running effective Google Ads today. If you want to know whether your current paid ads strategy is positioned to scale into new channels, our [free $10K Profit Audit](/10k-profit-audit/) will show you exactly where you stand.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 We review your Google Ads account, identify the gaps costing you money now, and map out what it takes to be ready when ChatGPT ads go live.
 
-[Claim Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

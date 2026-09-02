@@ -2,7 +2,7 @@
 title: "Three Things Nobody Warned Me About Before Starting a Paid Ads Agency"
 description: "Running a paid ads agency is genuinely great, but these three realities blindside most people who start one. Here's what to expect."
 date: "2026-08-19"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "Google Ads"
 tags: ["Agency Ownership", "Client Management", "Paid Ads", "Google Ads"]
 ---
@@ -23,7 +23,6 @@ tags: ["Agency Ownership", "Client Management", "Paid Ads", "Google Ads"]
 
 ---
 
-# Three Things Nobody Warned Me About Before Starting a Paid Ads Agency
 
 I co-founded Creekside Marketing to run paid media for businesses at a level most in-house teams cannot match, based on $20M+ in managed ad spend across Google and Meta. Agency ownership is genuinely great. I mean that. But there are three things that kept showing up that nobody in a course, a podcast, or a "how I built a seven-figure agency" thread actually prepared me for.
 
@@ -109,9 +108,9 @@ The clearest signal is how they respond when you describe the operating model. A
 
 ## Ready to Know Exactly Where Your Ad Account Stands?
 
-If you are managing paid ads yourself, or wondering whether your current agency is actually delivering, the clearest starting point is a structured look at the account. Creekside Marketing offers a no-obligation $10K Profit Audit: we go through your Google or Meta account and show you exactly what is working, what is not, and what the realistic upside looks like.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Request your free $10K Profit Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 No pitch. No obligation. Just the numbers.
 

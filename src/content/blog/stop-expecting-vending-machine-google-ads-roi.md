@@ -2,7 +2,7 @@
 title: "Stop Expecting a Vending Machine: Why Google Ads ROI Compounds Over Time"
 description: "Most businesses treat Google Ads like a vending machine. Here's why that mindset kills accounts and what actually drives compounding Google Ads ROI."
 date: "2026-07-15"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Google Ads"
 tags: ["GoogleAds", "PPC", "ROI", "AdStrategy"]
 ---
@@ -81,7 +81,7 @@ After managing $20M+ in ad spend across Google and Meta, the pattern in accounts
 
 The accounts that struggle most have usually cycled through agencies and never cleared the expensive early months where every campaign starts. Every time they reset, they start the learning clock over. The data portfolio they began building never gets to mature.
 
-If your Google Ads feel like they are not working, the right question is not "is this the wrong machine?" It is "have we given this enough runway for the data to compound?" We answer that question directly in a free audit of your current account. You can request one at the [Creekside 10K Profit Audit page](/10k-profit-audit/), and we will tell you exactly where your data gaps are and what it would realistically take to close them.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ## Common Questions About Google Ads ROI and the Investment Timeline
 
@@ -111,4 +111,4 @@ The distinction is structural versus temporal. Structural problems (broken conve
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He works with businesses that want a paid advertising partner who will tell them what is actually happening in their account, not what they want to hear. [Request a free Google Ads audit](/10k-profit-audit/) to get an honest read on where your account stands and what it would take to compound your way to strong ROI.
+Peterson Rainey is the founder of Creekside Marketing, where the team manages $20M+ in paid ad spend across Google Ads and Meta Ads. He works with businesses that want a paid advertising partner who will tell them what is actually happening in their account, not what they want to hear. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

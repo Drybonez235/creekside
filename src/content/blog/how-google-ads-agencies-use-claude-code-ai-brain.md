@@ -3,7 +3,7 @@
 title: "How We Built an AI Brain for Our Google Ads Agency Using Claude Code"
 description: "A behind-the-scenes look at how Creekside Marketing built an AI-powered agency brain using Claude Code, GitHub, and Supabase to manage Google Ads operations."
 date: "2026-07-16"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 ---
@@ -19,7 +19,6 @@ tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 | Operational data | Supabase |
 | Working directory | Creekside Workspace folder |
 
-# How We Built an AI Brain for Our Google Ads Agency Using Claude Code
 
 Most Google Ads agencies pile their institutional knowledge into shared drives and hope the right team member finds the right document at the right time. We built something different.
 
@@ -116,7 +115,7 @@ According to the video: "Whenever you need to do something new, just come new se
 
 Based on Creekside Marketing's analysis across $20M in managed ad spend, agencies that scale consistently invest in systematic infrastructure rather than relying on individual team members to carry institutional knowledge in their heads. The Creekside Brain is how we make that infrastructure accessible to every person on the team.
 
-If you want to know what a properly structured Google Ads operation could do for your campaigns, our [free 10K Profit Audit](/10k-profit-audit/) identifies the specific gaps in your current setup and shows exactly what it would take to fix them.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

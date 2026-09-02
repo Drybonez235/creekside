@@ -2,7 +2,7 @@
 title: "How to Use Dynamic Headlines in Google Ads to Increase Relevance and Click-Through Rate"
 description: "Learn how to use Dynamic Keyword Insertion and Location Insertion to make your Google Ads feel hyper-personalized and boost your Ad Strength automatically."
 date: "2026-01-15"
-image: "" #"dynamic-headlines-google-ads-relevance-click-through-rate"
+image: "article-images/blog-card-donut.svg" #"dynamic-headlines-google-ads-relevance-click-through-rate"
 category: "Search & Keyword Optimization"
 tags: ["GoogleAds", "SearchCampaigns", "Tutorial", "Scalability"]
 ---

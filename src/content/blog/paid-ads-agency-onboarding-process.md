@@ -2,7 +2,7 @@
 title: "Before Your Agency Touches a Single Ad: What a Real Paid Ads Agency Onboarding Process Looks Like"
 description: "Most agencies skip straight to spending. Here is the 3-phase paid ads agency onboarding process we run before touching a single dollar of your budget."
 date: "2026-07-21"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "Google Ads"
 tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising"]
 ---
@@ -17,7 +17,6 @@ tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising"]
 | Onboarding phases | 3 (audit, 90-day plan, monitoring) |
 | Monitoring frequency | Daily, sometimes twice daily |
 
-# Before Your Agency Touches a Single Ad: What a Real Paid Ads Agency Onboarding Process Looks Like
 
 Most paid ads agency onboarding looks like this: you hand over account access, someone runs a few initial checks, and campaigns go live within days. That feels like momentum. What it actually is is budget being spent before anyone has a clear picture of what is happening in your account, what is broken, and what needs to be fixed before optimization work even begins.
 
@@ -149,7 +148,7 @@ Peterson focuses on [Google Ads](/digital-advertising/google-ads/) and Cade focu
 
 ---
 
-If you want a free audit of your current Google or Meta Ads account, you can apply through the [Creekside 10K Profit Audit](/10k-profit-audit/). We run through the same structured checklist described in this post and document exactly what we would change before recommending any budget decisions.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

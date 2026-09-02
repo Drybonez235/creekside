@@ -2,7 +2,7 @@
 title: "Facebook Ads for Meal Prep Companies: How to Scale in 2026"
 description: "Facebook Ads for meal prep companies: how to scale. Real benchmarks and campaign structures from Creekside's $20M+ in managed ad spend."
 date: "2026-06-01"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Meal Prep & Food Delivery Marketing"
 tags: ["MetaAds", "FacebookAds", "MealPrep", "LeadGeneration"]
 ---
@@ -193,7 +193,7 @@ According to Creekside Marketing's account management data, meal prep ad sets re
 
 Whether you are starting from scratch or optimizing underperforming campaigns, we will show you exactly where the opportunities are in your market.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

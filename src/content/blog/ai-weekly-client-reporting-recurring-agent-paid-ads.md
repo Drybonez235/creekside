@@ -2,7 +2,7 @@
 title: "How We Rebuilt Weekly Client Reporting with AI and Turned It Into a Recurring Agent"
 description: "Our paid ads team used Claude to transform a manual weekly client report into an AI agent. Here's the step-by-step process we actually ran."
 date: "2026-07-12"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-target.svg"
 category: "Google Ads"
 tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 ---
@@ -17,7 +17,6 @@ tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 | Goal | Weekly recurring agent with zero manual rebuild each run |
 | Source | [Creekside YouTube channel, July 2026](https://www.youtube.com/watch?v=Npz5bl9-FKw) |
 
-# How We Rebuilt Weekly Client Reporting with AI and Turned It Into a Recurring Agent
 
 If your paid ads agency handles reporting the way most do, it is a weekly production: pull the numbers, format them, write the context, send. Every week, largely from scratch. We recently applied AI for client reporting in a fundamentally different way, and the result changed how we think about the whole function.
 
@@ -148,7 +147,7 @@ Lindsey's demonstration shows what that looks like in a real paid ads agency: st
 
 For agencies managing multiple accounts, this approach scales in a way that manual reporting does not. The setup cost is front-loaded. The ongoing cost is a weekly review. The time saved compounds across every account that runs on a configured agent.
 
-If you want to understand what your paid ads accounts are actually telling you before investing in process changes, [get a free 10K Profit Audit from Creekside Marketing](/10k-profit-audit/). We will look at your accounts, your reporting structure, and where the gaps are between what your data shows and what your clients are seeing.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 For more on how we run our paid ads operation, read [Inside a $20M Paid Ads Operation: How Specialists, Tracking, and Audits Drive ROI](/blog/inside-a-20m-paid-ads-operation-how-specialists-tracking-and-audits-drive-roi/) and [How We Build a Full Digital Marketing Strategy in Minutes](/blog/how-we-build-a-full-digital-marketing-strategy-in-minutes-seo-google-ads-and-paid-social/).
 

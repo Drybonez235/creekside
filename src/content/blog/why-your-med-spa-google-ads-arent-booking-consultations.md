@@ -2,7 +2,7 @@
 title: "Why Your Med Spa Google Ads Aren't Booking Consultations (And How to Fix It)"
 description: "6 root causes killing your med spa Google Ads performance, with real audit data and specific fixes from Creekside Marketing."
 date: "2026-05-26"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["GoogleAds", "MedSpa", "Audit", "Optimization"]
 ---
@@ -141,9 +141,9 @@ Effective med spa Google Ads accounts typically require $2,000-$8,000 per month 
 
 **Want to know exactly where your med spa Google Ads budget is going?**
 
-Our free audit checks 87 criteria across your account structure, keywords, ads, landing pages, and conversion tracking. You get a full report with specific recommendations -- no generic advice, no sales pitch, just the data on your actual account.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free 87-Point Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

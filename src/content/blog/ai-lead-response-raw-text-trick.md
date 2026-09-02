@@ -2,7 +2,7 @@
 title: "The Raw Text Trick: Why Your AI Lead Response Drafts Sound Generic (And the Two-Instruction Fix)"
 description: "Why AI-drafted lead follow-ups sound generic and the two specific instructions Creekside uses to draft specific, credible responses from the agency brain."
 date: "2026-07-19"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Lead Response", "Google Ads"]
 ---
@@ -17,7 +17,6 @@ tags: ["AI Tools", "Agency Operations", "Lead Response", "Google Ads"]
 | Upwork follow-ups | SDR agent handles primary Upwork response |
 | Style matching | Dedicated Peterson writing-style agent |
 
-# The Raw Text Trick: Why Your AI Lead Response Drafts Sound Generic (And the Two-Instruction Fix)
 
 Most operators who try AI for lead response drafting hit the same wall: the output is technically a follow-up message, but it sounds like no one specific wrote it. It does not reference anything concrete from prior conversations, it does not match the account manager's voice, and it reads like it was assembled from search results about how to write a follow-up email.
 
@@ -143,7 +142,7 @@ Yes. Pulling 90 days of raw text from call transcripts, campaign notes, and inte
 
 Based on Creekside Marketing's analysis across $20M in managed ad spend, agencies that retain clients longest respond faster and with more specific context than their competitors. The Creekside Brain is the system we built to make that possible at scale, across every team member and every communication platform.
 
-If you want to know what a properly built paid advertising operation could do for your campaigns, our [free 10K Profit Audit](/10k-profit-audit/) identifies the specific gaps in your current setup and shows exactly what it would take to close them.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

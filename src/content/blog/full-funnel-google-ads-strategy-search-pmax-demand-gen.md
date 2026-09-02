@@ -17,7 +17,6 @@ tags: ["Google Ads", "Performance Max", "Demand Gen", "Full Funnel", "Lead Gener
 | Demand Gen Retargeting | Mid | Max Clicks | Recapture site visitors |
 | Demand Gen Lookalike | Top | Max Conversions | New audience reach |
 
-# Search, Performance Max, and Demand Gen in One Account: The Full-Funnel Google Ads Strategy That Compounds Results
 
 *This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Full-Funnel Google Ads Strategy | Search, Performance Max & Demand Gen](https://www.youtube.com/watch?v=T4jHaEjfu6A). Watch the full account walkthrough for the visual breakdown.*
 
@@ -138,7 +137,7 @@ Yes. Without a brand name exclusion, Performance Max claims credit for branded c
 
 If your Google Ads account has been running for over a year and you are still operating a single Search campaign, you are leaving performance on the table. The full-funnel structure described here is what we build for established lead gen clients at Creekside Marketing, based on managing over $20M in ad spend across accounts at every stage of maturity.
 
-[Request a $10K Profit Audit from Creekside Marketing](/10k-profit-audit/) to find out exactly what a full-funnel rebuild would look like for your specific account and budget.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

@@ -2,7 +2,7 @@
 title: "How to Stop AI Agent Hallucinations: The Raw Text Method We Use at Our Google Ads Agency"
 description: "Learn how our Google Ads agency stops AI agent hallucinations using the raw text method, plus how to run four autonomous Claude Code agents simultaneously."
 date: "2026-07-18"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 ---
@@ -16,7 +16,6 @@ tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 | Platforms stored in Supabase | 5+ (ClickUp, Email, Fathom, Google Drive, Google Chat) |
 | Search methods available | 2 (Semantic AI + Keyword Python) |
 
-# How to Stop AI Agent Hallucinations: The Raw Text Method We Use at Our Google Ads Agency
 
 AI agent hallucinations are one of the least-discussed problems in marketing operations, and one of the most damaging. When an AI agent gives you a confident answer about a client's campaign history that turns out to be wrong, you do not catch it until the client is asking questions on a call.
 
@@ -106,7 +105,7 @@ Most agencies using AI are carrying a hallucination risk they have not isolated 
 
 The raw text method does not require new tooling or a different AI model. It requires a retrieval discipline: find via summary, answer from source. Never let the AI synthesize from its own summary when the output involves a fact that matters. Apply that rule consistently, add citations as a standard requirement, and most hallucination risk disappears.
 
-If you want to see how we apply AI-integrated operations to Google Ads account management, the [Profit Audit](/10k-profit-audit/) is where we identify specifically where most ad accounts are losing money in their current setup.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

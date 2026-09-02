@@ -2,7 +2,7 @@
 title: "Meal Prep Facebook Ads Case Study: 20x ROAS and 3 New Markets"
 description: "How a Dallas meal prep brand hit 20x ROAS and expanded into 3 Texas markets at $10 CPA using Meta Ads. A Creekside Marketing case study."
 date: "2026-05-31"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Meal Prep & Food Delivery Marketing"
 tags: ["CaseStudy", "MetaAds", "MealPrep", "Results"]
 ---
@@ -20,7 +20,6 @@ tags: ["CaseStudy", "MetaAds", "MealPrep", "Results"]
 > - **Platform**: Meta Ads (Facebook and Instagram)
 > - **Source**: Creekside Marketing case study
 
-# Meal Prep Facebook Ads Case Study: 20x ROAS and 3 New Markets
 
 Every meal prep Facebook ads case study worth reading starts with a real number. Ours is 20x return on ad spend, sustained at 13.45x average before peaking at 20x in the most recent reporting period. Not a trial run. Not a single lucky month. A result built on a repeatable system that we then deployed in three brand-new Texas markets, each of which turned profitable within 30 days.
 
@@ -111,9 +110,9 @@ According to Creekside Marketing, the distinction between Facebook and Instagram
 
 **Want results like these for your meal prep business?**
 
-We start every engagement with a free audit. We review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [Punch Drunk Chef Case Study](/case-study-digital-marketing/punch-drunk-chef/)
 

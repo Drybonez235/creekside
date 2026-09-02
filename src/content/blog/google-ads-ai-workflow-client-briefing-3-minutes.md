@@ -2,7 +2,7 @@
 title: "How Our Google Ads Specialist Uses AI to Get Client-Ready in 3 Minutes"
 description: "The exact AI workflow a Creekside Marketing Google Ads specialist uses daily: 3-5 minute client briefings, automated reporting, and ad copy at 90% accuracy."
 date: "2026-07-13"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Google Ads"
 tags: ["GoogleAds", "AI", "AgencyWorkflow", "PPC"]
 ---
@@ -88,7 +88,7 @@ What it does: it buys the specialist back hours per week that previously went to
 
 The prerequisite is having all your client communication and account data flowing into a unified system the AI can query. Discovery call transcripts, internal team discussions, client emails, Google Ads account performance data. If those sources are scattered across separate tools with no unified access layer, the AI has nothing reliable to pull from, and every metric Ahmad described becomes much harder to replicate.
 
-If you want to see what a structured, expert review of your Google Ads account actually uncovers, our [free 10K Profit Audit](/10k-profit-audit/) is a no-cost starting point for finding where your account has room to improve.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 
@@ -122,4 +122,4 @@ All client communication needs to be captured somewhere the AI can query: call r
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, a Google Ads and Meta Ads agency that manages $20M+ in ad spend across clients in home services, law, healthcare, e-commerce, and SaaS. To get an expert review of your Google Ads account, start with the [free 10K Profit Audit](/10k-profit-audit/).
+Peterson Rainey is the founder of Creekside Marketing, a Google Ads and Meta Ads agency that manages $20M+ in ad spend across clients in home services, law, healthcare, e-commerce, and SaaS. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

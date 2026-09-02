@@ -2,7 +2,7 @@
 title: "Why Your Law Firm Google Ads Are Wasting Money (And How to Fix It)"
 description: "6 structural mistakes that waste law firm Google Ads budgets. Real data from legal PPC audits, with specific fixes for each problem."
 date: "2026-05-15"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Legal Marketing"
 tags: ["GoogleAds", "Legal", "Audit", "Optimization"]
 ---
@@ -117,9 +117,9 @@ For benchmarks on what well-structured legal Google Ads campaigns produce in ter
 
 **Want to know exactly where your law firm Google Ads budget is going?**
 
-Our free audit checks 87 criteria across your account structure, keywords, ads, landing pages, and conversion tracking. You get a full report with specific recommendations and no obligation.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free 87-Point Legal Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

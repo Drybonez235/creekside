@@ -2,7 +2,7 @@
 title: "69,000 Search Terms, 10 Minutes: The AI Negative Keyword Workflow for Google Shopping Campaigns"
 description: "How we use Claude to analyze tens of thousands of Google Ads search terms, catch wasted spend, and build a clean negative keyword list in about 10 minutes."
 date: "2026-07-29"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Negative Keywords", "AI Tools", "Google Shopping", "Search Terms"]
 ---
@@ -17,7 +17,6 @@ tags: ["Google Ads", "Negative Keywords", "AI Tools", "Google Shopping", "Search
 | Wasted spend identified | ~$300 (4-month period) |
 | AI tool used | Claude (preferred for data analytics tasks) |
 
-# 69,000 Search Terms, 10 Minutes: The AI Negative Keyword Workflow for Google Shopping Campaigns
 
 Every Google Ads practitioner knows the pain of manually reviewing search terms. Hundreds of rows in a small account. Thousands in a mid-size one. Tens of thousands in a shopping campaign that has been running for a year. The standard approach is to filter by spend, review the top rows, and skip the rest. It works, but it leaves money on the table every single week.
 
@@ -98,10 +97,10 @@ Break it into segments. Filter to the top 1,000 by spend, or use a shorter date 
 
 Based on $20M+ in managed ad spend, the most consistent source of preventable waste in shopping campaigns is unmanaged search term expansion. It goes unmanaged because the volume makes manual weekly review impractical. This AI workflow removes that constraint. About 10 minutes of setup, a quick review pass before each import, and at most $5 in AI usage identified $300 in preventable spend on a single account over four months.
 
-If you want to see what this kind of analysis looks like applied to your specific account, we offer a [free Google Ads profit audit](/10k-profit-audit/) that includes a search term review alongside the full account analysis.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, a paid advertising agency managing $20M+ in Google and Meta ad spend. Creekside works with ecommerce brands, professional services firms, and local businesses to build paid advertising systems that scale without wasting budget. [Request a free Google Ads profit audit](/10k-profit-audit/).
+Peterson Rainey is the founder of Creekside Marketing, a paid advertising agency managing $20M+ in Google and Meta ad spend. Creekside works with ecommerce brands, professional services firms, and local businesses to build paid advertising systems that scale without wasting budget. He also writes a weekly newsletter with lessons from the accounts Creekside manages. [Subscribe here](/newsletter/).

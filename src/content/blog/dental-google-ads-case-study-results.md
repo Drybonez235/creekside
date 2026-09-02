@@ -2,7 +2,7 @@
 title: "Dental Google Ads Case Study Results: 500%+ ROI and $200k in Monthly Revenue"
 description: "Real dental Google Ads case study results: 26 to 413 conversions at 500%+ ROI, plus $200k/month added in 90 days. Real data from Creekside Marketing."
 date: "2026-05-05"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Dental Marketing"
 tags: ["CaseStudy", "GoogleAds", "Dental", "Results"]
 ---
@@ -22,7 +22,6 @@ tags: ["CaseStudy", "GoogleAds", "Dental", "Results"]
 > | Platform | Google Ads (+ Meta Ads for the cosmetic practice) |
 > | Source | Creekside Marketing case studies |
 
-# Dental Google Ads Case Study Results: 500%+ ROI and $200k in Monthly Revenue
 
 Most dental practices running Google Ads are either spending too much for too little, or not running ads at all because they assume it won't work. These two dental Google Ads case study results from Creekside Marketing tell a different story.
 
@@ -127,9 +126,9 @@ For practices with budgets above $3,000 per month, running both platforms produc
 
 **Want results like these for your dental practice?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or explore how we approach paid advertising: [Google Ads Management](/digital-advertising/google-ads/) | [Meta Ads Management](/digital-advertising/meta-ads/)
 

@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Home Service Companies? [2026 Real Data]"
 description: "Real Google Ads cost data for home service companies: $3-$25/click, $1K-$5K/month budgets, 10-20% conversion rates. From Creekside Marketing's campaigns."
 date: "2026-05-18"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Home Services Marketing"
 tags: ["GoogleAds", "HomeServices", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "HomeServices", "CostBreakdown", "PPC"]
 | Expected ROI | 3x - 10x return on ad spend |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Do Google Ads Cost for Home Service Companies? [2026 Real Data]
 
 Across our home services portfolio, we see an average cost per click ranging from $3 to $25. But that number alone tells you almost nothing useful about how much Google Ads cost for home service companies -- because a lawn care company in Tennessee and an HVAC contractor in Phoenix are playing two completely different games.
 
@@ -174,9 +173,9 @@ Google Ads should come first for most home service businesses, since search inte
 
 **Ready to see how your home services Google Ads stack up?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

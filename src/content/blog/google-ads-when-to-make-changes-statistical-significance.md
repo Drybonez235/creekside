@@ -2,7 +2,7 @@
 title: "When to Make Changes in Google Ads: Why 27 Clicks Is the Wrong Sample Size (And What Is Right)"
 description: "Most managers cut time slots and locations on thin data. Here is the 2x-3x click rule we use to know when a segment has had enough chances to convert."
 date: "2026-08-08"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Campaign Optimization", "Statistical Significance", "Ad Schedule", "Google Ads Management"]
 ---
@@ -19,7 +19,6 @@ tags: ["Google Ads", "Campaign Optimization", "Statistical Significance", "Ad Sc
 | Virginia at 70 clicks, 0 conversions | Excluded |
 | Massachusetts at ~60 clicks, 1 conversion | Kept (near expected performance) |
 
-# When to Make Changes in Google Ads: Why 27 Clicks Is the Wrong Sample Size (And What Is Right)
 
 Knowing when to make changes in Google Ads is not about spotting a segment with zero conversions. It is about knowing whether those zero conversions are statistically meaningful or just the result of not enough data.
 
@@ -122,11 +121,11 @@ High CPA on a thin sample is expected and not reliable as an exclusion signal on
 
 ---
 
-## Ready to Audit How Your Account Is Being Optimized?
+## Want More Like This?
 
-Premature optimization is one of the hardest problems to spot from inside an account because each individual exclusion looks like a decision, not a mistake. We offer a no-cost account review that identifies where campaigns have been restricted on thin data and what that has cost in volume.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Claim your free $10k profit audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

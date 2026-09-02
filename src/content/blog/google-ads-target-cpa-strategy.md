@@ -2,7 +2,7 @@
 title: "Target CPA in Google Ads: Why You Never Start at Your Goal and What to Do Instead"
 description: "Most advertisers set tCPA to their goal and tank their campaigns. Here is the correct implementation process, step by step, using real account data."
 date: "2026-08-15"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Target CPA", "Bidding Strategy", "Campaign Optimization", "Smart Bidding"]
 ---
@@ -234,7 +234,7 @@ When multiple consecutive step-down cycles fail to produce further CPA improveme
 
 ## Is Your tCPA Implementation Costing You Leads?
 
-If you are unsure whether your current bidding setup is correct, or if a previous tCPA rollout went sideways and you have been running manual CPC ever since, the [10K Profit Audit](/10k-profit-audit/) is where to start. We look at bidding strategy setup, conversion data quality, and account structure to find where tCPA can improve efficiency and where other changes need to happen first. It is free, it takes about 15 minutes, and it regularly surfaces bidding issues that have been quietly driving up CPA for months.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

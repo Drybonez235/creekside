@@ -24,7 +24,6 @@ This post is based on Part 2 of the Creekside Marketing Google Ads series. You c
 
 ---
 
-# The Google Ads 90-Day Bid Strategy Ladder: When to Switch from Max Clicks to Target CPA
 
 The most common reason a new Google Ads campaign fails is a premature bid strategy switch. A freelancer or a business owner gets four or five conversions in the first couple of weeks, switches to Maximize Conversions, and then watches the campaign stall, CPCs spike, and performance collapse with no clean path back. Starting over is often the only viable option at that point.
 
@@ -271,7 +270,7 @@ The broad structure applies, but conversion volume thresholds are often reached 
 
 ## Get a Second Opinion on Your Campaign Structure
 
-If your campaigns are stuck somewhere in this progression and you are not sure whether to switch bid strategies, add PMAX, or adjust your CPA targets, the [free $10K profit audit](/10k-profit-audit/) gives you a specific diagnosis based on your actual account. We look at your bid strategy timing, data thresholds, and campaign structure and tell you exactly what needs to change and why. No obligation.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

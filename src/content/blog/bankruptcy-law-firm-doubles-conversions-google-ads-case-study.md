@@ -2,7 +2,7 @@
 title: "Bankruptcy Law Firm Doubles Conversions with Google Ads: A Case Study"
 description: "How a bankruptcy law firm doubled conversions from 117 to 229 with Google Ads -- and cut cost per lead 42% to $50.29 -- through campaign restructuring."
 date: "2026-05-16"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "Legal Marketing"
 tags: ["CaseStudy", "GoogleAds", "Legal", "Results"]
 ---
@@ -18,7 +18,6 @@ tags: ["CaseStudy", "GoogleAds", "Legal", "Results"]
 > - **Platform**: Google Ads
 > - **Source**: Creekside Marketing case study
 
-# Bankruptcy Law Firm Doubles Conversions with Google Ads: A Case Study
 
 Most bankruptcy law firms running Google Ads share the same problem: paying too much per lead while volume stays flat. A bankruptcy law firm doubles conversions with Google Ads when campaign structure matches where demand actually concentrates -- segmented by intent type and geography rather than blended across every market and keyword. This case study breaks down exactly how we restructured campaigns for a bankruptcy law firm in Orange County, CA, turning an underperforming account into one that delivered 229 conversions at $50.29 each -- a 42% cost reduction on nearly double the volume.
 
@@ -114,9 +113,9 @@ According to Creekside Marketing's restructuring framework, a bankruptcy law fir
 
 **Want results like these for your law firm?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where budget is leaking and where the opportunity is. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [Winterbotham Parham Teeple: Bankruptcy Law Firm Doubles Conversions](/case-study-digital-marketing/winterbotham-parham-teeple/)
 

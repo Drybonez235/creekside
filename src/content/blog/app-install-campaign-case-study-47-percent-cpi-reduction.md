@@ -2,7 +2,7 @@
 title: "App Install Campaign Case Study: 47% CPI Reduction with Meta Ads"
 description: "How Creekside Marketing drove 2,662 app installs and cut cost per install 47% for a mobile app, from $7.36 to $3.90, using Meta Ads."
 date: "2026-06-08"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "SaaS & Apps Marketing"
 tags: ["CaseStudy", "MetaAds", "AppInstalls", "Results"]
 ---
@@ -19,7 +19,6 @@ tags: ["CaseStudy", "MetaAds", "AppInstalls", "Results"]
 > - **Platform**: Meta Ads
 > - **Source**: Creekside Marketing case study
 
-# App Install Campaign Case Study: 47% CPI Reduction with Meta Ads
 
 2,662 app installs. Cost per install cut from $7.36 to $3.90. A client who voluntarily increased their monthly ad budget by 75% because the results earned it. This app install campaign case study documents what a 47% CPI reduction looks like in practice, not in theory, and breaks down exactly why it happened.
 
@@ -123,9 +122,9 @@ According to Creekside Marketing, Meta Ads is the primary channel for B2C app in
 
 **Want app install results like these?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where your cost per install is higher than it should be. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [Birthday Club App: 2,662 Installs and 47% CPI Reduction](/case-study-digital-marketing/birthday-club-app/)
 

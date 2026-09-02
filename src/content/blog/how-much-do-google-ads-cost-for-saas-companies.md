@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for SaaS Companies? [2026 Real Data]"
 description: "Google Ads for SaaS companies cost $2-$15 per click. Most SaaS founders spend $3,000-$20,000/month. Real campaign data from Creekside Marketing."
 date: "2026-06-07"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "SaaS & Apps Marketing"
 tags: ["GoogleAds", "SaaS", "CostBreakdown", "PPC"]
 ---
@@ -144,9 +144,9 @@ According to Creekside Marketing's SaaS campaign data, cost per lead runs $80-$3
 
 **Ready to see exactly how your SaaS Google Ads stack up?**
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

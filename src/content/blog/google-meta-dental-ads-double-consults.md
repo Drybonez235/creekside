@@ -2,7 +2,7 @@
 title: "The Google and Meta Dental Ad Strategy That Doubled Monthly Consults Without Increasing Spend"
 description: "How we doubled a cosmetic dental practice's monthly consultations using a Google and Meta split strategy without touching their $100K+ monthly ad budget."
 date: "2026-07-22"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-target.svg"
 category: "Google Ads"
 tags: ["GoogleAds", "MetaAds", "DentalMarketing", "CosmeticDentistry", "PaidAds"]
 ---
@@ -21,7 +21,6 @@ tags: ["GoogleAds", "MetaAds", "DentalMarketing", "CosmeticDentistry", "PaidAds"
 | Average Veneer Case Value | $15,000 |
 | Value Per Booked Consultation | $7,500 |
 
-# The Google and Meta Dental Ad Strategy That Doubled Monthly Consults Without Increasing Spend
 
 Most dental practices running paid ads are making the same structural mistake: they treat Google Ads and Meta Ads as two separate campaigns that happen to share an ad budget. There is no connection between them. Neither platform is set up to build on what the other one does. And the result is a performance ceiling you cannot break through by simply adding more spend.
 
@@ -129,7 +128,7 @@ This practice hit more than doubled consultation volume by the second month of t
 
 **What does ad management for a combined Google and Meta dental campaign cost?**
 
-Management fees depend on ad spend and performance structure. The [free $10K profit audit](/10k-profit-audit/) includes a full review of your current ad setup, an estimate of the gap between current performance and what the restructured strategy could produce, and a clear picture of what management would cost for your specific practice and budget level.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 **Is this strategy specific to veneers, or does it work for other high-value cosmetic procedures?**
 
@@ -141,7 +140,7 @@ Doubling consultations for this high-end cosmetic dental practice without increa
 
 Meta generates demand at the top of the funnel. Google captures the intent that Meta created at the bottom. The practice team sorts the pipeline for qualified patients. And when each consultation is worth $7,500 at a $15,000 case value and 50% close rate, the economics of that system compound into significant revenue without requiring additional budget.
 
-If you want to see what this looks like for your specific numbers, [start with the free $10K profit audit](/10k-profit-audit/). We will review your current setup and show you the gap between what you are spending and what a coordinated Google and Meta strategy could produce.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 For more on running Meta Ads specifically for dental practices, see our breakdown of [what actually works for Facebook Ads for dentists](/blog/facebook-ads-for-dentists-what-actually-works/).
 

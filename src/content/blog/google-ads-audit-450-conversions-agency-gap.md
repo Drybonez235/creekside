@@ -2,7 +2,7 @@
 title: "The Google Ads Audit That Revealed Why One Agency Got 450 Conversions and the Next Got Zero"
 description: "A real Google Ads audit walkthrough: 7 findings that explain a 22x CPC gap, broken conversion tracking, and how to recover a struggling inherited account."
 date: "2026-08-07"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Performance Max", "Google Ads Audit", "Quality Score", "Conversion Tracking"]
 ---
@@ -23,7 +23,6 @@ tags: ["Google Ads", "Performance Max", "Google Ads Audit", "Quality Score", "Co
 | New agency starting target CPA | $40 |
 | Quality score gap | 10/10 (previous) vs. below average (new) |
 
-# The Google Ads Audit That Revealed Why One Agency Got 450 Conversions and the Next Got Zero
 
 When a new agency inherits a Google Ads account that was producing results, the instinct is to start fresh. New campaign structure, tighter geographic targeting, more refined bidding. All of it feels like an upgrade.
 
@@ -134,7 +133,7 @@ Based on Creekside Marketing's analysis across $20M+ in managed ad spend, the fo
 
 When a Google Ads account takes a performance hit after an agency transition or a campaign rebuild, the answer is usually not a new strategy. It is identifying the specific settings that changed, understanding what each change costs, and going back to what worked before adding improvements.
 
-If your account is running Google Ads and not hitting its numbers, we offer a [$10K Profit Audit](/10k-profit-audit/) that applies the same structured diagnostic. It is the same process covered here, applied to your specific account.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

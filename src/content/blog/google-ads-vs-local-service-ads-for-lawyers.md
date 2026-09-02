@@ -2,7 +2,7 @@
 title: "Google Ads vs Local Service Ads for Lawyers: Which Drives Better Results?"
 description: "Google Ads vs Local Service Ads for lawyers: real campaign data on costs, lead quality, and ROI. See which channel drives better results."
 date: "2026-05-13"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Legal Marketing"
 tags: ["GoogleAds", "LocalServiceAds", "LegalMarketing", "Comparison"]
 ---
@@ -133,9 +133,9 @@ LSAs work best for practice areas with clear consumer search categories: persona
 
 **Not sure which channel is right for your law firm?**
 
-We run both Google Ads and Local Service Ads for law firms every day. A free audit will show you exactly where your best lead opportunities are, what your cost per signed case could realistically look like, and how your current setup compares to what is working in your market.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

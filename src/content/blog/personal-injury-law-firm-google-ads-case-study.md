@@ -2,7 +2,7 @@
 title: "Personal Injury Law Firm Google Ads Case Study: 50+ Signed Cases in 4 Months"
 description: "A personal injury law firm Google Ads case study with real numbers: 50+ signed cases, $621 lowest CPA, and a new office opened. See how Creekside did it."
 date: "2026-05-11"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Legal Marketing"
 tags: ["CaseStudy", "Google Ads", "Legal", "Results"]
 ---
@@ -19,7 +19,6 @@ tags: ["CaseStudy", "Google Ads", "Legal", "Results"]
 > - **Timeframe**: 4 to 6 months
 > - **Source**: Creekside Marketing
 
-# Personal Injury Law Firm Google Ads Case Study: 50+ Signed Cases in 4 Months
 
 This personal injury law firm Google Ads case study documents what happened when an Arizona PI firm stopped optimizing for lead volume and started optimizing for signed cases. According to Creekside Marketing, the multi-channel paid advertising campaign generated 50+ signed cases in four months, hit a cost-per-case as low as $621, and delivered enough consistent revenue to fund a sixth office expansion.
 
@@ -111,9 +110,9 @@ According to Creekside Marketing, most competitive legal markets require a minim
 
 **Want results like these for your law firm?**
 
-Every engagement starts with a free audit. We will review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Full case studies: [Big Chad Law](/case-study-digital-marketing/big-chad-law/) | [Winterbotham Parham Teeple](/case-study-digital-marketing/winterbotham-parham-teeple/)
 

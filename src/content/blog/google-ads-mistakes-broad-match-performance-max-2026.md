@@ -2,7 +2,7 @@
 title: "Stop Managing Google Ads Like It's 2020: Three Costly Misconceptions We Find in Every Audit"
 description: "Most Google Ads accounts use outdated tactics. Here are the three biggest mistakes costing businesses leads, based on $20M+ in managed ad spend."
 date: "2026-07-23"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Campaign Optimization", "Broad Match", "Performance Max", "Account Management"]
 ---
@@ -17,7 +17,6 @@ tags: ["Google Ads", "Campaign Optimization", "Broad Match", "Performance Max", 
 | Broad match data requirement | CRM offline conversion import required for accurate signal |
 | PMax new capabilities | Negative keywords and channel-level spend reporting now available |
 
-# Stop Managing Google Ads Like It's 2020: Three Costly Misconceptions We Find in Every Audit
 
 When we audit a Google Ads account that used to perform well and no longer does, the problem is almost never budget. It is almost always tactics that made sense three or four years ago but now actively fight against how Google's algorithm works in 2026.
 
@@ -123,9 +122,9 @@ Offline conversion imports work by tagging leads at the point of CRM qualificati
 
 ---
 
-## Ready to Audit Your Account?
+## Want More Like This?
 
-If your Google Ads account has been underperforming and you are not sure which of these patterns applies, the free $10K Profit Audit diagnoses exactly where budget is being wasted and what changes would move the needle. [Request your free audit here.](/10k-profit-audit/)
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 We manage Google Ads and Meta Ads campaigns for service businesses and ecommerce brands. Learn more about our [Google Ads management services](/digital-advertising/google-ads/).
 

@@ -34,7 +34,16 @@ const schema = {
   "author": {
     "@type": "Person",
     "name": "Peterson Rainey",
-    "url": `${Astro.site}meet-the-team/`
+    "url": `${Astro.site}meet-the-team/`,
+    "sameAs": [
+      "https://www.linkedin.com/in/petersonrainey/",
+      "https://www.upwork.com/freelancers/petersonrainey",
+      "https://x.com/Peterson_biz",
+      "https://www.quora.com/profile/Peterson-Rainey-2",
+      "https://medium.com/@ads_46129",
+      "https://www.threads.com/@petersonrainey"
+    ],
+    "knowsAbout": ["Google Ads", "PPC Management", "Digital Marketing", "Conversion Tracking"]
   },
   "publisher": {
     "@type": "Organization",
@@ -79,10 +88,14 @@ const breadcrumbSchema = {
 ---
 
 
-<Layout 
+<Layout
     title={post.data.title}
   description={post.data.description}
   canonicalURL={Astro.url}
+  image={post.data.image && !post.data.image.endsWith('.svg') ? `/${post.data.image}` : undefined}
+  ogType="article"
+  publishedTime={post.data.date.toISOString()}
+  modifiedTime={post.data.lastModified?.toISOString()}
 >
 <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

@@ -2,7 +2,7 @@
 title: "From Closing a Branch to Opening a 4th: A Med Spa Marketing Case Study (Google & Meta Ads)"
 description: "A 3-location North Atlanta med spa nearly closed a branch. See the Google Ads and Meta Ads strategy that cut CPA 50% and drove 238 leads in a single month."
 date: "2026-05-28"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-bars.svg"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["CaseStudy", "Google Ads", "Meta Ads", "Results"]
 ---
@@ -19,7 +19,6 @@ tags: ["CaseStudy", "Google Ads", "Meta Ads", "Results"]
 > - **Platform**: Google Ads + Meta Ads
 > - **Source**: Creekside Marketing case study
 
-# From Closing a Branch to Opening a 4th: A Med Spa Marketing Case Study (Google & Meta Ads)
 
 This is a med spa marketing case study about Google and Meta Ads -- and it starts with a near-disaster.
 
@@ -142,9 +141,9 @@ According to Creekside Marketing, landing pages are one of the highest-leverage 
 
 **Want results like these for your med spa?**
 
-Every engagement starts with a free audit. We'll review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit ->](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [Advanced Medical Spa Case Study ->](/case-study-digital-marketing/advanced-medical-spa/)
 

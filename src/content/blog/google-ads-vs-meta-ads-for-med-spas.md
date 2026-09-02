@@ -134,9 +134,9 @@ Yes, and often better than in major metros. According to Creekside Marketing's a
 
 **Not sure which channel is right for your med spa?**
 
-We run both Google Ads and Meta Ads for med spas every day. A free audit will show you exactly where your best opportunities are, what competitors are spending, and what a realistic cost-per-lead looks like for your specific market.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free $10K Profit Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

@@ -2,7 +2,7 @@
 title: "Stop Guessing With Performance Max: The Signal Setup Framework That Feeds Google the Right Data"
 description: "How to set up Performance Max campaign signals correctly: 20+ search themes, audience signals, and the demographic rules we use on $20M+ in managed ad spend."
 date: "2026-08-09"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "Google Ads"
 tags: ["Performance Max", "Google Ads", "Campaign Setup", "Audience Signals", "Google Ads Strategy"]
 ---
@@ -18,7 +18,6 @@ tags: ["Performance Max", "Google Ads", "Campaign Setup", "Audience Signals", "G
 | Household income exclusion | Exclude bottom 50% for premium and B2B products |
 | Asset group structure | Split by distinct service or product when budget allows |
 
-# Stop Guessing With Performance Max: The Signal Setup Framework That Feeds Google the Right Data
 
 Performance Max campaign signals are the inputs that tell Google what a high-value user looks like for your business. Set them up correctly and the algorithm has clear material to work with. Set them up thin and you are asking a pattern-recognition system to find patterns in a nearly empty dataset.
 
@@ -112,11 +111,11 @@ No, and this distinction is critical. Interest categories expand your reach to a
 
 ---
 
-## Get a Free Audit on Your Performance Max Setup
+## Want More Like This?
 
-If you are running Performance Max and are not confident the signals are set up correctly, a direct account review is the fastest way to find out what needs to change. Creekside Marketing offers a free $10K Profit Audit for businesses spending at least $3,000 per month on Google Ads.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Request your free audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

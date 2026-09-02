@@ -2,7 +2,7 @@
 title: "The Most Common Google Ads Campaign Setting Mistakes (And How to Fix Them Fast)"
 description: "Stop draining your budget on default settings. Learn the critical Google Ads configurations—from location targeting to network selection—that ensure your campaigns reach the right audience."
 date: "2026-01-13"
-image: ""
+image: "article-images/blog-card-funnel.svg"
 category: "Campaign Strategy & Structure"
 tags: ["GoogleAds", "SearchCampaigns", "Audit", "Troubleshooting"]
 ---

@@ -2,7 +2,7 @@
 title: "Launching Google Ads With No Conversion Data? Start With These Campaign Settings"
 description: "Avoid burning your budget on day one. Learn the exact campaign settings needed to collect clean data and exit the learning phase quickly in a brand-new Google Ads account."
 date: "2026-01-15"
-image: "" #"launching-google-ads-no-conversion-data-campaign-settings"
+image: "article-images/blog-card-arrow.svg" #"launching-google-ads-no-conversion-data-campaign-settings"
 category: "Campaign Strategy & Structure"
 tags: ["GoogleAds", "SearchCampaigns", "Tutorial", "Troubleshooting"]
 ---

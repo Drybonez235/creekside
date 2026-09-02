@@ -2,7 +2,7 @@
 title: "How to Review Search Terms and Add Negative Keywords Without Tanking Your Google Ads Account"
 description: "A battle-tested framework for reviewing search terms across Search, Shopping, and PMax. Learn the precise art of adding negative keywords without accidentally killing your conversions."
 date: "2026-01-11"
-image: ""
+image: "article-images/blog-card-target.svg"
 category: "Search & Keyword Optimization"
 tags: ["GoogleAds", "PerformanceMax", "SearchCampaigns", "ShoppingAds", "Audit", "Troubleshooting"]
 ---

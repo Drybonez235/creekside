@@ -169,7 +169,7 @@ Track cost per consultation booked (not just form fills), show rate, and average
 
 Whether you are starting from scratch or optimizing existing campaigns, we will show you exactly where the opportunities are -- and what a realistic lead volume and cost looks like for your market.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

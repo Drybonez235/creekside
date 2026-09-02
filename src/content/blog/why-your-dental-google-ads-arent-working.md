@@ -125,9 +125,9 @@ Most dental practices running Google Ads have at least three of the problems des
 
 **Want to know exactly where your dental Google Ads budget is going?**
 
-Our free audit checks 87 criteria across your account structure, keywords, ads, landing pages, and conversion tracking. You get a full report with specific recommendations and no obligation.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free 87-Point Dental Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

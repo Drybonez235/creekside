@@ -2,7 +2,7 @@
 title: "The Fastest Way to Audit Google Ads Conversion Tracking and Catch Broken Tags"
 description: "Don't let broken tracking tank your Smart Bidding. Learn how to quickly audit your Google Ads goals, interpret status warnings, and use Tag Assistant to verify your conversion setup."
 date: "2026-01-08"
-image: ""
+image: "article-images/blog-card-bars.svg"
 category: "Tracking & Data Integrity"
 tags: ["GoogleAds", "GoogleTagManager", "Audit", "Troubleshooting"]
 ---

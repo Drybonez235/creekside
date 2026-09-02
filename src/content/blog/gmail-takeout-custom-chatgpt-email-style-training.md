@@ -2,7 +2,7 @@
 title: "The Gmail Takeout + Cursor Trick for Building a Custom GPT That Mirrors Your Exact Communication Style"
 description: "How to build a custom ChatGPT trained on your Gmail history so it drafts emails in your voice, using Google Takeout and Cursor. Free to run."
 date: "2026-08-03"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Google Ads"
 tags: ["AI Tools", "Agency Operations", "Email Automation", "ChatGPT"]
 ---
@@ -17,7 +17,6 @@ tags: ["AI Tools", "Agency Operations", "Email Automation", "ChatGPT"]
 | 4. Test before delegating | Manual testing | Minimum 10 message types across different contacts |
 | 5. Hand off to VA | VA + custom GPT | VA drafts; you review and send |
 
-# The Gmail Takeout + Cursor Trick for Building a Custom GPT That Mirrors Your Exact Communication Style
 
 If you have been using email for over a year, you already have thousands of examples showing exactly how you communicate -- how you respond to leads, how you handle client questions, how you follow up after a call. That data is sitting in your Gmail account, unused, while you write the same types of messages from scratch every day.
 
@@ -238,7 +237,7 @@ Provide specific feedback on which message types need adjustment. The video addr
 
 Based on Creekside Marketing's analysis across $20M in managed ad spend, the agencies that consistently outperform spend their time on what actually moves campaign performance -- bid strategy, creative analysis, and landing page review -- not on inbox management.
 
-Tools like this exist to shift that ratio. If you want to know what a properly built paid advertising operation could do for your business, our [free 10K Profit Audit](/10k-profit-audit/) identifies the specific gaps in your current setup and shows exactly what it would take to close them.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

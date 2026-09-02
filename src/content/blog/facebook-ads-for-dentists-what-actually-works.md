@@ -2,7 +2,7 @@
 title: "Facebook Ads for Dentists: What Actually Works in 2026"
 description: "Facebook ads for dentists: generate consults at $40-$130 with the right structure. Real campaign data, targeting, and creative from Creekside Marketing."
 date: "2026-05-06"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-trend.svg"
 category: "Dental Marketing"
 tags: ["MetaAds", "FacebookAds", "DentalMarketing", "LeadGeneration"]
 ---
@@ -194,7 +194,7 @@ Optimizing for raw leads instead of booked consultations. A campaign generating 
 
 Whether you are starting from scratch or fixing underperforming campaigns, we will show you exactly where your market's opportunities are and what it costs to capture them.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

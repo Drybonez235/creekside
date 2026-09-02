@@ -162,4 +162,4 @@ Peterson Rainey is the founder of Creekside Marketing, a Google Ads and Meta Ads
 
 **Ready to see what this framework looks like applied to your practice?**
 
-We offer a free [10K Profit Audit](/10k-profit-audit/) where we walk through your current Google Ads setup and identify specific structural changes that would reduce your cost per conversion. No pitch -- just a detailed look at where budget is being wasted and what to do about it.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).

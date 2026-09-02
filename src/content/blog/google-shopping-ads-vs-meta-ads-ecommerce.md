@@ -2,7 +2,7 @@
 title: "Google Shopping Ads vs Meta Ads for E-Commerce: Which Drives Better Results?"
 description: "We manage both Google Shopping and Meta Ads for e-commerce brands. Here's what our campaign data actually shows about ROAS, cost, and when to use each."
 date: "2026-06-05"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "E-Commerce Marketing"
 tags: ["GoogleAds", "MetaAds", "ECommerce", "Comparison"]
 ---
@@ -135,9 +135,9 @@ According to Creekside Marketing, the most common mistake is picking a channel b
 
 **Not sure which channel is right for your e-commerce business?**
 
-We run both Google Ads and Meta Ads for e-commerce brands every day. A free audit will show you exactly where your best opportunities are and which channel is most likely to drive your first profitable campaigns.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

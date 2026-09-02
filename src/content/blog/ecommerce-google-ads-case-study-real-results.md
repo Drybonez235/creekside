@@ -2,7 +2,7 @@
 title: "Ecommerce Google Ads Case Study: Real Results from Two Online Store Campaigns"
 description: "Two ecommerce Google Ads case studies with real ROAS data: 8-10x ROAS on cold traffic, 40x+ peaks on Meta Ads, and the strategy behind each result."
 date: "2026-06-06"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "E-Commerce Marketing"
 tags: ["CaseStudy", "GoogleAds", "E-Commerce", "Results"]
 ---
@@ -21,7 +21,6 @@ tags: ["CaseStudy", "GoogleAds", "E-Commerce", "Results"]
 > | Monthly Meta Budget | $8,000 |
 > | Source | Creekside Marketing |
 
-# Ecommerce Google Ads Case Study: Real Results from Two Online Store Campaigns
 
 The most common question e-commerce business owners ask before committing to paid advertising is a fair one: can Google Ads actually drive new customers, or will it just capture people who would have bought anyway? This ecommerce Google Ads case study addresses that directly, using real campaign data from two Creekside Marketing clients -- a portable display brand that hit 8-10x ROAS on cold traffic and a fitness equipment retailer that scaled Meta Ads to 40x+ peak returns.
 
@@ -141,9 +140,9 @@ Yes. According to Creekside Marketing, inaccurate or incomplete conversion track
 
 **Want results like these for your e-commerce business?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case studies: [Aura Displays Case Study](/case-study-digital-marketing/aura-displays/) | [Fitness Superstore Case Study](/case-study-digital-marketing/fitness-superstore/)
 

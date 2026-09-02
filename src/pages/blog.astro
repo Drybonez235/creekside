@@ -37,7 +37,7 @@ const blogSchema = {
       "description": post.data.description,
       "url": `https://creeksidemarketingpros.com/blog/${post.slug}/`,
       "datePublished": post.data.date.toISOString(),
-      "image": post.data.image,
+      "image": `https://creeksidemarketingpros.com/${post.data.image}`,
       "author": {
         "@type": "Person",
         "name": "Creekside Marketing Team"

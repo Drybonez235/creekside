@@ -2,7 +2,7 @@
 title: "Awning Company Scales Google and Meta Ads Across 3 Locations: A Real Case Study"
 description: "A Florida awning company ran Google and Meta ads across 3 locations on $7.2K/month. See how an 85-point audit found the flaw silently wasting their budget."
 date: "2026-05-30"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-target.svg"
 category: "Home Services Marketing"
 tags: ["CaseStudy", "Google Ads", "Meta Ads", "Home Services", "Results"]
 ---
@@ -114,9 +114,9 @@ According to Creekside Marketing, Meta Ads produces its strongest results when l
 
 **Want results like these for your home services business?**
 
-Every engagement starts with a free audit. We review your current campaigns and show you exactly where the opportunities are. No commitment, no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit →](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full case study: [Florida Awnings: Multi-Location Google + Meta Ads →](/case-study-digital-marketing/florida-awnings/)
 

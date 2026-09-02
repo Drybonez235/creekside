@@ -2,7 +2,7 @@
 title: "Why Your Mortgage Google Ads Aren't Generating Leads (And How to Fix It)"
 description: "Mortgage Google Ads not working? Creekside's audit data reveals 6 fixable problems that waste 30-50% of lender budgets. Real fixes, real numbers."
 date: "2026-05-14"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "MortgageMarketing", "Audit", "Optimization"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "MortgageMarketing", "Audit", "Optimization"]
 | Wrong bidding strategy | 55%+ of audits | Maximizing clicks instead of qualified leads |
 | Performance Max without Search foundation | 70%+ of audits | High impressions, low lead quality |
 
-# Why Your Mortgage Google Ads Aren't Generating Leads (And How to Fix It)
 
 If your mortgage Google Ads aren't generating leads, the problem is almost never competition or market conditions. Mortgage is the second most expensive vertical on Google Ads, behind legal. Keywords like "reverse mortgage lender near me" run $35 to $50 per click. With CPCs that high, a structural problem in your account does not just hurt performance. It drains real money fast. A mortgage lender spending $15,000 per month with a 40% waste rate loses $6,000 every month, or $72,000 per year, generating zero qualified leads from that portion of spend.
 
@@ -118,9 +117,9 @@ Each of these checks takes under 10 minutes. The findings will tell you whether 
 
 **Want to know exactly where your mortgage Google Ads budget is going?**
 
-Our free audit checks 87 criteria across your account structure, keywords, ads, landing pages, and conversion tracking. You get a full report with specific recommendations. No guesswork, no pitch deck.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free 87-Point Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

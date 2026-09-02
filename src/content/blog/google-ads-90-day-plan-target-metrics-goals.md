@@ -121,7 +121,7 @@ Significant bid strategy changes should generally wait until after the campaign 
 
 ---
 
-If you are launching a new Google Ads campaign or are not seeing results from an existing one, the structure of your 90-day plan may be the issue, not the platform. We offer a free [10K Profit Audit](/10k-profit-audit/) that reviews your current setup against this framework and identifies exactly where the gap is.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 You can also see more about how we structure [Google Ads campaigns for clients](/digital-advertising/google-ads/) and what the ongoing management process looks like beyond the first 90 days.
 

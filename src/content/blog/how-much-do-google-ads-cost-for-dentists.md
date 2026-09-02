@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Dentists? [2026 Real Data]"
 description: "Real Google Ads costs for dentists from $20M+ in managed ad spend. CPC ranges, budgets, and ROI data from actual dental campaigns."
 date: "2026-04-30"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Dental Marketing"
 tags: ["GoogleAds", "Dental", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "Dental", "CostBreakdown", "PPC"]
 | Expected ROI | 5x - 8x on ad spend |
 | Time to First Leads | 1 - 2 weeks |
 
-# How Much Do Google Ads Cost for Dentists? [2026 Real Data]
 
 If you are a dental practice owner trying to figure out how much Google Ads actually costs, you have probably gotten the same frustrating non-answer from every agency: "it depends." That is technically true, but it is also useless. You need real numbers to make a real decision.
 
@@ -140,9 +139,9 @@ A dedicated landing page almost always outperforms your general website homepage
 
 ## Ready to See How Your Dental Google Ads Stack Up?
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

@@ -2,7 +2,7 @@
 title: "14.06 ROAS, Cold Traffic Only: What a True New Customer Acquisition Campaign Actually Looks Like on Meta"
 description: "Blended Meta ROAS mixes warm and cold traffic and overstates ad performance. Here is what a real cold-only NCA campaign looks like and what 14.06 ROAS actually means."
 date: "2026-08-11"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Facebook Ads"
 tags: ["Meta Ads", "New Customer Acquisition", "ROAS", "Facebook Ads", "Ecommerce"]
 ---
@@ -22,7 +22,6 @@ tags: ["Meta Ads", "New Customer Acquisition", "ROAS", "Facebook Ads", "Ecommerc
 
 ---
 
-# 14.06 ROAS, Cold Traffic Only: What a True New Customer Acquisition Campaign Actually Looks Like on Meta
 
 Most Meta ROAS numbers are softer than they look. This post explains why, and what a genuinely hard number -- earned entirely from cold traffic -- actually requires to produce.
 
@@ -152,13 +151,13 @@ If you want to know what your Meta ads are actually doing on cold traffic, start
 
 ---
 
-## Get a Free Paid Ads Audit
+## Want More Like This?
 
-If you are spending on Meta and not sure whether your ROAS is a real cold-traffic number or a warm-audience blend, we can look at your account and tell you exactly what you are measuring. Our [free $10K profit audit](/10k-profit-audit/) covers account structure, audience setup, and the specific question of whether your ad spend is generating genuine new customer acquisition or recycling warm traffic at a favorable blended rate.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 No pitch deck. Just the numbers and what they mean.
 
-[Book your free audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 
@@ -170,4 +169,4 @@ No pitch deck. Just the numbers and what they mean.
 
 **About the Author**
 
-Cade MacLean is the co-founder of Creekside Marketing, a paid advertising agency managing $20M+ in ad spend across Google Ads and Meta. Creekside works with ecommerce brands and service businesses that want real acquisition growth, not blended numbers that flatter. If you want straight talk about what your ads are actually doing, start with the [free audit](/10k-profit-audit/).
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).

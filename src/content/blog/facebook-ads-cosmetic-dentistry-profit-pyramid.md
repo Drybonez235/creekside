@@ -2,7 +2,7 @@
 title: "Stop Marketing $15,000 Smiles Like $500 Whitening: The Facebook Ads Framework for Cosmetic Dentists"
 description: "Cosmetic dentists who split Facebook ad budgets evenly across all procedures leave $200K monthly on the table. Here is the profit pyramid that fixes this."
 date: "2026-07-14"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Facebook Ads"
 tags: ["FacebookAds", "DentalMarketing", "CosmeticDentistry", "MetaAds"]
 ---
@@ -20,7 +20,6 @@ tags: ["FacebookAds", "DentalMarketing", "CosmeticDentistry", "MetaAds"]
 | Monthly profit gain from budget shift | +$209K |
 | Additional monthly ad spend required | $10K |
 
-# Stop Marketing $15,000 Smiles Like $500 Whitening: The Facebook Ads Framework for Cosmetic Dentists
 
 If your cosmetic dental practice runs Facebook ads for every service on your menu, there is a good chance your budget is working against your most profitable procedures. The practices generating the most revenue from Facebook ads for cosmetic dentists are not necessarily spending more. They are allocating differently.
 
@@ -158,7 +157,7 @@ According to Creekside Marketing's framework, a $10K increase in monthly Faceboo
 
 The practices that act on this accept three tradeoffs: lower whitening and bonding volume, higher smile makeover lead costs, and a longer optimization window before results stabilize. The practices that do not act on it keep generating reports that look solid while leaving $100K-$200K in monthly profit uncaptured.
 
-To see how the Profit Pyramid applies to your specific account and ad spend, [request a free $10K Profit Audit](/10k-profit-audit/). We will identify exactly where your current allocation is leaving leverage on the table.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

@@ -2,7 +2,7 @@
 title: "Not Getting Enough Google Ads Conversions? Here Are the 5 Moves We Make First"
 description: "Not getting enough Google Ads conversions? Here are the five strategies we apply when a campaign is live, tracking properly, and still not converting."
 date: "2026-08-10"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Conversion Optimization", "Lead Generation", "Performance Max", "Broad Match"]
 ---
@@ -17,7 +17,6 @@ tags: ["Google Ads", "Conversion Optimization", "Lead Generation", "Performance 
 | Percentage of daily Google searches that are brand new | ~20% |
 | Typical keyword cannibalization pattern | 2 keywords consuming 90% of budget |
 
-# Not Getting Enough Google Ads Conversions? Here Are the 5 Moves We Make First
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Strategies to Increase Conversions in Google Ads](https://www.youtube.com/watch?v=pph3WdHuFgg).
 
@@ -139,11 +138,11 @@ At that point, the issue is almost certainly not inside the ad account. The conv
 
 ---
 
-## Get a Free Google Ads Conversion Audit
+## Want More Like This?
 
 If your Google Ads account is live, tracking properly, and appearing for the right searches but conversion volume is still not where your business needs it to be, a structured audit can identify exactly where the gaps are.
 
-Creekside Marketing manages $20M+ in ad spend for lead generation businesses. [Request your free 10K Profit Audit](/10k-profit-audit/) and we will identify the specific conversion blockers in your account.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

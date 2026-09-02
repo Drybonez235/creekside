@@ -2,7 +2,7 @@
 title: "Meta Ads for E-Commerce Brands: Full Funnel Strategy That Actually Works"
 description: "How to run Meta Ads for e-commerce brands with a full-funnel strategy. Real data from brands generating 7-40x ROAS on Facebook and Instagram ads."
 date: "2026-06-04"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "E-commerce Marketing"
 tags: ["MetaAds", "FacebookAds", "Ecommerce", "LeadGeneration"]
 ---
@@ -151,7 +151,7 @@ Boosting a post optimizes for engagement (likes, comments, shares). A properly b
 
 Whether you are starting from scratch or want to find exactly where your current campaigns are losing money, we will show you where the opportunities are.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

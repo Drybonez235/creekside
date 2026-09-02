@@ -2,7 +2,7 @@
 title: "Home Services Google Ads Case Study: 298% ROI and a New Franchise Location"
 description: "How a Nashville lawn care business hit 298% ROI, 1,500+ conversions, and funded a new franchise with Google Ads. A Creekside Marketing case study."
 date: "2026-05-27"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-panels.svg"
 category: "Home Services Marketing"
 tags: ["CaseStudy", "GoogleAds", "HomeServices", "Results"]
 ---
@@ -19,7 +19,6 @@ tags: ["CaseStudy", "GoogleAds", "HomeServices", "Results"]
 > - **Timeframe**: February 2022 to June 2024
 > - **Source**: Creekside Marketing case study
 
-# Home Services Google Ads Case Study: 298% ROI and a New Franchise Location
 
 Most home service business owners run Google Ads because their competitor does. They set a budget, choose a handful of keywords, and hope the phone rings. According to Creekside Marketing data across dozens of home services accounts, this approach leaves 60 to 80 percent of potential leads on the table and often funds the competitor's next hire instead of your own growth.
 
@@ -112,9 +111,9 @@ According to Creekside Marketing, the first and highest-impact fix in most home 
 
 **Want results like these for your home services business?**
 
-Every engagement starts with a free audit. We review your current Google Ads or Meta Ads campaigns and identify exactly where the opportunities are. No commitment required and no sales pitch.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 Or read the full campaign breakdown: [Landmark Lawn and Landscape Case Study](/case-study-digital-marketing/landmark-lawn-and-landscape/)
 

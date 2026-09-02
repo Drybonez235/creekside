@@ -2,7 +2,7 @@
 title: "The Five Numbers That Determine Your Dental Veneer Advertising ROI (And How Changing One of Them Adds $11,000 Per Month)"
 description: "Most cosmetic dental practices spend on veneer ads without knowing their profit model. Here are the 5 metrics that drive your dental veneer advertising ROI."
 date: "2026-07-30"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Google Ads"
 tags: ["DentalMarketing", "CosmeticDentistry", "GoogleAds", "AdvertisingROI", "VeneerMarketing"]
 ---
@@ -18,7 +18,6 @@ tags: ["DentalMarketing", "CosmeticDentistry", "GoogleAds", "AdvertisingROI", "V
 | $20K budget increase: additional monthly profit | ~$16,000 |
 | $100 reduction in cost-per-consult: additional profit | ~$11,000/month |
 
-# The Five Numbers That Determine Your Dental Veneer Advertising ROI (And How Changing One of Them Adds $11,000 Per Month)
 
 Most cosmetic dental practices approach dental veneer advertising ROI the same way: set a monthly budget, run ads, count leads, and hope the revenue follows. Two practices with identical budgets and identical lead counts can have wildly different profit outcomes depending on five specific metrics. Until you know those numbers, you are making expensive guesses.
 
@@ -201,7 +200,7 @@ The management fee field in the calculator is fully editable. You can enter what
 
 Most advertising ROI tools are built to make the vendor look good. This one was built to make the math honest. If your current setup is already generating strong profit per patient, the numbers will confirm it. If there is a meaningful gap, the model shows where it is and what closing it would be worth per month.
 
-If, after running your numbers, you want to explore what adding $100,000 or more in monthly profit looks like for your specific practice, we offer a free audit with no cost and no obligation. You can book directly at [/10k-profit-audit/](/10k-profit-audit/).
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ## FAQ: Dental Veneer Advertising ROI
 
@@ -233,9 +232,9 @@ We calculate our fee based on two industry benchmark assumptions: approximately 
 
 **Ready to see what your veneer advertising should be generating?**
 
-We run a free $10K profit audit for cosmetic dental practices that want to model their specific numbers against what we have achieved for similar practices. No cost, no obligation.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Book your free audit at /10k-profit-audit/](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

@@ -2,7 +2,7 @@
 title: "We Edit Our Client Ad Dashboards by Telling Claude What to Change. Here Is How That Works."
 description: "How Creekside uses Claude to edit live client-facing ad reporting dashboards in real time, with backup templates and zero developer involvement."
 date: "2026-07-17"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "Google Ads"
 tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 ---
@@ -17,7 +17,6 @@ tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 | Notes cadence | Bi-weekly, logged with date stamps directly in the dashboard |
 | Source | [Creekside Marketing YouTube, May 2026](https://www.youtube.com/watch?v=2mgFvFR_vFs) |
 
-# We Edit Our Client Ad Dashboards by Telling Claude What to Change. Here Is How That Works.
 
 Client-facing ad reporting dashboards are supposed to be static deliverables. You build them, you send the link, you update the data each week. What most agencies do not do is treat the dashboard itself as something that can be edited on demand, in real time, by telling an AI what to change.
 
@@ -135,7 +134,7 @@ If you are running a paid ads agency and your client dashboards require signific
 
 For more on how we use Claude across our paid ads operation, read [How We Rebuilt Weekly Client Reporting with AI and Turned It Into a Recurring Agent](/blog/ai-weekly-client-reporting-recurring-agent-paid-ads/) and [How Our Google Ads Specialist Uses AI to Get Client-Ready in 3 Minutes](/blog/google-ads-ai-workflow-client-briefing-3-minutes/).
 
-If you want to see what your paid ads accounts are actually telling you, [get a free 10K Profit Audit from Creekside Marketing](/10k-profit-audit/). We will review your accounts, your reporting structure, and where the gaps are between what your data shows and what your clients see.
+If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 
 ---
 

@@ -2,7 +2,7 @@
 title: "How Much Do Google Ads Cost for Lawyers? [2026 Real Data]"
 description: "Real Google Ads costs for law firms from $20M+ in managed ad spend. CPC ranges, budgets, and ROI data from actual legal campaigns."
 date: "2026-05-08"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Legal Marketing"
 tags: ["GoogleAds", "Legal", "CostBreakdown", "PPC"]
 ---
@@ -18,7 +18,6 @@ tags: ["GoogleAds", "Legal", "CostBreakdown", "PPC"]
 | Expected ROI | 30x - 80x per closed case |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
-# How Much Do Google Ads Cost for Lawyers? [2026 Real Data]
 
 According to Creekside Marketing's legal campaign data, the average cost per click for lawyer keywords ranges from $20 to $150 depending on practice area. That wide range is exactly why generic answers about how much Google Ads cost for lawyers are useless to a firm trying to make a budget decision. A bankruptcy attorney bidding on "Chapter 7 lawyer" pays nowhere near what a personal injury firm spends on "car accident attorney near me," and treating those numbers as interchangeable is how firms waste their first $5,000 on the wrong strategy.
 
@@ -146,9 +145,9 @@ Optimizing for leads instead of cases. Law firms that set Google Ads to maximize
 
 ## Ready to See How Your Law Firm Google Ads Stack Up?
 
-We offer a free, no-obligation audit of your Google Ads account. We will show you exactly where your budget is going, what is working, and what is not. Real numbers, not guesswork.
+Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
-[Get Your Free Google Ads Audit](/10k-profit-audit/)
+[Subscribe to the Creekside Newsletter](/newsletter/)
 
 ---
 

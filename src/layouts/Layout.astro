@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-const { title, description, canonicalURL, schema, faqSchema, showPopup = true } = Astro.props; // image
+const { title, description, canonicalURL, schema, faqSchema, showPopup = true, image, ogType, publishedTime, modifiedTime } = Astro.props;
 import JsonLd from '../components/JsonLd.astro';
 import Popup from "../components/Popup.astro"
 
@@ -9,7 +9,7 @@ import Popup from "../components/Popup.astro"
 <!doctype html>
 <html lang="en">
 	<head>
-    <BaseHead title={title} description={description} canonicalURL={canonicalURL}/>
+    <BaseHead title={title} description={description} canonicalURL={canonicalURL} image={image} ogType={ogType} publishedTime={publishedTime} modifiedTime={modifiedTime}/>
 	{schema && <JsonLd data={schema} />}
 	{faqSchema && <JsonLd data={faqSchema} />}
 	<link rel="preconnect" href="https://images.leadconnectorhq.com" crossorigin>

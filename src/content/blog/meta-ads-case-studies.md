@@ -3,7 +3,7 @@ title: "9 Meta Ads Case Studies With Real Numbers: 20x ROAS, $977K Revenue, and 
 description: "9 real Meta Ads case studies with verified numbers: $977K revenue in 90 days, 20x ROAS, 417 B2B demos booked, app installs at $3.90. Full data from Creekside Marketing."
 date: "2026-08-05"
 lastModified: "2026-08-05"
-image: "article-images/creekside-marketing-pros-digital-marketing-strategy.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Meta Ads"
 tags: ["CaseStudy", "MetaAds", "FacebookAds", "Results"]
 ---
@@ -25,7 +25,6 @@ tags: ["CaseStudy", "MetaAds", "FacebookAds", "Results"]
 > | Mobile App | 2,662 installs, CPI down 47% |
 > | Source | Creekside Marketing case studies |
 
-# 9 Meta Ads Case Studies With Real Numbers: 20x ROAS, $977K Revenue, and 47% Lower CPI
 
 Meta Ads case studies usually come in two flavors: screenshots with no context, or long stories with no numbers. Neither helps you figure out what your account should actually be producing.
 
