@@ -164,6 +164,7 @@ export const POST: APIRoute = async ({ request }) => {
 	const challenge = typeof p.challenge === "string" ? p.challenge : "";
 	const decisionMaker = typeof p.decision_maker === "string" ? p.decision_maker : "";
 	const crm = typeof p.crm === "string" ? p.crm : "";
+	const variant = typeof p.variant === "string" ? p.variant : "";
 	const gclid = typeof p.gclid === "string" ? p.gclid : "";
 	const fbclid = typeof p.fbclid === "string" ? p.fbclid : "";
 	const utmSource = typeof p.utm_source === "string" ? p.utm_source : "";
@@ -189,6 +190,9 @@ export const POST: APIRoute = async ({ request }) => {
 		// keep the tier tag for context but book with Cade like everyone else.
 		tags.push(`${funnelTag}-under-threshold`, "cade-direct");
 	}
+	// Form-variant tag (additive -- the base funnel tags above still drive
+	// the GHL workflow / opportunity creation)
+	if (variant === "expert") tags.push("dental-expert-form");
 
 	const customFields: { id: string; value: string }[] = [];
 	const addField = (id: string, val: string) => {
