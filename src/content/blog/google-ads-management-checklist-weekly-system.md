@@ -112,7 +112,7 @@ The checklist opens with a set of standard checks that apply to every account ev
 
 The standard recurring checks are:
 
-**Search term exclusions.** Reviewing the search terms report to identify new negative keyword candidates. [Reviewing search terms for negative keywords](/how-to-review-search-terms-and-add-negative-keywords-without-tanking-your-google-ads-account/) is non-negotiable regardless of account maturity or campaign type. Terms that trigger the wrong intent cost money every day they stay active.
+**Search term exclusions.** Reviewing the search terms report to identify new negative keyword candidates. [Reviewing search terms for negative keywords](/blog/how-to-review-search-terms-and-add-negative-keywords-without-tanking-your-google-ads-account/) is non-negotiable regardless of account maturity or campaign type. Terms that trigger the wrong intent cost money every day they stay active.
 
 **Optimization score.** Reviewing Google's recommendation panel. This is not about blindly accepting every suggestion -- it is about making deliberate, documented decisions on what to apply and what to dismiss. Ignoring it entirely is as risky as auto-applying everything.
 
@@ -252,7 +252,7 @@ The manager notes section means a freelancer stepping into an account for the fi
 
 The test log means nobody has to remember what changed in a previous month and whether it worked. It is documented, color-coded, and searchable.
 
-This is how [systematic paid ads account management](/paid-ads-agency-client-onboarding-checklist/) avoids the slow performance decay that happens when decisions are made by memory -- and when the person who remembers the reasoning is no longer managing the account.
+This is how [systematic paid ads account management](/blog/paid-ads-agency-client-onboarding-checklist/) avoids the slow performance decay that happens when decisions are made by memory -- and when the person who remembers the reasoning is no longer managing the account.
 
 If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
 

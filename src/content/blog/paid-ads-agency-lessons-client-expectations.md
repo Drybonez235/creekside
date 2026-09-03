@@ -113,7 +113,7 @@ No pitch. No obligation. Just the numbers.
 
 ## About the Author
 
-**Cade MacLean** is co-founder of Creekside Marketing, a paid advertising agency managing $20M+ in ad spend across Google Ads and Meta. He works across strategy, paid media execution, and client management for accounts in competitive verticals including home services, healthcare, and e-commerce. Creekside's work is covered at [creeksidemarketingpros.com](https://creeksidemarketingpros.com).
+*Peterson Rainey is the founder of Creekside Marketing, a paid ads agency managing over $20 million in ad spend for service businesses across the United States. He publishes weekly Google Ads and Meta Ads insights on the [Creekside Marketing YouTube channel](https://www.youtube.com/@CreeksideMarketing1/videos).*
 
 ---
 

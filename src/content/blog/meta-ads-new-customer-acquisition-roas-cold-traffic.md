@@ -157,11 +157,13 @@ No pitch deck. Just the numbers and what they mean.
 ---
 
 **Related reading:**
-- [The Google Ads and Meta Dental Ad Strategy That Doubled Monthly Consults Without Increasing Spend](/google-meta-dental-ads-double-consults/)
-- [Stop Expecting a Vending Machine: Why Paid Ads ROI Compounds Over Time](/stop-expecting-vending-machine-google-ads-roi/)
+- [The Google Ads and Meta Dental Ad Strategy That Doubled Monthly Consults Without Increasing Spend](/blog/google-meta-dental-ads-double-consults/)
+- [Stop Expecting a Vending Machine: Why Paid Ads ROI Compounds Over Time](/blog/stop-expecting-vending-machine-google-ads-roi/)
 
 ---
 
-**About the Author**
-
 If you want more breakdowns like this, I write a weekly newsletter about what's actually working inside the ad accounts we manage. Real wins, real losses, no fluff. [Subscribe to the Creekside newsletter](/newsletter/).
+
+---
+
+*Peterson Rainey is the founder of Creekside Marketing, a paid ads agency managing over $20 million in ad spend for service businesses across the United States. He publishes weekly Google Ads and Meta Ads insights on the [Creekside Marketing YouTube channel](https://www.youtube.com/@CreeksideMarketing1/videos).*

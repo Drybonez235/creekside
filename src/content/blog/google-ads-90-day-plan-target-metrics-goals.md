@@ -36,7 +36,7 @@ That does not mean month one is wasted time. It means month one has a different 
 
 The good news: Google Ads levels the field in one important way. Whether you are spending $3,000 a month or $300,000 a month, you can still win conversions on the same keywords as larger competitors. Budget size alone does not disqualify you. But patience and a structured approach do matter, and most businesses that fail on Google Ads are not short on budget. They are short on timeline.
 
-If you want more context on how this mindset translates into long-term returns, [our post on why Google Ads ROI compounds over time](/stop-expecting-vending-machine-google-ads-roi/) covers the underlying dynamic in detail.
+If you want more context on how this mindset translates into long-term returns, [our post on why Google Ads ROI compounds over time](/blog/stop-expecting-vending-machine-google-ads-roi/) covers the underlying dynamic in detail.
 
 ## Month 1: Hit 10 Clicks Per Day and Build Clean Conversion Data
 
@@ -86,7 +86,7 @@ When a campaign reaches break-even at the three-month mark, it signals that the 
 
 Campaigns that do not break even at month three are not necessarily failures. Highly competitive industries, small geographic markets, or niche products all affect the timeline. The 90-day target is a goal, not a guarantee. But it is a real benchmark based on what we see across client campaigns, and it provides a meaningful checkpoint for deciding whether to continue, adjust, or reconsider the strategy.
 
-For a detailed look at the common mistakes that derail campaigns before they reach this phase, [our post on Google Ads mistakes in 2026](/google-ads-mistakes-broad-match-performance-max-2026/) covers the three we see most often in audits.
+For a detailed look at the common mistakes that derail campaigns before they reach this phase, [our post on Google Ads mistakes in 2026](/blog/google-ads-mistakes-broad-match-performance-max-2026/) covers the three we see most often in audits.
 
 ## What Happens When You Compress the Timeline
 

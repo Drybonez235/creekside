@@ -2,7 +2,7 @@
 title: "Google Ads vs Meta Ads for Med Spas: Which Drives Better Results?"
 description: "Google Ads vs Meta Ads for med spas: Creekside's campaign data shows which drives more leads, the actual cost per conversion, and how to split your budget."
 date: "2026-05-24"
-image: "article-images/google-ads-bidding-strategies.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["GoogleAds", "MetaAds", "MedSpa", "Comparison"]
 ---
