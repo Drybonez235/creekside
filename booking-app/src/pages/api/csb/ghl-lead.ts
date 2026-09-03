@@ -59,10 +59,17 @@ const REVENUE_MAP: Record<string, string> = {
 };
 
 const AD_SPEND_MAP: Record<string, string> = {
+	// Site funnel tiers
 	"under-3k": "Under $3K/mo",
 	"3k-5k": "$3K - $5K/mo",
 	"5k-15k": "$5K - $15K/mo",
 	"15k+": "$15K+/mo",
+	// Dental expert form tiers (2026-09-03)
+	"none": "Not Spending On Ads Yet",
+	"under-10k": "Under $10K/mo",
+	"10k-30k": "$10K - $30K/mo",
+	"30k-100k": "$30K - $100K/mo",
+	"100k+": "$100K+/mo",
 };
 
 const BUSINESS_TYPE_MAP: Record<string, string> = {
@@ -219,13 +226,11 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.utmContent, utmContent);
 	addField(FIELD.utmTerm, utmTerm);
 
-	// Site funnel fields that don't have dedicated custom fields go into notes
+	// Fields that don't have dedicated custom fields go into notes
 	const noteLines: string[] = [];
-	if (isSite) {
-		if (businessType) noteLines.push(`Business Type: ${BUSINESS_TYPE_MAP[businessType] || businessType}`);
-		if (adSpend) noteLines.push(`Ad Budget: ${AD_SPEND_MAP[adSpend] || adSpend}`);
-	}
-	const notes = noteLines.length ? `[Website Funnel]\n${noteLines.join("\n")}` : "";
+	if (isSite && businessType) noteLines.push(`Business Type: ${BUSINESS_TYPE_MAP[businessType] || businessType}`);
+	if (adSpend) noteLines.push(`Ad Budget: ${AD_SPEND_MAP[adSpend] || adSpend}`);
+	const notes = noteLines.length ? `[${isSite ? "Website Funnel" : "Dental Funnel"}]\n${noteLines.join("\n")}` : "";
 
 	// GHL contacts API does NOT accept "notes" on the create payload (returns 422).
 	// Notes must be added via a separate POST /contacts/{id}/notes call after creation.
