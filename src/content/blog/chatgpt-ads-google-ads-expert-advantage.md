@@ -2,7 +2,7 @@
 title: "ChatGPT Ads Are Coming. Here Is Why Google Ads Managers Are Already Best Positioned to Run Them."
 description: "ChatGPT is launching ads in its free tier. Google already runs them next to AI overviews. Here is why your Google Ads manager is the right person for the job."
 date: "2026-07-31"
-image: "article-images/blog-card-arrow.svg"
+image: "article-images/blog-card-trend.svg"
 category: "Google Ads"
 tags: ["ChatGPT Ads", "Google Ads", "AI Advertising", "Paid Search"]
 ---

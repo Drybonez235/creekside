@@ -14,6 +14,10 @@ const featuredPost = sortedPosts[0];
 const visualPosts = sortedPosts.slice(1, 7); // Next 6 posts with images
 const archivePosts = sortedPosts.slice(7);    // Everything else (text only)
 
+// Normalize frontmatter image paths: accept both "article-images/x.svg" and
+// "/article-images/x.svg" (manual edits sometimes include the leading slash).
+const postImage = (p) => p ? `/${p.replace(/^\/+/, '')}` : '/creekside-marketing-pros-logo.avif';
+
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -37,7 +41,7 @@ const blogSchema = {
       "description": post.data.description,
       "url": `https://creeksidemarketingpros.com/blog/${post.slug}/`,
       "datePublished": post.data.date.toISOString(),
-      "image": `https://creeksidemarketingpros.com/${post.data.image}`,
+      "image": `https://creeksidemarketingpros.com${postImage(post.data.image)}`,
       "author": {
         "@type": "Person",
         "name": "Creekside Marketing Team"
@@ -76,7 +80,7 @@ import '../styles/global.css';
           <a href={`/blog/${featuredPost.slug}/`} class="group grid gap-8 lg:grid-cols-2 lg:items-center">
             <div class="aspect-video hidden md:block overflow-hidden rounded-2xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
               <img 
-                src={`/${featuredPost.data.image}`}
+                src={postImage(featuredPost.data.image)}
                 alt={featuredPost.data.title} 
                 class="size-full object-cover transition-transform duration-700 group-hover:scale-105" 
               />
@@ -104,7 +108,7 @@ import '../styles/global.css';
             <a href={`/blog/${post.slug}/`} class="flex flex-col h-full">
               <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-grey-200 shadow-sm transition-shadow group-hover:shadow-md">
                 <img 
-                  src={post.data.image ? `/${post.data.image}` : '/creekside-marketing-pros-logo.avif'}
+                  src={postImage(post.data.image)}
                   alt={post.data.title} 
                   class="size-full object-cover transition-transform duration-500 group-hover:scale-110" 
                 />
