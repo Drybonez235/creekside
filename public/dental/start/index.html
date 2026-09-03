@@ -32,7 +32,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
   <title>Get More Cosmetic Dental Patients - Creekside Marketing</title>
-  <meta name="description" content="See if your dental practice qualifies for our patient acquisition system. Answer 6 quick questions to get started."/>
+  <meta name="description" content="See if your dental practice qualifies for our patient acquisition system. Answer 4 quick questions to get started."/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-logo-icon-32x32.avif" sizes="32x32"/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-icon-180x180.avif" sizes="180x180"/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-icon-192x192.avif" sizes="192x192"/>
@@ -168,7 +168,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-bottom: 28px;
+      margin-top: 28px;
     }
     .step-dot {
       width: 8px;
@@ -391,47 +391,30 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span>No spam. Ever.</span>
         </div>
-        <div class="trust-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Built for cosmetic &amp; implant practices.</span>
-        </div>
       </div>
     </div>
   </div>
 
   <!-- Main content -->
   <div class="main-content">
-    <!-- Step dots -->
-    <div class="step-dots" id="stepDots">
-      <div class="step-dot active" data-dot="1"></div>
-      <div class="step-dot" data-dot="2"></div>
-      <div class="step-dot" data-dot="3"></div>
-      <div class="step-dot" data-dot="4"></div>
-      <div class="step-dot" data-dot="5"></div>
-      <div class="step-dot" data-dot="6"></div>
-      <div class="step-dot" data-dot="7"></div>
-    </div>
-
     <div class="form-card">
-      <!-- Step 1: Practice type -->
+      <!-- Step 1: Biggest challenge -->
       <div class="step active" data-step="1">
-        <div class="step-label">Question 1 of 6</div>
-        <h2>Do you own or manage a cosmetic dental practice?</h2>
+        <div class="step-label">Question 1 of 4</div>
+        <h2>What's your biggest growth challenge right now?</h2>
         <div class="options">
-          <button class="option-btn" data-field="practice_type" data-value="yes-both" onclick="selectOption(this)">Yes, we offer cosmetic and general dentistry</button>
-          <button class="option-btn" data-field="practice_type" data-value="yes-cosmetic" onclick="selectOption(this)">Yes, cosmetic-only practice</button>
-          <button class="option-btn" data-field="practice_type" data-value="general" onclick="selectOption(this)">We're primarily general dentistry</button>
-          <button class="option-btn" data-field="practice_type" data-value="other" onclick="showOtherInput(this)">Other</button>
-        </div>
-        <div id="otherPracticeWrap" style="display:none; margin-top:12px;">
-          <input type="text" id="otherPracticeInput" style="width:100%; padding:14px 16px; border:1px solid var(--gold); border-radius:10px; background:rgba(182,138,78,0.1); color:var(--white); font-family:'Inter',sans-serif; font-size:15px;" placeholder="Tell us about your practice..."/>
-          <button class="btn-primary" style="margin-top:10px;" onclick="submitOtherPractice()">Continue</button>
+          <button class="option-btn" data-field="challenge" data-value="not-enough-patients" onclick="selectOption(this)">Not enough new patients</button>
+          <button class="option-btn" data-field="challenge" data-value="high-cpl" onclick="selectOption(this)">Ad costs are too high</button>
+          <button class="option-btn" data-field="challenge" data-value="low-conversion" onclick="selectOption(this)">Leads don't convert to booked appointments</button>
+          <button class="option-btn" data-field="challenge" data-value="no-visibility" onclick="selectOption(this)">No online visibility or brand awareness</button>
+          <button class="option-btn" data-field="challenge" data-value="wrong-patients" onclick="selectOption(this)">Attracting the wrong type of patients</button>
+          <button class="option-btn" data-field="challenge" data-value="scale" onclick="selectOption(this)">Ready to scale but don't know how</button>
         </div>
       </div>
 
       <!-- Step 2: Services -->
       <div class="step" data-step="2">
-        <div class="step-label">Question 2 of 6</div>
+        <div class="step-label">Question 2 of 4</div>
         <h2>Which high-value services do you want more patients for?</h2>
         <div class="options">
           <button class="option-btn" data-field="services" data-value="veneers" onclick="selectOption(this)">Veneers &amp; smile makeovers</button>
@@ -445,7 +428,7 @@
 
       <!-- Step 3: Monthly revenue -->
       <div class="step" data-step="3">
-        <div class="step-label">Question 3 of 6</div>
+        <div class="step-label">Question 3 of 4</div>
         <h2>What's your practice's approximate monthly revenue?</h2>
         <div class="options">
           <button class="option-btn" data-field="monthly_revenue" data-value="under50k" onclick="selectOption(this)">Under $50,000</button>
@@ -457,24 +440,9 @@
         <button class="btn-back" onclick="goBack()">&larr; Back</button>
       </div>
 
-      <!-- Step 4: Biggest challenge -->
+      <!-- Step 4: Decision maker -->
       <div class="step" data-step="4">
-        <div class="step-label">Question 4 of 6</div>
-        <h2>What's your biggest growth challenge right now?</h2>
-        <div class="options">
-          <button class="option-btn" data-field="challenge" data-value="not-enough-patients" onclick="selectOption(this)">Not enough new patients</button>
-          <button class="option-btn" data-field="challenge" data-value="high-cpl" onclick="selectOption(this)">Ad costs are too high</button>
-          <button class="option-btn" data-field="challenge" data-value="low-conversion" onclick="selectOption(this)">Leads don't convert to booked appointments</button>
-          <button class="option-btn" data-field="challenge" data-value="no-visibility" onclick="selectOption(this)">No online visibility or brand awareness</button>
-          <button class="option-btn" data-field="challenge" data-value="wrong-patients" onclick="selectOption(this)">Attracting the wrong type of patients</button>
-          <button class="option-btn" data-field="challenge" data-value="scale" onclick="selectOption(this)">Ready to scale but don't know how</button>
-        </div>
-        <button class="btn-back" onclick="goBack()">&larr; Back</button>
-      </div>
-
-      <!-- Step 5: Decision maker -->
-      <div class="step" data-step="5">
-        <div class="step-label">Question 5 of 6</div>
+        <div class="step-label">Question 4 of 4</div>
         <h2>Are you the decision-maker for marketing?</h2>
         <div class="options">
           <button class="option-btn" data-field="decision_maker" data-value="owner" onclick="selectOption(this)">Yes, I'm the practice owner</button>
@@ -484,22 +452,8 @@
         <button class="btn-back" onclick="goBack()">&larr; Back</button>
       </div>
 
-      <!-- Step 6: Running ads -->
-      <div class="step" data-step="6">
-        <div class="step-label">Question 6 of 6</div>
-        <h2>How are you currently managing paid advertising?</h2>
-        <div class="options">
-          <button class="option-btn" data-field="running_ads" data-value="agency" onclick="selectOption(this)">We work with an agency</button>
-          <button class="option-btn" data-field="running_ads" data-value="in-house" onclick="selectOption(this)">We manage ads in-house</button>
-          <button class="option-btn" data-field="running_ads" data-value="freelancer" onclick="selectOption(this)">We use a freelancer</button>
-          <button class="option-btn" data-field="running_ads" data-value="want-to-start" onclick="selectOption(this)">We want to start running ads</button>
-          <button class="option-btn" data-field="running_ads" data-value="not-sure" onclick="selectOption(this)">Not sure where to start</button>
-        </div>
-        <button class="btn-back" onclick="goBack()">&larr; Back</button>
-      </div>
-
-      <!-- Step 7: Contact info -->
-      <div class="step" data-step="7">
+      <!-- Step 5: Contact info -->
+      <div class="step" data-step="5">
         <div class="step-label">Last step</div>
         <h2>Almost there! Tell us how to reach you.</h2>
         <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
@@ -536,6 +490,15 @@
         <button class="btn-back" onclick="goBack()">&larr; Back</button>
       </div>
     </div>
+
+    <!-- Step dots -->
+    <div class="step-dots" id="stepDots">
+      <div class="step-dot active" data-dot="1"></div>
+      <div class="step-dot" data-dot="2"></div>
+      <div class="step-dot" data-dot="3"></div>
+      <div class="step-dot" data-dot="4"></div>
+      <div class="step-dot" data-dot="5"></div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -555,7 +518,7 @@
     })();
 
     var currentStep = 1;
-    var totalSteps = 7;
+    var totalSteps = 5;
     var answers = {};
 
     function updateProgress() {
@@ -586,20 +549,6 @@
       }
     }
 
-    function showOtherInput(btn) {
-      btn.parentElement.querySelectorAll('.option-btn').forEach(function(b){ b.classList.remove('selected'); });
-      btn.classList.add('selected');
-      document.getElementById('otherPracticeWrap').style.display = 'block';
-      document.getElementById('otherPracticeInput').focus();
-    }
-
-    function submitOtherPractice() {
-      var val = document.getElementById('otherPracticeInput').value.trim();
-      if (!val) return;
-      answers.practice_type = 'other: ' + val;
-      showStep(currentStep + 1);
-    }
-
     function selectOption(btn) {
       var field = btn.getAttribute('data-field');
       var value = btn.getAttribute('data-value');
@@ -608,10 +557,6 @@
       // Visual feedback
       btn.parentElement.querySelectorAll('.option-btn').forEach(function(b){ b.classList.remove('selected'); });
       btn.classList.add('selected');
-
-      // Hide the "Other" text input if they pick a standard option on Q1
-      var otherWrap = document.getElementById('otherPracticeWrap');
-      if (otherWrap && field === 'practice_type') otherWrap.style.display = 'none';
 
       // Auto-advance after short delay
       setTimeout(function(){ showStep(currentStep + 1); }, 250);
