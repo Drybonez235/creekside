@@ -235,19 +235,74 @@ export const POST: APIRoute = async ({ request }) => {
 			const data = await res.json();
 			contactId = data.contact?.id || null;
 		} else if (res.status === 400) {
-			// GHL returns 400 for duplicate email+phone -- look up existing contact
-			await res.json().catch(() => ({}));
-			try {
-				const lookupRes = await fetch(
-					`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
-					{ method: "GET", headers: ghlHeaders },
-				);
-				if (lookupRes.ok) {
-					const lookupData = await lookupRes.json();
-					contactId = lookupData.contact?.id || null;
+			// GHL returns 400 when the EMAIL OR PHONE matches an existing contact.
+			// Resolve the existing contact and apply the new tags + custom fields
+			// to it -- otherwise returning contacts never get the funnel tags,
+			// the GHL workflow doesn't fire, and the orchestrator can't see them.
+
+			// GHL's duplicate error usually includes the matching contact ID
+			const dupBody = (await res.json().catch(() => ({}))) as {
+				meta?: { contactId?: string };
+			};
+			contactId = dupBody?.meta?.contactId || null;
+
+			// Fallback: duplicate search by email, then by phone (GHL matches
+			// duplicates on either field, so an email-only lookup misses
+			// phone-matched duplicates and drops the lead)
+			if (!contactId) {
+				const lookupParams = [`email=${encodeURIComponent(email)}`];
+				if (phone) lookupParams.push(`number=${encodeURIComponent(phone)}`);
+				for (const param of lookupParams) {
+					try {
+						const lookupRes = await fetch(
+							`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&${param}`,
+							{ method: "GET", headers: ghlHeaders },
+						);
+						if (lookupRes.ok) {
+							const lookupData = await lookupRes.json();
+							if (lookupData.contact?.id) {
+								contactId = lookupData.contact.id;
+								break;
+							}
+						}
+					} catch {
+						// Lookup failed -- try next param
+					}
 				}
-			} catch {
-				// Lookup failed -- continue without contactId
+			}
+
+			if (contactId) {
+				// Update the existing contact with the funnel tags + custom
+				// fields. PUT replaces the whole tag set, so merge with the
+				// contact's current tags. Only tags + custom fields are
+				// written -- never overwrite the existing contact's
+				// name/email/phone with form input.
+				try {
+					let mergedTags = tags;
+					const getRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+						method: "GET",
+						headers: ghlHeaders,
+					});
+					if (getRes.ok) {
+						const existing = (await getRes.json())?.contact;
+						if (Array.isArray(existing?.tags)) {
+							mergedTags = [...new Set([...existing.tags, ...tags])];
+						}
+					}
+					const updateRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+						method: "PUT",
+						headers: ghlHeaders,
+						body: JSON.stringify({ tags: mergedTags, customFields }),
+					});
+					if (!updateRes.ok) {
+						const errText = await updateRes.text().catch(() => "");
+						console.error(`[ghl-lead] Duplicate-contact update failed ${updateRes.status}:`, errText);
+					}
+				} catch (updateErr) {
+					console.error("[ghl-lead] Duplicate-contact update error:", updateErr);
+				}
+			} else {
+				console.error(`[ghl-lead] Duplicate 400 but no existing contact found for email/phone -- lead dropped (email: ${email})`);
 			}
 		} else {
 			const errText = await res.text().catch(() => "");
