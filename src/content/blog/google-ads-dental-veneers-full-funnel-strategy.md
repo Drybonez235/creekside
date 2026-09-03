@@ -2,7 +2,7 @@
 title: "The Google Ads Full-Funnel Playbook for Dental Veneers: $140K in Revenue, 11x ROAS, and a Surprise Broad Match Win"
 description: "Full-funnel Google Ads for dental veneers: $140K revenue at 11x ROAS using Performance Max, Search, and Demand Gen for a California cosmetic practice."
 date: "2026-07-25"
-image: "article-images/google-ads-dental-veneers-full-funnel-strategy.avif"
+image: "article-images/blog-card-scatter.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Dental Marketing", "Veneers", "Performance Max", "Case Study"]
 ---

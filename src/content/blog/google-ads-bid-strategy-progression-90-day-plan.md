@@ -2,7 +2,7 @@
 title: "The Google Ads 90-Day Bid Strategy Ladder: When to Switch from Max Clicks to Target CPA"
 description: "A data-driven breakdown of how to progress Google Ads bid strategies from Max Clicks to Max Conversions to Target CPA in 90 days."
 date: "2026-08-13"
-image: "article-images/google-ads-bid-strategy-progression-90-day-plan.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Bid Strategy", "Campaign Management", "Performance Max"]
 ---

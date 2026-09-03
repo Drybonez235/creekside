@@ -2,7 +2,7 @@
 title: "Good Data In, Good Results Out: The Google Ads Framework Behind Our Medical Practice CPAs"
 description: "How we drove sub-$40 Google Ads cost per conversion for a naturopathic medical practice. CRM setup, Search vs. Performance Max, and 220+ negative keywords."
 date: "2026-07-24"
-image: "article-images/google-ads-medical-practice-low-cost-per-conversion.avif"
+image: "article-images/blog-card-funnel.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Medical Practice", "Healthcare Marketing", "Cost Per Conversion", "CRM Integration"]
 ---
@@ -23,8 +23,6 @@ tags: ["Google Ads", "Medical Practice", "Healthcare Marketing", "Cost Per Conve
 | Negative keywords in account | 220+ |
 | Campaign type | Search only |
 | Market | Naturopathic medicine, Sacramento CA |
-
-![Google Ads campaign structure for medical practice CPA framework](/article-images/google-ads-medical-practice-low-cost-per-conversion-campaign-structure.svg)
 
 ---
 
@@ -117,8 +115,6 @@ When these structural decisions are in place together -- CRM-linked conversions,
 This account is at $36 per conversion with a $2,350 monthly budget. At that CPA, the practice is getting roughly 65 patient inquiries per month from Google Ads. For a service with a typical first-visit value of several hundred dollars and potential multi-year patient relationships, that is a strong return.
 
 The case study for this practice, Integrity Naturopathic in Sacramento, shows the keyword-level breakdown. The top keywords convert at $13-$18 per conversion. The broader wellness terms come in at $35-$36. The blended average sits at $36 and is moving toward $30.
-
-![Healthcare Google Ads CPA benchmark: industry average vs. Creekside results](/article-images/google-ads-medical-practice-low-cost-per-conversion-results.svg)
 
 Healthcare Google Ads is often quoted at $50-$100+ per conversion as a benchmark. We are consistently under that range for this account because the structural decisions compound. Each one individually helps. Together, they create an account that performs significantly better than the industry average.
 

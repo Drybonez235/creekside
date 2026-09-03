@@ -17,7 +17,6 @@ tags: ["Google Ads", "Conversion Optimization", "Lead Generation", "Performance 
 | Percentage of daily Google searches that are brand new | ~20% |
 | Typical keyword cannibalization pattern | 2 keywords consuming 90% of budget |
 
-
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Strategies to Increase Conversions in Google Ads](https://www.youtube.com/watch?v=pph3WdHuFgg).
 
 ---
@@ -41,8 +40,6 @@ When someone has already visited your website, they have expressed intent. Getti
 Based on account data reviewed for this topic, CPCs on display retargeting campaigns typically run between $0.10 and $1.00 per click. One account cited in the source video showed a CPC of $1.65, which represents the upper end of the typical range and is still far below what comparable search clicks cost in most lead gen categories.
 
 The second audience layer we add alongside website retargeting is a lookalike audience. This targets users who behave similarly to past site visitors on Google, extending low-cost reach to a relevant audience that has not yet visited your site. This is not technically retargeting, but it amplifies the low-cost reach of the campaign significantly.
-
-![Display Retargeting: Budget and CPC Framework for Google Ads Lead Gen](/article-images/google-ads-not-enough-conversions-display-retargeting.svg)
 
 The goal of this campaign is high-volume touchpoints with warm and warm-adjacent audiences running in parallel with the search campaign.
 
@@ -87,8 +84,6 @@ The result: budget and keyword decisions get made based on data from two keyword
 The fix is to pause the dominant keywords temporarily. This does not mean eliminating them permanently. In mature accounts, the dominant keyword often turns out to be a genuine top performer after honest testing across the full keyword set. The goal is to give the rest of the list real data before drawing any conclusions.
 
 Once the other keywords have meaningful impression and click volume, one of two things happens: several of them convert well and the budget strategy needs to change, or they do not convert and you now have confirmed data instead of assumptions. Either outcome is more actionable than the cannibalization state you started in.
-
-![Keyword Budget Cannibalization: How 2 Keywords Block Conversion Data for the Other 12+](/article-images/google-ads-not-enough-conversions-keyword-spend.svg)
 
 ---
 

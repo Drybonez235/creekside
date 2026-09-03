@@ -17,7 +17,6 @@ tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 | Goal | Weekly recurring agent with zero manual rebuild each run |
 | Source | [Creekside YouTube channel, July 2026](https://www.youtube.com/watch?v=Npz5bl9-FKw) |
 
-
 If your paid ads agency handles reporting the way most do, it is a weekly production: pull the numbers, format them, write the context, send. Every week, largely from scratch. We recently applied AI for client reporting in a fundamentally different way, and the result changed how we think about the whole function.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [How To Use AI in Marketing by Lindsey](https://www.youtube.com/watch?v=Npz5bl9-FKw). In it, Lindsey, one of our paid ads specialists, walks through the exact process she used to rebuild a weekly client report using Claude. What she built is not a template shortcut; it is a repeatable system grounded in real documents and real data.
@@ -66,8 +65,6 @@ The second key insight from this process is that AI requires explicit human dire
 
 Lindsey tested a specific change in the report (a headline in one section) to confirm that Claude was actually editing the document and not simply acknowledging the instruction. When the first pass did not produce a visible change, she refined her instruction and verified again. This back-and-forth is a standard part of any AI-assisted production workflow, not an edge case. You do not send client output you have not confirmed.
 
-![AI client reporting workflow: 5 steps from source to recurring agent](/article-images/ai-weekly-client-reporting-recurring-agent-paid-ads-workflow.svg)
-
 ---
 
 ## The Recurring Agent: Where the Real Return Is
@@ -89,8 +86,6 @@ For an agency managing multiple client accounts, the compounding value is signif
 The client report Lindsey rebuilt tracks a three-stage sales pipeline. Pre-qualified leads represent early-stage interest that has been vetted against basic criteria. Pricing qualified leads have moved further: they have seen pricing and remained engaged. Funded deals are the closed stage.
 
 Each stage requires different framing in the report. A period with activity in stages one and two but nothing in stage three is not a failure; it is a pipeline in motion. But the report needs to say that clearly and consistently, and the framing needs to match what the client has been told to expect.
-
-![Client pipeline stage tracking: pre-qualified, pricing qualified, funded deals](/article-images/ai-weekly-client-reporting-recurring-agent-paid-ads-pipeline.svg)
 
 The four metric categories Claude computed in this report (cost, conversions per link click, creatives, and angles) directly address the four questions that come up in any paid ads review:
 

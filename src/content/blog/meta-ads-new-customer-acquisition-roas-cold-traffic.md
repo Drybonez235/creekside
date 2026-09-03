@@ -22,7 +22,6 @@ tags: ["Meta Ads", "New Customer Acquisition", "ROAS", "Facebook Ads", "Ecommerc
 
 ---
 
-
 Most Meta ROAS numbers are softer than they look. This post explains why, and what a genuinely hard number -- earned entirely from cold traffic -- actually requires to produce.
 
 Cade MacLean, our co-founder here at Creekside Marketing, pulled the data on a recent campaign and the results were strong: 14.06 ROAS over 14 days, 97 purchases, $5.64 cost per purchase. But the context around those numbers is the point. The brief was new customer acquisition only. Every prior purchaser, every retargeting audience, every email list was excluded from targeting. No warm traffic mixed in. The campaign was running cold Meta traffic against people who had never heard of the brand, and converting them into buyers at those numbers.
@@ -39,8 +38,6 @@ Warm audiences convert cheap. Someone who already bought from you, visited your 
 
 This is not fraud. It is not even bad strategy in every case. Running retargeting alongside prospecting can be the right call. The problem is when advertisers interpret the blended number as proof that their prospecting is working. It is not proof of that. It is proof that a mix of audiences -- some of whom were already likely to buy -- converted at a certain aggregate rate. The question of whether your cold ads can actually find and convert new customers is answered by a different number entirely.
 
-![Blended ROAS vs. True NCA ROAS: What the Number Is Actually Measuring](/article-images/meta-ads-new-customer-acquisition-roas-cold-traffic-blended-vs-nca.svg)
-
 The example from this campaign makes the point directly. If warm audiences had been mixed in, the reported ROAS would have climbed. The email list, past purchasers, and site visitors would have converted cheaply and improved the blended number. But the resulting figure would not have told you whether Meta's cold targeting was working. You would have been measuring something that includes the lift from your existing customer base and calling it ad performance.
 
 The NCA-only constraint strips that out. What you see is what cold traffic actually does.
@@ -56,8 +53,6 @@ According to Creekside Marketing's analysis, based on $20M+ in managed ad spend,
 **97 purchases** represents 97 net-new customers added to the business over two weeks. In a pure NCA context, that is not a purchase count. It is a list-growth and customer-base-expansion number. Every one of those buyers is someone who can now be retargeted, emailed, and retained. The campaign was not just generating revenue; it was building the warm audience that future campaigns will convert cheaply.
 
 **$5.64 cost per purchase** from cold traffic is the number that tells you the unit economics of customer acquisition. If this brand has even a moderate repeat purchase rate, the lifetime value of a $5.64 cold-acquired customer is almost certainly well above that acquisition cost. The math on running this campaign at scale becomes straightforward.
-
-![NCA Campaign Results: 14-Day Cold Traffic Snapshot](/article-images/meta-ads-new-customer-acquisition-roas-cold-traffic-campaign-results.svg)
 
 ---
 

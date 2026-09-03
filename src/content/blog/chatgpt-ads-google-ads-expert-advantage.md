@@ -17,7 +17,6 @@ tags: ["ChatGPT Ads", "Google Ads", "AI Advertising", "Paid Search"]
 | Expected ChatGPT CPCs vs. established platforms | Significantly lower at launch (new platform discount) |
 | Best qualified to run ChatGPT ads | Google Ads managers with existing AI-adjacent ad experience |
 
-
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [ChatGPT Ads Explained](https://www.youtube.com/watch?v=i4LC2rxQBRw).
 
 On January 16, 2026, ChatGPT released news that ChatGPT ads will begin appearing inside its free and go tiers within the next few months. Within days of that announcement, a wave of consultants and freelancers appeared positioning themselves as AI advertising specialists ready to help businesses get ahead of this new platform.
@@ -37,8 +36,6 @@ According to Creekside Marketing's analysis, Google is also using data from user
 ChatGPT's move is not a surprise or an innovation in that sense. It is a logical step. When you are entering a market where the dominant competitor monetizes through search advertising and already runs ads next to AI summaries, you study and replicate that model. ChatGPT will follow Google's lead because Google's approach is the proven one, and it is the approach that produces revenue at scale.
 
 This matters for one practical reason: Google Ads managers already have hands-on experience running campaigns that appear alongside AI-generated content and being targeted to users based on AI platform behavior. That experience does not exist anywhere else yet.
-
-![ChatGPT Ads and Google AI Ads: Platform Readiness Comparison](/article-images/chatgpt-ads-google-ads-expert-advantage-platform-comparison.svg)
 
 ---
 
@@ -67,8 +64,6 @@ According to Creekside Marketing's analysis, ChatGPT will need to sell ad placem
 The window closes as more advertisers enter. When competitors in your category start bidding on ChatGPT inventory, CPCs normalize and the early mover advantage disappears. This is the same dynamic that played out on Facebook Ads, YouTube Ads, and every other platform that launched with new inventory and took time for advertiser demand to catch up.
 
 For newer businesses in particular, this window matters more than it does for established players. Established businesses move more slowly on new platforms because they have more internal processes and more risk tolerance required before allocating budget to something unproven. A leaner, faster-moving business can enter categories where established competitors are not yet bidding and build audience data at a fraction of what it will cost later.
-
-![New Ad Platform CPC Lifecycle: The Early Mover Window](/article-images/chatgpt-ads-google-ads-expert-advantage-cpc-curve.svg)
 
 ---
 

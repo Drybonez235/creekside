@@ -19,7 +19,6 @@ tags: ["Google Ads", "Facebook Ads", "Paid Ads", "Freelancer Hiring", "Ad Budget
 | Second-opinion ad audit (Upwork) | ~$50 |
 | First freelancer red flag | Promises results in under 30 days |
 
-
 This post is based on a real strategy consultation Peterson published on the Creekside Marketing YouTube channel: [Inside a Real Marketing Strategy Call: How to Choose the Right Ads, Budget, and Freelancer](https://www.youtube.com/watch?v=Iwet8Y_0UpI). The conversation covers platform selection, realistic budget expectations, and the specific questions to ask before hiring anyone to run your ads.
 
 Most business owners facing their first Google Ads or Facebook Ads decision arrive with three questions: which platform, how much, and who should we hire. They get rehearsed answers from every agency and freelancer they talk to, because most of those people are optimizing for closing the deal rather than giving accurate expectations. What follows is the framework we actually walk through when a business owner brings those questions to us.
@@ -32,8 +31,6 @@ Need-based services belong on Google: therapy, dental care, legal help, emergenc
 
 A business with counseling services and a coaching membership would use Google Ads for the counseling side (people actively search for therapists) and Meta Ads for the coaching groups (a desire you create, not a problem they are searching to solve). These are not interchangeable. Getting this wrong at the start means you can have a technically excellent campaign running toward the wrong goal entirely.
 
-![Platform Selection Decision Framework: Need-Based vs Want-Based Services](/article-images/how-to-choose-google-ads-vs-facebook-ads-platform-decision.svg)
-
 ## Google Ads Budget Minimums: Why $30 a Day Will Not Work
 
 The minimum viable Google Ads budget is not a number we invented to push clients toward higher spend. It comes from a specific technical requirement: Google's algorithm needs at least 10 clicks per day to learn and optimize. In most competitive industries, especially health and professional services, cost per click runs $5 to $7 or higher. That means you need at minimum $50 to $70 per day just to feed the algorithm enough data to function. In practice, we tell most clients not to run Google Ads with less than $3,000 per month, which is roughly $100 per day.
@@ -45,8 +42,6 @@ The most common reason Google Ads campaigns fail is not bad setup. It is prematu
 This is why we do not take on clients who cannot sustain ad spend for a full 90 days without requiring a significant return during that period. If the spend would genuinely hurt your business to lose, you are not yet positioned to run Google Ads. That is an honest assessment of what the platform requires, not a gatekeeping rule.
 
 For most earlier-stage businesses, Facebook and Instagram Ads are a better starting point. Data is cheaper, volume is higher at lower spend levels, and the learning curve is faster. The tradeoff is that Facebook leads carry more window shoppers. More volume, but lower average lead quality.
-
-![Google Ads vs Facebook Ads: Budget and Timeline Reality](/article-images/how-to-choose-google-ads-vs-facebook-ads-budget-timeline.svg)
 
 ## How to Find a Paid Ads Freelancer When You Do Not Know What to Look For
 

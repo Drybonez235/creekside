@@ -17,7 +17,6 @@ tags: ["Agency Onboarding", "Google Ads", "Meta Ads", "Paid Advertising"]
 | Onboarding phases | 3 (audit, 90-day plan, monitoring) |
 | Monitoring frequency | Daily, sometimes twice daily |
 
-
 Most paid ads agency onboarding looks like this: you hand over account access, someone runs a few initial checks, and campaigns go live within days. That feels like momentum. What it actually is is budget being spent before anyone has a clear picture of what is happening in your account, what is broken, and what needs to be fixed before optimization work even begins.
 
 At Creekside Marketing, we run a structured, three-phase paid ads agency onboarding process before we write a single headline or adjust a single bid. This post walks through exactly what that process looks like, based on what Peterson and his partner Cade built after auditing more than 200 Google Ads and Meta Ads accounts and reviewing over $20 million in ad spend.
@@ -40,8 +39,6 @@ Specifically, the audit looks for:
 - **Platform-specific compounding mistakes:** Small misconfigurations that look harmless in week one and create serious drift by the end of a quarter
 
 One principle is non-negotiable from day one: clients always own their accounts and have full access to everything we build. "You will always have access to all the accounts that we build for you," Peterson says. We have seen too many businesses get burned by agencies and freelancers that hold account access hostage. The audit phase, and everything that follows it, is built on full transparency.
-
-![The Creekside 3-Phase Paid Ads Agency Onboarding Process](/article-images/paid-ads-agency-onboarding-process-phases.svg)
 
 ---
 
@@ -74,8 +71,6 @@ The monitoring system starts immediately after. This is the phase most clients n
 "I have this giant checklist of things that I do daily and sometimes twice a day, sometimes two times a week, where I make all the notes needed to leave a paper trail for your account," Cade says. That paper trail is not an internal record. It is the accountability layer. When something changes in your account, there is a logged record of what was done, when, and why. Clear documentation is how you actually know what is happening inside your campaigns instead of receiving a monthly summary that tells you nothing actionable.
 
 On the Google Ads side, Peterson runs a parallel management system. Each agency client and each direct client has its own tracking structure that keeps every account completely separated and documented. "This is how I keep everything separate, keep track of what I have been doing, keep track of what is important in the account," Peterson explains. That separation is what makes it possible to manage campaigns across dozens of clients and industries without errors bleeding between accounts.
-
-![Creekside Marketing Paid Ads by the Numbers](/article-images/paid-ads-agency-onboarding-process-stats.svg)
 
 ---
 

@@ -23,7 +23,6 @@ tags: ["Google Ads", "Performance Max", "Google Ads Audit", "Quality Score", "Co
 | New agency starting target CPA | $40 |
 | Quality score gap | 10/10 (previous) vs. below average (new) |
 
-
 When a new agency inherits a Google Ads account that was producing results, the instinct is to start fresh. New campaign structure, tighter geographic targeting, more refined bidding. All of it feels like an upgrade.
 
 Then the conversions stop.
@@ -31,8 +30,6 @@ Then the conversions stop.
 Not a gradual decline. A near-complete stop. The previous agency was producing $0.80 CPCs and 450 conversions from a single search campaign. The new agency landed at roughly one conversion in 32 days and $18 CPCs from the same account and same client.
 
 This post is based on a real Google Ads audit Peterson published on the Creekside Marketing YouTube channel: [This Google Ads Audit Saved An Agency $100,000+ in ARR!](https://www.youtube.com/watch?v=nd49kmGQYEI). Seven specific findings explain the gap, all drawn directly from the live account audit.
-
-![Agency transition CPC and conversion gap: $0.80 vs $18 CPCs, 450 vs near-zero conversions](/article-images/google-ads-audit-450-conversions-zero-cpc-gap.svg)
 
 ---
 
@@ -74,8 +71,6 @@ The cost-per-conversion data by state told the same story:
 Massachusetts was 3.3x more expensive per conversion than the national average. Rhode Island and Connecticut were both roughly 1.7x to 1.9x more expensive. And none of these states were showing meaningful conversion volume in the historical data.
 
 When the campaign is constrained to three states that are both low-volume and high-CPA by actual account history, the agency was working against the account's own data from day one. The recommendation: open targeting to the full United States if the business owner allows it. [Location targeting](/blog/how-to-set-google-ads-location-targeting-properly-and-why-most-accounts-get-it-wrong) is one of the most consistently misconfigured settings we see.
-
-![Geographic cost per conversion: Target states at $12-$23 vs. $7 national average](/article-images/google-ads-audit-450-conversions-zero-geo-cpa.svg)
 
 ---
 

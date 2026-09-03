@@ -19,7 +19,6 @@ tags: ["Google Ads", "Campaign Optimization", "Statistical Significance", "Ad Sc
 | Virginia at 70 clicks, 0 conversions | Excluded |
 | Massachusetts at ~60 clicks, 1 conversion | Kept (near expected performance) |
 
-
 Knowing when to make changes in Google Ads is not about spotting a segment with zero conversions. It is about knowing whether those zero conversions are statistically meaningful or just the result of not enough data.
 
 Here is what happened when we brought in external Google Ads managers to audit one of our accounts. Two freelancers independently flagged the same segment: the 4am to 5am time slot. Both recommended excluding it from the ad schedule on the grounds that it had produced zero conversions. What they missed was that the slot had 27 clicks.
@@ -52,8 +51,6 @@ Once you have the baseline:
 
 If your CVR is lower (for example, 2%), the math scales accordingly: 1 conversion per 50 clicks, 2x threshold at 100 clicks, 3x at 150. Lower CVR campaigns require more time and budget before optimization signals become reliable. That is not a problem with the campaign. It is how statistics work.
 
-![The 2x-3x Click Threshold Rule: How to Decide When Google Ads Data Is Actionable](/article-images/google-ads-when-to-make-changes-statistical-significance-click-threshold.svg)
-
 ## The 2x Rule Versus the 3x Rule: Which Threshold to Use
 
 Both thresholds are defensible exclusion standards, but they fit different situations. Use 2x (40 clicks) when you need to make decisions quickly and have confirmed the pattern across a 60-day window. Use 3x (60 clicks) when the campaign is still in a learning phase or when secondary metrics show mixed signals.
@@ -85,8 +82,6 @@ Virginia, South Carolina, and Massachusetts each produced a different decision i
 **Massachusetts:** Approximately 60 clicks, 1 conversion. The state was expected to generate two to three conversions at that level of spend. One conversion puts it one short of expectation at the low end. The cost per conversion is higher than the account target, but cutting the state entirely for being one conversion short would eliminate a market that is still developing. The single conversion is evidence the audience exists there. Kept.
 
 The Massachusetts case is the one most managers get wrong. One conversion in 60 clicks at a 5% CVR account looks like underperformance when you look at the CPA column. But it looks like a segment that is one conversion away from meeting expectations when you look at the conversion count relative to the threshold. The framework prevents you from cutting that state based on CPA alone when the underlying data does not support exclusion.
-
-![Real Account Examples: Location Exclusion Decisions Across Virginia, South Carolina, and Massachusetts](/article-images/google-ads-when-to-make-changes-statistical-significance-exclusion-decision.svg)
 
 For a deeper look at how we analyze location performance across multiple campaigns at once, see our guide on [the AI method for finding underperforming Google Ads locations](/blog/google-ads-location-data-ai-analysis/).
 

@@ -2,7 +2,7 @@
 title: "Search, Performance Max, and Demand Gen in One Account: The Full-Funnel Google Ads Strategy That Compounds Results"
 description: "How to build a full-funnel Google Ads strategy using Search, Performance Max, and Demand Gen for established lead gen accounts with real conversion data."
 date: "2026-08-11"
-image: "article-images/full-funnel-google-ads-strategy-search-pmax-demand-gen.avif"
+image: "article-images/blog-card-arrow.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Performance Max", "Demand Gen", "Full Funnel", "Lead Generation"]
 ---
@@ -17,7 +17,6 @@ tags: ["Google Ads", "Performance Max", "Demand Gen", "Full Funnel", "Lead Gener
 | Demand Gen Retargeting | Mid | Max Clicks | Recapture site visitors |
 | Demand Gen Lookalike | Top | Max Conversions | New audience reach |
 
-
 *This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Full-Funnel Google Ads Strategy | Search, Performance Max & Demand Gen](https://www.youtube.com/watch?v=T4jHaEjfu6A). Watch the full account walkthrough for the visual breakdown.*
 
 Every Google Ads account starts with Search. That part is obvious. What is not obvious is what to build on top of Search once the account has enough conversion data to expand, and why adding upper-funnel campaigns changes the performance of the lower-funnel campaigns you already have running.
@@ -31,8 +30,6 @@ This is not a strategy for accounts in their first 90 days. It is a strategy for
 Search is the right starting point for every Google Ads account because it generates real data fast: actual search terms, conversion events tied to specific queries, and enough signal for Google to optimize toward cost per conversion rather than clicks. According to Creekside Marketing's direct account management experience, you cannot responsibly move into Performance Max or Demand Gen until you have consistent conversion data and a bid strategy that is optimizing for conversions rather than clicks. That data is the foundation the other campaigns require.
 
 For accounts still in the clicks phase or without consistent conversion volume, stay in Search until the data is ready. Launching Pmax or Demand Gen prematurely wastes budget and trains the algorithms on noise.
-
-![Full-Funnel Google Ads Campaign Architecture across Search, Performance Max, and Demand Gen](/article-images/full-funnel-google-ads-strategy-search-pmax-demand-gen-funnel.svg)
 
 ## How Demand Gen Campaigns Fit Into a Lead Gen Full-Funnel Google Ads Strategy
 
@@ -77,8 +74,6 @@ The fix was uploading offline conversions from the CRM. The sales team qualifies
 **Business Name Exclusion: Non-Negotiable in Every Pmax Campaign**
 
 The business name is excluded from both Performance Max campaigns in this account. Without that exclusion, Pmax consumes budget showing ads to people who are already searching the brand name directly. Those are the easiest conversions to get, and also the ones that would happen through branded Search anyway without Pmax involvement. Excluding the brand name forces Pmax to generate incremental demand rather than claim credit for conversions it did not earn.
-
-![When to Add Each Google Ads Campaign Type: Full-Funnel Build Sequence](/article-images/full-funnel-google-ads-strategy-search-pmax-demand-gen-sequence.svg)
 
 ## Why Search Delivers Higher Lead Quality Than Performance Max in Lead Gen Accounts
 

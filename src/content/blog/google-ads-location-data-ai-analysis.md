@@ -18,7 +18,6 @@ tags: ["Google Ads", "AI Workflow", "Location Targeting", "Data Analysis", "Camp
 | ROAS goal (example account) | 8x (conversion value over cost) |
 | Minimum spend before cutting a location | $80 (for a $40 average purchase price) |
 
-
 Managing Google Ads location data across multiple campaigns is one of the most time-consuming parts of account management. The platform only shows location performance by campaign, which means comparing how a city or country performs across branded, unbranded, and shopping campaigns simultaneously requires pulling each view separately and reconciling them manually. We use an AI location analysis workflow in Google Ads that collapses that process from hours to minutes.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [AI Location Settings For Google Ads](https://www.youtube.com/watch?v=4FJPwoYho94).
@@ -32,8 +31,6 @@ This is what we call the stat-padding problem: if your branded campaign delivers
 The fix requires analyzing all non-branded campaigns together and seeing the true blended return. Google Ads does not surface that view natively. That is exactly the gap the AI workflow closes.
 
 For context on how location targeting settings work in the first place, see our post on [how to set Google Ads location targeting properly and why most accounts get it wrong](/blog/how-to-set-google-ads-location-targeting-properly-and-why-most-accounts-get-it-wrong/).
-
-![Four-step AI location analysis workflow: Download CSV, Upload to LLM, Prompt with Context, Identify Underperformers](/article-images/google-ads-location-data-ai-analysis-workflow.svg)
 
 ## The Exact AI Workflow for Google Ads Location Analysis
 
@@ -76,8 +73,6 @@ That threshold is a floor for putting a location on a review list, not a trigger
 When we run this analysis, locations that have cleared the spend minimum but remain below the ROAS target become candidates for a deeper question. Is the underperformance consistent across all non-branded campaigns, or isolated to one? Is this a market the account entered recently, where it is too early to judge? Is there a creative or offer mismatch specific to this region, rather than a structural demand problem? Those questions require human judgment and account context. What the AI workflow does is surface the right locations to apply that judgment to, without spending hours cross-referencing campaign data manually.
 
 According to Creekside Marketing's analysis across $20M+ in managed ad spend, this kind of spend-weighted cross-campaign location review consistently identifies budget leakage that single-campaign reporting misses.
-
-![Location performance decision matrix: spend threshold vs. ROAS target](/article-images/google-ads-location-data-ai-analysis-roas-chart.svg)
 
 ## Why This Workflow Beats Scripts for One-Time Location Reviews
 

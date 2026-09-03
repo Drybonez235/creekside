@@ -2,7 +2,7 @@
 title: "Stop Managing Google Ads From Memory: The Weekly Checklist System That Keeps Any Account on Track"
 description: "The exact Google Ads management spreadsheet checklist Creekside uses across every account, updated twice a week, with 5 sections including a test-tracking log."
 date: "2026-08-12"
-image: "article-images/google-ads-management-checklist-weekly-system.avif"
+image: "article-images/blog-card-dots.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Account Management", "Checklist", "Campaign Optimization"]
 ---

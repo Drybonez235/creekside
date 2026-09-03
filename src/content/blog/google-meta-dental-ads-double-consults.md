@@ -21,7 +21,6 @@ tags: ["GoogleAds", "MetaAds", "DentalMarketing", "CosmeticDentistry", "PaidAds"
 | Average Veneer Case Value | $15,000 |
 | Value Per Booked Consultation | $7,500 |
 
-
 Most dental practices running paid ads are making the same structural mistake: they treat Google Ads and Meta Ads as two separate campaigns that happen to share an ad budget. There is no connection between them. Neither platform is set up to build on what the other one does. And the result is a performance ceiling you cannot break through by simply adding more spend.
 
 We ran into this exact situation with a high-end cosmetic dental practice in California. They were spending over $100,000 per month on advertising across both platforms. They had strong organic presence, with over 190,000 Instagram followers. Their previous management had done reasonable work, getting them to 50 to 60 consultations per month. But after months at that level, the numbers had stopped moving. They needed more volume and better profitability without just throwing more money at the problem.
@@ -62,8 +61,6 @@ When someone sees a Facebook ad for a cosmetic dental practice, thinks about it 
 
 This is the coordination piece that most dental ad setups miss entirely. Running Meta alone means you generate demand but lose patients to competitors at the search stage. Running Google alone means your campaigns lack the volume of intent needed for the algorithm to optimize effectively. The combined structure works because Meta seeds the market and Google converts the patients who were already primed by Meta exposure.
 
-![How the Google and Meta Dental Ad Strategy Works: Platform Role Diagram](/article-images/google-meta-dental-ads-double-consults-strategy.svg)
-
 ## The Results: 105 Consultations in 90 Days
 
 When we began working with this practice, monthly consultations were between 50 and 60 at a monthly ad spend of approximately $100,000 to $110,000. By the second month of the engagement, consultations had hit 105. That is more than double the starting volume at the same budget.
@@ -73,8 +70,6 @@ To understand what that means in revenue terms: at $15,000 per case and a 50% co
 Within the first 90 days, this practice had added over $200,000 in additional revenue. Within six months, the monthly profit addition from the restructured campaigns was approximately $200,000 per month.
 
 These results came from restructuring the strategy, not from increasing the budget. The spend stayed the same. What changed was which platform did which job.
-
-![Consultation Growth and Revenue Impact: 90-Day Case Study Results](/article-images/google-meta-dental-ads-double-consults-results.svg)
 
 ## The Counterintuitive Part: Why High Volume Works for High-Ticket Cases
 

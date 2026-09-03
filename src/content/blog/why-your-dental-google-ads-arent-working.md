@@ -2,7 +2,7 @@
 title: "Why Your Dental Google Ads Aren't Working (And How to Fix Them)"
 description: "Running Google Ads for your dental practice but not seeing new patients? Discover the 6 most common mistakes we find in dental PPC accounts and how to fix them."
 date: "2026-05-05"
-image: "article-images/why-your-dental-google-ads-arent-working.avif"
+image: "article-images/blog-card-target.svg"
 category: "Dental Marketing"
 tags: ["GoogleAds", "Dental", "Audit", "Optimization"]
 ---
@@ -28,11 +28,7 @@ According to Creekside Marketing's audit data, the average dental practice waste
 
 Here's what that gap looks like in a real account. Polaris Dentistry came to us generating just 26 conversions in an entire year at a $48.79 cost per conversion. After rebuilding the account with precision keyword targeting, proper negative keyword lists, and accurate conversion tracking, we drove 413 conversions in the following year at $9.58 per conversion, eventually pushing cost per conversion below $4. That's a 15x increase in conversions from the same basic platform. The budget didn't change dramatically. The structure did. Read the [full Polaris Dentistry case study](/case-study-digital-marketing/polaris-dentistry/) to see the before and after in detail.
 
-![Polaris Dentistry before and after results with Creekside Marketing](/article-images/why-your-dental-google-ads-arent-working-results.svg)
-
 That's the gap between a well-run dental Google Ads account and a poorly run one.
-
-![Where dental Google Ads budgets leak by problem type](/article-images/why-your-dental-google-ads-arent-working-waste.svg)
 
 ## Problem 1: Missing Negative Keywords Are Draining Your Budget
 

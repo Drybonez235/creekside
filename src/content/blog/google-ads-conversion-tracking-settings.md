@@ -17,7 +17,6 @@ tags: ["GoogleAds", "ConversionTracking", "PPC", "AccountSetup"]
 | Primary conversion tracking | Same action tracked twice | One tracking source per conversion type |
 | Tracking method | Via Google Analytics relay | Directly via Google Tag Manager |
 
-
 Google Ads conversion tracking sounds like a one-time setup task. Configure the actions, connect the tags, move on. But the conversion tracking section is one of the most consistently misconfigured parts of any account we audit across $20M+ in managed ad spend. And unlike a bad keyword or a weak ad, bad conversion tracking does not just waste budget. It teaches the algorithm to optimize toward the wrong signals. Every downstream decision, from bid strategy to audience targeting, rests on conversion data quality.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Optimizing Google Ads Conversion Tracking for Better Results](https://www.youtube.com/watch?v=asXcBBLtKy4).
@@ -33,8 +32,6 @@ The 30-second default is not random. It makes sense for a narrow category of bus
 When the threshold is too low, Google sees a call that lasted 28 seconds as a conversion. Smart bidding reads that as a win and looks for more traffic like that caller. You end up with more 28-second calls, more apparent "conversions," and a cost-per-conversion metric that looks strong but does not reflect actual clients.
 
 The fix is to pull your actual call data and compare calls that became clients against calls that did not. The lowest duration where conversion probability rises is your threshold. For most service businesses, that number lands at or above 60 seconds.
-
-![Phone call duration thresholds: 30-second default vs. 60-second minimum for most businesses](/article-images/google-ads-conversion-tracking-settings-call-duration.svg)
 
 ## Mistake 2: Count Set to "Every" When You Are Tracking Leads, Not Purchases
 
@@ -59,8 +56,6 @@ For businesses where closing a deal takes longer, the window should expand to ma
 For businesses with genuinely long cycles, like reverse mortgage where the sales process can run 90 days or more, a 60-to-90-day window is appropriate. In those cases, a delayed conversion is legitimately connected to an ad click that happened months earlier. The process is just that long.
 
 The problem is when a business with a short decision cycle uses a long conversion window. Every click that happens and then converts over the following weeks or months, regardless of whether Google Ads actually drove it, gets attributed to the campaign. Cost-per-conversion looks low. Budget gets allocated based on phantom credit.
-
-![Conversion window alignment by sales cycle: lawn care 14 days, service business 45 days, reverse mortgage 60-90 days](/article-images/google-ads-conversion-tracking-settings-window.svg)
 
 ## Mistake 4: Tracking the Same Conversion Action Twice as Primary
 

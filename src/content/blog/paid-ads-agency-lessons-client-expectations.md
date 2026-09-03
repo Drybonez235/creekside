@@ -23,7 +23,6 @@ tags: ["Agency Ownership", "Client Management", "Paid Ads", "Google Ads"]
 
 ---
 
-
 I co-founded Creekside Marketing to run paid media for businesses at a level most in-house teams cannot match, based on $20M+ in managed ad spend across Google and Meta. Agency ownership is genuinely great. I mean that. But there are three things that kept showing up that nobody in a course, a podcast, or a "how I built a seven-figure agency" thread actually prepared me for.
 
 This post is not a warning. It's a calibration. If you're building an agency (or considering it), these patterns are normal. Knowing they are normal means you handle them instead of spinning out when they happen.
@@ -35,8 +34,6 @@ Here is a simple example to make this concrete.
 A business owner comes in selling a $150 product. Their current ad budget is $10 per day ($300 per month). They want 5 to 10 purchases per day. Do the math: at $300 per month, you need roughly 2 sales just to cover the ad spend, before product cost, fulfillment, or overhead touches a dollar of it. To generate 5 to 10 purchases a day at a reasonable cost per acquisition, you are looking at a budget that is orders of magnitude larger than what they are running.
 
 This is a hypothetical, but it is representative. Some version of this conversation happens in almost every new business context where a prospect or client has not yet matched their goals to their investment level.
-
-![Budget math breakdown: $300/month vs the expectation of 5-10 daily sales](/article-images/paid-ads-agency-lessons-client-expectations-budget-math.svg)
 
 The part that surprises most new agency owners is not that the gap exists. It's that explaining the math clearly does not always close it. You can walk through every number out loud. You can show the arithmetic on screen. And some people hear the math and still do not hear it. That is not a reflection of how well you explained it. It is just part of the job.
 
@@ -65,8 +62,6 @@ We walked a prospect through our entire onboarding process on a recorded call. S
 The prospect got account access on a Friday. We delivered inside 24 business hours. By Monday end of day, they were asking why the changes were not live yet.
 
 The audit was complete. We were in the confirmation step of a process we had explained in detail, in writing, with a recording. The expectation was that we would operate like an employee: available on their timeline, accountable to their internal clock, not the agreed SLA.
-
-![Partner vs. employee client mindset: two different ways clients engage with a paid ads agency](/article-images/paid-ads-agency-lessons-client-expectations-partner-vs-employee.svg)
 
 The framing I keep coming back to: we are not employees. We are a partner exchanging expertise for money. That exchange only works if both sides treat it like one. A vendor relationship has defined deliverables, defined timelines, and a scope. An employee relationship has availability, responsiveness, and managerial direction. When a client imports employee expectations into a vendor engagement, the result is friction, scope creep, and eventually a relationship where you are doing twice the work for the same fee.
 

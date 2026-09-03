@@ -2,7 +2,7 @@
 title: "How We Use a Custom ChatGPT Script to Generate 160 Google Ads Headlines (And Why We Still Pick Them Manually)"
 description: "A custom ChatGPT script that forces correct character counts, outputs 160 headlines per run, and eliminates AI ad copy babysitting. Here's how it works."
 date: "2026-08-16"
-image: "article-images/chatgpt-google-ads-copywriter-script.avif"
+image: "article-images/blog-card-target.svg"
 category: "Google Ads"
 tags: ["Google Ads", "ChatGPT", "Ad Copy", "AI Tools", "Performance Max"]
 ---
@@ -51,8 +51,6 @@ The script is roughly 10,000 characters and it turns ChatGPT into a structured, 
 
 **Phase three: structured output by category.** Once the interview is complete, the script outputs headlines by category with specific formatting rules built in. Standard headlines follow the 30-character limit. Long headlines get their own section with appropriate length targeting. Descriptions are handled separately. The category structure forces completeness. Instead of 20 generic headlines that require a follow-up request, you get a full structured output across every headline type.
 
-![ChatGPT Google Ads Copywriting Script Workflow](/article-images/chatgpt-google-ads-copywriter-script-workflow.svg)
-
 The script is compatible with Performance Max campaigns, which use both standard and long headline formats, as well as standard search campaigns. With minor adjustments to the character count settings, it handles demand gen and display campaigns that use the 40-character limit.
 
 ---
@@ -78,8 +76,6 @@ ChatGPT does suggest which headlines it thinks will perform best. The script is 
 AI headline ranking is pattern matching against general marketing principles. It does not have data on what has actually worked in your specific account, for your specific audience, at your specific moment in the market cycle. That context lives in the ad account, not in the model. The model's "best picks" are a reasonable starting point for someone who does not want to review 160 options, but they are not the same as an informed judgment call from someone who knows the account.
 
 The reason for generating 160 headlines is not to use all 160. It is to ensure the good ones are in the pool. If you generate 20 headlines and several are weak, you are either settling for mediocre assets or going back to the AI for another round. If you generate 160 across categories with correct character counts, the best ones are in there. You are selecting from quality instead of trying to improve from a weak starting point.
-
-![Google Ads Headline Types and Character Count Reference](/article-images/chatgpt-google-ads-copywriter-script-headline-types.svg)
 
 ---
 

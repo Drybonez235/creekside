@@ -2,7 +2,7 @@
 title: "Bad Data, Bad Results: 5 Google Ads Mistakes That Make Google Optimize for the Wrong Thing"
 description: "Five Google Ads setup mistakes still costing advertisers in 2026, from click-to-call tracking errors to location defaults and display network opt-ins."
 date: "2026-08-02"
-image: "article-images/google-ads-bad-data-mistakes-2026.avif"
+image: "article-images/blog-card-donut.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Conversion Tracking", "Campaign Settings", "Performance Max", "Broad Match"]
 ---

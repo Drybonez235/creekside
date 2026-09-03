@@ -18,12 +18,9 @@ tags: ["Performance Max", "Google Ads", "Campaign Setup", "Audience Signals", "G
 | Household income exclusion | Exclude bottom 50% for premium and B2B products |
 | Asset group structure | Split by distinct service or product when budget allows |
 
-
 Performance Max campaign signals are the inputs that tell Google what a high-value user looks like for your business. Set them up correctly and the algorithm has clear material to work with. Set them up thin and you are asking a pattern-recognition system to find patterns in a nearly empty dataset.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [Optimizing Performance Max Campaigns: Effective Signal Setup](https://www.youtube.com/watch?v=i6BzJa8lma4). It covers signal setup on a live account, including search themes, audience signals, and demographic exclusions in detail.
-
-![Performance Max signal types and recommended inputs for each signal category](/article-images/performance-max-signals-setup-framework-signal-types.svg)
 
 ## What Performance Max Campaign Signals Are (and Why Thin Setup Hurts Performance)
 
@@ -58,8 +55,6 @@ If you are running a single Performance Max campaign, start with all website vis
 **Customer lists are the strongest signal available.** A list of actual customers tells Google exactly what a converted user looks like. This gives the algorithm the clearest possible pattern to optimize toward. Upload a customer list whenever one exists.
 
 **Lead lists come third.** If the business has a list of people who submitted a form, booked a call, or entered any qualification process, that data is worth uploading. Even if not every person on the list converted to a customer, they demonstrated intent that general website visitors did not.
-
-![Performance Max audience signal strategy showing split funnel versus single campaign options with recommended audience layers for each](/article-images/performance-max-signals-setup-framework-audience-funnel.svg)
 
 The point of layering all three is to give Google a complete description of what a qualified user looks like. The more complete that description is, the more efficiently the algorithm can find more people like them.
 

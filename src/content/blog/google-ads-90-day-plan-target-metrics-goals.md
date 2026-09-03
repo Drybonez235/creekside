@@ -2,7 +2,7 @@
 title: "90 Days to a Scalable Google Ads Campaign: The Exact Monthly Milestones We Chase and Why ROI Is Not One of Them Until Month Three"
 description: "The Google Ads 90-day plan that drives real results: month-by-month targets, why you can't break even in 30 days, and when scale actually begins."
 date: "2026-08-14"
-image: "article-images/google-ads-90-day-plan-phase-timeline.svg"
+image: "article-images/blog-card-funnel.svg"
 category: "Google Ads"
 tags: ["Google Ads", "Campaign Strategy", "Lead Generation", "Google Ads Tips", "PPC"]
 ---
@@ -40,8 +40,6 @@ If you want more context on how this mindset translates into long-term returns, 
 
 ## Month 1: Hit 10 Clicks Per Day and Build Clean Conversion Data
 
-![Google Ads 90-day campaign phases: month-by-month milestones from launch to scale](/article-images/google-ads-90-day-plan-phase-timeline.svg)
-
 The month one goal in our Google Ads 90-day plan is straightforward: get to 10 clicks per day per campaign and secure some initial conversion data. That is it.
 
 We are not focused on cost per conversion at this stage. We are not focused on the volume of conversions either. What we are focused on is getting high-quality search terms to the website, confirming that conversion tracking is firing correctly, and making sure the clicks we are paying for are genuinely relevant.
@@ -77,8 +75,6 @@ When you feed that downstream data back into Google Ads, you are no longer optim
 This connection is worth setting up early, even if the data volume is low at first. By the time you hit the scale phase in month three or four, having that CRM loop in place gives you a significant optimization advantage over advertisers who are only tracking surface-level conversions.
 
 ## Month 3 to 4: Reduce Cost Per Action and Confirm the Campaign Is Scalable
-
-![Google Ads break-even timeline: when new campaigns typically reach profitability](/article-images/google-ads-90-day-plan-break-even-chart.svg)
 
 Once the campaign has cleared the 30-conversions-per-month milestone consistently, the work shifts. Month three and four are about one thing: getting the cost per action down to a level where Google Ads actually makes economic sense for the business.
 

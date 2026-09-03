@@ -2,7 +2,7 @@
 title: "Google Ads vs SEO for Dentists: Which Drives Better Results?"
 description: "Real campaign data from dental practices shows Google Ads generates leads in 1-2 weeks vs 6-12 months for SEO. Here is how to choose the right channel."
 date: "2026-05-05"
-image: "article-images/google-ads-vs-seo-for-dentists.avif"
+image: "article-images/blog-card-waves.svg"
 category: "Dental Marketing"
 tags: ["GoogleAds", "SEO", "Dental", "Comparison"]
 ---
@@ -29,8 +29,6 @@ On the higher-budget end, we manage full-funnel Google Ads and Meta Ads for a de
 Compare those timelines to a typical dental SEO engagement. A new or newly optimized dental website targeting competitive terms like "dentist near me" or "dental implants [city]" will take 6 to 12 months before ranking well enough to generate consistent organic leads. During those months, you are paying a retainer to an SEO agency and seeing minimal patient volume change.
 
 The data points to a clear pattern: Google Ads wins on speed and predictability. SEO wins on long-term compounding value. Where your practice should start depends on where you are in your growth cycle.
-
-![Google Ads vs SEO for Dentists: Head-to-Head Comparison](/article-images/google-ads-vs-seo-for-dentists-comparison.svg)
 
 ## How Google Ads Works for Dental Practices
 
@@ -118,8 +116,6 @@ According to Creekside Marketing's analysis across our dental client base, pract
 A high-end cosmetic dental practice illustrates this compounding effect. When we rebuilt their Meta Ads and Google Ads strategy from scratch, monthly consultations grew from 60 to more than 100 within 90 days. That jump added over $200,000 in monthly revenue and restored the profitability the practice needed to invest in the next phase of growth. Paid advertising created the foundation. You can read the full story in our [dental aesthetics case study](/case-study-digital-marketing/dr-laleh/).
 
 The Polaris Dentistry turnaround is detailed in our [dental Google Ads case study results](/blog/dental-google-ads-case-study-results/) if you want to see the specific campaign structure and keyword strategy behind a 15x conversion increase.
-
-![Google Ads ROI for Dental Practices: Polaris Dentistry Before and After](/article-images/google-ads-vs-seo-for-dentists-roi.svg)
 
 ## The Bottom Line
 

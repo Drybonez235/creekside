@@ -17,7 +17,6 @@ tags: ["Google Ads Management", "Google Ads Testing", "Paid Ads Operations", "Ca
 | Spreadsheet sections | 4 (tests, action items, notes, budget/CPA tracker) |
 | Review cadence | Weekly (duplicate and rename sheet) |
 
-
 Most Google Ads managers track tests the same way they track everything else: a note in a doc, a comment in the campaign, or memory. After managing $20M+ in ad spend, we have found that approach breaks down fast, especially with freelancers or multiple specialists in an account. The Google Ads management spreadsheet Creekside Marketing uses across every client account keeps tests, tasks, notes, and budget tracking in one structured place. This post walks through each section, based on a walkthrough Peterson published on the [Creekside Marketing YouTube channel](https://www.youtube.com/watch?v=kFKInO0a7MY) in August 2025.
 
 The spreadsheet is not a complex tool. What makes it work is the consistency behind each section and one specific budget rule we will cover near the end that runs counter to how most managers handle spend reductions.
@@ -27,8 +26,6 @@ The spreadsheet is not a complex tool. What makes it work is the consistency beh
 The test section has five columns: the test idea, the reason or hypothesis, the start date, the end date, and the result. A test with an idea and reason but no start date is queued but not running. A test with a start date is active. The end date marks when you have enough data to make a subjective call on whether it worked.
 
 Any test idea goes into column one. The reason goes in column two. If the idea is tentative and the hypothesis is not clear yet, the reason column can stay empty. Start dates go in when you are ready to run the test. The end date does not mark when an AB test formally concludes or when you paused one variant. According to Creekside Marketing's testing methodology, the end date is when there is enough data to say objectively whether the test worked. That is a judgment call based on volume and signal clarity, not a fixed statistical threshold. Results go in the final column: what happened, what you saw, and what decision you made.
-
-![Google Ads test tracker color coding system by Creekside Marketing](/article-images/google-ads-management-spreadsheet-test-tracker.svg)
 
 ## The Google Ads Management Spreadsheet Color System: Five Statuses and One Rule for White
 
@@ -49,8 +46,6 @@ Each test row gets one of five colors: blue for active or pending tests, green f
 Action items are tasks that need to happen in the account but are not experiments. Adding assets, setting up UTM parameters, reviewing extension coverage, fixing a tracking issue. Things you know need to get done. They get checked off when complete. No hypothesis, no start date, no result tracking needed.
 
 The reason the test section and action items section are separate is clean attribution. If a change is not a test, tracking it like one creates false signal. If you are running a headline test and you add sitelink extensions during the same window, the sitelink addition is a confounding variable. Keeping it in the action items section and noting the timing is what makes future attribution accurate. This separation is part of the broader discipline behind avoiding [common Google Ads management errors](/blog/google-ads-mistakes-broad-match-performance-max-2026/) that inflate costs without clear accountability.
-
-![Google Ads budget allocation framework by Creekside Marketing](/article-images/google-ads-management-spreadsheet-budget-allocation.svg)
 
 ## How the Notes Sections Work and Why Updates Go to ClickUp
 

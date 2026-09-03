@@ -17,7 +17,6 @@ tags: ["Google Ads", "Campaign Optimization", "Broad Match", "Performance Max", 
 | Broad match data requirement | CRM offline conversion import required for accurate signal |
 | PMax new capabilities | Negative keywords and channel-level spend reporting now available |
 
-
 When we audit a Google Ads account that used to perform well and no longer does, the problem is almost never budget. It is almost always tactics that made sense three or four years ago but now actively fight against how Google's algorithm works in 2026.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [The three biggest mistakes on Google Ads](https://www.youtube.com/watch?v=YnV2IRMet1k). The three Google Ads mistakes covered here show up consistently across account audits. They are not obscure edge cases. They are rooted in reasonable instincts that became outdated as Google's matching and optimization systems changed significantly over the past year or two.
@@ -39,8 +38,6 @@ If you tell Google that a form submission equals a conversion and nothing else, 
 The fix is feeding Google qualified lead data from your CRM. When a prospect fills out a form, gets followed up with, and responds with genuine interest, that lead gets marked in your CRM. That offline conversion data gets imported back into Google. Now Google understands what a real conversion looks like, not just what a completed form looks like, and it optimizes for the standard that actually produces revenue.
 
 This matters most for service businesses generating leads rather than direct ecommerce sales. For ecommerce, someone spending real money is harder to fake, so the feedback loop is naturally cleaner. For service businesses generating leads, the CRM integration is not optional if you want broad match to deliver qualified results.
-
-![How data quality determines broad match performance: the conversion signal feedback loop](/article-images/google-ads-mistakes-broad-match-performance-max-2026-match-type-data.svg)
 
 ---
 
@@ -75,8 +72,6 @@ Here is what actually happens when you do that. You force roughly 13 to 14 perce
 The net result is usually fewer total conversions at a higher average cost per conversion, even though individual days looked better before the change.
 
 According to Creekside Marketing's analysis, the threshold that actually justifies action is 15% or more divergence from your baseline, sustained over a meaningful window of time, not a few days of noise. If Saturday were running $56 or $60 against a $47 average, that warrants attention. At $52, a difference of roughly 10%, the data is telling you to leave it alone and keep watching.
-
-![The 15% rule: when cost per conversion data justifies action vs. when to wait](/article-images/google-ads-mistakes-broad-match-performance-max-2026-optimization-thresholds.svg)
 
 The same logic applies to bid strategy changes. According to Creekside Marketing's account management experience, Google can take two weeks to three weeks to adapt effectively to a new bid strategy. When performance drops in week one and a manager switches back, they never let the algorithm reach the period where the new strategy could actually perform. That two to three week window feels expensive when you are watching spend. It is the cost of collecting real information about whether the change works.
 

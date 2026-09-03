@@ -17,7 +17,6 @@ tags: ["Google Ads", "Negative Keywords", "AI Tools", "Google Shopping", "Search
 | Wasted spend identified | ~$300 (4-month period) |
 | AI tool used | Claude (preferred for data analytics tasks) |
 
-
 Every Google Ads practitioner knows the pain of manually reviewing search terms. Hundreds of rows in a small account. Thousands in a mid-size one. Tens of thousands in a shopping campaign that has been running for a year. The standard approach is to filter by spend, review the top rows, and skip the rest. It works, but it leaves money on the table every single week.
 
 This post is based on a video Peterson published on the Creekside Marketing YouTube channel: [AI Google Search Terms](https://www.youtube.com/watch?v=p-E5yWfauO8). It walks through the exact AI workflow we use to analyze shopping campaign search terms at scale, the economics behind it, and the one mistake that will undo all your work if you skip a specific step.
@@ -31,8 +30,6 @@ Manual search term review becomes unworkable at volume. Shopping campaigns gener
 In a shopping campaign we manage, the search term report contained 69,000 rows. A manual review pass through that dataset is not a realistic recurring task. The AI workflow described here processes the same report in the time it takes to write a prompt and answer a few follow-up questions.
 
 According to Creekside Marketing's analysis across $20M+ in managed ad spend, unmanaged search term expansion in shopping campaigns is one of the most consistent and underaddressed sources of preventable waste. It stays unaddressed not because practitioners do not understand the value, but because the manual process does not scale to a weekly cadence at that volume.
-
-![Before and after: manual vs AI search term review for a Google Shopping campaign with 69,000 rows](/article-images/ai-search-term-analysis-negative-keywords-google-ads-time.svg)
 
 ## The AI Search Term Workflow, Step by Step
 
@@ -61,8 +58,6 @@ On the shopping campaign referenced here, Claude worked through the 69,000-row d
 The other thing the AI surfaced was categorical-level pattern recognition. Rather than flagging one irrelevant term at a time, Claude identified groups of search intent that the campaign was accidentally capturing. That categorical reasoning is where the real value is. Manual column-by-column filtering catches individual bad terms. AI identifies the pattern behind clusters of them.
 
 One practical note on very large exports: if the model hits context limits on the CSV, there are two approaches. First, filter the export to the top 1,000 terms by spend before uploading. Second, tighten the date range to a single week so the file is smaller. Some models also offer a deep research mode that will work through a much larger file given 20 to 30 minutes. That level of usage might cost a few dollars in API credits, but it returns multiples in identified waste.
-
-![AI search term audit ROI: $5 max AI cost vs $300 identified waste over four months](/article-images/ai-search-term-analysis-negative-keywords-google-ads-roi.svg)
 
 ## Building a Weekly Routine, Not a One-Time Audit
 
