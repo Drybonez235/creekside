@@ -36,6 +36,7 @@ const FIELD = {
 	servicesInterestedIn: "z3nl3LICChritVPVmvdE",
 	biggestChallenge: "K3yzGXYS4prEDYQeCJwj",
 	decisionMaker: "YVOE5D7V6RpjK1FCRlsu",
+	usesCrm: "tmxxbdooxNWoDLgfJE1c",
 	utmSource: "arHD6CEDVUcc49EH2G3s",
 	utmMedium: "uZ25qk7BzAjHMKagWM1V",
 	utmCampaign: "zh3UaWthUTi60O2Ri7Kb",
@@ -79,9 +80,18 @@ const AD_MGMT_MAP: Record<string, string> = {
 };
 
 const PRACTICE_TYPE_MAP: Record<string, string> = {
+	// Legacy dental form values
 	"yes-both": "Cosmetic + General Dentistry",
 	"yes-cosmetic": "Cosmetic Only",
 	"general": "Primarily General Dentistry",
+	// 2026-09-03 form: "Do you own a dental practice?" yes/no
+	"yes": "Yes - Practice Owner",
+	"no": "No",
+};
+
+const CRM_MAP: Record<string, string> = {
+	"yes": "Yes",
+	"no": "No",
 };
 
 const SERVICES_MAP: Record<string, string> = {
@@ -153,6 +163,7 @@ export const POST: APIRoute = async ({ request }) => {
 	const services = typeof p.services === "string" ? p.services : "";
 	const challenge = typeof p.challenge === "string" ? p.challenge : "";
 	const decisionMaker = typeof p.decision_maker === "string" ? p.decision_maker : "";
+	const crm = typeof p.crm === "string" ? p.crm : "";
 	const gclid = typeof p.gclid === "string" ? p.gclid : "";
 	const fbclid = typeof p.fbclid === "string" ? p.fbclid : "";
 	const utmSource = typeof p.utm_source === "string" ? p.utm_source : "";
@@ -197,6 +208,7 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.servicesInterestedIn, SERVICES_MAP[services] || services);
 	addField(FIELD.biggestChallenge, CHALLENGE_MAP[challenge] || challenge);
 	addField(FIELD.decisionMaker, DECISION_MAKER_MAP[decisionMaker] || decisionMaker);
+	addField(FIELD.usesCrm, CRM_MAP[crm] || crm);
 	addField(FIELD.utmSource, utmSource);
 	addField(FIELD.utmMedium, utmMedium);
 	addField(FIELD.utmCampaign, utmCampaign);
