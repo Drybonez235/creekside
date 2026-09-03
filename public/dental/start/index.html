@@ -32,7 +32,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
   <title>Get More Cosmetic Dental Patients - Creekside Marketing</title>
-  <meta name="description" content="See if your dental practice qualifies for our patient acquisition system. Answer 4 quick questions to get started."/>
+  <meta name="description" content="See if your dental practice qualifies for our patient acquisition system. Answer 5 quick questions to get started."/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-logo-icon-32x32.avif" sizes="32x32"/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-icon-180x180.avif" sizes="180x180"/>
   <link rel="icon" type="image/avif" href="/creekside-marketing-icon-192x192.avif" sizes="192x192"/>
@@ -398,37 +398,19 @@
   <!-- Main content -->
   <div class="main-content">
     <div class="form-card">
-      <!-- Step 1: Biggest challenge -->
+      <!-- Step 1: Own a dental practice -->
       <div class="step active" data-step="1">
-        <div class="step-label">Question 1 of 4</div>
-        <h2>What's your biggest growth challenge right now?</h2>
+        <div class="step-label">Question 1 of 5</div>
+        <h2>Do you own a dental practice?</h2>
         <div class="options">
-          <button class="option-btn" data-field="challenge" data-value="not-enough-patients" onclick="selectOption(this)">Not enough new patients</button>
-          <button class="option-btn" data-field="challenge" data-value="high-cpl" onclick="selectOption(this)">Ad costs are too high</button>
-          <button class="option-btn" data-field="challenge" data-value="low-conversion" onclick="selectOption(this)">Leads don't convert to booked appointments</button>
-          <button class="option-btn" data-field="challenge" data-value="no-visibility" onclick="selectOption(this)">No online visibility or brand awareness</button>
-          <button class="option-btn" data-field="challenge" data-value="wrong-patients" onclick="selectOption(this)">Attracting the wrong type of patients</button>
-          <button class="option-btn" data-field="challenge" data-value="scale" onclick="selectOption(this)">Ready to scale but don't know how</button>
+          <button class="option-btn" data-field="practice_type" data-value="yes" onclick="selectOption(this)">Yes</button>
+          <button class="option-btn" data-field="practice_type" data-value="no" onclick="selectOption(this)">No</button>
         </div>
       </div>
 
-      <!-- Step 2: Services -->
+      <!-- Step 2: Monthly revenue -->
       <div class="step" data-step="2">
-        <div class="step-label">Question 2 of 4</div>
-        <h2>Which high-value services do you want more patients for?</h2>
-        <div class="options">
-          <button class="option-btn" data-field="services" data-value="veneers" onclick="selectOption(this)">Veneers &amp; smile makeovers</button>
-          <button class="option-btn" data-field="services" data-value="implants" onclick="selectOption(this)">Dental implants &amp; All-on-4</button>
-          <button class="option-btn" data-field="services" data-value="invisalign" onclick="selectOption(this)">Invisalign / clear aligners</button>
-          <button class="option-btn" data-field="services" data-value="whitening" onclick="selectOption(this)">Teeth whitening</button>
-          <button class="option-btn" data-field="services" data-value="multiple" onclick="selectOption(this)">Multiple / all of the above</button>
-        </div>
-        <button class="btn-back" onclick="goBack()">&larr; Back</button>
-      </div>
-
-      <!-- Step 3: Monthly revenue -->
-      <div class="step" data-step="3">
-        <div class="step-label">Question 3 of 4</div>
+        <div class="step-label">Question 2 of 5</div>
         <h2>What's your practice's approximate monthly revenue?</h2>
         <div class="options">
           <button class="option-btn" data-field="monthly_revenue" data-value="under50k" onclick="selectOption(this)">Under $50,000</button>
@@ -440,10 +422,25 @@
         <button class="btn-back" onclick="goBack()">&larr; Back</button>
       </div>
 
+      <!-- Step 3: Biggest challenge -->
+      <div class="step" data-step="3">
+        <div class="step-label">Question 3 of 5</div>
+        <h2>What's your biggest challenge for growth?</h2>
+        <div class="options">
+          <button class="option-btn" data-field="challenge" data-value="not-enough-patients" onclick="selectOption(this)">Not enough new patients</button>
+          <button class="option-btn" data-field="challenge" data-value="high-cpl" onclick="selectOption(this)">Ad costs are too high</button>
+          <button class="option-btn" data-field="challenge" data-value="low-conversion" onclick="selectOption(this)">Leads don't convert to booked appointments</button>
+          <button class="option-btn" data-field="challenge" data-value="no-visibility" onclick="selectOption(this)">No online visibility or brand awareness</button>
+          <button class="option-btn" data-field="challenge" data-value="wrong-patients" onclick="selectOption(this)">Attracting the wrong type of patients</button>
+          <button class="option-btn" data-field="challenge" data-value="scale" onclick="selectOption(this)">Ready to scale but don't know how</button>
+        </div>
+        <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      </div>
+
       <!-- Step 4: Decision maker -->
       <div class="step" data-step="4">
-        <div class="step-label">Question 4 of 4</div>
-        <h2>Are you the decision-maker for marketing?</h2>
+        <div class="step-label">Question 4 of 5</div>
+        <h2>Are you the final decision-maker?</h2>
         <div class="options">
           <button class="option-btn" data-field="decision_maker" data-value="owner" onclick="selectOption(this)">Yes, I'm the practice owner</button>
           <button class="option-btn" data-field="decision_maker" data-value="marketing-director" onclick="selectOption(this)">Yes, I'm the marketing director</button>
@@ -452,8 +449,19 @@
         <button class="btn-back" onclick="goBack()">&larr; Back</button>
       </div>
 
-      <!-- Step 5: Contact info -->
+      <!-- Step 5: CRM usage -->
       <div class="step" data-step="5">
+        <div class="step-label">Question 5 of 5</div>
+        <h2>Do you currently use a CRM to track leads and follow-ups?</h2>
+        <div class="options">
+          <button class="option-btn" data-field="crm" data-value="yes" onclick="selectOption(this)">Yes</button>
+          <button class="option-btn" data-field="crm" data-value="no" onclick="selectOption(this)">No</button>
+        </div>
+        <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      </div>
+
+      <!-- Step 6: Contact info -->
+      <div class="step" data-step="6">
         <div class="step-label">Last step</div>
         <h2>Almost there! Tell us how to reach you.</h2>
         <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
@@ -498,6 +506,7 @@
       <div class="step-dot" data-dot="3"></div>
       <div class="step-dot" data-dot="4"></div>
       <div class="step-dot" data-dot="5"></div>
+      <div class="step-dot" data-dot="6"></div>
     </div>
   </div>
 
@@ -518,7 +527,7 @@
     })();
 
     var currentStep = 1;
-    var totalSteps = 5;
+    var totalSteps = 6;
     var answers = {};
 
     function updateProgress() {
@@ -619,6 +628,7 @@
         monthly_revenue: answers.monthly_revenue || '',
         challenge: answers.challenge || '',
         decision_maker: answers.decision_maker || '',
+        crm: answers.crm || '',
         running_ads: answers.running_ads || '',
         route: route,
         gclid: utm.gclid || '',
@@ -642,6 +652,7 @@
           practice_type: payload.practice_type,
           challenge: payload.challenge,
           decision_maker: payload.decision_maker,
+          crm: payload.crm,
           running_ads: payload.running_ads,
           route: route,
           gclid: payload.gclid,
