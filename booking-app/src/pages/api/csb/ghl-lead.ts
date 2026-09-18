@@ -172,6 +172,11 @@ export const POST: APIRoute = async ({ request }) => {
 	const decisionMaker = typeof p.decision_maker === "string" ? p.decision_maker : "";
 	const crm = typeof p.crm === "string" ? p.crm : "";
 	const variant = typeof p.variant === "string" ? p.variant : "";
+	// stage: "booked" = calendar-first funnel lead that booked a call but has
+	// not answered the qualifying questions yet. Anything else (including
+	// absent) = fully qualified submission (original behavior).
+	const stage = typeof p.stage === "string" ? p.stage : "";
+	const isBookedStage = stage === "booked";
 	const gclid = typeof p.gclid === "string" ? p.gclid : "";
 	const fbclid = typeof p.fbclid === "string" ? p.fbclid : "";
 	const utmSource = typeof p.utm_source === "string" ? p.utm_source : "";
@@ -186,11 +191,16 @@ export const POST: APIRoute = async ({ request }) => {
 	else if (gclid) contactSource = "Google Ads";
 
 	const isQualified = route !== "keith";
-	const qualStatus = isQualified ? "Qualified" : "Under Threshold";
+	const qualStatus = isBookedStage ? "Pending" : isQualified ? "Qualified" : "Under Threshold";
 
 	const funnelTag = isSite ? "site" : "dental";
 	const tags = [`${funnelTag}-funnel`];
-	if (isQualified) {
+	if (isBookedStage) {
+		// Calendar-first funnel: call is booked but qualifying questions are
+		// not answered yet. Tag for Cyndi/Cade review; the qualified/under-
+		// threshold tags get applied by the follow-up stage="qualified" call.
+		tags.push(`${funnelTag}-needs-qualification`, "cade-direct");
+	} else if (isQualified) {
 		tags.push(`${funnelTag}-qualified`, "cade-direct");
 	} else {
 		// Keith partner routing removed 2026-08-27 -- under-threshold leads
@@ -200,6 +210,7 @@ export const POST: APIRoute = async ({ request }) => {
 	// Form-variant tag (additive -- the base funnel tags above still drive
 	// the GHL workflow / opportunity creation)
 	if (variant === "expert") tags.push("dental-expert-form");
+	if (variant === "call") tags.push("dental-call-form");
 
 	const customFields: { id: string; value: string }[] = [];
 	const addField = (id: string, val: string) => {
@@ -309,6 +320,11 @@ export const POST: APIRoute = async ({ request }) => {
 						if (Array.isArray(existing?.tags)) {
 							mergedTags = [...new Set([...existing.tags, ...tags])];
 						}
+					}
+					// Once the qualifying questions come in, clear the pending
+					// needs-qualification tag left by the stage="booked" call.
+					if (!isBookedStage) {
+						mergedTags = mergedTags.filter((t) => t !== `${funnelTag}-needs-qualification`);
 					}
 					const updateRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
 						method: "PUT",
