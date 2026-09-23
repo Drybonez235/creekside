@@ -190,11 +190,22 @@ export const POST: APIRoute = async ({ request }) => {
 	});
 };
 
-/** Set the "Booked Call Date" custom field on the GHL contact so workflows can trigger based on it. */
+/** Set the "Booked Call Date" custom field on the GHL contact so workflows can trigger based on it.
+ *
+ * The dental orchestrator refuses to enroll a "call booked" lead in the pre-call
+ * sequence until this field exists, so a silent failure here delays messaging for
+ * the lead (orchestrator alerts after 1h). The contact is created by the form
+ * webhook and may not exist yet at booking time, so the lookup retries with
+ * increasing delays. Every failure path logs -- nothing returns silently. */
+const GHL_LOOKUP_DELAYS_MS = [0, 15_000, 60_000, 180_000, 300_000];
+
 async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<void> {
 	const apiKey = import.meta.env.GHL_API_KEY;
 	const locationId = import.meta.env.GHL_LOCATION_ID;
-	if (!apiKey || !locationId) return;
+	if (!apiKey || !locationId) {
+		console.error("[book] GHL_API_KEY / GHL_LOCATION_ID not set; skipping booked call date update");
+		return;
+	}
 
 	const ghlHeaders = {
 		"Authorization": `Bearer ${apiKey}`,
@@ -202,27 +213,44 @@ async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<
 		"Content-Type": "application/json",
 	};
 
-	// Look up contact by email
-	const lookupRes = await fetch(
-		`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
-		{ method: "GET", headers: ghlHeaders },
-	);
-	if (!lookupRes.ok) return;
-	const lookupData = await lookupRes.json();
-	const contactId = lookupData.contact?.id;
-	if (!contactId) return;
+	// Look up contact by email, retrying while the form webhook catches up
+	let contactId: string | undefined;
+	for (const delay of GHL_LOOKUP_DELAYS_MS) {
+		if (delay > 0) await new Promise((r) => setTimeout(r, delay));
+		try {
+			const lookupRes = await fetch(
+				`${GHL_BASE}/contacts/search/duplicate?locationId=${locationId}&email=${encodeURIComponent(email)}`,
+				{ method: "GET", headers: ghlHeaders },
+			);
+			if (!lookupRes.ok) {
+				console.error(`[book] GHL contact lookup failed (${lookupRes.status}) for ${email}, retrying`);
+				continue;
+			}
+			const lookupData = await lookupRes.json();
+			contactId = lookupData.contact?.id;
+			if (contactId) break;
+			console.error(`[book] GHL contact not found yet for ${email}, retrying`);
+		} catch (err) {
+			console.error(`[book] GHL contact lookup error for ${email}:`, err);
+		}
+	}
+	if (!contactId) {
+		console.error(`[book] GHL contact never found for ${email}; booked call date NOT set (orchestrator will alert)`);
+		return;
+	}
 
-	// Update contact with booked call date
-	const updateRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
-		method: "PUT",
-		headers: ghlHeaders,
-		body: JSON.stringify({
-			customFields: [{ id: GHL_BOOKED_CALL_DATE_FIELD, value: callStart.toISOString().slice(0, 10) }],
-		}),
+	// Update contact with booked call date (one retry on failure)
+	const body = JSON.stringify({
+		customFields: [{ id: GHL_BOOKED_CALL_DATE_FIELD, value: callStart.toISOString().slice(0, 10) }],
 	});
-
-	if (!updateRes.ok) {
+	for (let attempt = 1; attempt <= 2; attempt++) {
+		const updateRes = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+			method: "PUT",
+			headers: ghlHeaders,
+			body,
+		});
+		if (updateRes.ok) return;
 		const errBody = await updateRes.text().catch(() => "");
-		console.error(`[book] GHL booked call date error ${updateRes.status}:`, errBody);
+		console.error(`[book] GHL booked call date error ${updateRes.status} (attempt ${attempt}):`, errBody);
 	}
 }
