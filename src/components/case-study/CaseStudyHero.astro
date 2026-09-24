@@ -12,7 +12,8 @@ const { heroBadge, heroTitle, clientName, heroSubtitle } = Astro.props;
 const t = creeksideTheme;
 
 // Split title on {CLIENT} placeholder to insert highlighted client name
-const titleParts = heroTitle.includes('{CLIENT}')
+const hasClientPlaceholder = heroTitle.includes('{CLIENT}');
+const titleParts = hasClientPlaceholder
   ? heroTitle.split('{CLIENT}')
   : [heroTitle, ''];
 ---
@@ -40,7 +41,11 @@ const titleParts = heroTitle.includes('{CLIENT}')
     </span>
 
     <h1 class="mb-3 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-[2.6rem]">
-      {titleParts[0]}<span style={`color: ${t.accentLight}`}>{clientName}</span>{titleParts[1]}
+      {hasClientPlaceholder ? (
+        <>{titleParts[0]}<span style={`color: ${t.accentLight}`}>{clientName}</span>{titleParts[1]}</>
+      ) : (
+        <>{heroTitle}</>
+      )}
     </h1>
 
     <p class="max-w-[600px] text-lg font-light leading-relaxed" style="color: rgba(255,255,255,0.7)">

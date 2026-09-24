@@ -16,7 +16,6 @@ export async function getStaticPaths() {
   return studies.map(study => ({
     params: { slug: study.slug },
     props: { study, allStudies: studies },
-    props: { study, allStudies: studies },
   }));
 }
 
@@ -69,7 +68,6 @@ const schema = {
   "headline": d.title,
   "description": d.summary,
   ...(d.lastModified && { "dateModified": d.lastModified.toISOString() }),
-  ...(d.lastModified && { "dateModified": d.lastModified.toISOString() }),
   "author": {
     "@type": "Organization",
     "name": "Creekside Marketing",
@@ -97,8 +95,6 @@ const schema = {
   },
   "about": {
     "@type": "Organization",
-    "name": d.client,
-    ...(d.website && { "url": d.website }),
     "name": d.client,
     ...(d.website && { "url": d.website }),
   },
@@ -164,13 +160,11 @@ const breadcrumbSchema = {
 
 <Layout
   title={`${d.title} | Creekside Marketing`}
-  title={`${d.title} | Creekside Marketing`}
   description={d.summary}
   canonicalURL={Astro.url}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
-  {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
   {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
 
   <Nav />
@@ -202,7 +196,6 @@ const breadcrumbSchema = {
       />
 
       <!-- Client Info Bar -->
-      <ClientInfoBar items={clientInfo} website={d.website} />
       <ClientInfoBar items={clientInfo} website={d.website} />
 
       <!-- Metric Strip -->

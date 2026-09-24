@@ -1,144 +1,182 @@
 ---
-title: "Mortgage Lead Generation Case Study: Digital Ads vs. Direct Mail (5x Lower Cost)"
-description: "How a reverse mortgage lender replaced $500k/month in direct mail with Google Ads at 5x lower cost. Real results from a Creekside Marketing case study."
-date: "2026-05-10"
+title: "Reverse Mortgage Leads: $805k in Ad Spend, 5.4x ROAS (What We Actually Learned)"
+description: "We spent $805k on reverse mortgage leads for a top-3 lender over 16 months. Here are the real numbers on cost per lead, cost per funded deal, and what nobody else in the space is telling you."
+date: "2026-09-22"
 image: "article-images/blog-card-waves.svg"
-category: "Mortgage & Financial Services Marketing"
-tags: ["CaseStudy", "Google Ads", "Mortgage Marketing", "Results"]
+category: "Reverse Mortgage Marketing"
+tags: ["Reverse Mortgage Leads", "Reverse Mortgage Lead Generation", "Reverse Mortgage Marketing", "Case Study", "Google Ads", "Meta Ads"]
+lastModified: "2026-09-22"
 ---
 
-> **TL;DR:** A national reverse mortgage lender replaced a $500,000/month direct mail program with Google Ads at 5x lower cost per customer, according to a Creekside Marketing case study. The campaign generated 90 qualified leads in week one, scaled to $55,000+ monthly spend in 5 months, and produced leads converting 7-8x higher than direct mail contacts.
+> **TL;DR:** We managed $805,624 in reverse mortgage lead generation spend over 16 months for one of the three largest reverse mortgage providers in the U.S., operating across 36 states. Average ROAS: 5.4x. Average cost per pre-qualified lead: $50. Average cost per funded deal: $2,778 on a $15,000 average commission. Total estimated revenue generated: $4.35M+. Here is every number we can share, why most benchmarks you have seen online are wrong, and what actually matters when evaluating reverse mortgage leads.
 
-> **Results at a Glance**
-> - **Cost vs. Direct Mail**: 5x lower cost per customer
-> - **Lead-to-Loan Conversion**: 7-8x higher than direct mail
-> - **Cost Per Lead (Day 14)**: $28
-> - **Leads Generated in Week 1**: 90 qualified leads
-> - **Monthly Spend at Scale**: $55,000+
-> - **Qualified Leads Per Day**: 20-30
-> - **Overall ROAS**: Greater than 5x
-> - **Platform**: Google Ads + Meta Ads
-> - **Timeframe**: $10k test to $55k+/month in 5 months
-> - **Source**: Creekside Marketing case study
+> **Key Numbers**
+> - **Total Ad Spend:** $805,624 over 16 months
+> - **Platforms:** Google Ads + Meta Ads
+> - **Peak Monthly Spend:** $80,000
+> - **Avg Cost Per Pre-Qualified Lead:** $50
+> - **Avg Cost Per Pricing Qualified Lead:** $555
+> - **Avg Cost Per Funded Deal:** $2,778
+> - **Average ROAS:** 5.4x
+> - **Total Estimated Revenue:** $4.35M+
+> - **States Covered:** 36
 
-This is a mortgage lead generation case study built on a direct, head-to-head comparison: digital ads vs. direct mail, run by a lender already operating one of the largest reverse mortgage mail programs in the country. If you're spending on mailers and wondering whether Google Ads can compete at scale, this is the data you've been looking for.
+## The Problem with Reverse Mortgage Lead Data Online
 
-## Why Reverse Mortgage Lenders Are Rethinking Their Lead Strategy
+If you are a reverse mortgage loan officer researching lead generation, you have probably noticed something: there is almost no reliable data out there.
 
-Direct mail for reverse mortgage has a real performance problem. According to Creekside Marketing, national reverse mortgage lenders running $400k-$600k monthly mail programs are seeing cost-per-funded-loan climb steadily year-over-year as response rates flatten. Switching to a precision digital strategy can cut that cost by 5x while generating higher-intent leads that convert at dramatically better rates.
+Most of the top-ranking content for "reverse mortgage leads" comes from lead vendors selling shared leads, platforms quoting benchmarks that do not hold up to basic math, or agencies that have never actually managed a reverse mortgage ad account at scale.
 
-The core issue is not that direct mail stopped working. It is that direct mail optimizes for reach, not intent. At $500,000 per month, you are mailing millions of addresses. Some of those people have the right age, equity, and motivation to pursue a reverse mortgage. Most do not. The economics work when response rates hold steady, but when they compress, cost-per-funded-loan rises faster than it appears in the lead report because you are losing the thin margin between enough qualified responses and not enough.
+Take one of the most-cited sources in the space. They publish a cost per funded deal range of $1,200-$2,000 for reverse mortgage leads. They also publish their own cost per lead ($80-$200) and conversion rates (3-5%).
 
-Many mortgage lenders in this space have built their entire sales infrastructure around the volume that direct mail provides. Cutting mailers feels risky. But the data from Creekside Marketing campaigns shows that a properly structured Google Ads program can replace that volume with higher-quality leads at a fraction of the cost, without the production timelines and list costs that mailers require.
+Run those numbers yourself:
+- **Best case:** $80 CPL at 5% close rate = $1,600 per funded deal
+- **Average:** $140 CPL at 4% close rate = $3,500 per funded deal
+- **Worst case:** $200 CPL at 3% close rate = $6,667 per funded deal
 
-The lender in this case study was spending over $500,000 per month on direct mail and had been for over five years. They were skeptical that any digital channel could match the volume they depended on. We built the campaign to prove it could, and to prove it at a quality bar that mattered: cost-per-funded-loan, not just cost-per-lead.
+Their own data cannot produce the low end of the range they publish. The average lands at $3,500, not the $1,200-$2,000 they claim. And the $1,200 floor? They get there by blending in referral leads that have nothing to do with their ad platform.
 
-## What a $500k/Month Direct Mail Program Looks Like When It Starts Losing Steam
+This matters because it sets false expectations. Loan officers go into reverse mortgage lead generation expecting a $1,500 cost per funded deal because that is what they read online. When the real number comes back at $2,500-$3,000, they think the marketing failed. It did not. The benchmark was wrong.
 
-A reverse mortgage lender running $500,000 per month in direct mail is not easy to displace. According to Creekside Marketing, maturing direct mail mortgage programs typically show year-over-year response rate declines of 5-15%, list exhaustion in core geographic markets, and rising cost-per-funded-loan that does not surface at the lead level but appears clearly in the monthly funding report.
+## What $1,500 Per Funded Deal Actually Comes From
 
-The client's situation fit that profile. Year-over-year, their funded loan volume was holding, but the spend required to maintain it was increasing. The efficiency they had built over five years of mailer optimization was quietly eroding. They were not in crisis, but the trajectory was clear.
+The $1,500 number that reverse mortgage loan officers anchor to is not a reverse mortgage benchmark. It is a general mortgage industry benchmark.
 
-Their core objection to digital was lead quality. They had tried digital lead aggregators and found the results unacceptable. Shared leads from mortgage aggregator networks have a well-known problem: the same lead gets sold to multiple lenders simultaneously, and by the time your loan officer reaches the prospect, they have already heard from several competitors. That experience reasonably poisons the channel for most lenders who try it.
+The most widely cited framework in the mortgage space puts "healthy" cost per funded loan at $1,000-$2,000, with a "well-run Google Ads campaign" producing $1,200-$1,750. But that framework is built on conventional mortgage economics: $30-$70 cost per lead, broad audiences, 30-45 day sales cycles, and 30+ conversions per month for Google to optimize.
 
-The important distinction is that aggregator leads and owned Google Ads leads are fundamentally different products. Leads generated from your own Google Ads campaigns come exclusively to you. There is no sharing, no re-selling, no race to be the first caller. That distinction was the starting point for rebuilding the client's confidence in digital as a channel.
+Reverse mortgage leads are structurally different:
+- **Google Ads CPL for reverse mortgages runs $50-$130** (vs $30-$70 conventional)
+- **The target audience is a fraction of the size** (homeowners 62+ with 50%+ equity)
+- **Sales cycles are 90-180 days**, not 30-45
+- **Small budgets produce 2-3 conversions per month**, far below the 30 Google needs to optimize effectively
 
-## The Google Ads Strategy That Changed the Economics
+There is no published, verified cost-per-funded-deal benchmark specific to reverse mortgage digital advertising. The $1,500 expectation is a general mortgage number being misapplied to a more expensive vertical.
 
-According to Creekside Marketing, the single most important decision in a mortgage Google Ads campaign is how you define a conversion. Campaigns that optimize for form submissions generate volume but train Google's algorithm to find people who click and fill out forms, not people who are eligible and motivated to fund a loan.
+## Not All Reverse Mortgage Leads Are the Same
 
-We defined a qualified lead as a prospect who either spoke with a loan officer for 3 or more minutes, or completed qualifying questions in the form flow that confirmed age, property type, and equity level. Standard form submissions did not count toward the optimization signal. This conversion definition changed everything downstream: the algorithm learned to find prospects that matched the funded loan profile, not the "will click and complete any form" profile.
+Before sharing our numbers, you need to understand the lead quality tiers, because the entire industry talks about "cost per lead" as if it is one thing. It is not.
 
-The campaign architecture used three components working in sequence:
+**Basic Form Fill ($10-$30):** Someone claims to be interested and gives contact info. Could be a bot, a 35-year-old, or a renter. These are the leads that get sold to 3-5 loan officers simultaneously. Close rate to funded deal: roughly 1%.
 
-**Performance Max at the top of funnel.** Performance Max identified high-performing audience segments and search intent signals. It is effective at discovery, surfacing which audience combinations and creative assets drive your defined conversion event. The first 14 days at $28 per qualified lead gave us a strong, clean signal about who to target.
+**Pre-Qualified Lead ($40-$80):** Someone who completed a multi-step form confirming age, home value, equity, and location. Still no guarantee they will pick up the phone, but they passed basic criteria. Close rate to funded deal: roughly 3%.
 
-**Standard Search campaigns to lock in intent.** Performance Max surfaces patterns. Standard Search locks them in. As we identified high-converting search queries from the Performance Max data, we built Standard Search campaigns targeting those terms with direct control. This created a predictable lead generation layer that compounded results at scale.
+**Phone Call Lead (~$100):** A person you actually speak with. Not qualified, just contactable. This is the number most loan officers think of as a "good lead." Close rate to funded deal: roughly 5%.
 
-**Meta Ads for retargeting and warm audiences.** Meta campaigns retargeted website visitors and reached lookalike audiences at lower CPMs. For reverse mortgage, Meta is not a primary direct-response channel, but it is effective for prospects who visited the landing page without converting and need a second or third touchpoint before they are ready to engage.
+**Pricing Qualified Lead (~$400-$600):** Someone who spoke with the loan officer, confirmed all their details, and declared intent to move forward. This is the only number that tells you if your marketing is working. Close rate to funded deal: roughly 20%.
 
-For more on how we structure these campaigns, see our [Google Ads management services page](/digital-advertising/google-ads/).
+The cost per funded deal ends up roughly similar regardless of which tier you buy ($2,000-$3,000), but the experience is completely different. Cheap form fills mean hundreds of leads to sift through, most of whom never answer the phone. Pricing qualified leads mean fewer leads, but the ones you get are ready to talk business.
 
-## Mortgage Lead Generation Results: Digital Ads vs. Direct Mail, By the Numbers
+## Our Numbers: 16 Months with South River Mortgage
 
-According to Creekside Marketing, the results of this mortgage lead generation campaign showed digital ads outperforming direct mail on every meaningful metric. Starting with a $10,000 test budget, the campaign generated 90 qualified leads in week one at $28 each, sustained sub-$50 cost per lead through the scaling phase, and reached $55,000+ in monthly spend within 5 months while maintaining lead quality.
+South River Mortgage is one of the three largest reverse mortgage providers in the United States. They operate across 36 states. They had been spending as much as $800,000 per month on direct mail in 2024, but response rates were declining and they had already started scaling back to around $500,000 per month by the time they engaged us. They had never run a serious digital advertising campaign.
 
-Here is the full breakdown:
+Over 16 months, we managed $805,624 in reverse mortgage lead generation spend across Google Ads and Meta Ads, scaling from an $11,000 test budget to $80,000 per month at peak.
 
-**Week 1 on a $10,000 test budget:**
-- Qualified leads generated: 90
-- Cost per qualified lead: $28
+### The Funnel
 
-**Month 5 at $55,000+ monthly spend:**
-- Cost per lead: Under $50
-- Qualified leads per day: 20-30
-- ROAS: Greater than 5x
-- Cost per customer vs. direct mail: 5x lower
-- Lead-to-funded-loan conversion vs. direct mail: 7-8x higher
+| Stage | Avg Cost | Avg Conversion to Next Stage |
+|-------|----------|------------------------------|
+| Pre-Qualified Lead | $50 | 9% become pricing qualified |
+| Pricing Qualified Lead | $555 | 20% become funded deals |
+| Funded Deal | $2,778 | $15,000 avg commission |
 
-The 7-8x higher conversion figure is the metric that matters most when comparing channels. A direct mail respondent has cleared a low bar: they received a piece of mail and were interested enough to call or go online. A Google Ads lead who searched a reverse mortgage keyword, clicked an ad, read a landing page, and completed qualifying questions has done substantially more pre-qualification work before the first conversation.
+**Average ROAS: 5.4x.** For every dollar spent on ads, South River Mortgage made $5.40 back in funded deal commission.
 
-> **Campaign Metrics Summary**
-> - **Cost Per Lead (Day 14)**: $28
-> - **Cost Per Lead at Scale**: Under $50
-> - **Week 1 Qualified Leads**: 90
-> - **Daily Lead Volume at Scale**: 20-30
-> - **Overall ROAS**: Greater than 5x
-> - **Conversion Advantage vs. Direct Mail**: 7-8x
-> - **Platform**: Google Ads + Meta Ads
-> - **Scale Timeline**: $10k to $55k+/month in 5 months
+**Total estimated revenue generated: $4.35 million.**
 
-For the complete breakdown with client context, read the full [South River Mortgage case study](/case-study-digital-marketing/south-river-mortgage/).
+### The Scaling Timeline
 
-## Why Google Ads Leads Convert to Funded Loans at 7-8x the Rate of Direct Mail
+| Phase | Timeframe | Monthly Spend |
+|-------|-----------|---------------|
+| Test/Launch | May-Jun 2025 | $11-17k (Google only) |
+| Early Scaling | Jul-Aug 2025 | $20-40k (Google + Meta starting) |
+| Full Scale | Sep 2025 - Jul 2026 | $55-80k (Google + Meta) |
+| Peak | Jun 2026 | ~$80k |
 
-According to Creekside Marketing, the conversion advantage of Google Ads leads over direct mail leads in the reverse mortgage space comes from three structural differences: intent timing, self-qualification, and eligibility pre-filtering. In this case study, Google Ads leads converted to funded loans at 7-8x the rate of direct mail contacts on the same product with the same loan officers handling both channels.
+We started with Google Ads only. Meta was added in August 2025 for retargeting and top-of-funnel awareness targeting the 62+ demographic. By September 2025, Google was running at $50k/month and Meta at $5-15k/month.
 
-**Intent timing is the largest factor.** A person who searches "reverse mortgage lender" or "how reverse mortgages work" on Google is in an active information-gathering mode at that exact moment. The search is the signal. Direct mail arrives at a random moment that has nothing to do with where the prospect is in their decision process. The gap between when a mailer arrives and when it triggers action can be days or weeks, during which intent cools.
+### What Made It Work
 
-**Self-qualification creates better prospects.** When a prospect clicks a Google Ad, reads a landing page, and submits a form with qualifying questions, they have invested time and attention. They know what they are responding to and why. Direct mail response pools include respondents who are curious but do not meet basic eligibility requirements. When the conversion definition is structured to filter those out before the call, the leads that reach a loan officer are meaningfully more ready.
+**Conversion definition.** We did not optimize for form fills. We optimized for pricing qualified leads, feeding real business outcome data back to Google. When a lead turned out to be unqualified after the loan officer spoke with them, we sent a negative conversion signal back to the platform. This taught the algorithm who not to target, and it got progressively smarter over time.
 
-**Demographic targeting pre-filters toward eligible borrowers.** Reverse mortgage has strict eligibility requirements: age 62 or older, primary residence, sufficient home equity. Google Ads demographic targeting can layer age-range filters on top of keyword intent targeting, shifting the distribution of ad impressions toward the eligible population. This is not a perfect filter, but it meaningfully improves the starting composition of who sees and clicks.
+**Multi-step qualification.** The landing page was not a simple contact form. Prospects answered questions about their age, home value, remaining mortgage balance, and what they were looking for. This filtered out obvious non-qualifiers before the lead ever reached a loan officer.
 
-## What Mortgage Lenders Should Take From This Case Study
+**Campaign architecture.** Performance Max for audience discovery. Standard Search to capture high-intent queries like "reverse mortgage lender" and "how does a reverse mortgage work." Meta for retargeting website visitors who did not convert on the first visit.
 
-According to Creekside Marketing, the lessons from this reverse mortgage case study apply to any mortgage lender evaluating the direct mail vs. digital ads decision. The core principle is that digital advertising's advantage is not in raw lead volume but in lead quality, and lead quality is only measurable if your attribution tracks funded loans, not just form submissions.
+**Data discipline on scaling.** We only increased budget when cost per lead held steady across 3-4 week windows. When CPA crept up, we paused and let the algorithm stabilize. This is why ROAS held at 5.4x even as spend grew 7x.
 
-**Define funded loan economics as your benchmark before launch.** If your Google Ads campaigns optimize for form submissions, you will generate leads that look strong in the dashboard but frustrate loan officers within weeks. Connect your CRM and call tracking software to Google Ads conversion data so the algorithm learns from your actual business outcome. This setup work is not optional if you want campaigns that scale.
+## Digital Ads vs. Direct Mail: What the Data Actually Shows
 
-**Test at a budget that generates learning signals.** Google's Smart Bidding requires 30-50 conversions per month per campaign to optimize effectively. At $28-$50 per qualified lead, a $10,000 monthly test budget can generate that conversion volume within 30 days. Declaring digital a failure before the algorithm has that data produces a conclusion that is not valid.
+South River was running one of the largest direct mail programs in the reverse mortgage industry. This gave us a rare head-to-head comparison using the same loan officers, same products, and same markets.
 
-**Scale after cost-per-lead stabilizes, not before.** In this case study, scaling from $10,000 to $55,000+ took 5 months. The scaling decisions were driven by cost stability across 3-4 week windows, not a predetermined timeline. When cost per qualified lead holds steady at scale, additional budget compounds results. When it has not stabilized, additional budget amplifies inefficiency.
+| Funnel Stage | Direct Mail | Google Ads (PPC) |
+|-------------|-------------|------------------|
+| Pricing qualified rate | ~12% | **16%** |
+| Apps to deals rate | 4.5% | **6.2%** |
+| Appraisals to clear-to-close | 38-39% | **46%** |
+| Overall lead-to-funded rate | 0.96% | **0.97%** |
 
-For current benchmarks on what Google Ads cost in the mortgage vertical by campaign type, see our guide: [How Much Do Google Ads Cost for Mortgage Companies](/blog/how-much-do-google-ads-cost-for-mortgage-companies/).
+PPC outperformed direct mail at every single stage of the funnel. Higher pricing qualified rates. Higher apps-to-deals conversion. Higher clear-to-close rates.
 
-For a comparison in a different high-value vertical, see how we approached lead qualification challenges in a [dental practice Google Ads case study](/blog/dental-google-ads-case-study-results/).
+The overall funded deal rate was nearly identical (0.96% vs 0.97%), but digital achieved this at a fraction of the cost. Direct mail required $500k+/month to produce the same funded deal rate that digital was producing for $60-80k/month.
+
+Why? Digital leads come from people who are actively searching for reverse mortgage information at that moment. They clicked an ad, read a landing page, and filled out a qualifying form. Direct mail arrives at a random moment that may have nothing to do with where the prospect is in their decision process. The intent quality is fundamentally different.
+
+## The Biggest Factor in Cost Per Funded Deal Has Nothing to Do with Marketing
+
+This is the most important thing we learned in 16 months managing reverse mortgage leads: **the loan officer matters more than the marketing.**
+
+Our average cost per funded deal was $2,778. But that is an average across loan officers with vastly different close rates.
+
+South River's best loan officers converted pricing qualified leads at close to 30%. Their weakest converted around 10%. Same leads, same quality, same marketing. The difference was entirely in how fast they called, how well they built trust, and how effectively they guided the prospect through the process.
+
+We have spoken with independent reverse mortgage loan officers who close at 50% on pricing qualified leads. At that rate, the same $555 cost per pricing qualified lead produces a $1,111 cost per funded deal, or an 11.7x ROAS on a $13,000 industry average commission.
+
+Even in the worst possible scenario with the most expensive leads and the weakest closer on the team, the cost per funded deal was still under $10,000 on a $15,000 average commission. It was quite literally impossible to lose money when the system was running.
+
+## What This Means for Reverse Mortgage Loan Officers
+
+If you are an independent reverse mortgage loan officer spending $3,000-$5,000 per month on marketing, here is the reality:
+
+**Stop chasing $1,500 cost per funded deal.** That number comes from general mortgage benchmarks that do not apply to reverse. If you can achieve a $3,000 cost per funded deal on a $13,000 commission, you are making $10,000 per funded deal. Scale your spend and close more deals instead of squeezing for a number that will limit your volume.
+
+**The variable is you, not the marketing.** If you call leads within five minutes, you will close more than the loan officer who waits two hours. If you build trust on the first call, you will close more than the loan officer reading from a script. The marketing puts qualified prospects in front of you. What you do with them determines your cost per funded deal.
+
+**Facebook Ads are the new direct mail.** Same geographic targeting, same demographic targeting, but cheaper, measurable, retargetable, and the data gets better over time. If someone visits your landing page from a Facebook ad but does not convert, you can retarget them. If someone visits from a direct mail piece and does not call, they are gone.
+
+**Exclusive leads build your brand. Shared leads do not.** When you run ads under your own name, prospects see your face, your landing page, your brand. Even leads who do not convert on a reverse mortgage may need other financial services and can become referral sources. Shared leads from an aggregator come with zero brand equity and a race to be the first caller.
 
 ## Frequently Asked Questions
 
-Most mortgage lenders researching this mortgage lead generation case study and the digital ads vs. direct mail comparison have overlapping questions. Here are direct answers based on Creekside Marketing campaign data across active mortgage advertising accounts, not industry averages.
+**How much do reverse mortgage leads cost?**
 
-**How much does it cost to generate a qualified mortgage lead with Google Ads?**
+It depends entirely on what you mean by "lead." A basic form fill costs $10-$30 but converts at roughly 1%. A pre-qualified lead costs $40-$80 and converts at roughly 3%. A pricing qualified lead (someone who spoke with you and confirmed all details) costs $400-$600 but converts at roughly 20%. The cost per funded deal ends up in a similar range regardless of lead type. Our average across $805k in spend was $50 per pre-qualified lead and $555 per pricing qualified lead.
 
-According to Creekside Marketing data from active mortgage campaigns, cost per qualified lead ranges from $28 to under $50 depending on market, campaign maturity, and how "qualified" is defined. In this reverse mortgage case study, the campaign hit $28 per qualified lead in the first 14 days and maintained sub-$50 CPL at $55,000+ monthly spend. For broader benchmarks by product type, see our [mortgage Google Ads cost guide](/blog/how-much-do-google-ads-cost-for-mortgage-companies/).
+**What is a realistic cost per funded deal for reverse mortgage leads?**
 
-**How long does it take to scale a mortgage Google Ads campaign?**
+Based on our data from 16 months managing reverse mortgage lead generation for a top-3 lender: $2,000-$3,500 is the realistic range for most operations. Loan officers with strong close rates (30%+) can achieve $1,500-$2,000. The industry average is closer to $2,500-$3,000. At an average commission of $13,000-$15,000, even the high end of this range is highly profitable.
 
-According to Creekside Marketing, a properly structured campaign generates lead volume within 1-2 weeks and reaches cost stability within 30-60 days. Scaling to significant monthly spend levels takes 3-6 months if cost efficiency is the scaling criterion. In this case study, the campaign went from $10,000 to $55,000+ per month in 5 months while maintaining lead quality throughout.
+**Are Google Ads or Facebook Ads better for reverse mortgage lead generation?**
 
-**Is Google Ads better than direct mail for reverse mortgage?**
+Google captures high-intent searches from people actively looking for reverse mortgage information. Meta (Facebook) excels at reaching the 62+ demographic with awareness campaigns and retargeting. For budgets under $10k/month, start with one platform. Google delivers higher-intent leads. Meta delivers lower cost-per-impression and better retargeting for the senior demographic. We used both for South River Mortgage: Google for primary lead generation, Meta for retargeting and awareness.
 
-According to Creekside Marketing data from this case study, Google Ads outperformed a $500,000/month direct mail program by 5x on cost per customer and 7-8x on lead-to-funded-loan conversion rate. Whether digital outperforms mail for a specific lender depends on current direct mail performance benchmarks and whether the lender can build the tracking infrastructure needed to measure funded loans accurately by channel.
+**How long does it take for reverse mortgage advertising to work?**
 
-**What is the difference between Google Ads leads and direct mail leads for mortgage?**
+Expect leads within the first week. Expect stable cost-per-lead within 30-60 days. Expect funded deals within 90-120 days due to the reverse mortgage sales cycle (counseling requirements, appraisals, processing). We scaled South River Mortgage from $11k to over $55k/month within 5 months because early data was strong enough to justify aggressive scaling. The algorithm needs approximately 30 conversions per month to optimize effectively.
 
-According to Creekside Marketing, Google Ads leads from owned campaigns arrive at a moment of active search intent, have self-qualified by engaging with your specific landing page, and are exclusive to your company with no shared-lead re-selling. Direct mail leads arrive at a moment of interruption, have a lower pre-qualification threshold, and in aggregator models may be sold to multiple lenders. The conversion difference in this case study was 7-8x in favor of Google Ads leads.
+**Is $4,000 per month enough for reverse mortgage lead generation?**
+
+Yes. At $50 average cost per pre-qualified lead, $4,000 produces roughly 80 leads per month. About 9% of those (7-8 leads) will become pricing qualified. At a 20-50% close rate depending on the loan officer, that is 2-4 funded deals per month. At $13,000 average commission, that is $26,000-$52,000 in revenue on $4,000 in ad spend. The economics work at this level, though more budget gives the algorithm more data to optimize faster.
+
+**Why are your numbers different from other reverse mortgage lead generation companies?**
+
+Because we are sharing real data, not marketing claims. We managed $805,624 in actual ad spend over 16 months for a named client. Most reverse mortgage lead generation companies publish benchmarks that either blend in free referral leads to make their numbers look better, or quote aspirational ranges that their own published CPL and conversion rates cannot mathematically produce.
 
 ---
 
-**Want results like these for your mortgage business?**
+**Want results like these for your reverse mortgage business?**
 
-Want to see what running ads at this level actually looks like week to week? I share what's working and what's not from the accounts we manage in a weekly newsletter. Real numbers, real results.
+I share what is working and what is not from the accounts we manage in a weekly newsletter. Real numbers, real results.
 
 [Subscribe to the Creekside Newsletter](/newsletter/)
 
@@ -148,4 +186,4 @@ Or read the full case study: [South River Mortgage Case Study](/case-study-digit
 
 **About the Author**
 
-Peterson Rainey is the founder of Creekside Marketing, a performance-driven digital advertising agency managing over $20M in ad spend across Google Ads and Meta Ads. He specializes in helping mortgage lenders grow through Google Ads and Meta Ads.
+Peterson Rainey is the founder of Creekside Marketing. Over 16 months, his team managed $805,624 in reverse mortgage ad spend for one of the largest reverse mortgage lenders in the U.S., making Creekside one of the most experienced reverse mortgage lead generation agencies in the country. He specializes in Google Ads and Meta Ads for reverse mortgage loan officers and lenders.
