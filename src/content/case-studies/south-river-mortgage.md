@@ -1,5 +1,5 @@
 ---
-title: "How We Scaled a Top-3 Reverse Mortgage Lender from $11k to $80k/Month in Ad Spend"
+title: "How We Scaled a Top-5 Reverse Mortgage Lender from $11k to $80k/Month in Ad Spend"
 client: "South River Mortgage"
 category: "Reverse Mortgage: Google + Meta"
 logo: "/logos/south-river-mortgage.svg"
@@ -12,13 +12,13 @@ metrics:
 featured: true
 website: "https://southrivermortgage.com/"
 lastModified: "2026-09-22"
-heroTitle: "How We Generated $4.3M+ in Revenue for a Top-3 Reverse Mortgage Lender"
-heroSubtitle: "16 months. $805k in ad spend. 5.4x average ROAS. From a $11k test budget to $80k/month across Google and Meta, generating reverse mortgage leads across 36 states."
+heroTitle: "How We Generated $4.3M+ in Revenue for a Top-5 Reverse Mortgage Lender"
+heroSubtitle: "16 months. $805k in ad spend. 5.4x average ROAS. From a $11k test budget to $80k/month across Google and Meta, generating reverse mortgage leads across 39 states."
 clientInfo:
   - label: "Client"
     value: "South River Mortgage"
   - label: "Location"
-    value: "36 States (US)"
+    value: "39 States (US)"
   - label: "Industry"
     value: "Reverse Mortgage Lending"
   - label: "Service"
@@ -39,7 +39,7 @@ sections:
     sectionLabel: "The Challenge"
     heading: "A $500k/Month Direct Mail Machine Running Out of Steam"
     paragraphs:
-      - "South River Mortgage is one of the three largest reverse mortgage providers in the United States, operating across 36 states. They had been running direct mail for over five years, spending as much as $800,000 per month in 2024. But response rates were compressing and costs were climbing, so they had already started scaling back to around $500,000 per month by the time they engaged us in 2025. They had never run a serious digital advertising campaign."
+      - "South River Mortgage is one of the five largest reverse mortgage providers in the United States, operating across 39 states. They had been running direct mail for over five years, spending as much as $800,000 per month in 2024. But response rates were compressing and costs were climbing, so they had already started scaling back to around $500,000 per month by the time they engaged us in 2025. They had never run a serious digital advertising campaign."
       - "They were skeptical that digital could compete. They had tried third-party lead aggregators before and found the results unacceptable: shared leads, low contact rates, and prospects who had already spoken to three other lenders by the time a loan officer called. That experience had poisoned their confidence in anything digital."
       - "They needed proof that exclusive, self-generated digital leads could match the quality of their direct mail pipeline at a lower cost per funded deal."
   - type: "text"

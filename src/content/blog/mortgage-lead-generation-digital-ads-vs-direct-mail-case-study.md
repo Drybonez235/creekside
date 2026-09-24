@@ -1,6 +1,6 @@
 ---
 title: "Reverse Mortgage Leads: $805k in Ad Spend, 5.4x ROAS (What We Actually Learned)"
-description: "We spent $805k on reverse mortgage leads for a top-3 lender over 16 months. Here are the real numbers on cost per lead, cost per funded deal, and what nobody else in the space is telling you."
+description: "We spent $805k on reverse mortgage leads for a top-5 lender over 16 months. Here are the real numbers on cost per lead, cost per funded deal, and what nobody else in the space is telling you."
 date: "2026-09-22"
 image: "article-images/blog-card-waves.svg"
 category: "Reverse Mortgage Marketing"
@@ -8,7 +8,7 @@ tags: ["Reverse Mortgage Leads", "Reverse Mortgage Lead Generation", "Reverse Mo
 lastModified: "2026-09-22"
 ---
 
-> **TL;DR:** We managed $805,624 in reverse mortgage lead generation spend over 16 months for one of the three largest reverse mortgage providers in the U.S., operating across 36 states. Average ROAS: 5.4x. Average cost per pre-qualified lead: $50. Average cost per funded deal: $2,778 on a $15,000 average commission. Total estimated revenue generated: $4.35M+. Here is every number we can share, why most benchmarks you have seen online are wrong, and what actually matters when evaluating reverse mortgage leads.
+> **TL;DR:** We managed $805,624 in reverse mortgage lead generation spend over 16 months for one of the five largest reverse mortgage providers in the U.S., operating across 39 states. Average ROAS: 5.4x. Average cost per pre-qualified lead: $50. Average cost per funded deal: $2,778 on a $15,000 average commission. Total estimated revenue generated: $4.35M+. Here is every number we can share, why most benchmarks you have seen online are wrong, and what actually matters when evaluating reverse mortgage leads.
 
 > **Key Numbers**
 > - **Total Ad Spend:** $805,624 over 16 months
@@ -68,7 +68,7 @@ The cost per funded deal ends up roughly similar regardless of which tier you bu
 
 ## Our Numbers: 16 Months with South River Mortgage
 
-South River Mortgage is one of the three largest reverse mortgage providers in the United States. They operate across 36 states. They had been spending as much as $800,000 per month on direct mail in 2024, but response rates were declining and they had already started scaling back to around $500,000 per month by the time they engaged us. They had never run a serious digital advertising campaign.
+South River Mortgage is one of the five largest reverse mortgage providers in the United States. They operate across 39 states. They had been spending as much as $800,000 per month on direct mail in 2024, but response rates were declining and they had already started scaling back to around $500,000 per month by the time they engaged us. They had never run a serious digital advertising campaign.
 
 Over 16 months, we managed $805,624 in reverse mortgage lead generation spend across Google Ads and Meta Ads, scaling from an $11,000 test budget to $80,000 per month at peak.
 
@@ -154,7 +154,7 @@ It depends entirely on what you mean by "lead." A basic form fill costs $10-$30 
 
 **What is a realistic cost per funded deal for reverse mortgage leads?**
 
-Based on our data from 16 months managing reverse mortgage lead generation for a top-3 lender: $2,000-$3,500 is the realistic range for most operations. Loan officers with strong close rates (30%+) can achieve $1,500-$2,000. The industry average is closer to $2,500-$3,000. At an average commission of $13,000-$15,000, even the high end of this range is highly profitable.
+Based on our data from 16 months managing reverse mortgage lead generation for a top-5 lender: $2,000-$3,500 is the realistic range for most operations. Loan officers with strong close rates (30%+) can achieve $1,500-$2,000. The industry average is closer to $2,500-$3,000. At an average commission of $13,000-$15,000, even the high end of this range is highly profitable.
 
 **Are Google Ads or Facebook Ads better for reverse mortgage lead generation?**
 
