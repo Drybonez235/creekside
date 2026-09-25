@@ -22,11 +22,11 @@ const teamMembers = [
     bio: "Co-owner of Creekside Marketing with a background in accounting and an MBA, Cade specializes in data-driven Facebook advertising. He brings analytical precision and strategic optimization to help businesses scale profitably."
   },
   {
-    firstName: "Keith",
-    lastName: "McGonigle",
-    image: "/keith-mcgonigle.avif",
+    firstName: "Brady",
+    lastName: "Tibbits",
+    image: "/Brady-Tibbits-headshot.avif",
     role: "Lead Small Business Consultant",
-    bio: "Keith is a performance marketing consultant with 15+ years of experience managing paid media across Google, Meta, TikTok, and LinkedIn. He has overseen $120M+ in ad spend across 150+ clients and specializes in helping businesses grow through full-funnel digital marketing strategy."
+    bio: "Brady is a performance marketing consultant with 10+ years of experience managing paid media across Google, Meta, LinkedIn, and Microsoft Ads. He has managed $50M+ in ad spend across 100+ clients and specializes in helping businesses grow through data-driven lead generation and revenue-driven paid ads."
   },
 
   {
@@ -79,18 +79,10 @@ const teamMembers = [
     bio: "" 
   },
   {
-    firstName: "Melvin",
-    lastName: "",
-    image: "/melvin-headshot.avif",
-    role: "Executive Assistant",
-    bio: ""
-  },
-  {
-    firstName: "Aamir",
-    lastName: "Khan",
-    image: "/aamir-khan-headshot.webp",
-    role: "Advertising Designer",
-    bio: "Aamir designs the ad creatives behind our Meta and Google campaigns. His focus is high-quality, performance-driven creative that is clear, on-brand, and built to convert."
+    firstName: "Jonathan", lastName: "Lewis",
+    image: "/jonathan_lewis.avif",
+    role: "Web Developer",
+    bio: "Launches dynamic landing pages that convert clicks into customers. A problem solver at heart, he loves to understand  and design efficient systems."
   },
   {
     firstName: "Aldo",
@@ -119,7 +111,7 @@ const getBio = (member: { bio: string; role: string }) => member.bio || roleBios
 
 // Grouping Logic
 const leadership = teamMembers.filter(m => ["Peterson", "Cade"].includes(m.firstName));
-const smallBizLeads = teamMembers.filter(m => ["Keith", "Scott"].includes(m.firstName));
+const smallBizLeads = teamMembers.filter(m => ["Brady", "Scott"].includes(m.firstName));
 const googleTeam = teamMembers.filter(m => m.role.includes("Google Ads"));
 const metaTeam = teamMembers.filter(m => m.role.includes("Meta Ads"));
 const supportTeam = teamMembers.filter(m =>
