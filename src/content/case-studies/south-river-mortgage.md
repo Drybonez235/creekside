@@ -2,7 +2,7 @@
 title: "How We Scaled a Top-5 Reverse Mortgage Lender from $11k to $80k/Month in Ad Spend"
 client: "South River Mortgage"
 category: "Reverse Mortgage: Google + Meta"
-logo: "/logos/south-river-mortgage.svg"
+logo: "/logos/south-river-mortgage.png"
 logo-alt: "South River Mortgage Logo"
 summary: "How we spent $805k+ on reverse mortgage leads over 16 months, averaging a 5.4x ROAS and generating over $4.3M in revenue for one of the largest reverse mortgage providers in the U.S."
 tags: ["Reverse Mortgage Leads", "Reverse Mortgage Lead Generation", "Reverse Mortgage Marketing", "Google Ads", "Meta Ads", "Performance Max", "Scaling"]
