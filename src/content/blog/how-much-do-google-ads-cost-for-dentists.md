@@ -37,7 +37,7 @@ Dental Google Ads cost between $2 and $35 per click, depending on the procedure 
 
 ![Google Ads Cost Per Click by Dental Procedure - based on Creekside Marketing campaign data](/article-images/how-much-do-google-ads-cost-for-dentists-cpc-chart.svg)
 
-According to Creekside Marketing's campaign data, one of our dental aesthetics clients in Southern California averaged a $6.41 cost per click across 7,380 clicks over a four-month campaign period. That is well below industry averages because of tight keyword targeting and quality score optimization. You can see the [full campaign breakdown here](/case-study-digital-marketing/dr-laleh/).
+According to Creekside Marketing's campaign data, one of our dental aesthetics clients in Southern California averaged a $6.41 cost per click across 7,380 clicks over a four-month campaign period. That is well below industry averages because of tight keyword targeting and quality score optimization. You can see the [full campaign breakdown here](/case-study-digital-marketing/dental-aesthetics-practice/).
 
 ## How Much Should a Dental Practice Spend on Google Ads Per Month?
 
@@ -55,7 +55,7 @@ The minimum viable budget for Google Ads in dental is around $1,500/month. Below
 
 Dental practices running well-optimized Google Ads campaigns should expect conversion rates between 8% and 15%, meaning 8 to 15 out of every 100 clicks result in a call, form fill, or booking. Cost per conversion ranges from under $4 for general dentistry to $131 for high-value cosmetic cases. Based on Creekside Marketing's analysis of dental campaigns across multiple markets, here is where it gets interesting with real numbers:
 
-For a dental aesthetics practice in Southern California, we achieved a $131 cost per conversion across 361 total conversions. The CPA started at $48.79, and through campaign restructuring we drove it down to $9.58. At an average case value of roughly $20,000 for cosmetic dental procedures, that math is hard to argue with. You can see the [full results here](/case-study-digital-marketing/dr-laleh/).
+For a dental aesthetics practice in Southern California, we achieved a $131 cost per conversion across 361 total conversions. The CPA started at $48.79, and through campaign restructuring we drove it down to $9.58. At an average case value of roughly $20,000 for cosmetic dental procedures, that math is hard to argue with. You can see the [full results here](/case-study-digital-marketing/dental-aesthetics-practice/).
 
 For [Polaris Dentistry](/case-study-digital-marketing/polaris-dentistry/), we drove cost per conversion below $4. That practice went from struggling to stay open to generating a 500%+ return on their ad spend.
 

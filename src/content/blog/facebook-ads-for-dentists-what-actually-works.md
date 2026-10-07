@@ -69,7 +69,7 @@ According to Creekside Marketing, the most effective Meta campaign structure for
 - Audience: Warm retargeting of site visitors who did not book, lead form starters who did not submit, lookalike audiences built from your booked-patient list
 - Creative: Specific, low-friction offer with a clear next step ("Free 30-minute smile consultation -- limited availability this month")
 
-The most important structural decision is keeping these stages in separate campaigns. When we rebuilt Meta campaigns for a high-end cosmetic dental practice after a Meta algorithm change wiped out 25% of their lead volume overnight, separating the funnel and connecting CRM data so the algorithm optimized for actual booked consultations rather than raw form fills changed everything. Monthly consultations grew from 60 to over 100 within 90 days, adding more than $200,000 in monthly revenue. You can read the full case study at [this dental aesthetics practice's results page](/case-study-digital-marketing/dr-laleh/).
+The most important structural decision is keeping these stages in separate campaigns. When we rebuilt Meta campaigns for a high-end cosmetic dental practice after a Meta algorithm change wiped out 25% of their lead volume overnight, separating the funnel and connecting CRM data so the algorithm optimized for actual booked consultations rather than raw form fills changed everything. Monthly consultations grew from 60 to over 100 within 90 days, adding more than $200,000 in monthly revenue. You can read the full case study at [this dental aesthetics practice's results page](/case-study-digital-marketing/dental-aesthetics-practice/).
 
 ## Targeting: Who to Reach With Dental Facebook Ads
 

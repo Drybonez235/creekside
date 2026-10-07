@@ -80,7 +80,7 @@ High-income audience targeting layered over keyword targeting ensured the practi
 
 Creekside Marketing attributes this turnaround to the shift from single-platform reliance to a coordinated Google and Meta strategy with CRM-backed optimization signals.
 
-Read the full breakdown: [a high-end cosmetic dental practice Case Study](/case-study-digital-marketing/dr-laleh/)
+Read the full breakdown: [a high-end cosmetic dental practice Case Study](/case-study-digital-marketing/dental-aesthetics-practice/)
 
 ## The Common Thread: What Drove Results in Both Campaigns
 

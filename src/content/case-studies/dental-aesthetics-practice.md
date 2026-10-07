@@ -1,21 +1,18 @@
 ---
 title: "Adding Over $200k in Monthly Revenue for a Dental Aesthetics Practice in 90 Days"
-client: "Dr. Laleh Dental Aesthetics"
+client: "A Southern California Dental Aesthetics Practice"
 category: "Dental Aesthetics: Google + Meta"
-logo: "/logos/dr-laleh.png"
-logo-alt: "Doctor Laleh Dental Aesthetics Logo"
 summary: "How we rebuilt a failing ad strategy from scratch and grew monthly consultations from 60 to 100+, adding over $200,000 in monthly revenue within 3 months."
 tags: ["Google Ads", "Meta Ads", "Dental Marketing", "Full-Funnel", "CRM Integration", "Performance Max"]
 metrics:
   roas: "$2M+ Revenue"
   scale: "100+ Consults/mo"
 featured: true
-website: "https://doctorlaleh.com/"
 heroTitle: "How {CLIENT} Went from Losing Money to $2M+ in Revenue in 90 Days"
 heroSubtitle: "A dental aesthetics practice lost 25% of leads overnight when Meta's algorithm changed. We rebuilt everything from scratch and added over $200k in monthly revenue."
 clientInfo:
   - label: "Client"
-    value: "Dr. Laleh Dental Aesthetics"
+    value: "Dental Aesthetics Practice (Anonymized)"
   - label: "Industry"
     value: "Dental Aesthetics"
   - label: "Service"
@@ -36,8 +33,8 @@ sections:
     sectionLabel: "The Challenge"
     heading: "Algorithm Change Crashed Lead Volume Overnight"
     paragraphs:
-      - "Dr. Laleh's practice was heavily reliant on consistent leads and patients coming in the door. When a change in Meta's algorithm caused her lead volume to drop by 25% within a week, her previous agency was unable to do anything to fix it. She went from extremely profitable to in the red."
-      - "When she reached out, conversions had slipped from 80 per month to around 60, putting real pressure on the expanded team and overhead. Their Meta campaigns were little more than boosted posts, and they had no structured Google Ads strategy in place."
+      - "The practice was heavily reliant on consistent leads and patients coming in the door. When a change in Meta's algorithm caused their lead volume to drop by 25% within a week, the previous agency was unable to do anything to fix it. The practice went from extremely profitable to in the red."
+      - "When they reached out, conversions had slipped from 80 per month to around 60, putting real pressure on the expanded team and overhead. Their Meta campaigns were little more than boosted posts, and they had no structured Google Ads strategy in place."
   - type: "text"
     sectionLabel: "The Strategy"
     heading: "Full Rebuild: Meta + Google + CRM Integration"
@@ -75,13 +72,10 @@ sections:
         variant: "default"
   - type: "quote"
     quoteText: "We are at a record high of 100 consults!!! Whatever we are doing let's keep doing it! Great job"
-    quoteAttr: "— Dr. Laleh, via Slack (September 22nd)"
+    quoteAttr: "-- Practice Owner"
   - type: "highlight-box"
     bigStat: "$200k+"
     boxHeading: "Additional Monthly Revenue"
     boxText: "By rebuilding Meta from scratch, launching structured Google Ads campaigns, and integrating CRM tracking to optimize for booked consultations rather than raw leads, we restored profitability and added over $200,000 in monthly revenue within 90 days."
-  - type: "video"
-    videoUrl: "https://www.youtube.com/watch?v=29beCxBvkk0"
-    videoCaption: "Dr. Laleh shares how Creekside took her dental aesthetics practice from losing money to a record high of 100+ monthly consultations"
 footerCta: "Ready to transform your dental practice's marketing?"
 ---
