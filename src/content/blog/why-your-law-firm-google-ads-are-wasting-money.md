@@ -2,6 +2,7 @@
 title: "Why Your Law Firm Google Ads Are Wasting Money (And How to Fix It)"
 description: "6 structural mistakes that waste law firm Google Ads budgets. Real data from legal PPC audits, with specific fixes for each problem."
 date: "2026-05-15"
+lastModified: "2026-10-08"
 image: "article-images/blog-card-bars.svg"
 category: "Legal Marketing"
 tags: ["GoogleAds", "Legal", "Audit", "Optimization"]
@@ -114,6 +115,26 @@ According to Creekside Marketing's data, law firm Google Ads accounts that addre
 Most law firms running Google Ads have at least three of the problems described above. Many have all six. The compounding effect of fixing them is more signed cases from the same monthly budget, typically within two to three billing cycles after structural changes are made.
 
 For benchmarks on what well-structured legal Google Ads campaigns produce in terms of cost per click, conversion rates, and cost per signed case by practice area, see our full breakdown of [Google Ads costs for law firms in 2026](/blog/how-much-do-google-ads-cost-for-lawyers/).
+
+## Frequently Asked Questions
+
+### What is the minimum monthly budget a law firm needs to run Google Ads effectively?
+
+In most legal markets, a realistic minimum is $3,000 to $5,000 per month in ad spend. Legal keywords are among the most expensive on Google -- personal injury clicks can run $50 to $150 each, and even lower-competition practice areas like bankruptcy typically run $20 to $60 per click. Below $3,000 per month, most legal campaigns generate too few clicks to exit the learning phase or produce a statistically meaningful number of case inquiries per month. For personal injury and criminal defense in major metros, $8,000 to $15,000 per month is where we typically see consistent case volume. Winterbotham Parham Teeple, a bankruptcy firm in Orange County, produced 229 conversions at $50.29 per conversion -- that kind of result comes from having enough budget to generate real learning signal.
+
+### Is Google Ads month-to-month for law firms or is there a long-term commitment?
+
+We work month-to-month after an initial onboarding period. There is a one-time setup fee that covers campaign architecture, keyword research, negative keyword strategy, landing page recommendations, and conversion tracking configuration. After that, management is billed monthly with no long-term contract required. We can do that because law firms that see the numbers stay. A personal injury firm that adds 50 signed cases in four months at $621 cost per signed case does not need a contract to keep the campaigns running.
+
+### How long does it take before a law firm sees inbound case inquiries from Google Ads?
+
+Most law firms receive their first inbound calls within the first week of launch, sometimes within the first 48 to 72 hours if budget is sufficient and campaigns are built correctly. The first 30 days are a data-building phase. Cost per case inquiry is typically higher early on and improves as the algorithm accumulates conversion signals. By 60 to 90 days, campaigns with proper conversion tracking and bidding strategy reach stable performance. Big Chad Law generated 50-plus signed personal injury cases in four months from launch. That was not month one -- it was the result of a 90-day optimization cycle that tightened conversion signals and bid toward call quality rather than raw call volume.
+
+### What should a law firm's cost per signed case be from Google Ads?
+
+It depends heavily on practice area. From Creekside Marketing's legal account data: bankruptcy tends to run $40 to $80 per conversion for the initial inquiry. Personal injury case acquisition runs higher -- $500 to $1,200 per signed case is realistic when you account for the filtering that happens between click and signed retainer. At Big Chad Law, the lowest monthly CPA we achieved was $621 per signed personal injury case at a firm that was growing toward its sixth office location. At an average PI case fee of $25,000 to $50,000, that acquisition cost produces strong returns. Framing cost per signed case against average case revenue is the right way to evaluate whether Google Ads is working for a legal practice.
+
+---
 
 **Want to know exactly where your law firm Google Ads budget is going?**
 

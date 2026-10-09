@@ -2,6 +2,7 @@
 title: "Why Your Dental Google Ads Aren't Working (And How to Fix Them)"
 description: "Running Google Ads for your dental practice but not seeing new patients? Discover the 6 most common mistakes we find in dental PPC accounts and how to fix them."
 date: "2026-05-05"
+lastModified: "2026-10-08"
 image: "article-images/blog-card-target.svg"
 category: "Dental Marketing"
 tags: ["GoogleAds", "Dental", "Audit", "Optimization"]
@@ -118,6 +119,26 @@ If you find two or more of these problems, you're likely losing 30 to 50% of you
 For context on what a well-structured dental Google Ads account produces, see our breakdown of [dental Google Ads costs and benchmarks for 2026](/blog/how-much-do-google-ads-cost-for-dentists/), including realistic CPCs, cost per new patient, and conversion rates when an account is running correctly.
 
 Most dental practices running Google Ads have at least three of the problems described above. Many have all six. The compounding effect of fixing all of them is a significantly lower cost per new patient and more appointments from the same monthly spend, often within 60 to 90 days.
+
+## Frequently Asked Questions
+
+### If my dental Google Ads aren't performing, what's the contingency plan?
+
+We restructure before we give up. In every dental account we audit, the first 30 days are about diagnosing the structural problems -- missing negatives, broken tracking, wrong bidding strategy. In our experience managing campaigns for dental practices, a proper rebuild produces measurable improvement within 60 to 90 days in the vast majority of accounts. If a campaign is still underperforming after a full rebuild and optimization cycle, we have a direct conversation about whether the channel is the right fit at the current budget level. We do not keep running something that is not working.
+
+### What does it take to get a dental Google Ads account up and running?
+
+Most dental practices can go from zero to live campaigns in 5 to 10 business days. The setup process involves confirming access to the Google Ads account, building the keyword list, writing ad copy, creating or identifying a landing page, and configuring call and form tracking. Conversion tracking is the step that most often causes delays -- getting the right tags installed and verified takes coordination with whoever manages the practice website. Once tracking is confirmed working, the campaign launches and most practices see their first leads within 1 to 2 weeks.
+
+### Is there a minimum monthly ad spend for dental Google Ads to work?
+
+We recommend a minimum of $1,500 per month in actual ad spend to generate enough click volume for the algorithm to learn. In competitive dental markets for high-value procedures like implants or cosmetic dentistry, $2,500 to $5,000 per month is a more realistic floor for consistent lead flow. Below $1,500 per month, dental CPCs of $8 to $35 mean you are generating only a handful of clicks per day, which is not enough data for smart bidding to exit the learning phase. A single implant case at an average value of $3,000 to $5,000 justifies a meaningful monthly spend.
+
+### Why am I getting clicks but no appointment requests from my dental ads?
+
+Clicks without conversions almost always trace back to one of three problems: traffic landing on your homepage instead of a dedicated service page, conversion tracking not firing properly so you cannot see which clicks are converting, or your ads showing for the wrong searches. A prospect who clicks an ad for "dental implants near me" and lands on a homepage with eight navigation options will leave without contacting you at a very high rate. Dedicated landing pages for each service consistently convert 50 to 70 percent better than homepage traffic. Check your landing page, check your Search Terms report for irrelevant queries, and verify your conversion tracking is recording actual calls and form submissions before assuming the channel is not working.
+
+---
 
 **Want to know exactly where your dental Google Ads budget is going?**
 

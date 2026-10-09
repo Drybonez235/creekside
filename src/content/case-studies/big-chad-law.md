@@ -6,6 +6,7 @@ logo: "/logos/big-chad-law.webp"
 logo-alt: "Big Chad Law Firm Logo"
 summary: "Solving a lead quality crisis for an Arizona PI firm by implementing advanced conversion tracking and a multi-channel 'surround sound' strategy."
 tags: ["Legal Lead Gen", "Google Ads", "Meta Ads", "Local Service Ads", "Conversion Tracking"]
+lastModified: "2026-10-08"
 metrics:
   roas: "50+ Cases"
   scale: "6th Office Open"
@@ -65,6 +66,18 @@ sections:
       - cells: ["July 2025", "19", "$22,220", "$1,169.48"]
       - cells: ["August 2025", "21", "$21,774", "$1,036.88"]
       - cells: ["September 2025", "12", "$7,455", "$621.28"]
+  - type: "faq"
+    sectionLabel: "FAQ"
+    heading: "Frequently Asked Questions"
+    faqItems:
+      - question: "What was the lowest cost per signed personal injury case this campaign achieved?"
+        answer: "The lowest monthly cost per signed PI case was $621.28, achieved in September 2025. That figure represents cost per signed retainer, not cost per lead -- every inquiry still had to be qualified by intake staff and converted into an actual signed case. Across the full six-month reporting window from April through September 2025, Big Chad Law signed more than 50 PI cases from this campaign structure."
+      - question: "How did tracking phone call duration improve lead quality for this law firm?"
+        answer: "We refined conversion tracking to count only phone calls lasting over 3 minutes as qualified conversion events. A call under 3 minutes is almost never a serious personal injury inquiry -- it is a wrong number, a competitor check, or a caller who disqualifies quickly. Feeding 3-plus-minute calls back into Google's bidding algorithm as the conversion signal shifted the campaign away from optimizing for raw call volume and toward optimizing for genuine case prospects. That change was the primary driver behind the stabilization in lead-to-case conversion rate."
+      - question: "Why did Big Chad Law open a sixth office, and how did paid advertising contribute?"
+        answer: "The sixth office opened because the campaign generated consistent, qualified case volume over a four-month period that justified the additional overhead. From April through September 2025, Big Chad Law signed more than 50 PI cases across their Arizona locations. At average PI case fees, that volume generates substantial revenue. The predictability of the paid acquisition funnel -- knowing approximately how many signed cases would come from a given monthly spend -- gave the firm the data to make a growth decision with confidence."
+      - question: "What is the difference between Local Service Ads and Google Search Ads for personal injury law firms?"
+        answer: "Local Service Ads (LSAs) show at the very top of Google above traditional paid search ads and are pay-per-lead rather than pay-per-click. For personal injury, LSAs provide Google-screened placement and guaranteed lead quality. Google Search Ads sit below LSAs and operate on a cost-per-click model with more control over keywords and messaging. This campaign ran both simultaneously as part of a surround sound strategy -- LSAs captured the top-of-page real estate while Google Search Ads captured high-intent keyword searches. Meta Ads added brand awareness across Arizona that fed demand into both Google channels."
   - type: "highlight-box"
     bigStat: "50+"
     boxHeading: "Qualified PI Cases Signed"

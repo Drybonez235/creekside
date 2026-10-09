@@ -2,6 +2,7 @@
 title: "Why Your Mortgage Google Ads Aren't Generating Leads (And How to Fix It)"
 description: "Mortgage Google Ads not working? Creekside's audit data reveals 6 fixable problems that waste 30-50% of lender budgets. Real fixes, real numbers."
 date: "2026-05-14"
+lastModified: "2026-10-08"
 image: "article-images/blog-card-panels.svg"
 category: "Mortgage & Financial Services Marketing"
 tags: ["GoogleAds", "MortgageMarketing", "Audit", "Optimization"]
@@ -112,6 +113,24 @@ According to Creekside Marketing's mortgage audit process, six checks take under
 6. **Review your campaign type mix.** If Performance Max is your only active campaign and you have fewer than 50 conversions per month in your account, add Search campaigns before investing further in Performance Max. The algorithm needs conversion data you have not yet built.
 
 Each of these checks takes under 10 minutes. The findings will tell you whether you have a structural problem or a competitive problem, and those have different solutions. For a full breakdown of what mortgage Google Ads budgets should actually cost at each spend level, see [how much Google Ads costs for mortgage companies](/blog/how-much-do-google-ads-cost-for-mortgage-companies/). For an overview of how Creekside structures mortgage accounts from launch through scale, see the [Google Ads services page](/digital-advertising/google-ads/).
+
+## Frequently Asked Questions
+
+### How many leads should I expect from mortgage Google Ads at $3,000 to $4,000 per month?
+
+At $3,000 to $4,000 per month in ad spend in a mid-size market, a well-structured mortgage campaign typically generates 20 to 50 qualified leads per month, depending on the loan type and geographic footprint. Reverse mortgage campaigns tend to generate higher lead volume at lower CPLs because search intent is more specific. In our work with a national reverse mortgage lender, we generated 90 qualified leads in the first week at a $28 cost per lead with a $10,000 starting budget. For conventional purchase and refinance campaigns in competitive metro markets, expect a CPL of $40 to $80 and plan accordingly. A single funded loan at $3,000 to $5,000 in lender revenue typically justifies significant monthly investment once conversion tracking is giving the algorithm real signal.
+
+### What is the minimum ad spend for mortgage Google Ads to work?
+
+Mortgage keywords are expensive -- reverse mortgage terms run $35 to $50 per click, and conventional purchase terms in competitive markets can run $15 to $30 per click. That cost structure means you need enough daily budget to generate several clicks per day before smart bidding has any signal to work with. We recommend a minimum of $3,000 per month in ad spend for a single mortgage product campaign. At $50 per day or less, you are generating too few clicks per day to accumulate meaningful conversion data, and the algorithm will spend weeks in a learning phase that never stabilizes. For scale -- 20 to 30 leads per day as achieved with South River Mortgage -- $50,000 per month in spend was the level where volume became consistent.
+
+### Is a dedicated landing page really necessary for mortgage Google Ads, or can I use my website?
+
+A dedicated landing page is not optional if you want competitive conversion rates. A mortgage borrower who clicks an ad for a specific loan product and lands on a homepage with a company overview, multiple navigation options, and no immediately visible offer will leave without converting at a very high rate. We see homepage conversion rates of 1 to 3 percent for paid mortgage traffic. A dedicated landing page with a clear offer, a loan type-specific headline, and a form or phone number above the fold consistently converts at 4 to 8 percent from the same traffic. At $40 per click, the difference between a 2 percent and a 6 percent conversion rate means your cost per lead is $667 versus $222. The landing page pays for itself quickly.
+
+### Does seasonality affect mortgage Google Ads, and do leads drop off during the holidays?
+
+Mortgage search volume does shift seasonally, but it does not disappear during Q4. Purchase mortgage volume typically drops in November and December as fewer buyers are actively searching. Refinance volume is less seasonal and more rate-dependent. Reverse mortgage, which is our most-documented mortgage vertical, showed stable lead volume through late Q4 in our campaign data because the demographic searching for reverse mortgage products is not tied to homebuying cycles. Holiday slowdowns in search volume are real, but they are also a period when some competitors reduce budgets, which can actually lower competition and CPCs. Adjusting budgets down modestly in mid-December and back up in January is a reasonable seasonal approach rather than pausing campaigns entirely.
 
 ---
 

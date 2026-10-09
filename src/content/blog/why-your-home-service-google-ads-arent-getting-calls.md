@@ -2,6 +2,7 @@
 title: "Why Your Home Service Google Ads Aren't Getting Calls (And How to Fix Them)"
 description: "Six reasons your home service Google Ads aren't getting calls, with the specific fixes. Based on real audits of contractor accounts wasting 30-50% of budget."
 date: "2026-05-25"
+lastModified: "2026-10-08"
 image: "article-images/blog-card-arrow.svg"
 category: "Home Services Marketing"
 tags: ["GoogleAds", "HomeServices", "Audit", "Optimization"]
@@ -108,6 +109,24 @@ The home service contractors generating consistent inbound call volume from Goog
 The numbers from our own client work confirm the pattern. A 31% CPL reduction at a Virginia paving contractor through negative keyword restructuring. A 298% ROI for a Nashville lawn care company through focused seasonal campaign management. Over 2,000 total leads for a Tennessee lawn care provider after switching from traditional media to a properly structured digital strategy. The fixes are consistent because the mistakes are consistent.
 
 For a deeper look at how we approach [Google Ads for home service businesses](/digital-advertising/google-ads/), see our paid advertising services page.
+
+## Frequently Asked Questions
+
+### How quickly do I typically start getting calls after launching home service Google Ads?
+
+Most home service contractors see their first inbound calls within the first 5 to 14 days of launching a properly structured campaign. The timeline depends heavily on your market and daily budget. A Virginia asphalt contractor we worked with generated 32 leads in the first 12 days after launch. That said, the first 30 days are still a learning period for Google's algorithm. Consistent call volume and optimized cost per lead typically stabilize between 60 and 90 days as the campaign accumulates conversion data.
+
+### What is the minimum budget to run home service Google Ads profitably?
+
+We recommend a minimum of $1,500 per month in ad spend for a single-service home service campaign. At that level, in most mid-size markets, you can generate enough clicks per day to start accumulating conversion data. Below $1,500 per month, Google's smart bidding never exits the learning phase because there is not enough daily activity to optimize against. Contractors in high-competition markets like HVAC and plumbing in major metros generally need $2,500 to $5,000 per month to compete effectively. At an average job value of $1,500 to $5,000 and a reasonable close rate, the math supports meaningful monthly investment once the account is structured correctly.
+
+### Is there a contract or minimum commitment to work with Creekside on home service ads?
+
+We work month-to-month after the initial onboarding period. Our standard structure involves a one-time setup fee to build the campaign properly -- keyword research, negative keyword list, ad copy, landing page strategy, and conversion tracking -- followed by a monthly management fee. We do not lock contractors into long-term contracts. The reason we can do that is the results: Landmark Lawn and Landscape generated a 298% ROI over 28 months, and we maintained that relationship because the campaigns were performing, not because of a contract.
+
+### What percentage of leads from home service Google Ads typically turn into booked jobs?
+
+The conversion rate from a qualified inbound call to a booked job varies by trade and how quickly leads are followed up. Based on the home service accounts we manage, contractors who answer calls during business hours and follow up within the same day close 20 to 40 percent of inbound leads from Google Ads. The drop-off happens when calls go to voicemail or follow-up takes 24-plus hours. A plumbing or HVAC call that goes unanswered at 2pm is a job booked with a competitor before 5pm. Ad schedule settings that match your actual answering hours protect that conversion rate.
 
 ---
 

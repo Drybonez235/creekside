@@ -2,6 +2,7 @@
 title: "Google Ads vs SEO for Dentists: Which Drives Better Results?"
 description: "Real campaign data from dental practices shows Google Ads generates leads in 1-2 weeks vs 6-12 months for SEO. Here is how to choose the right channel."
 date: "2026-05-05"
+lastModified: "2026-10-08"
 image: "article-images/blog-card-waves.svg"
 category: "Dental Marketing"
 tags: ["GoogleAds", "SEO", "Dental", "Comparison"]
@@ -126,6 +127,24 @@ If you need new patients this month, Google Ads is the right starting point. It 
 SEO is a long game worth playing, and Creekside recommends most established practices build toward it over time. But it is not a substitute for paid advertising in the growth phase. It works best as an addition after the paid foundation is in place.
 
 Most dental practices we work with spend 12 to 18 months building their paid advertising results before they have the budget and organic momentum to run both channels effectively.
+
+## Frequently Asked Questions
+
+### Can a dental practice run Google Ads and SEO at the same time?
+
+Yes, and for established practices the combination works well -- but most practices should start with Google Ads and add SEO later. The reason is data. Google Ads tells you which keywords produce appointment requests, which procedure terms convert, and what ad messages get people to call. That conversion data makes your SEO investment more precise because you build content around what you know already works, not what you guess might work. A dental aesthetics practice in Southern California that built its paid advertising foundation first added over $200,000 in monthly revenue in 90 days from Google and Meta Ads, then had the profitability to invest in a longer-term SEO strategy from a position of growth rather than survival.
+
+### What is a realistic cost per new patient from dental Google Ads compared to SEO?
+
+From Creekside Marketing's dental campaign data, Google Ads produces new patient inquiries at $9 to $131 per lead depending on the service mix and market. Polaris Dentistry generated leads at under $4 each after account restructuring. SEO leads are harder to cost directly because the investment is in content and optimization, not per-click spend -- but when you spread a $2,000 per month SEO retainer across a 12-month runway before meaningful lead volume, the all-in cost per new patient in year one can exceed $200 to $400. Google Ads beats SEO on cost-per-new-patient in the growth phase for most practices, especially when the procedure is high-value like implants or veneers where one case justifies significant acquisition cost.
+
+### How long do dental Google Ads results last if I stop running them?
+
+When you stop running Google Ads, the leads stop. That is the fundamental tradeoff versus SEO. A Google Ads campaign generates new patient calls as long as there is budget behind it. The moment you pause, visibility disappears. SEO rankings persist after you stop actively investing, though they decay without ongoing content and link-building work. This is the core reason we recommend building SEO alongside Google Ads once paid results are stable -- it creates a traffic floor that exists independent of daily spend. For practices in their growth phase, this is a future-state goal. The priority is generating new patients now, and Google Ads does that faster and more predictably than any other channel.
+
+### Should a dental practice advertise on Google Ads or Meta (Facebook/Instagram)?
+
+For most dental practices, especially those focused on implants, Invisalign, and cosmetic procedures, the combination of Google and Meta outperforms either channel alone. Google Ads captures demand from people already searching for dental services -- high intent, ready to book. Meta Ads creates demand through visual content among people who have not yet started searching but match the demographic profile of your ideal patient. A dental aesthetics practice in Southern California runs significant budget on both channels, with Google capturing high-intent search and Meta generating consultation interest through before-and-after content and service showcases. The data consistently shows that practices running both channels generate more total consults per dollar than practices running one alone.
 
 ---
 
