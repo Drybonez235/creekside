@@ -42,6 +42,12 @@ const FIELD = {
 	utmCampaign: "zh3UaWthUTi60O2Ri7Kb",
 	utmContent: "rMVj669BH2EF1Vjw7WU4",
 	utmTerm: "NSaf4c3Xnlh9nkOjxmcx",
+	// Reverse mortgage funnel (2026-10-14)
+	nmlsId: "6Mv5Mpscx9PtGnSKw03j",
+	licensedRmLo: "wCdgoLBngDQGiUJNss9Y",
+	monthlyRmDeals: "9Bb8EYBUn8f3cRg7M9An",
+	hasTeam: "AmPXeyyT3wW3OKNycTeu",
+	marketingBudget: "2Y8J1EjdI3SFpvi2lReX",
 } as const;
 
 const REVENUE_MAP: Record<string, string> = {
@@ -124,6 +130,27 @@ const DECISION_MAKER_MAP: Record<string, string> = {
 	"no": "Someone Else",
 };
 
+// Reverse mortgage funnel maps (2026-10-14)
+const RM_DEALS_MAP: Record<string, string> = {
+	"0": "None yet",
+	"1-2": "1-2 per month",
+	"3-5": "3-5 per month",
+	"6+": "6+ per month",
+};
+
+const RM_BUDGET_MAP: Record<string, string> = {
+	"under-1500": "Under $1,500/mo",
+	"1500-3k": "$1,500 - $3,000/mo",
+	"3k-5k": "$3,000 - $5,000/mo",
+	"5k-10k": "$5,000 - $10,000/mo",
+	"10k+": "$10,000+/mo",
+};
+
+const YES_NO_MAP: Record<string, string> = {
+	"yes": "Yes",
+	"no": "No",
+};
+
 function splitName(full: string): { firstName: string; lastName: string } {
 	const parts = full.trim().split(/\s+/);
 	if (parts.length === 1) return { firstName: parts[0], lastName: "" };
@@ -158,8 +185,10 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const { firstName, lastName } = splitName(name);
 
-	// funnel: "site" for the general /start/ funnel; absent/anything else = dental (original behavior)
+	// funnel: "site" for the general /start/ funnel, "reverse-mortgage" for the
+	// RM loan officer funnel; absent/anything else = dental (original behavior)
 	const isSite = p.funnel === "site";
+	const isRm = p.funnel === "reverse-mortgage";
 	const route = typeof p.route === "string" ? p.route : "";
 	const revenue = typeof p.monthly_revenue === "string" ? p.monthly_revenue : "";
 	const businessType = typeof p.business_type === "string" ? p.business_type : "";
@@ -171,6 +200,13 @@ export const POST: APIRoute = async ({ request }) => {
 	const challenge = typeof p.challenge === "string" ? p.challenge : "";
 	const decisionMaker = typeof p.decision_maker === "string" ? p.decision_maker : "";
 	const crm = typeof p.crm === "string" ? p.crm : "";
+	// Reverse mortgage funnel fields
+	const licensedLo = typeof p.licensed_lo === "string" ? p.licensed_lo : "";
+	const monthlyDeals = typeof p.monthly_deals === "string" ? p.monthly_deals : "";
+	const hasTeam = typeof p.has_team === "string" ? p.has_team : "";
+	const marketingBudget = typeof p.marketing_budget === "string" ? p.marketing_budget : "";
+	const nmlsId = typeof p.nmls_id === "string" ? p.nmls_id.trim() : "";
+	const company = typeof p.company === "string" ? p.company.trim() : "";
 	const variant = typeof p.variant === "string" ? p.variant : "";
 	// stage: "booked" = calendar-first funnel lead that booked a call but has
 	// not answered the qualifying questions yet. Anything else (including
@@ -190,22 +226,24 @@ export const POST: APIRoute = async ({ request }) => {
 	if (fbclid) contactSource = "Facebook Ads";
 	else if (gclid) contactSource = "Google Ads";
 
-	const isQualified = route !== "keith";
+	// RM funnel: qualified = licensed reverse mortgage LO. Others: original route logic.
+	const isQualified = isRm ? licensedLo !== "no" : route !== "keith";
 	const qualStatus = isBookedStage ? "Pending" : isQualified ? "Qualified" : "Under Threshold";
 
-	const funnelTag = isSite ? "site" : "dental";
+	const funnelTag = isRm ? "rm" : isSite ? "site" : "dental";
+	const directTag = isRm ? "peterson-direct" : "cade-direct";
 	const tags = [`${funnelTag}-funnel`];
 	if (isBookedStage) {
 		// Calendar-first funnel: call is booked but qualifying questions are
 		// not answered yet. Tag for Cyndi/Cade review; the qualified/under-
 		// threshold tags get applied by the follow-up stage="qualified" call.
-		tags.push(`${funnelTag}-needs-qualification`, "cade-direct");
+		tags.push(`${funnelTag}-needs-qualification`, directTag);
 	} else if (isQualified) {
-		tags.push(`${funnelTag}-qualified`, "cade-direct");
+		tags.push(`${funnelTag}-qualified`, directTag);
 	} else {
 		// Keith partner routing removed 2026-08-27 -- under-threshold leads
-		// keep the tier tag for context but book with Cade like everyone else.
-		tags.push(`${funnelTag}-under-threshold`, "cade-direct");
+		// keep the tier tag for context but book like everyone else.
+		tags.push(`${funnelTag}-under-threshold`, directTag);
 	}
 	// Form-variant tag (additive -- the base funnel tags above still drive
 	// the GHL workflow / opportunity creation)
@@ -222,15 +260,20 @@ export const POST: APIRoute = async ({ request }) => {
 	addField(FIELD.revenueTier, REVENUE_MAP[revenue] || revenue);
 	addField(FIELD.adManagement, AD_MGMT_MAP[adMgmt] || adMgmt);
 	addField(FIELD.websiteUrl, website);
-	addField(FIELD.industry, isSite ? (BUSINESS_TYPE_MAP[businessType] || businessType || "General") : "Dental");
+	addField(FIELD.industry, isRm ? "Reverse Mortgage" : isSite ? (BUSINESS_TYPE_MAP[businessType] || businessType || "General") : "Dental");
 	addField(FIELD.contactSource, contactSource);
-	addField(FIELD.referredTo, isQualified ? "Cade" : "Brady");
+	addField(FIELD.referredTo, isRm ? "Peterson" : isQualified ? "Cade" : "Brady");
 	addField(FIELD.qualificationStatus, qualStatus);
 	addField(FIELD.practiceType, PRACTICE_TYPE_MAP[practiceType] || practiceType);
 	addField(FIELD.servicesInterestedIn, SERVICES_MAP[services] || services);
 	addField(FIELD.biggestChallenge, CHALLENGE_MAP[challenge] || challenge);
 	addField(FIELD.decisionMaker, DECISION_MAKER_MAP[decisionMaker] || decisionMaker);
 	addField(FIELD.usesCrm, CRM_MAP[crm] || crm);
+	addField(FIELD.nmlsId, nmlsId);
+	addField(FIELD.licensedRmLo, YES_NO_MAP[licensedLo] || licensedLo);
+	addField(FIELD.monthlyRmDeals, RM_DEALS_MAP[monthlyDeals] || monthlyDeals);
+	addField(FIELD.hasTeam, YES_NO_MAP[hasTeam] || hasTeam);
+	addField(FIELD.marketingBudget, RM_BUDGET_MAP[marketingBudget] || marketingBudget);
 	addField(FIELD.utmSource, utmSource);
 	addField(FIELD.utmMedium, utmMedium);
 	addField(FIELD.utmCampaign, utmCampaign);
@@ -241,11 +284,13 @@ export const POST: APIRoute = async ({ request }) => {
 	const noteLines: string[] = [];
 	if (isSite && businessType) noteLines.push(`Business Type: ${BUSINESS_TYPE_MAP[businessType] || businessType}`);
 	if (adSpend) noteLines.push(`Ad Budget: ${AD_SPEND_MAP[adSpend] || adSpend}`);
-	const notes = noteLines.length ? `[${isSite ? "Website Funnel" : "Dental Funnel"}]\n${noteLines.join("\n")}` : "";
+	const funnelLabel = isRm ? "Reverse Mortgage Funnel" : isSite ? "Website Funnel" : "Dental Funnel";
+	const notes = noteLines.length ? `[${funnelLabel}]\n${noteLines.join("\n")}` : "";
 
 	// GHL contacts API does NOT accept "notes" on the create payload (returns 422).
 	// Notes must be added via a separate POST /contacts/{id}/notes call after creation.
 	const contactBody: Record<string, unknown> = { locationId, firstName, lastName, email, phone, tags, customFields };
+	if (company) contactBody.companyName = company;
 
 	const ghlHeaders = {
 		"Authorization": `Bearer ${apiKey}`,
