@@ -65,7 +65,14 @@ export const siteSchema = {
       "@type": "Person",
       "name": "Cade Maclean",
       "jobTitle": "Co-Founder & Meta Ads Expert",
-      "sameAs": "https://www.linkedin.com/in/cademaclean/",
+      "sameAs": [
+        "https://www.linkedin.com/in/cade-maclean-4133152a2/",
+        "https://www.reddit.com/user/cade-creeksidemrkt/",
+        "https://www.youtube.com/@cademacleanyt",
+        "https://www.instagram.com/cademaclean_yt/",
+        "https://www.tiktok.com/@cademaclean_yt",
+        "https://www.quora.com/profile/Cade-MacLean"
+      ],
       "knowsAbout": ["Meta Ads", "Facebook Advertising", "Instagram Advertising", "Data-Driven Marketing"]
     },
     {
@@ -142,7 +149,14 @@ export const siteSchema = {
           "description": "With a background in accounting and an MBA, Cade specializes in data-driven Facebook and Instagram advertising.",
           "image": "https://creeksidemarketingpros.com/cade-maclean-headshot.avif",
           "url": "https://creeksidemarketingpros.com/meet-the-team/",
-          "sameAs": "https://www.linkedin.com/in/cademaclean/",
+          "sameAs": [
+            "https://www.linkedin.com/in/cade-maclean-4133152a2/",
+            "https://www.reddit.com/user/cade-creeksidemrkt/",
+            "https://www.youtube.com/@cademacleanyt",
+            "https://www.instagram.com/cademaclean_yt/",
+            "https://www.tiktok.com/@cademaclean_yt",
+            "https://www.quora.com/profile/Cade-MacLean"
+          ],
           "knowsAbout": ["Meta Ads", "Facebook Advertising", "Instagram Advertising", "Data-Driven Marketing"]
         },
         {

@@ -30,6 +30,70 @@ import '../styles/global.css';
     title="Lead Magnet Client"
         >
 </iframe>
-   
+
 <script src="https://api.msglink.cloud/js/form_embed.js" defer></script>
+
+<script>
+  (() => {
+    const iframeEl = document.getElementById("inline-8As7Tl468YopNi5PJw9G") as HTMLIFrameElement | null;
+
+    // --- UTM passthrough ---
+    if (iframeEl) {
+      const pageParams = new URLSearchParams(window.location.search);
+      const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+      const iframeSrc = new URL(iframeEl.src);
+      let hasUtm = false;
+      utmKeys.forEach((k) => {
+        const v = pageParams.get(k);
+        if (v) { iframeSrc.searchParams.set(k, v); hasUtm = true; }
+      });
+      if (hasUtm) iframeEl.src = iframeSrc.toString();
+    }
+
+    // --- Form-submit tracking ---
+    let formSubmitted = false;
+    const fireConversionEvents = () => {
+      if (formSubmitted) return;
+      formSubmitted = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "lead_magnet_submit",
+        form_name: "lead_magnet_landing_page",
+        form_id: "8As7Tl468YopNi5PJw9G",
+      });
+
+      if (typeof fbq === "function") fbq("track", "Lead", { content_name: "Lead Magnet Landing Page" });
+      if (typeof oaiq === "function") oaiq("measure", "lead_magnet_submit", { type: "customer_action" });
+    };
+
+    window.addEventListener("message", (event) => {
+      if (formSubmitted) return;
+      const origin = event.origin || "";
+      if (
+        !origin.endsWith(".msglink.cloud") && origin !== "https://api.msglink.cloud" &&
+        !origin.endsWith(".leadconnectorhq.com") && !origin.includes("leadconnectorhq.com")
+      ) return;
+
+      let data = event.data;
+      if (typeof data === "string") { try { data = JSON.parse(data); } catch { return; } }
+      if (!data || typeof data !== "object") return;
+
+      if (
+        data.type === "form:submit" ||
+        data.event_id === "form_submit" ||
+        data.action === "formSubmitted" ||
+        data.formSubmitted === true
+      ) {
+        fireConversionEvents();
+      }
+    });
+
+    let initialLoad = false;
+    iframeEl?.addEventListener("load", () => {
+      if (!initialLoad) { initialLoad = true; return; }
+      fireConversionEvents();
+    });
+  })();
+</script>
 </Layout>
