@@ -176,6 +176,22 @@ export const POST: APIRoute = async ({ request }) => {
 			console.error("[book] GHL booked call date update failed:", err);
 		});
 
+		// 8. Internal lead alert (fire-and-forget, don't block response): POST to the
+		//    Creekside Supabase edge function, which relays to Google Chat.
+		sendBookingAlert({
+			name,
+			phone,
+			email,
+			service,
+			company,
+			provider: account.label,
+			date,
+			time,
+			transactionId: event.id,
+		}).catch((err) => {
+			console.error("[book] booking alert webhook failed:", err);
+		});
+
 		// FR-25: hashed identifiers for enhanced conversions; event id is the dedup key.
 		return jsonResponse({
 			ok: true,
@@ -198,6 +214,37 @@ export const POST: APIRoute = async ({ request }) => {
  * webhook and may not exist yet at booking time, so the lookup retries with
  * increasing delays. Every failure path logs -- nothing returns silently. */
 const GHL_LOOKUP_DELAYS_MS = [0, 15_000, 60_000, 180_000, 300_000];
+
+/** Notify the team of a new booking via the Creekside booking-alert edge function
+ * (which posts to the Lead Alerts Google Chat space). Never throws into the booking
+ * path -- the caller attaches a .catch, and this logs every failure itself. */
+async function sendBookingAlert(payload: {
+	name: string;
+	phone: string;
+	email: string;
+	service: string;
+	company: string;
+	provider: string;
+	date: string;
+	time: string;
+	transactionId: string;
+}): Promise<void> {
+	const url = import.meta.env.CSB_ALERT_WEBHOOK_URL;
+	const secret = import.meta.env.CSB_ALERT_WEBHOOK_SECRET;
+	if (!url || !secret) {
+		console.error("[book] CSB_ALERT_WEBHOOK_URL / CSB_ALERT_WEBHOOK_SECRET not set; skipping booking alert");
+		return;
+	}
+	const res = await fetch(url, {
+		method: "POST",
+		headers: { "Content-Type": "application/json", "x-alert-secret": secret },
+		body: JSON.stringify(payload),
+	});
+	if (!res.ok) {
+		const body = await res.text().catch(() => "");
+		console.error(`[book] booking alert webhook returned ${res.status}:`, body);
+	}
+}
 
 async function updateGhlBookedCallDate(email: string, callStart: Date): Promise<void> {
 	const apiKey = import.meta.env.GHL_API_KEY;
