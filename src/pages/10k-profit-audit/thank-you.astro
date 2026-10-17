@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout-no-pop.astro';
+import '../../styles/global.css';
+---
+
+<Layout
+  title="You're All Set - Creekside Marketing"
+  description="Your $10k Profit Recovery Worksheet is on its way to your inbox."
+  canonicalURL="https://creeksidemarketingpros.com/10k-profit-audit/thank-you/"
+>
+  <main class="flex min-h-screen items-center justify-center bg-grey-50 px-6 py-20">
+    <div class="max-w-xl text-center">
+      <div class="mx-auto mb-8 flex size-16 items-center justify-center rounded-full bg-secondary-500/10">
+        <svg class="size-8 text-secondary-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 class="text-4xl font-extrabold tracking-tight text-primary-900 md:text-5xl">
+        You're all set!
+      </h1>
+
+      <p class="mt-6 text-lg/8 text-grey-600">
+        Your <strong>$10k Profit Recovery Worksheet</strong> is on its way to your inbox.
+        If you don't see it in the next few minutes, check your spam folder.
+      </p>
+
+      <a
+        href="/"
+        class="mt-10 inline-block rounded-sm bg-secondary-500 px-8 py-4 text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-secondary-600"
+      >
+        Back to the site
+      </a>
+    </div>
+  </main>
+
+  <script is:inline>
+    // Fire the lead magnet conversion once per session. The existing GTM
+    // trigger on the `lead_magnet_submit` dataLayer event handles GA4.
+    (function () {
+      if (sessionStorage.getItem('lm_conversion_fired')) return;
+      sessionStorage.setItem('lm_conversion_fired', '1');
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'lead_magnet_submit',
+        form_name: 'lead_magnet_thank_you',
+        form_id: '8As7Tl468YopNi5PJw9G',
+      });
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'Lead Magnet Thank You' });
+      }
+    })();
+  </script>
+</Layout>
