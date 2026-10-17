@@ -71,14 +71,6 @@ const socialImageURL = new URL(image, Astro.site).href;
     debug: false
   });
 </script>
-<script is:inline>
-  oaiq("measure", "registration_completed", {
-    type: "customer_action",
-    amount: 0,
-    currency: "USD"
-  });
-</script>
-
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -93,7 +85,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '2083657478846396');
-  fbq('track', 'PageView');
+  // PageView is fired by the GTM Meta Pixel tag -- do not also fire it here
+  // (hardcoded + GTM double-counted every pageview).
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2083657478846396&ev=PageView&noscript=1"/></noscript>

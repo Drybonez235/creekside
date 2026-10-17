@@ -168,6 +168,14 @@ const { idPrefix = "cta" } = Astro.props;
           feedback.classList.remove('hidden');
           feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+
+        // Fire only on a real, validated submission (captcha passed, not a bot)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'contact_form_submit',
+          form_name: 'google_contact_form',
+          form_id: form.id,
+        });
       } catch (error) {
         console.error('Submission error:', error);
         alert('There was a connection issue. Please check your internet and try again.');

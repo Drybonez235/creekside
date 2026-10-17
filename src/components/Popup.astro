@@ -173,6 +173,9 @@
       if (getDismissCount() >= 2) return;
       shownOnThisPage = true;
 
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "popup_shown", popup_name: "lead_magnet_popup" });
+
       overlay?.classList.remove("invisible", "pointer-events-none");
 
       setTimeout(() => {
@@ -197,7 +200,14 @@
       }, 500);
 
       document.body.style.overflow = "";
-      incrementDismiss();
+      const dismissCount = incrementDismiss();
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "popup_dismissed",
+        popup_name: "lead_magnet_popup",
+        dismiss_count: dismissCount,
+      });
     };
 
     if (getDismissCount() < 2) {
