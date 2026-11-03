@@ -407,9 +407,55 @@ export const POST: APIRoute = async ({ request }) => {
 
 		// Opportunity creation is handled by GHL workflow (triggers on dental-funnel tag)
 
+		// 2. Form submission alert (fire-and-forget -- don't block the response)
+		sendFormAlert({
+			name,
+			phone,
+			email,
+			funnel: funnelTag,
+			qualificationStatus: qualStatus,
+			revenue: REVENUE_MAP[revenue] || revenue,
+			challenge: CHALLENGE_MAP[challenge] || challenge,
+			source: contactSource,
+			campaign: utmCampaign,
+		}).catch((err) => {
+			console.error("[ghl-lead] form alert webhook failed:", err);
+		});
+
 		return jsonResponse({ ok: true, contactId });
 	} catch (err) {
 		console.error("[ghl-lead] Network error:", err);
 		return errorResponse("ghl_network_error", "CRM sync failed", 500);
 	}
 };
+
+/** Notify the team of a new form submission via the booking-alert edge function.
+ * Same endpoint as booking alerts but with alertType: "form_submission" so the
+ * message format is different (no appointment details, "call them now" nudge). */
+async function sendFormAlert(payload: {
+	name: string;
+	phone: string;
+	email: string;
+	funnel: string;
+	qualificationStatus: string;
+	revenue: string;
+	challenge: string;
+	source: string;
+	campaign: string;
+}): Promise<void> {
+	const url = import.meta.env.CSB_ALERT_WEBHOOK_URL;
+	const secret = import.meta.env.CSB_ALERT_WEBHOOK_SECRET;
+	if (!url || !secret) {
+		console.error("[ghl-lead] CSB_ALERT_WEBHOOK_URL / CSB_ALERT_WEBHOOK_SECRET not set; skipping form alert");
+		return;
+	}
+	const res = await fetch(url, {
+		method: "POST",
+		headers: { "Content-Type": "application/json", "x-alert-secret": secret },
+		body: JSON.stringify({ ...payload, alertType: "form_submission" }),
+	});
+	if (!res.ok) {
+		const body = await res.text().catch(() => "");
+		console.error(`[ghl-lead] form alert webhook returned ${res.status}:`, body);
+	}
+}
