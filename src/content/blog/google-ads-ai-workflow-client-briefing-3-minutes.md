@@ -3,7 +3,7 @@ title: "How Our Google Ads Specialist Uses AI to Get Client-Ready in 3 Minutes"
 description: "The exact AI workflow a Creekside Marketing Google Ads specialist uses daily: 3-5 minute client briefings, automated reporting, and ad copy at 90% accuracy."
 date: "2026-07-13"
 image: "article-images/blog-card-dots.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["GoogleAds", "AI", "AgencyWorkflow", "PPC"]
 ---
 

@@ -3,7 +3,7 @@ title: "How We Actually Use Claude Code at a Google Ads Agency: Settings, Prompt
 description: "Learn how a Google Ads agency uses Claude Code daily: the right settings, why the microphone beats typing, and why separate sessions protect output quality."
 date: "2026-07-20"
 image: "article-images/blog-card-bars.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["Claude Code", "AI Tools", "Google Ads", "Agency Workflow", "Productivity"]
 ---
 

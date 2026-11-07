@@ -3,7 +3,7 @@ title: "The Gmail Takeout + Cursor Trick for Building a Custom GPT That Mirrors 
 description: "How to build a custom ChatGPT trained on your Gmail history so it drafts emails in your voice, using Google Takeout and Cursor. Free to run."
 date: "2026-08-03"
 image: "article-images/blog-card-panels.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI Tools", "Agency Operations", "Email Automation", "ChatGPT"]
 ---
 

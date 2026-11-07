@@ -3,7 +3,7 @@ title: "How We Use a Custom ChatGPT Script to Generate 160 Google Ads Headlines 
 description: "A custom ChatGPT script that forces correct character counts, outputs 160 headlines per run, and eliminates AI ad copy babysitting. Here's how it works."
 date: "2026-08-16"
 image: "article-images/blog-card-target.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["Google Ads", "ChatGPT", "Ad Copy", "AI Tools", "Performance Max"]
 ---
 

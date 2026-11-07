@@ -4,7 +4,7 @@ title: "How We Built an AI Brain for Our Google Ads Agency Using Claude Code"
 description: "A behind-the-scenes look at how Creekside Marketing built an AI-powered agency brain using Claude Code, GitHub, and Supabase to manage Google Ads operations."
 date: "2026-07-16"
 image: "article-images/blog-card-donut.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 ---
 

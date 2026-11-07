@@ -3,7 +3,7 @@ title: "We Edit Our Client Ad Dashboards by Telling Claude What to Change. Here 
 description: "How Creekside uses Claude to edit live client-facing ad reporting dashboards in real time, with backup templates and zero developer involvement."
 date: "2026-07-17"
 image: "article-images/blog-card-arrow.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 ---
 

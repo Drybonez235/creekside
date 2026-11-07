@@ -77,6 +77,37 @@ const schema = {
   "keywords": post.data.tags.join(", ")
 };
 
+// Extract FAQ pairs from markdown body for FAQPage schema
+const faqPairs: { question: string; answer: string }[] = [];
+const body = post.body || '';
+const faqMatch = body.match(/##\s+(?:FAQ|Frequently Asked Questions)[^\n]*\n([\s\S]*?)(?=\n##\s[^#]|\n---|$)/i);
+if (faqMatch) {
+  const faqSection = faqMatch[1];
+  const questionBlocks = faqSection.split(/###\s+/).filter(Boolean);
+  for (const block of questionBlocks) {
+    const lines = block.trim().split('\n');
+    const question = lines[0].trim().replace(/\*+/g, '').replace(/\??\s*$/, '?');
+    const answerLines = lines.slice(1).filter(l => l.trim().length > 0 && !l.trim().startsWith('#'));
+    const answer = answerLines.map(l => l.trim().replace(/\*+/g, '')).join(' ').substring(0, 500);
+    if (question.length > 5 && answer.length > 10) {
+      faqPairs.push({ question, answer });
+    }
+  }
+}
+
+const faqSchema = faqPairs.length >= 2 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqPairs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": answer
+    }
+  }))
+} : null;
+
 // Breadcrumb schema for blog posts
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -116,6 +147,7 @@ const breadcrumbSchema = {
 >
 <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+{faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
 <Nav />
 <main class="min-h-dvh bg-grey-50 px-6 py-12 lg:py-20">
     <aside class="hidden lg:block">

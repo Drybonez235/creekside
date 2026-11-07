@@ -3,7 +3,7 @@ title: "The Raw Text Trick: Why Your AI Lead Response Drafts Sound Generic (And 
 description: "Why AI-drafted lead follow-ups sound generic and the two specific instructions Creekside uses to draft specific, credible responses from the agency brain."
 date: "2026-07-19"
 image: "article-images/blog-card-panels.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI Tools", "Agency Operations", "Lead Response", "Google Ads"]
 ---
 

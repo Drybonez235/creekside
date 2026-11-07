@@ -3,7 +3,7 @@ title: "Will AI Replace Marketing Agencies? An Agency Owner Who Already Replaced
 description: "A Google Ads agency owner gives a straight answer on whether AI will replace marketing agencies, which jobs go first, and what the 5-year timeline means."
 date: "2026-09-23"
 image: "article-images/blog-card-trend.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI", "Digital Marketing", "Marketing Agency", "Automation"]
 ---
 

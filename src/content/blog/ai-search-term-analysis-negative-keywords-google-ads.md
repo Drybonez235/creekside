@@ -3,7 +3,7 @@ title: "69,000 Search Terms, 10 Minutes: The AI Negative Keyword Workflow for Go
 description: "How we use Claude to analyze tens of thousands of Google Ads search terms, catch wasted spend, and build a clean negative keyword list in about 10 minutes."
 date: "2026-07-29"
 image: "article-images/blog-card-waves.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["Google Ads", "Negative Keywords", "AI Tools", "Google Shopping", "Search Terms"]
 ---
 

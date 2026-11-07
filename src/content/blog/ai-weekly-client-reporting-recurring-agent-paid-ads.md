@@ -3,7 +3,7 @@ title: "How We Rebuilt Weekly Client Reporting with AI and Turned It Into a Recu
 description: "Our paid ads team used Claude to transform a manual weekly client report into an AI agent. Here's the step-by-step process we actually ran."
 date: "2026-07-12"
 image: "article-images/blog-card-target.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI in Marketing", "Client Reporting", "Agency Operations", "Paid Ads"]
 ---
 

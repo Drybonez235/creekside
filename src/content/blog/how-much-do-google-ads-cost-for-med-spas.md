@@ -2,6 +2,7 @@
 title: "How Much Do Google Ads Cost for Med Spas? [2026 Real Data]"
 description: "Med spa Google Ads cost $5-$30 per click. Most owners spend $2,000-$8,000/month. Real CPC data, budget tiers, and ROI from Creekside campaigns."
 date: "2026-05-19"
+lastModified: "2026-11-07"
 image: "article-images/blog-card-funnel.svg"
 category: "Medical Spa & Aesthetics Marketing"
 tags: ["GoogleAds", "MedSpa", "CostBreakdown", "PPC"]
@@ -18,6 +19,7 @@ tags: ["GoogleAds", "MedSpa", "CostBreakdown", "PPC"]
 | Expected ROI | 3x - 7x on ad spend |
 | Data Source | Creekside Marketing, $20M+ managed ad spend |
 
+*Data current as of November 2026. Based on Creekside Marketing's actively managed campaign portfolio. See our [measurement methodology](/blog/creekside-marketing-measurement-methodology/) for how we track and verify these benchmarks. For cross-industry comparison, see the [Google Ads Benchmarks by Industry](/blog/google-ads-benchmarks-by-industry-real-data/) reference.*
 
 Across Creekside Marketing's medical spa campaigns, Google Ads cost between $5 and $30 per click. That range is wide for a real reason: a "lip fillers near me" keyword in a mid-size Midwest market performs nothing like "botox injections" in Atlanta or Dallas. What you pay per click depends on your services, your market, and how your campaigns are structured.
 

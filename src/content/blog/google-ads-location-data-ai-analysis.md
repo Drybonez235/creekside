@@ -3,7 +3,7 @@ title: "The AI Method That Finds Underperforming Google Ads Locations Without Sc
 description: "How to use AI to analyze Google Ads location performance across all campaigns at once. A simple CSV workflow that saves hours per week. No scripts required."
 date: "2026-07-28"
 image: "article-images/google-ads-location.avif"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["Google Ads", "AI Workflow", "Location Targeting", "Data Analysis", "Campaign Optimization"]
 ---
 

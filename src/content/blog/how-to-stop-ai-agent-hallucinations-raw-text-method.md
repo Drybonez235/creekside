@@ -3,7 +3,7 @@ title: "How to Stop AI Agent Hallucinations: The Raw Text Method We Use at Our G
 description: "Learn how our Google Ads agency stops AI agent hallucinations using the raw text method, plus how to run four autonomous Claude Code agents simultaneously."
 date: "2026-07-18"
 image: "article-images/blog-card-scatter.svg"
-category: "Google Ads"
+category: "AI for Agencies"
 tags: ["AI Tools", "Agency Operations", "Claude Code", "Google Ads"]
 ---
 
