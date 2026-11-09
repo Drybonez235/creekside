@@ -8,10 +8,48 @@ import { START_URL } from '../data/site';
 
 import '../styles/global.css';
 
-const feeTiers = [
-  { spend: "Up to $30,000", rate: "20%" },
-  { spend: "$30,000 to $60,000", rate: "15%" },
-  { spend: "Above $60,000", rate: "10%" },
+const tiers = [
+  {
+    name: "Standard",
+    price: "$1,250",
+    unit: "/mo per platform",
+    features: [
+      "Bi-weekly phone calls",
+      "Custom live reporting with bi-weekly reports",
+      "Client owns ad account",
+      "Copywriting included",
+      "Net 30 payments",
+      "90-day contract, 90-day auto-renewal",
+    ],
+    onboarding: "$500 per platform",
+    highlight: false,
+  },
+  {
+    name: "Premium",
+    price: "$1,750",
+    unit: "/mo per platform",
+    features: [
+      "Everything in Standard",
+      "Weekly meetings",
+      "Weekly reports",
+      "GA4 setup included",
+      "90-day initial, then month-to-month",
+      "No onboarding fee",
+    ],
+    onboarding: "Waived",
+    highlight: true,
+  },
+];
+
+const addOns = [
+  { name: "Bing Ads Management", price: "$1,000/mo" },
+  { name: "Local Service Ads (LSA)", price: "$500/mo" },
+  { name: "Offline Conversion Tracking", price: "$250/mo per platform" },
+  { name: "Landing Pages", price: "$250/mo per platform" },
+  { name: "Static Ad Creatives", price: "$500/mo per platform" },
+  { name: "Video Ad Creatives", price: "$250/mo per platform" },
+  { name: "TikTok Ads Management", price: "$1,000/mo" },
+  { name: "Email Marketing", price: "$500/mo" },
 ];
 
 const includedServices = [
@@ -42,7 +80,7 @@ const includedServices = [
   },
   {
     title: "Live Reporting",
-    body: "A live custom dashboard connected to your real data, plus bi-weekly reports and monthly strategy calls.",
+    body: "A live custom dashboard connected to your real data, plus bi-weekly reports and strategy calls.",
     iconPath: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z",
   },
 ];
@@ -57,7 +95,7 @@ const onboardingItems = [
 
 const ongoingItems = [
   "Bi-weekly reports: what worked, what didn't, what's next, and what we need from you",
-  "Monthly strategy calls",
+  "Strategy calls",
   "Budget management and pacing",
   "Search term exclusions and placement analysis on Google",
   "Ads Library research and creative testing on Meta",
@@ -74,34 +112,34 @@ const platforms = [
 const faqs = [
   {
     q: "How much does Creekside Marketing charge?",
-    a: "Our management fee is a percentage of your ad spend: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform, and total fees are capped at $15,000 per month.",
+    a: "Our management fee is a fixed monthly rate per platform. Standard is $1,250/month and Premium is $1,750/month. If we manage both Google Ads and Meta Ads, each platform carries its own fee. Add-on services like landing pages, ad creatives, and conversion tracking are available on top of the base tier.",
   },
   {
     q: "What's included in the management fee?",
-    a: "Everything required to make your ads succeed: campaign management, landing pages, ad creatives, copywriting, conversion tracking setup including server-side tracking and CRM integration, conversion rate optimization, live reporting, bi-weekly reports, and monthly strategy calls. There are no separate line items.",
+    a: "Everything required to make your ads succeed: campaign management, copywriting, live reporting, and strategy calls. Premium adds weekly meetings, weekly reports, and GA4 setup. Add-on services like landing pages, ad creatives, and conversion tracking can be added to either tier.",
   },
   {
     q: "Are there any long-term contracts?",
-    a: "No. There are no long-term contracts, and your first 7 days are covered by a full money-back guarantee.",
+    a: "Standard is a 90-day contract with 90-day auto-renewal. Premium starts with a 90-day initial term and then goes month-to-month. Your first 7 days are covered by a full money-back guarantee on both tiers.",
   },
   {
     q: "Do you charge per platform?",
-    a: "Yes. The fee is calculated per platform. If we manage both Google Ads and Meta Ads, each platform has its own tiered rate and $1,500 minimum, and your combined total is still capped at $15,000 per month.",
+    a: "Yes. The management fee applies per platform. If we manage both Google Ads and Meta Ads, each platform carries its own tier fee. The tier must match across both platforms.",
   },
   {
     q: "What guarantees do you offer?",
     a: "Two. First, a 7-day money-back guarantee: meet the team, see how we work, and if we're not the right fit within your first 7 days, you get a full refund. Second, a 90-day performance promise: if we don't improve your ROAS within 90 days, we work for free until we do.",
   },
   {
-    q: "Which plan should I choose?",
-    a: "There's only one pricing structure, and it works at every budget level. The percentage rate decreases as your spend grows (20% to $30k, 15% to $60k, 10% above), so the more you invest, the lower your effective rate.",
+    q: "What's the difference between Standard and Premium?",
+    a: "Standard includes bi-weekly calls and bi-weekly reports. Premium upgrades to weekly meetings, weekly reports, GA4 setup, no onboarding fee, and switches to month-to-month after the initial 90 days. Both tiers cover full campaign management and copywriting.",
   },
 ];
 ---
 
 <Layout
   title="Pricing - Creekside Marketing"
-  description="Transparent Google Ads and Meta Ads management pricing. One fee, a percentage of ad spend, covers everything. No hidden fees, no contracts."
+  description="Transparent Google Ads and Meta Ads management pricing. Fixed monthly management fees with everything included. No hidden fees, no percentage of ad spend."
   canonicalURL="https://creeksidemarketingpros.com/pricing/"
   schema={siteSchema.pricing}
   faqSchema={faqSchemas.pricing}
@@ -114,12 +152,12 @@ const faqs = [
       <div class="flex flex-col items-center gap-6 text-center">
         <header class="flex flex-col items-center gap-4">
           <h1 class="text-primary-900 text-3xl font-extrabold tracking-tight sm:text-4xl/tight lg:text-5xl/tight">
-            One Rate. <span class="text-secondary-500">Everything Included.</span>
+            Fixed Pricing. <span class="text-secondary-500">Everything Included.</span>
           </h1>
           <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
         </header>
         <p class="text-grey-700 max-w-2xl text-lg/8">
-          One fee, a percentage of your ad spend, covers everything required to make your ads succeed. The rate drops as you scale.
+          One fixed monthly fee per platform covers your ad management. As your ad spend scales, your management cost stays the same, so your margins improve with growth.
         </p>
         <div class="flex justify-center">
           <GuaranteeBadges />
@@ -128,69 +166,95 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Pricing Card Section -->
+  <!-- Tier Cards Section -->
   <section class="bg-white pt-16 md:pt-24 pb-12">
-    <div class="container mx-auto max-w-3xl px-4 lg:px-8">
+    <div class="container mx-auto max-w-5xl px-4 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {tiers.map((tier) => (
+          <div class={`relative flex flex-col rounded-sm border-2 bg-white shadow-md ${tier.highlight ? 'border-secondary-500' : 'border-grey-200'}`}>
+            {tier.highlight && <div class="h-1 w-full rounded-t-sm bg-secondary-500"></div>}
+            {tier.highlight && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span class="bg-secondary-500 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">Best Value</span>
+              </div>
+            )}
+            <div class="flex flex-1 flex-col p-8 pt-10">
+              <div class="mb-6 text-center">
+                <p class={`text-sm font-bold uppercase tracking-widest ${tier.highlight ? 'text-secondary-500' : 'text-grey-500'}`}>{tier.name}</p>
+                <div class="mt-2 flex items-baseline justify-center gap-1">
+                  <span class="text-primary-900 text-4xl font-extrabold">{tier.price}</span>
+                  <span class="text-grey-500 text-base font-medium">{tier.unit}</span>
+                </div>
+              </div>
 
-      <div class="relative flex flex-col rounded-sm border-2 border-secondary-500 bg-white shadow-md">
-        <div class="h-1 w-full rounded-t-sm bg-secondary-500"></div>
-        <div class="flex flex-1 flex-col p-8 pt-10">
-          <div class="mb-6 text-center">
-            <p class="text-sm font-bold uppercase tracking-widest text-secondary-500">Percentage of Ad Spend</p>
-            <h2 class="text-primary-900 text-2xl font-extrabold uppercase tracking-tight">Management Fee</h2>
-          </div>
+              <ul class="flex flex-1 flex-col gap-3">
+                {tier.features.map((feature) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="mt-1 size-5 shrink-0 text-accent-success" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span class="text-base/7 text-grey-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
-          <table class="w-full text-left">
-            <thead>
-              <tr class="border-b border-grey-200">
-                <th scope="col" class="py-3 text-sm font-bold uppercase tracking-wide text-grey-600">Monthly Ad Spend (Per Platform)</th>
-                <th scope="col" class="py-3 text-right text-sm font-bold uppercase tracking-wide text-grey-600">Fee Rate</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-grey-100">
-              {feeTiers.map((tier) => (
-                <tr>
-                  <td class="py-4 text-base font-medium text-grey-700">{tier.spend}</td>
-                  <td class="py-4 text-right text-lg font-bold text-primary-900">{tier.rate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              <div class="mt-6 border-t border-grey-200 pt-4">
+                <div class="flex items-baseline justify-between">
+                  <span class="text-sm font-medium text-grey-600">Onboarding Fee</span>
+                  <span class="text-base font-bold text-primary-900">{tier.onboarding}</span>
+                </div>
+              </div>
 
-          <div class="mt-2 divide-y divide-grey-100 border-t border-grey-200">
-            <div class="flex items-baseline justify-between py-4">
-              <span class="text-sm font-medium text-grey-600">Minimum Fee</span>
-              <span class="text-lg font-bold text-primary-900">$1,500<span class="text-sm font-medium text-grey-500">/mo per platform</span></span>
+              <div class="mt-6">
+                <a
+                  href={START_URL}
+                  class={`block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300 ${tier.highlight ? 'bg-secondary-500 hover:bg-secondary-600' : 'bg-primary-900 hover:bg-primary-800'}`}
+                >
+                  Get Started
+                </a>
+              </div>
             </div>
-            <div class="flex items-baseline justify-between py-4">
-              <span class="text-sm font-medium text-grey-600">Monthly Cap</span>
-              <span class="text-lg font-bold text-primary-900">$15,000</span>
-            </div>
-            <div class="flex items-baseline justify-between py-4">
-              <span class="text-sm font-medium text-grey-600">Long-Term Contracts</span>
-              <span class="text-lg font-bold text-primary-900">None</span>
-            </div>
           </div>
-
-          <div class="mt-8">
-            <a
-              href={START_URL}
-              class="bg-secondary-500 hover:bg-secondary-600 block w-full rounded-sm px-8 py-4 text-center text-lg font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-300"
-            >
-              See How Much Money You Could Be Making
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <p class="mt-4 text-center text-sm text-grey-500">
-        Example: $20,000/mo in ad spend on Google Ads = $4,000/mo management fee. The $1,500 minimum fee per platform acts as a floor, covering your first $7,500 in ad spend. Once you spend over $7,500, the 20% rate naturally takes over.
+      <p class="mt-6 text-center text-sm text-grey-500">
+        Managing both Google Ads and Meta Ads? The fee is per platform: Standard on both = $2,500/mo, Premium on both = $3,500/mo. The tier must match across platforms.
       </p>
+    </div>
+  </section>
 
-      <p class="mt-4 text-center text-sm text-grey-500 max-w-xl mx-auto">
-        One question we get a lot: if we're paid on a percentage of spend, why wouldn't we just push you to spend more forever? Honestly, we don't. You set the budget. We don't recommend increasing it until the numbers justify it. And the fee is capped at $15,000/mo anyway. As you grow, we grow. That's kind of the whole point.
-      </p>
+  <!-- Add-Ons Section -->
+  <section class="bg-grey-50 py-16 lg:py-24">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-12 flex flex-col items-center gap-4 text-center">
+        <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">
+          Add-On <span class="text-secondary-500">Services</span>
+        </h2>
+        <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
+        <p class="text-grey-700 max-w-2xl text-lg/8">
+          Build the exact package your business needs. Add any of these on top of your management tier.
+        </p>
+      </header>
 
+      <div class="rounded-lg border border-grey-200 bg-white shadow-sm overflow-hidden">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="bg-primary-900">
+              <th scope="col" class="py-3 px-6 text-sm font-bold uppercase tracking-wide text-white">Service</th>
+              <th scope="col" class="py-3 px-6 text-right text-sm font-bold uppercase tracking-wide text-white">Price</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-grey-100">
+            {addOns.map((addon, i) => (
+              <tr class={i % 2 === 0 ? 'bg-grey-50' : 'bg-white'}>
+                <td class="py-4 px-6 text-base font-medium text-grey-700">{addon.name}</td>
+                <td class="py-4 px-6 text-right text-base font-bold text-primary-900">{addon.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -199,11 +263,11 @@ const faqs = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <header class="mb-12 flex flex-col items-center gap-4 text-center">
         <h2 class="text-primary-900 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl/tight">
-          One Fee. <span class="text-secondary-500">Everything Included.</span>
+          What's <span class="text-secondary-500">Included</span>
         </h2>
         <div class="bg-secondary-500 h-1.5 w-20 rounded-full"></div>
         <p class="text-grey-700 max-w-2xl text-lg/8">
-          No add-ons, no separate line items. Everything your ads need to succeed is covered by the management fee.
+          Every tier includes full-service management. No surprises, no hidden line items.
         </p>
       </header>
 
@@ -313,7 +377,7 @@ const faqs = [
         Ready to grow? <span class="text-secondary-300">Let's talk.</span>
       </h2>
       <p class="mx-auto mt-6 max-w-2xl text-lg/8 text-primary-100/80">
-        Book a free 30-minute call. We'll look at your accounts, tell you what we'd focus on first, and walk through what the fee would actually be. Worst case, you get a straight answer.
+        Book a free 30-minute call. We'll look at your accounts, tell you what we'd focus on first, and walk through what the package would look like for your business.
       </p>
       <div class="mt-10">
         <a
@@ -331,4 +395,3 @@ const faqs = [
 
   <Footer />
 </Layout>
-

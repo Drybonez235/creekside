@@ -314,10 +314,10 @@ pricing: {
       {
         "@type": "Offer",
         "name": "Ad Management Fee",
-        "description": "Percentage-based pricing that scales with your ad spend. Tiered rates decrease as budget grows, capped at $15,000/month.",
+        "description": "Fixed monthly management fee per platform. Standard tier at $1,250/month, Premium tier at $1,750/month. Everything included.",
         "priceCurrency": "USD",
-        "price": "1500",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1500", "priceCurrency": "USD", "unitText": "month", "description": "$1,500/mo minimum per platform, 20%/15%/10% tiered rates, $15,000 monthly cap" }
+        "price": "1250",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1250", "priceCurrency": "USD", "unitText": "month", "description": "Standard $1,250/mo per platform, Premium $1,750/mo per platform. Fixed fee, not percentage-based." }
       }
     ],
     "breadcrumb": {
@@ -405,7 +405,7 @@ export const faqSchemas = {
         "name": "What's your pricing structure?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The fee is a percentage of your ad spend, and the rate drops as you scale: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform and total fees are capped at $15,000 per month. The cap is there on purpose: once your spend gets big enough, we don't need to keep taking a bigger cut. No long-term contracts."
+          "text": "Our management fee is a fixed monthly rate per platform. Standard is $1,250/month and Premium is $1,750/month. Both tiers include full campaign management and copywriting. Premium adds weekly meetings, weekly reports, GA4 setup, and no onboarding fee. Add-on services like landing pages, ad creatives, and conversion tracking are available on top. No percentage of ad spend. No long-term contracts on Premium."
         }
       },
       {
@@ -483,7 +483,7 @@ export const faqSchemas = {
         "name": "How much does Google Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There is a $1,500 minimum per platform and a $15,000 monthly cap. No long-term contracts."
+          "text": "Our management fee is a fixed monthly rate per platform. Standard is $1,250/month and Premium is $1,750/month. Both include full campaign management and copywriting. Add-on services are available on top. No percentage of ad spend."
         }
       },
       {
@@ -537,7 +537,7 @@ export const faqSchemas = {
         "name": "How much does Meta Ads management cost with Creekside Marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend with tiered rates that decrease as your budget grows. Multi-platform advertisers pay the same per-platform rate, and total fees are capped at $15,000/month."
+          "text": "Our management fee is a fixed monthly rate per platform. Standard is $1,250/month and Premium is $1,750/month. Multi-platform advertisers pay the per-platform fee for each platform managed."
         }
       },
       {
@@ -583,7 +583,7 @@ export const faqSchemas = {
         "name": "How much does Creekside Marketing charge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our management fee is a percentage of your ad spend: 20% up to $30k, 15% from $30k to $60k, and 10% above $60k per platform. There's a $1,500 monthly minimum per platform, and total fees are capped at $15,000 per month."
+          "text": "Our management fee is a fixed monthly rate per platform. Standard is $1,250/month and Premium is $1,750/month. If we manage both Google Ads and Meta Ads, each platform carries its own fee. Add-on services like landing pages, ad creatives, and conversion tracking are available on top of the base tier."
         }
       },
       {
@@ -591,7 +591,7 @@ export const faqSchemas = {
         "name": "What's included in the management fee?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Everything required to make your ads succeed: campaign management, landing pages, ad creatives, copywriting, conversion tracking setup including server-side tracking and CRM integration, conversion rate optimization, live reporting, bi-weekly reports, and monthly strategy calls. There are no separate line items."
+          "text": "Everything required to make your ads succeed: campaign management, copywriting, live reporting, and strategy calls. Premium adds weekly meetings, weekly reports, and GA4 setup. Add-on services like landing pages, ad creatives, and conversion tracking can be added to either tier."
         }
       },
       {
@@ -607,7 +607,7 @@ export const faqSchemas = {
         "name": "Do you charge per platform?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The fee is calculated per platform. If we manage both Google Ads and Meta Ads, each platform has its own tiered rate and $1,500 minimum, and your combined total is still capped at $15,000 per month."
+          "text": "Yes. The management fee applies per platform. If we manage both Google Ads and Meta Ads, each platform carries its own tier fee. The tier must match across both platforms."
         }
       },
       {
@@ -620,10 +620,10 @@ export const faqSchemas = {
       },
       {
         "@type": "Question",
-        "name": "Which plan should I choose?",
+        "name": "What's the difference between Standard and Premium?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "There's only one pricing structure, and it works at every budget level. The percentage rate decreases as your spend grows (20% to $30k, 15% to $60k, 10% above), so the more you invest, the lower your effective rate."
+          "text": "Standard includes bi-weekly calls and bi-weekly reports. Premium upgrades to weekly meetings, weekly reports, GA4 setup, no onboarding fee, and switches to month-to-month after the initial 90 days. Both tiers cover full campaign management and copywriting."
         }
       }
     ]
