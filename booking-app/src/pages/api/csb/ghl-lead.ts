@@ -407,7 +407,33 @@ export const POST: APIRoute = async ({ request }) => {
 
 		// Opportunity creation is handled by GHL workflow (triggers on dental-funnel tag)
 
-		// 2. Form submission alert (fire-and-forget -- don't block the response)
+		// 2. Create ClickUp lead (fire-and-forget -- don't block the response)
+		createClickUpLead({
+			name,
+			phone,
+			email,
+			website,
+			funnel: funnelTag,
+			qualificationStatus: qualStatus,
+			contactSource,
+			route,
+			revenue: REVENUE_MAP[revenue] || revenue,
+			adSpend: AD_SPEND_MAP[adSpend] || adSpend,
+			challenge: CHALLENGE_MAP[challenge] || challenge,
+			businessType: BUSINESS_TYPE_MAP[businessType] || businessType,
+			decisionMaker: DECISION_MAKER_MAP[decisionMaker] || decisionMaker,
+			adMgmt: AD_MGMT_MAP[adMgmt] || adMgmt,
+			practiceType: PRACTICE_TYPE_MAP[practiceType] || practiceType,
+			licensedLo: YES_NO_MAP[licensedLo] || licensedLo,
+			monthlyDeals: RM_DEALS_MAP[monthlyDeals] || monthlyDeals,
+			marketingBudget: RM_BUDGET_MAP[marketingBudget] || marketingBudget,
+			utmSource,
+			utmCampaign,
+		}).catch((err) => {
+			console.error("[ghl-lead] ClickUp lead creation failed:", err);
+		});
+
+		// 3. Form submission alert (fire-and-forget -- don't block the response)
 		sendFormAlert({
 			name,
 			phone,
@@ -457,5 +483,115 @@ async function sendFormAlert(payload: {
 	if (!res.ok) {
 		const body = await res.text().catch(() => "");
 		console.error(`[ghl-lead] form alert webhook returned ${res.status}:`, body);
+	}
+}
+
+// ClickUp custom field IDs for the Other Leads list (901705085023)
+const CU_FIELD = {
+	email: "b6b78d97-9d3c-4b6f-bd27-5bbd9ad49abd",
+	phone: "9a43ef06-f4e2-4b8d-8cb9-113c32ee518c",
+	website: "7cff88ca-9ad4-4d58-ad4b-a5632b4282ea",
+	salesman: "8c28eefa-45ea-4f84-ae3d-7b0243865f9a",
+	howFoundUs: "50425a6f-2b38-49b4-a5e7-2f1b3472ac65",
+	leadFunnelTracker: "90605a8b-26ef-4c58-83ec-9eb4cac4289e",
+	dateLastContacted: "c7f4e851-33aa-491c-8b8d-a29b9f0d3e93",
+	notes: "b8917fed-14a7-47a5-85c1-bee96c086de7",
+} as const;
+
+// Salesman dropdown option IDs
+const CU_SALESMAN = {
+	cade: "ab6f4c71-dd65-4da6-90e7-3d7dbbb1fa57",
+	peterson: "3e7a65fc-2395-4f6b-a755-7970750ac156",
+	lindsey: "afe66574-e56c-4cfc-8207-187d50b77f46",
+} as const;
+
+// Lead funnel tracker "New Lead" option ID
+const CU_FUNNEL_NEW_LEAD = "a6022b25-e35c-45bc-bfb3-e070fff2c198";
+
+const CLICKUP_LIST_ID = "901705085023";
+
+/** Create a lead task in ClickUp's Other Leads list. Fire-and-forget. */
+async function createClickUpLead(payload: {
+	name: string;
+	phone: string;
+	email: string;
+	website: string;
+	funnel: string;
+	qualificationStatus: string;
+	contactSource: string;
+	route: string;
+	revenue: string;
+	adSpend: string;
+	challenge: string;
+	businessType: string;
+	decisionMaker: string;
+	adMgmt: string;
+	practiceType: string;
+	licensedLo: string;
+	monthlyDeals: string;
+	marketingBudget: string;
+	utmSource: string;
+	utmCampaign: string;
+}): Promise<void> {
+	const token = import.meta.env.CLICKUP_API_TOKEN;
+	if (!token) {
+		console.error("[ghl-lead] CLICKUP_API_TOKEN not configured; skipping ClickUp lead creation");
+		return;
+	}
+
+	// Determine salesman from funnel type
+	const salesmanId = payload.funnel === "rm" ? CU_SALESMAN.peterson : CU_SALESMAN.cade;
+
+	// Build description from form answers
+	const descLines: string[] = [];
+	descLines.push(`**Source:** ${payload.contactSource}`);
+	descLines.push(`**Funnel:** ${payload.funnel}`);
+	descLines.push(`**Qualification:** ${payload.qualificationStatus}`);
+	if (payload.revenue) descLines.push(`**Revenue:** ${payload.revenue}`);
+	if (payload.adSpend) descLines.push(`**Ad Spend:** ${payload.adSpend}`);
+	if (payload.challenge) descLines.push(`**Challenge:** ${payload.challenge}`);
+	if (payload.businessType) descLines.push(`**Business Type:** ${payload.businessType}`);
+	if (payload.decisionMaker) descLines.push(`**Decision Maker:** ${payload.decisionMaker}`);
+	if (payload.adMgmt) descLines.push(`**Current Ad Management:** ${payload.adMgmt}`);
+	if (payload.practiceType) descLines.push(`**Practice Type:** ${payload.practiceType}`);
+	if (payload.licensedLo) descLines.push(`**Licensed RM LO:** ${payload.licensedLo}`);
+	if (payload.monthlyDeals) descLines.push(`**Monthly Deals:** ${payload.monthlyDeals}`);
+	if (payload.marketingBudget) descLines.push(`**Marketing Budget:** ${payload.marketingBudget}`);
+	if (payload.utmSource) descLines.push(`**UTM Source:** ${payload.utmSource}`);
+	if (payload.utmCampaign) descLines.push(`**UTM Campaign:** ${payload.utmCampaign}`);
+
+	const customFields = [
+		{ id: CU_FIELD.email, value: payload.email },
+		{ id: CU_FIELD.phone, value: payload.phone },
+		{ id: CU_FIELD.website, value: payload.website || "https://unknown" },
+		{ id: CU_FIELD.salesman, value: salesmanId },
+		{ id: CU_FIELD.howFoundUs, value: `${payload.contactSource} - ${payload.funnel} funnel` },
+		{ id: CU_FIELD.leadFunnelTracker, value: CU_FUNNEL_NEW_LEAD },
+		{ id: CU_FIELD.dateLastContacted, value: Date.now().toString() },
+		{ id: CU_FIELD.notes, value: descLines.join("\n") },
+	];
+
+	const body = {
+		name: payload.name,
+		status: "new lead",
+		description: descLines.join("\n"),
+		custom_fields: customFields,
+	};
+
+	const res = await fetch(`https://api.clickup.com/api/v2/list/${CLICKUP_LIST_ID}/task`, {
+		method: "POST",
+		headers: {
+			"Authorization": token,
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(body),
+	});
+
+	if (!res.ok) {
+		const errText = await res.text().catch(() => "");
+		console.error(`[ghl-lead] ClickUp task creation failed ${res.status}:`, errText);
+	} else {
+		const data = await res.json().catch(() => ({})) as { id?: string };
+		console.log(`[ghl-lead] ClickUp lead created: ${data.id || "unknown"}`);
 	}
 }
