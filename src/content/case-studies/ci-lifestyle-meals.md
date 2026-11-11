@@ -79,6 +79,13 @@ sections:
     bigStat: "4.52x"
     boxHeading: "New Customer ROAS"
     boxText: "This is the number that matters most. A 4.52x return on ad spend, achieved exclusively on new customers who have never purchased before, means CI Lifestyle Meals is generating $4.52 in revenue for every $1 spent on acquisition. At a $25 cost per new customer, the lifetime value math is overwhelmingly positive. These customers will continue to reorder week after week, making the initial acquisition cost a fraction of their total value to the business."
+  - type: "video"
+    sectionLabel: "In Their Words"
+    heading: "Hear From Founder Chris Ideson"
+    # Temporary Google Drive embed. To swap to YouTube later, set videoType to "youtube" and videoId to the YouTube video ID.
+    videoType: "drive"
+    videoId: "1qHx99k1y_zfcOsD2QvdEyglQMDuFwffG"
+    videoCaption: "Chris Ideson, Founder of CI Lifestyle Meals"
   - type: "text"
     sectionLabel: "Why It Matters"
     heading: "The Lifetime Value Equation"

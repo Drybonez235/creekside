@@ -47,6 +47,9 @@ const sectionSchema = z.object({
   quoteAttr: z.string().optional(),
   imageUrl: z.string().optional(),
   imageCaption: z.string().optional(),
+  videoType: z.enum(["youtube", "drive"]).optional(),
+  videoId: z.string().optional(),
+  videoCaption: z.string().optional(),
   faqItems: z.array(z.object({
     question: z.string(),
     answer: z.string(),

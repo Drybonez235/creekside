@@ -6,6 +6,7 @@ import SectionHighlightBox from './SectionHighlightBox.astro';
 import SectionQuote from './SectionQuote.astro';
 import SectionImage from './SectionImage.astro';
 import SectionFAQ from './SectionFAQ.astro';
+import SectionVideo from './SectionVideo.astro';
 
 interface Props {
   section: {
@@ -24,6 +25,9 @@ interface Props {
     quoteAttr?: string;
     imageUrl?: string;
     imageCaption?: string;
+    videoType?: "youtube" | "drive";
+    videoId?: string;
+    videoCaption?: string;
     faqItems?: { question: string; answer: string }[];
   };
 }
@@ -73,6 +77,16 @@ const { section } = Astro.props;
   <SectionImage
     imageUrl={section.imageUrl}
     imageCaption={section.imageCaption}
+  />
+)}
+
+{section.type === "video" && section.videoId && (
+  <SectionVideo
+    sectionLabel={section.sectionLabel}
+    heading={section.heading}
+    videoType={section.videoType}
+    videoId={section.videoId}
+    videoCaption={section.videoCaption}
   />
 )}
 

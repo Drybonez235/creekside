@@ -1,0 +1,58 @@
+---
+import { creeksideTheme } from '../../data/caseStudyTheme';
+
+interface Props {
+  videoType?: "youtube" | "drive";
+  videoId?: string;
+  sectionLabel?: string;
+  heading?: string;
+  videoCaption?: string;
+}
+
+const { videoType = "youtube", videoId, sectionLabel, heading, videoCaption } = Astro.props;
+const t = creeksideTheme;
+
+// Build the embed URL from the source type.
+// Swap a Drive testimonial to YouTube later by changing videoType to "youtube"
+// and videoId to the YouTube video ID. No other change needed.
+const embedSrc =
+  videoType === "drive"
+    ? `https://drive.google.com/file/d/${videoId}/preview`
+    : `https://www.youtube-nocookie.com/embed/${videoId}`;
+---
+
+<div>
+  {sectionLabel && (
+    <span
+      class="mb-2.5 inline-block text-[0.65rem] font-bold uppercase tracking-[2.5px]"
+      style={`color: ${t.accentColor}`}
+    >
+      {sectionLabel}
+    </span>
+  )}
+
+  {heading && (
+    <h2 class="mb-4 text-[1.6rem] font-bold tracking-tight" style="color: #1a1a2e">
+      {heading}
+    </h2>
+  )}
+
+  {videoId && (
+    <div class="overflow-hidden rounded-xl border border-gray-200 bg-black shadow-sm">
+      <div class="aspect-video w-full">
+        <iframe
+          src={embedSrc}
+          title={heading || "Client video testimonial"}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="h-full w-full"
+        ></iframe>
+      </div>
+    </div>
+  )}
+
+  {videoCaption && (
+    <p class="mt-2 text-center text-xs text-gray-400">{videoCaption}</p>
+  )}
+</div>
